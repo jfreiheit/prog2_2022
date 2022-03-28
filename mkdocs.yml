@@ -1,0 +1,66 @@
+# Project information
+site_name: Programmieren II
+site_description: Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II
+site_author: Jörn Freiheit
+site_url: http://freiheit.f4.htw-berlin.de/prog2
+
+# Repository
+repo_name: prog2
+repo_url: https://github.com/jfreiheit/prog2_2022
+
+# Copyright
+copyright: Copyright &copy; 2022 Jörn Freiheit
+
+# Configuration
+theme:
+  name: material
+  language: de
+  palette:
+    primary: grey
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - instant
+    - tabs
+  favicon: img/favicon.png
+  logo: img/fiw.jpg
+
+extra_css:
+  - extra.css
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+#Navigation
+nav:
+    - Home: index.md
+    - Wiederholung: wiederholung.md
+    - Übungen: uebungen.md
+    - Aufgaben: aufgaben.md
+
