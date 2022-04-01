@@ -326,3 +326,73 @@
 	- (default)		Zugriff aus Klasse und Paket
 	- `private` 		Zugriff nur aus Klasse 
 
+## "Kleinigkeiten", die wir nicht betrachtet haben
+
+### Das Schlüsselwort `static`
+
+Mit dem Schlüsselwort `static` beschreiben wir eine Eigenschaft der Klasse. Das Schlüsselwort `static` kann verwendet werden für
+
+- Die Deklaration einer (*Klassen-*)Variablen. Eine *Klassenvariable* existiert für die Klasse genau ein Mal (alle Objekte der Klasse "teilen" sich diese eine Variable). 
+- Die Deklaration einer (*Klassen-*)Methode. Eine statische Methode (*Klassenmethode*) kann aufgerufen werden, ohne ein Objekt der Klasse zu erzeugen. Wir werden häufig statische Methoden in der Programmklasse (die Klasse mit der `main()`-Methode) erstellen, um diese in der `main()`-Methode aufzurufen, ohne vorher ein Objekt der Programmklasse erzeugen zu müssen. 
+- Die Deklaration einer Klasse, wenn diese eine Klasse **in** einer anderen Klasse ist. Dazu kommen wir später.
+
+Der Zugriff auf eine statische Variable bzw. statische Methode erfolgt ebenfalls per Punktnotation, aber vor dem Punkt steht dann der Klassenname. Häufig wird der Klassenname und der Punkt aber auch weggelassen. 
+
+### Die *for-each*-Schleife
+
+Wir haben ein Array stets so durchlaufen, dass wir in einer `for`-Schleife jeden möglichen Index für das Array erzeugt haben und dann über den Index auf den Wert der einzelnen Elemente zugegriffen haben, also z.B.:
+
+```java
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
+for (int index = 0; index < args.length; index++) 
+{
+	System.out.print(numbers[index]);
+}
+```
+
+Wenn wir **alle** Elemente eines Arrays **lesen** wollen, können wir das aber auch so machen:
+
+```java
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
+for(int number : numbers)
+{
+	System.out.print(number);
+}
+```
+
+Wir bezeichnen diese Schleifensyntax auch als *for-each*-Schleife. Die allgemeine Syntax ist
+
+```java
+for(TypElement variablenNameElement : nameDesArrays)
+{
+	// hier lesende Verwendung von variablenNameElement
+}
+```
+
+Beachten Sie, dass Sie mit der *for-each*-Schleife nur lesenden Zugriff auf die Elemente des Arrays haben. Wenn Sie z.B. schreiben
+
+```java
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
+for(int number : numbers)
+{
+	number = 5;
+}
+```
+
+, dann ändert das nichts an den Werten im Array! Beachten Sie aber auch, dass das Element ja auch eine Referenz auf ein Objekt sein könnte, dann verhält es sich natürlich anders, wenn Sie dafür Objektmethoden aufrufen, die Änderungen am Objekt bewirken (*Setter*). 
+
+### Die Klasse `java.util.Arrays`
+
+Die Klasse `Arrays` aus dem `java.util`-Paket hat einige nützliche Methoden für Arrays. Insbesondere interessant dürfte die `toString()`-Methode sein. Wir werden diese Klasse manchmal verwenden, wenn wir uns z.B. keine eigenen `toString()`-Methoden für unsere Arrays schreiben wollen. Die Dokumentation der Klasse `Arrays` finden Sie z.B. [hier](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html). Beachten Sie, dass Sie zum Verwenden der Klasse das `java.util`-Paket importieren müssen. 
+
+```java
+int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9 };
+System.out.println(Arrays.toString(numbers));
+```
+
+Weitere interessante Methoden dieser Klasse sind `copyOf()`, `binarySearch()` und `sort()`. 
+
+
+??? "Übung"
+	Ist die `toString()`-Methode der `Arrays`-Klasse statisch oder handelt es sich um eine Objektmethode?
+

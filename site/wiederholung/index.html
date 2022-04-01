@@ -361,10 +361,89 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" class="md-nav__link">
+    "Kleinigkeiten", die wir nicht betrachtet haben
+  </a>
+  
+    <nav class="md-nav" aria-label=""Kleinigkeiten", die wir nicht betrachtet haben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#das-schlusselwort-static" class="md-nav__link">
+    Das Schlüsselwort static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-klasse-javautilarrays" class="md-nav__link">
+    Die Klasse java.util.Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
     </li>
   
 
@@ -524,6 +603,40 @@
   <a href="#access-controller-zugriffsmodifizierer" class="md-nav__link">
     Access Controller (Zugriffsmodifizierer)
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" class="md-nav__link">
+    "Kleinigkeiten", die wir nicht betrachtet haben
+  </a>
+  
+    <nav class="md-nav" aria-label=""Kleinigkeiten", die wir nicht betrachtet haben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#das-schlusselwort-static" class="md-nav__link">
+    Das Schlüsselwort static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-klasse-javautilarrays" class="md-nav__link">
+    Die Klasse java.util.Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -886,6 +999,52 @@
 </ul>
 </li>
 </ul>
+<h2 id="kleinigkeiten-die-wir-nicht-betrachtet-haben">"Kleinigkeiten", die wir nicht betrachtet haben<a class="headerlink" href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" title="Permanent link">&para;</a></h2>
+<h3 id="das-schlusselwort-static">Das Schlüsselwort <code>static</code><a class="headerlink" href="#das-schlusselwort-static" title="Permanent link">&para;</a></h3>
+<p>Mit dem Schlüsselwort <code>static</code> beschreiben wir eine Eigenschaft der Klasse. Das Schlüsselwort <code>static</code> kann verwendet werden für</p>
+<ul>
+<li>Die Deklaration einer (<em>Klassen-</em>)Variablen. Eine <em>Klassenvariable</em> existiert für die Klasse genau ein Mal (alle Objekte der Klasse "teilen" sich diese eine Variable). </li>
+<li>Die Deklaration einer (<em>Klassen-</em>)Methode. Eine statische Methode (<em>Klassenmethode</em>) kann aufgerufen werden, ohne ein Objekt der Klasse zu erzeugen. Wir werden häufig statische Methoden in der Programmklasse (die Klasse mit der <code>main()</code>-Methode) erstellen, um diese in der <code>main()</code>-Methode aufzurufen, ohne vorher ein Objekt der Programmklasse erzeugen zu müssen. </li>
+<li>Die Deklaration einer Klasse, wenn diese eine Klasse <strong>in</strong> einer anderen Klasse ist. Dazu kommen wir später.</li>
+</ul>
+<p>Der Zugriff auf eine statische Variable bzw. statische Methode erfolgt ebenfalls per Punktnotation, aber vor dem Punkt steht dann der Klassenname. Häufig wird der Klassenname und der Punkt aber auch weggelassen. </p>
+<h3 id="die-for-each-schleife">Die <em>for-each</em>-Schleife<a class="headerlink" href="#die-for-each-schleife" title="Permanent link">&para;</a></h3>
+<p>Wir haben ein Array stets so durchlaufen, dass wir in einer <code>for</code>-Schleife jeden möglichen Index für das Array erzeugt haben und dann über den Index auf den Wert der einzelnen Elemente zugegriffen haben, also z.B.:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wenn wir <strong>alle</strong> Elemente eines Arrays <strong>lesen</strong> wollen, können wir das aber auch so machen:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wir bezeichnen diese Schleifensyntax auch als <em>for-each</em>-Schleife. Die allgemeine Syntax ist</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">TypElement</span> <span class="n">variablenNameElement</span> <span class="p">:</span> <span class="n">nameDesArrays</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// hier lesende Verwendung von variablenNameElement</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Beachten Sie, dass Sie mit der <em>for-each</em>-Schleife nur lesenden Zugriff auf die Elemente des Arrays haben. Wenn Sie z.B. schreiben</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>, dann ändert das nichts an den Werten im Array! Beachten Sie aber auch, dass das Element ja auch eine Referenz auf ein Objekt sein könnte, dann verhält es sich natürlich anders, wenn Sie dafür Objektmethoden aufrufen, die Änderungen am Objekt bewirken (<em>Setter</em>). </p>
+<h3 id="die-klasse-javautilarrays">Die Klasse <code>java.util.Arrays</code><a class="headerlink" href="#die-klasse-javautilarrays" title="Permanent link">&para;</a></h3>
+<p>Die Klasse <code>Arrays</code> aus dem <code>java.util</code>-Paket hat einige nützliche Methoden für Arrays. Insbesondere interessant dürfte die <code>toString()</code>-Methode sein. Wir werden diese Klasse manchmal verwenden, wenn wir uns z.B. keine eigenen <code>toString()</code>-Methoden für unsere Arrays schreiben wollen. Die Dokumentation der Klasse <code>Arrays</code> finden Sie z.B. <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html">hier</a>. Beachten Sie, dass Sie zum Verwenden der Klasse das <code>java.util</code>-Paket importieren müssen. </p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
+</code></pre></div>
+<p>Weitere interessante Methoden dieser Klasse sind <code>copyOf()</code>, <code>binarySearch()</code> und <code>sort()</code>. </p>
+<details><summary>Übung</summary><p>Ist die <code>toString()</code>-Methode der <code>Arrays</code>-Klasse statisch oder handelt es sich um eine Objektmethode?</p>
+</details>
                 
               
               
@@ -921,13 +1080,13 @@
       
       
         
-        <a href="../uebungen/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Übungen" rel="next">
+        <a href="../einstieg/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Einstieg" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Weiter
               </span>
-              Übungen
+              Einstieg
             </div>
           </div>
           <div class="md-footer__button md-icon">
