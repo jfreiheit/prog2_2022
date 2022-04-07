@@ -295,9 +295,46 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Übungen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Übungen
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-1-wiederholung-und-codereview" class="md-nav__link">
+    Übung 1 (Wiederholung und Codereview)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-2-string-und-algorithmisches-denken" class="md-nav__link">
+    Übung 2 (String und algorithmisches Denken)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -337,6 +374,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-1-wiederholung-und-codereview" class="md-nav__link">
+    Übung 1 (Wiederholung und Codereview)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-2-string-und-algorithmisches-denken" class="md-nav__link">
+    Übung 2 (String und algorithmisches Denken)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -353,6 +412,75 @@
                 
                 
                 <h1 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link">&para;</a></h1>
+<h5 id="ubung-1-wiederholung-und-codereview">Übung 1 (Wiederholung und Codereview)<a class="headerlink" href="#ubung-1-wiederholung-und-codereview" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 1 (12. + 14.4.)</summary><ul>
+<li>Übung bringt Frau Busjahn mit in die Übung</li>
+</ul>
+</details>
+<h5 id="ubung-2-string-und-algorithmisches-denken">Übung 2 (String und algorithmisches Denken)<a class="headerlink" href="#ubung-2-string-und-algorithmisches-denken" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 2 (19. + 21.4.)</summary><ol>
+<li>
+<p>Erstellen Sie im Paket <code>uebungen.uebung2</code> eine Java-Klasse <code>Uebung2</code> mit <code>main()</code>-Methode. In diese Klasse implementieren wir statische Methoden. Öffnen Sie zum Lösen der Übung am besten die JavaDoc-Dokumentation der Klasse <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html">String</a>. Überlegen Sie sich, bevor Sie jeweils anfangen zu implementieren, genau, wie Sie vorgehen möchten.</p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>static boolean isBinaryNumber(String s)</code>. Diese Methode überprüft, ob der <code>String s</code> einer Binärzahl entspricht, d.h. ob er nur <code>0</code> und <code>1</code> enthält. </p>
+</li>
+<li>
+<p>Testen Sie die Methode <code>isBinaryNumber(String s)</code> z.B. mit den folgenden Aufrufen:
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isBinaryNumber</span><span class="p">(</span><span class="s">&quot;101101&quot;</span><span class="p">));</span>   <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isBinaryNumber</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">));</span>        <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isBinaryNumber</span><span class="p">(</span><span class="s">&quot;101a01&quot;</span><span class="p">));</span>   <span class="c1">// false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isBinaryNumber</span><span class="p">(</span><span class="s">&quot;101201&quot;</span><span class="p">));</span>   <span class="c1">// false</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>static int binaryToDecimal(String s)</code>. Diese Methode wandelt den <code>String s</code> in eine Dezimalzahl um, wenn <code>s</code> einer Binärzahl entspricht. Wenn <code>s</code> keiner Binärzahl entspricht, wird <code>-1</code> zurückgegeben. </p>
+</li>
+<li>
+<p>Testen Sie die Methode <code>binaryToDecimal(String s)</code> z.B. mit den folgenden Aufrufen:
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;101101&quot;</span><span class="p">));</span>  <span class="c1">// 45</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">));</span>       <span class="c1">// 0</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;000001&quot;</span><span class="p">));</span>  <span class="c1">// 1</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;100000&quot;</span><span class="p">));</span>  <span class="c1">// 32</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;101a01&quot;</span><span class="p">));</span>  <span class="c1">// -1</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">binaryToDecimal</span><span class="p">(</span><span class="s">&quot;101201&quot;</span><span class="p">));</span>  <span class="c1">// -1</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Implementieren Sie eine Methode <code>static String toLowerCase(String input)</code>. Diese Methode wandelt alle Kleinbuchstaben ('a'...'z') in Großbuchstaben um (und nur diese - alle anderen Zeichen bleiben erhalten). Schauen Sie sich dazu auch nochmal die <a href="https://freiheit.f4.htw-berlin.de/prog1/variablen/#char">ASCII-Tabelle</a> an.</p>
+</li>
+<li>
+<p>Testen Sie die Methode <code>toLowerCase(String input)</code> z.B. mit den folgenden Aufrufen:
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">toLowerCase</span><span class="p">(</span><span class="s">&quot;abcdEFG&quot;</span><span class="p">));</span>     <span class="c1">// abcdefg</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">toLowerCase</span><span class="p">(</span><span class="s">&quot;abcd123EFG&quot;</span><span class="p">));</span>  <span class="c1">// abcd123efg</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">toLowerCase</span><span class="p">(</span><span class="s">&quot;ABC XYZ !%&quot;</span><span class="p">));</span>  <span class="c1">// abc xyz !%</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Zusatz:</strong></p>
+<ol>
+<li>
+<p>Implementieren Sie eine Methode <code>static boolean isPalindrome(String input)</code>. Diese Methode prüft, ob es sich bei <code>input</code> um ein Palindrom handelt (also von vorne nach hinten genauso gelesen werden kann, wie von hinten nach vorne). Groß- und Kleinschreibung wird nicht berücksichtigt! Die Methode <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int,int)">substring(int,int)</a> aus <code>String</code> ist dabei wahrscheinlich nützlich!</p>
+</li>
+<li>
+<p>Testen Sie die Methode <code>isPalindrome(String input)</code> z.B. mit den folgenden Aufrufen:
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;Otto&quot;</span><span class="p">));</span>       <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;abc_CBA&quot;</span><span class="p">));</span>    <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;abc_-CBA&quot;</span><span class="p">));</span>   <span class="c1">// false</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">));</span>          <span class="c1">// true</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;Dreh mal am Herd&quot;</span><span class="p">));</span>   <span class="c1">// false</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Angenommen, Sie sollen für einen gegebenen <code>String</code> angeben, ob er korrekt geklammerte Ausdrücke enthält (nur die Klammern betrachten). Wie würden Sie vorgehen? Nicht implementieren, nur nachdenken. Folgende Beispiele:
+<div class="highlight"><pre><span></span><code>((()))()(())        // korrekt
+((())               // nicht korrekt
+(()))               // nicht korrekt
+())(                // nicht korrekt
+</code></pre></div></p>
+</li>
+</ol>
+</details>
                 
               
               

@@ -340,6 +340,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-2-myinteger" class="md-nav__link">
+    Aufgabe 2 (MyInteger)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -376,6 +383,13 @@
         <li class="md-nav__item">
   <a href="#aufgabe-1-wurfelspiel" class="md-nav__link">
     Aufgabe 1 (Würfelspiel)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-2-myinteger" class="md-nav__link">
+    Aufgabe 2 (MyInteger)
   </a>
   
 </li>
@@ -424,6 +438,33 @@
 <li>Der Spieler, der zuerst eine bestimmte Punktzahl (z.B. <code>20</code>) erreicht hat, hat gewonnen. <br/>
     Beispiel mit zwei Spielern <code>A</code> und <code>B</code> bis Gesamtpunktzahl <code>20</code>:
     <img alt="aufgabe1" src="../files/20_aufgabe1.png" /></li>
+<li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
+</ol>
+</details>
+<h5 id="aufgabe-2-myinteger">Aufgabe 2 (MyInteger)<a class="headerlink" href="#aufgabe-2-myinteger" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 2</summary><p><strong>Vorbereitung (Selbstudium)</strong></p>
+<ol>
+<li>Eine <em>statische</em> Variable wird mit dem Schlüsselwort <code>static</code> deklariert, also z.B. <code>static int myVariable = 0;</code>. Der Zugriff auf eine solche statische Variable erfolgt nicht über eine Referenzvariable, sondern über den Klassennamen. Angenommen, die Variable <code>myVariable</code> wurde in der Klasse <code>MyClass</code> deklariert, dann erfolgt der Zugriff auf die Variable über <code>MyClass.myVariable</code>. Für Objektvariablen gilt, dass jedes Objekt seine eigene(n) Objektvariable(n) hat. Statische Variablen gibt es in der Klasse genau einmal. Alle Objekte "teilen" sich eine statische Variable. Eine statische Variable heißt deshalb auch <em>Klassenvariable</em>.</li>
+<li>Eine <em>statische</em> Methode wird ebenfalls mit dem Schlüsselwort <code>static</code> deklariert, also z.B. <code>public static void myMethod() {}</code>. Der Zugriff auf eine solche statische Methode erfolgt nicht über eine Referenzvariable, sondern über den Klassennamen. Angenommen, die Methode <code>myMethod()</code> wurde in der Klasse <code>MyClass</code> deklariert, dann erfolgt der Zugriff auf die Methode über <code>MyClass.myMethod()</code>. Wir kennen solche Methoden bereits, z.B. sind alle Methoden aus der Klasse <code>Math</code> statisch und wir können sie z.B. mit <code>Math.sqrt(value)</code> oder <code>Math.abs(value)</code> aufrufen. </li>
+<li>siehe z.B. <a href="https://javabeginners.de/Grundlagen/Modifikatoren/static.php">hier</a> oder <a href="https://www.programmierenlernenhq.de/statische-variablen-konstanten-und-methoden-in-java/">hier</a> oder <a href="http://www.gailer-net.de/tutorials/java/Notes/chap25/ch25_12.html">hier</a></li>
+</ol>
+<p><strong>Info</strong>: Die Klasse <code>MyInteger</code> ist eine sogenannte <em>Wrapper</em>-Klasse. Die Idee ist, dass <code>MyInteger</code> eine objektorientierte Hülle um den <code>int</code>-Typ darstellt. Implementieren Sie die Klasse <code>MyInteger</code>. Diese Klasse hat folgende Eigenschaften:</p>
+<ol>
+<li>Statische Konstanten vom Typ <code>int</code> <code>MAX_VALUE</code> und <code>MIN_VALUE</code>, welche als Wert die größte bzw. kleinste <code>int</code>-Zahl enthalten.</li>
+<li>Eine private Objektvariable <code>value</code> vom Typ <code>int</code>. (Dieser <code>value</code> hat jetzt eine "objektorientierte" Hülle: <code>MyInteger</code>).</li>
+<li>Eine statische Methode <code>parseInt(String s)</code>, die den übergebenen <code>String s</code> als <code>int</code>-Zahl zurückgibt, wenn <code>s</code> einer Zahl entspricht. Wenn nicht, wirft die Methode eine <code>IllegalArgumentException</code>. Beachten Sie:
+    a.  <code>s</code> kann mit <code>+</code> oder <code>–</code> beginnen,
+    b.  <code>s</code> kann führende Nullen aufweisen,
+    c.  die Länge von <code>s</code> kann mit <code>s.length()</code> ermittelt und jedes einzelne Zeichen aus <code>s</code> kann mit <code>s.charAt(index)</code> betrachtet werden. 
+    d.  Ist <code>s</code> leer, wird eine <code>IllegalArgumentException</code> geworfen und wenn <code>s</code> keiner Zahl entspricht auch.
+    e.  Die Exception wird nur weitergereicht, nicht hier behandelt.</li>
+<li>Zwei Konstruktoren <code>MyInteger(int value)</code> und <code>MyInteger(String s)</code>, die jeweils die Objektvariable <code>value</code> initialisieren. Der zweite Konstruktor verwendet <code>parseInt(String)</code> und kann ebenfalls eine <code>IllegalArgumentException</code> werfen (reicht die Exception von <code>parseInt(String)</code> weiter). </li>
+<li>Eine Objektmethode <code>intValue()</code>, die den Wert von <code>value</code> zurückgibt.</li>
+<li>Eine Objektmethode <code>doubleValue()</code>, die den Wert von <code>value</code> als <code>double</code> zurückgibt.</li>
+<li>Eine statische Methode <code>valueOf(String s)</code>, die ein Objekt von <code>MyInteger</code> erzeugt und zurückgibt (und evtl. eine <code>IllegalArgumentException</code> wirft).</li>
+<li>Eine statische Methode <code>valueOf(int value)</code>, die ein Objekt von <code>MyInteger</code> erzeugt und zurückgibt.</li>
+<li>Überschreiben Sie außerdem die Methoden <code>equals()</code> und <code>toString()</code> (<em>Zusatz:</em>  auch <code>hashCode()</code> überschreiben).</li>
+<li>Testen Sie Ihre Klasse ausführlich in einer <code>Testklasse</code> mit <code>main()</code>-Methode.</li>
 <li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
 </ol>
 </details>
