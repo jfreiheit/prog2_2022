@@ -1,12 +1,12 @@
 # Wrapper-Klassen
 
-In Programmierung I haben wir am Anfang die Datentypen `int`, `boolean`, `double`, `char`, `long` usw. kennengelernt. Wir haben diese Datentypen als *Wertetypen* kennenglernt, denn sie können nur Werte abbilden. Das Gegenstück dazu sind *Referenztypen*, welche Referenzen ob Objekte repräsentieren. Für jeden Wertetyp gibt es aber auch einen entsprechenden Referenztyp, die sogenannten *Wrapper-Klassen*. Diese sind `Integer`, `Double`, `Float`, `Short`, `Byte`, `Long`, `Character` und `Boolean` und befinden sich im `java.lang`-Paket (also dem Standardpaket von Java - muss nicht importiert werden). Wir werden diese Wrapper-Klassen dieses Semester häufiger verwenden, insbesondere wenn wir *Collections* kennenlernen. 
+In Programmierung I haben wir am Anfang die Datentypen `int`, `boolean`, `double`, `char`, `long` usw. kennengelernt. Wir haben diese Datentypen als *Wertetypen* kennenglernt, denn sie können nur Werte abbilden. Das Gegenstück dazu sind *Referenztypen*, welche Referenzen auf Objekte repräsentieren. Für jeden Wertetyp gibt es aber auch einen entsprechenden Referenztyp, die sogenannten *Wrapper-Klassen*. Diese sind `Integer`, `Double`, `Float`, `Short`, `Byte`, `Long`, `Character` und `Boolean` und befinden sich im `java.lang`-Paket (also dem Standardpaket von Java - muss nicht importiert werden). Wir werden diese Wrapper-Klassen dieses Semester häufiger verwenden, insbesondere wenn wir *Collections* kennenlernen. 
 
 Die grundsätzliche Idee von *Wrapper-Klassen* ist das "Verpacken" (*wrappen*) eines Wertetyps in einen Referenztyp. Die folgende Abbildung soll das für das Beispiel `int` <--> `Integer` verdeutlichen:
 
 ![wrapper](./files/42_wrapper.png)
 
-Der `int`-Wert `10` wird zu einem Typ `Integer` und somit zu einem Referenztyp. Dafür sind alle Vorteile von referenztypen nutzbar, z.B. Objektmethoden, Vererbung usw. 
+Der `int`-Wert `10` wird zu einem Typ `Integer` und somit zu einem Referenztyp. Dafür sind alle Vorteile von Referenztypen nutzbar, z.B. Objektmethoden, Vererbung usw. 
 
 Welche Wrapper-Klasse zu welchem Wertetyp gehört, wird aus dem Namen erkennbar. Leider ist das aber nicht ganz konsistent. Während die Wrapper-Klassen von `boolean`, `byte`, `short`, `long`, `float` und `double` so heißen, wie die Wertetypen, nur jeweils mit einem Großbuchstaben am Anfang, heißt die Wrapper-Klasse von `char` `Character` und die Wrapper-Klasse von `int` `Integer`. 
 
@@ -59,13 +59,13 @@ Es gibt ziemlich viele Möglichkeiten, um Objekte eines Wrapper-Klassen-Typs zu 
 
 - Verwendung des Kontruktors, Parameterwert entweder vom Typ `String` oder vom entsprechenden Wertetyp,
 - Verwendung der statischen Methode `valueOf()`,  Parameterwert entweder vom Typ `String` oder vom entsprechenden Wertetyp,
-- sogenanntes *Boxing* (autmatisches *wrappen* eins Wertes in seinen Referenztyp).
+- sogenanntes *Boxing* (automatisches *wrappen* eins Wertes in seinen Referenztyp).
 
 Wir schauen uns die drei Möglichkeiten am Beispiel von `Integer` an. Es gilt aber für alle Wrapper-Klassen. 
 
 ### Verwendung des Kontruktors - deprecated
 
-Für jede Wrapper-Klasse stehen zwei parametrisierte Konstruktoren zur Verfügung, entweder wird ein entsprechender Wert übergeben (am Beispiel von `Integer` als ein `int`-Wert) oder es wird ein `String` übergeben, der idealerweise einen passenden Wrt entält, also für `Integer` soll der `String` eine Zahl enthalten. Am Beispiel von `Integer` könnte das z.B. so aussehen:
+Für jede Wrapper-Klasse stehen zwei parametrisierte Konstruktoren zur Verfügung, entweder wird ein entsprechender Wert übergeben (am Beispiel von `Integer` als ein `int`-Wert) oder es wird ein `String` übergeben, der idealerweise einen passenden Wert entält, also für `Integer` soll der `String` eine Zahl enthalten. Am Beispiel von `Integer` könnte das z.B. so aussehen:
 
 ```java
 // Konstruktor mit Uebergabe Wertetyp
@@ -89,7 +89,7 @@ Wichtig hier ist zu betonen, dass man die Konstruktoren jedoch nicht verwenden s
 
 Die `valueOf()`-Methoden der Wrapper-Klassen haben zwei wichtige Eigenschaften:
 
-1. sie sind statisch, d.h. der Aufruf erfolgt über `Klassenmane.valueOf()`,
+1. sie sind statisch, d.h. der Aufruf erfolgt über `Klassenname.valueOf()`,
 2. sie sind sogenannte *Erzeugermethoden*, denn sie geben ein Objekt der Klasse zurück
 
 Wie bei den Konstruktoren auch, können der Methode entweder ein Wert vom entsprechenden Typ oder ein `String` übergeben werden, der ein Wert von dem Wertetyp enthält. Beispiele
@@ -181,7 +181,7 @@ Auch hier sollte man sich aber stets der Tatsache bewusst sein, dass ein *Unboxi
 		System.out.println(i3 > i2);
 	```
 
-Die folgende Abbildung zeigt einen Überblick über die einzelnen Konvertierungen am Beispiel von `Double`. Beachten Sie dabei auch, dass ein Wert direkt aus einem passenden `String` erzeugt werden kann, indem die statische `<WrapperTyp>.parse>Wrapper-Typ>`-Methode verwendet wird. 
+Die folgende Abbildung zeigt einen Überblick über die einzelnen Konvertierungen am Beispiel von `Double`. Beachten Sie dabei auch, dass ein Wert direkt aus einem passenden `String` erzeugt werden kann, indem die statische `<WrapperTyp>.parse<WrapperTyp>`-Methode verwendet wird. 
 
 ![wrapper](./files/44_wrapper.png)
 

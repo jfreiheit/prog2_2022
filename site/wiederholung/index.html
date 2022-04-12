@@ -698,6 +698,12 @@
     <span class="kt">int</span> <span class="n">base</span><span class="p">;</span> <span class="c1">// Objektvariablen, für jedes Objekt</span>
     <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>  <span class="c1">// existieren Kopien im Arbeitsspeicher</span>
 
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">=</span> <span class="n">exp</span><span class="p">;</span>
+    <span class="p">}</span>
+
     <span class="c1">// Objektmethode</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
     <span class="p">{</span>
@@ -743,19 +749,27 @@
 <span class="kt">int</span><span class="o">[]</span> <span class="n">zahlenFeld</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span>
 
 <span class="c1">// Klassen mit Objekt- und Klassenvariablen</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> <span class="p">{</span>
-<span class="kt">int</span> <span class="n">base</span><span class="p">;</span> <span class="c1">// Objektvariablen, für jedes Objekt</span>
-<span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>  <span class="c1">// existieren Kopien im Arbeitsspeicher</span>
-
-<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> 
 <span class="p">{</span>
-    <span class="c1">// lokale Variable --&gt; nur in der Methode gueltig</span>
-    <span class="n">String</span> <span class="n">output</span> <span class="o">=</span>  <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot;^&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="p">;</span>
-    <span class="k">return</span> <span class="n">output</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="kt">int</span> <span class="n">base</span><span class="p">;</span> <span class="c1">// Objektvariablen, für jedes Objekt</span>
+    <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>  <span class="c1">// existieren Kopien im Arbeitsspeicher</span>
 
-<span class="c1">// Variablen sollten mit einem Kleinbuchstaben beginnen</span>
-<span class="c1">// Konstanten sollten nur mit Großbuchstaben benannt werden</span>
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">=</span> <span class="n">exp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// lokale Variable --&gt; nur in der Methode gueltig</span>
+        <span class="n">String</span> <span class="n">output</span> <span class="o">=</span>  <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot;^&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Variablen sollten mit einem Kleinbuchstaben beginnen</span>
+    <span class="c1">// Konstanten sollten nur mit Großbuchstaben benannt werden</span>
+<span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -935,7 +949,7 @@
 <li>Weitergabe aller Methoden und Objekte einer Elternklasse (Basisklasse) an eine Kindklasse (Subklasse)</li>
 <li>Schlüsselwort <code>extends</code></li>
 <li>jede Klasse (bis auf <code>Object</code>) besitzt genau eine Elternklasse; ist keine angegeben, ist es automatisch <code>Object</code></li>
-<li>Vererebung beschreibt „is-a“-Beziehung</li>
+<li>Vererbung beschreibt „is-a“-Beziehung</li>
 <li>Methoden der Elternklasse können überschrieben werden (wenn sie nicht als <code>final</code> definiert wurden) &rarr; @Override verwenden</li>
 <li>Originalmethode kann mit Schlüsselwort <code>super</code> aufgerufen werden</li>
 </ul>

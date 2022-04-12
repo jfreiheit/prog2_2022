@@ -42,6 +42,12 @@
 		int base; // Objektvariablen, für jedes Objekt
 		int exp;  // existieren Kopien im Arbeitsspeicher
 
+		public Power(int base, int exp)
+		{
+			this.base = base;
+			this.exp = exp;
+		}
+
 		// Objektmethode
 		public void print()
 		{
@@ -84,19 +90,27 @@
 	int[] zahlenFeld = new int[100];
 
 	// Klassen mit Objekt- und Klassenvariablen
-	public class Power {
-	int base; // Objektvariablen, für jedes Objekt
-	int exp;  // existieren Kopien im Arbeitsspeicher
-
-	public String toString()
+	public class Power 
 	{
-		// lokale Variable --> nur in der Methode gueltig
-		String output =  this.base + "^" + this.exp;
-		return output;
-	}
+		int base; // Objektvariablen, für jedes Objekt
+		int exp;  // existieren Kopien im Arbeitsspeicher
 
-	// Variablen sollten mit einem Kleinbuchstaben beginnen
-	// Konstanten sollten nur mit Großbuchstaben benannt werden
+		public Power(int base, int exp)
+		{
+			this.base = base;
+			this.exp = exp;
+		}
+
+		public String toString()
+		{
+			// lokale Variable --> nur in der Methode gueltig
+			String output =  this.base + "^" + this.exp;
+			return output;
+		}
+
+		// Variablen sollten mit einem Kleinbuchstaben beginnen
+		// Konstanten sollten nur mit Großbuchstaben benannt werden
+	}
 	```
 
 ### Arrays
@@ -269,7 +283,7 @@
 - Weitergabe aller Methoden und Objekte einer Elternklasse (Basisklasse) an eine Kindklasse (Subklasse)
 - Schlüsselwort `extends`
 - jede Klasse (bis auf `Object`) besitzt genau eine Elternklasse; ist keine angegeben, ist es automatisch `Object`
-- Vererebung beschreibt „is-a“-Beziehung
+- Vererbung beschreibt „is-a“-Beziehung
 - Methoden der Elternklasse können überschrieben werden (wenn sie nicht als `final` definiert wurden) --> @Override verwenden
 - Originalmethode kann mit Schlüsselwort `super` aufgerufen werden
 

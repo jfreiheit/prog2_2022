@@ -1,10 +1,10 @@
 # Exceptions
 
-*Exceptions* kennen wir schon, denn sie passieren uns häufiger. Wenn wir z.B. auf einen Index in einem Array zugreifen, dieser Index aber gar nicht existiert, wird eine `ArrayIndexOutOfBounds`-Exception geworfen. Wenn wir auf eine Objekteigenschaft zugreifen wollen, z.B. eine Objektmethode, die dafür verwendete Referenzvariable aber gar nicht auf ein Objekt zeigt, sondern auf `null`, erhalten wir eine `NullPointerException`. Wenn bei einer Nutzereingabe eine Zahl erwartet, um damit weiterrechnen zu können, die Nutzerin gibt aber etwas anderes als eine Zahl ein, dann wird ebenfalls ein Exception *geworfen*. 
+*Exceptions* kennen wir schon, denn sie passieren uns häufiger. Wenn wir z.B. auf einen Index in einem Array zugreifen, dieser Index aber gar nicht existiert, wird eine `ArrayIndexOutOfBounds`-Exception geworfen. Wenn wir auf eine Objekteigenschaft zugreifen wollen, z.B. eine Objektmethode, die dafür verwendete Referenzvariable aber gar nicht auf ein Objekt zeigt, sondern auf `null`, erhalten wir eine `NullPointerException`. Wenn bei einer Nutzereingabe eine Zahl erwartet wird, um damit weiterrechnen zu können, die Nutzerin gibt aber etwas anderes als eine Zahl ein, dann wird ebenfalls eine Exception *geworfen*. 
 
 Wir wollen aber gar nicht, dass das Programm in solchen Fällen abstürzt, sondern wir wollen diesen „Fehler“ erkennen und darauf reagieren. Grundsätzlich gibt es also zwei Arten von Fehlern:
 
-- syntaktische Fehler --> können vom Compiler vor der Laufzeit erkannt werden; das programm wird gar nicht erst vollständig compiliert und nicht ausgeführt und
+- syntaktische Fehler --> können vom Compiler vor der Laufzeit erkannt werden; das Programm wird gar nicht erst vollständig compiliert und nicht ausgeführt und
 - logische Fehler --> können erst zur Laufzeit erkannt werden. 
 
 Im Falle der logischen Fehler, die erst zur Laufzeit auftreten, spricht man von *Laufzeitfehlern* (oder *Ausnahmen* oder *Exceptions*). Die Aufgabe beim Programmieren ist nun, zu identifizieren, *an welchen Stellen ein logischer Fehler auftreten könnte*, z.B. 
@@ -157,7 +157,7 @@ Der generelle Ablauf beim "Werfen" eine Exception ist wie folgt:
 3. Das Laufzeitsystem sucht nach der nächsten `catch`-Klausel und führt diese aus.
 4. Passt die gefundene `catch`-Klausel nicht zur Art der Ausnahme, wird die nächste `catch`-Klausel gesucht usw. 
 
-Betrachten wir nochmal obigen Code, dann stellen wir fest, dass in der einen `catch`-Klausel (Zeile `10`) ein Objekt vom Typ `StringIndexOutOfBoundsException` erwartet wird. Wir werden gleich sehen, dass dies schon ein sehr spezieller Typ in der Vererbungshierarchie von `Exception` ist. Das Programm würde auch genau so funktionieren, wenn wir dort anstelle von `StringIndexOutOfBoundsException` allegmein eine `Exception` erwarten würden. Das gleiche gilt für die andere `catch`-Klausel (Zeile `24`), wo wir eine `ArithmeticException` erwarten. Wir schauen uns die Vererbungshierarchie der Exceptions gleich an. generell gilt, dass man mehrere `catch`-Blöcke hintereinander setzen kann und der erste `catch`-Block, der dem erwartetetn Parametertyp entspricht, wird ausgeführt. 
+Betrachten wir nochmal obigen Code, dann stellen wir fest, dass in der einen `catch`-Klausel (Zeile `10`) ein Objekt vom Typ `StringIndexOutOfBoundsException` erwartet wird. Wir werden gleich sehen, dass dies schon ein sehr spezieller Typ in der Vererbungshierarchie von `Exception` ist. Das Programm würde auch genau so funktionieren, wenn wir dort anstelle von `StringIndexOutOfBoundsException` allegmein eine `Exception` erwarten würden. Das gleiche gilt für die andere `catch`-Klausel (Zeile `24`), wo wir eine `ArithmeticException` erwarten. Wir schauen uns die Vererbungshierarchie der Exceptions gleich an. Generell gilt, dass man mehrere `catch`-Blöcke hintereinander setzen kann und der erste `catch`-Block, der dem erwarteten Parametertyp entspricht, wird ausgeführt. 
 
 Wichtig ist, dass wir uns merken, dass durch eine Exception der Programmablauf **sofort** unterbrochen und zur nächsten "passenden" `catch`-Klausel gesprungen wird. 
 
@@ -247,7 +247,7 @@ Schauen wir uns die Implementierung von `inputInt()` genauer an:
 - in Zeile `55` wird eine solche `NumberFormatException` aufgefangen. Die "Behandlung" dieser Excepion sieht so aus, dass der Schalter `inputOk` auf `false` gesetzt wird. 
 - der gesamte Anweisungsblock *Fenster->Eingabe->try-catch* ist in eine Schleife eingebettet. Diese Schleife wird so lange ausgeführt, so lange der Wert von `inputOk` nicht `false` ist. Das bedeutet, wenn **keine** Zahl eingegeben wird, dann öffnet sich das Fenster erneut und es muss so lange eine Eingabe erfolgen, bis die Eingabe einer Zahl entspricht (und somit `parseInt()` keine Exception wirft)
 
-Übrigend könnte die Anweisung `inputOk = true;` auch nach `parseInt()` in den `try`-Block geschrieben werden:
+Übrigens könnte die Anweisung `inputOk = true;` auch nach `parseInt()` in den `try`-Block geschrieben werden:
 
 ```java linenums="1" hl_lines="9 12"
 static int inputInt()
@@ -310,7 +310,7 @@ public static void mehrereExceptions()
 
 - In Zeile `3` definieren wir uns ein `String[]` mit 4 Einträgen. 
 - Durch dieses `String[]` laufen wir mit einer `for`-Schleife (Zeile `8`) durch.
-- In Zeile `11` wndeln wir jeden Eintrag aus dem `String[]` in eine `int`-Zahl um. 
+- In Zeile `11` wandeln wir jeden Eintrag aus dem `String[]` in eine `int`-Zahl um. 
 - An zwei Stellen können Exceptions geworfen werden:
 	- Bei dem Index-basierten Zugriff auf das Array `basen[index]` in Zeile `11` kann eine `ArrayIndexOutOfBounds`-Exception geworfen werden, falls `index` kein korrekter Index des `String[]` ist (gilt für `index==4`).
 	- Bei der Umwandlung von `String` nach `int` durch `parseInt()` in Zeile `11` kann eine `NumberFormatException` geworfen werden, falls der entsprechende Eintrag im `String[]` keine Zahl ist (gilt für `basen[3]=='Hi'`).
@@ -383,7 +383,7 @@ Typischerweise wird der `finally`-Block dazu verwendet, bestimmte Ressourcen wie
 
 ### throws - eine Exception weiterreichen
 
-Wir haben bis jetzt immer in den Methoden, in denen die kritische Anweisung ausgeführt wurde, diese direkt mit einem `try-catch`-Block "ummantelt". Das muss nicht unbedingt sein. Wir können eine in einer Methode geworfene Exception auch an die aufrufende Methode weiterreichen. Dann kann (und sollte) die Exception in der aufrufenden Methode abgefangen und behandelt werden. Um anzugeben, dass eine Methode evtl. eine Exception wirft, wird das Schlüsselwort `throws` verwendet. Wir erweiteren also die Deklaration einer Methode (also den Methodenkopf) um `throws` und danach kommt der entsprechende Typ der Exxception, die in der Methode geworfen werden kann. Die allgemeine Syntax einer Methodendeklaration sieht somit so aus:
+Wir haben bis jetzt immer in den Methoden, in denen die kritische Anweisung ausgeführt wurde, diese direkt mit einem `try-catch`-Block "ummantelt". Das muss nicht unbedingt sein. Wir können eine in einer Methode geworfene Exception auch an die aufrufende Methode weiterreichen. Dann kann (und sollte) die Exception in der aufrufenden Methode abgefangen und behandelt werden. Um anzugeben, dass eine Methode evtl. eine Exception wirft, wird das Schlüsselwort `throws` verwendet. Wir erweiteren also die Deklaration einer Methode (also den Methodenkopf) um `throws` und danach kommt der entsprechende Typ der Exception, die in der Methode geworfen werden kann. Die allgemeine Syntax einer Methodendeklaration sieht somit so aus:
 
 ```java
 [modifizierer] [rueckgabetyp] methodenname throws ExceptionType
@@ -440,19 +440,19 @@ Trotzdem können wir uns schon zum jetzigen Zeitpunkt einige Gedanken, über *sc
 
 1. eine Methode sollte immer nur eine Sache erledigen (single responsibility principle - SRP)
 2. --> die Methode kann nicht auch noch für das Abfangen des Fehlers zuständig sein (try-catch-Blöcke sind eh „hässlich“ und unleserlich)
-3. --> lassen Sie Methode, die etwas eledigt, eine Exception werfen und leiten Sie diese weiter (`throws`) 
+3. --> lassen Sie Methode, die etwas erledigt, eine Exception werfen und leiten Sie diese weiter (`throws`) 
 4. --> fangen Sie den Fehler in einer anderen Methode ab (`try`)
 5. --> Sie können sogar die eigentliche Behandlung des Fehlers (`catch`) in eine dritte Methode auslagern (single responsibility)
 
-Häufig sieht man, dass die Methode, die den Fehler abfängt (`try`) im `catch`-Block den fehler protokolliert (in ein ErrorLog-File) und dann eine eigens erzeugte Exception an die Methode weiterleitet, die den Fehler behandelt. Wie man eine Exception erzeugt, schauen wir uns jetzt an. 
+Häufig sieht man, dass die Methode, die den Fehler abfängt (`try`) im `catch`-Block den Fehler protokolliert (in ein ErrorLog-File) und dann eine eigens erzeugte Exception an die Methode weiterleitet, die den Fehler behandelt. Wie man eine Exception erzeugt, schauen wir uns jetzt an. 
 
 ### throw - eigene Exceptions erzeugen
 
 Zunächst kommt ein neues Schlüsselwort hinzu, nämlich `throw`. Unglücklicherweise ist dies dem Schlüsselwort `throws` sehr ähnlich. Mit `throw` erzeugen (werfen) wir eine eigene Exception, mit `throws` wird im Methodenkopf angegeben, dass die Methode (eventuell) eine Exception wirft und diese an die aufrufende Methode weitergibt. 
 
-Angenommen, für einen Konstruktor der Klasse Dreieck werden Seitenlängen übergeben, die entweder kleiner als 0 oder die Summe von 2 Seitenlängen ist kleiner als die dritte Seite ist. Wir hatten uns bei der Bearbeitung der Aufgabe `Traingle`im ersten Semester bereits überlegt, dass ddurch kein "richtiges" Dreieck erzeugt wird, aber wir konnten das noch nicht verhindern. das machen wir jetzt. Wie können wir also verhindern, dass ein solches Objekt erzeugt wird?
+Angenommen, für einen Konstruktor der Klasse Dreieck werden Seitenlängen übergeben, die entweder kleiner als 0 oder die Summe von 2 Seitenlängen ist kleiner als die dritte Seite ist. Wir hatten uns bei der Bearbeitung der Aufgabe `Triangle`im ersten Semester bereits überlegt, dass dadurch kein "richtiges" Dreieck erzeugt wird, aber wir konnten das noch nicht verhindern. Das machen wir jetzt. Wie können wir also verhindern, dass ein solches Objekt erzeugt wird?
 
-Die Lösung besteht darin, eine eigene Exception zu definieren und diese im Fehlerfall zu werfen. Mithilfe des Schlüsselwortes `throw` wird also eine eigene Exception geworfen. Bis jetzt *wurden* unsere Exceptions ja geworfen. 
+Die Lösung besteht darin, eine eigene Exception zu definieren und diese im Fehlerfall zu werfen. Mithilfe des Schlüsselwortes `throw` wird also eine eigene Exception geworfen. Bis jetzt *wurden* unsere Exceptions ja ("automatisch" durch die Laufzeitumgebung) geworfen. 
 
 Für eine *eigene* Exception haben wir zwei Möglichkeiten:
 

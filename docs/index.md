@@ -1,14 +1,14 @@
 # Programmieren II
 
 
-Herzlich willkommen zur **Programmieren II**-Veranstaltung! Wir haben in [Programmieren I](https://freiheit.f4.htw-berlin.de/prog1) unter Verwendung der Programmiersprache Java bereits wesentliche Konzepte kennengelernt, die für das Verständnis mordenen Programmierens notwendig sind. Diese Kenntnisse wollen wir nun erweitern und vertiefen. Wir werden Git kennenlernen, Exceptions, Wrapper-Klassen, Interfaces und Collections. Wir beschäftigen uns intensiv mit dem Testen von Programmen und erzeugen uns eigene Nutzeroberflächen. Hier einige Tipps, damit Sie die Veranstaltung erfolgreich durchführen und Sie dabei auch Spaß haben:
+Herzlich willkommen zur **Programmieren II**-Veranstaltung! Wir haben in [Programmieren I](https://freiheit.f4.htw-berlin.de/prog1) unter Verwendung der Programmiersprache Java bereits wesentliche Konzepte kennengelernt, die für das Verständnis moderner Programmierens notwendig sind. Diese Kenntnisse wollen wir nun erweitern und vertiefen. Wir werden Git kennenlernen, Exceptions, Wrapper-Klassen, Interfaces und Collections. Wir beschäftigen uns intensiv mit dem Testen von Programmen und erzeugen uns eigene Nutzeroberflächen. Hier einige Tipps, damit Sie die Veranstaltung erfolgreich durchführen und Sie dabei auch Spaß haben:
 
 1. Lösen Sie alle Übungsaufgaben selbständig! Es ist kein Problem, wenn Sie für das Bewältigen der Übungen etwas länger benötigen. Sollten Sie es gar nicht alleine schaffen, ist das auch kein Problem. Wichtig ist dann, dass Sie sich die Lösung anschauen und es erneut selbständig versuchen. Hören Sie nicht auf, bis Sie es geschafft haben!
 2. Sie können die Hausaufgaben zu zweit lösen. Achten Sie aber darauf, dass Sie Ihre gemeinsame Lösung vollständig verstanden haben und dass Sie sie danach auch alleine erstellen können. Sie können beim Lösen der Hausaufgaben beliebig kreativ sein! Die Aufgabenstellung gibt Ihnen Anhaltspunkte für eine eventuelle Lösung. Sie können es aber auch ganz anders machen!
 3. Die Klausurvorbereitung beginnt mit Beginn der Veranstaltung. Es ist nicht möglich, die Klausur am Ende des Semesters zu bestehen, wenn Sie nicht das ganze Semester über intensiv programmieren. Die Übungsaufgaben sind "kleine" Aufgaben, um das in der Vorlesung vermittelte Wissen direkt anzuwenden. Für die Lösung der Hausaufgaben ist bereits ein gewisses Abstraktionsniveau erforderlich, um zu erkennen, dass das in der Vorlesung vermittelte Wissen dafür ausreichend ist. 
 4. Programmieren lernt man nur durch Programmieren. Sie müssen es tun. Das Lesen von Büchern oder das "Anschauen" von Code genügt nicht. Eine Sprache lernt man auch nur durch Sprechen. Sie müssen programmieren, programmieren, programmieren...
 5. Lassen Sie sich durch Fehler nicht verunsichern, sondern analysieren Sie Ihre Fehler. Bis zur Klausur sollten Sie alle Fehler einmal gemacht haben. Wenn Sie sich überlegen, warum das jeweils ein Fehler war, dann werden Sie diesen Fehler nicht wiederholen und haben durch die Reflektion eine Menge gelernt. Fehler zu machen (und darüber zu reflektieren) gehört zu den besten Lernmethoden des Programmierens.
-6. Haben Sie Spaß! Je mehr Sie das Programmieren lernen, je mehr Spaß werden Sie haben. Wir versuchen, dass Sie das genaze Semester über Spaß am Programmieren haben werden. Sollte es Ihnen zwischendurch keinen Spaß mehr machen, geben Sie mir sofort Bescheid!
+6. Haben Sie Spaß! Je mehr Sie das Programmieren lernen, je mehr Spaß werden Sie haben. Wir versuchen, dass Sie das ganze Semester über Spaß am Programmieren haben werden. Sollte es Ihnen zwischendurch keinen Spaß mehr machen, geben Sie mir sofort Bescheid!
 
 Viel Erfolg! Und viel Spaß!
 
@@ -36,7 +36,7 @@ Für die Kommunikation untereinander verwenden wir [**Slack**](https://slack.com
 
 Wir beschäftigen uns dieses Semester mit weiteren Konzepten der Programmierung. Wir lernen weitere Datenstrukturen kennen (Collections), werden lernen, mit Exceptions umzugehen und implementieren Tests. Wir beschäftigen uns mit Grafischen Nutzeroberflächen (GUIs) und lernen, Nutzereignisse zu behandeln.  
 
-Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst). Die Vorlesungsvideos finden Sie darunter für die einzelnen Wochen (unter [**Inhalte**](http://freiheit.f4.htw-berlin.de/prog2/#inhalte)).
+Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst). 
 
 | | Woche | Themen (Vorlesung) | Übung | Aufgabe | Abgabe Aufgabe bis | 
 |-|-------|--------------------|-------|-----------------|------------------|
