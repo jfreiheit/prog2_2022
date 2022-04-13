@@ -1,0 +1,537 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/aufgaben/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Aufgaben - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aufgaben" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aufgaben
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Aufgaben
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Aufgaben
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-1-wurfelspiel" class="md-nav__link">
+    Aufgabe 1 (Würfelspiel)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-2-myinteger" class="md-nav__link">
+    Aufgabe 2 (MyInteger)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-1-wurfelspiel" class="md-nav__link">
+    Aufgabe 1 (Würfelspiel)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-2-myinteger" class="md-nav__link">
+    Aufgabe 2 (MyInteger)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/aufgaben.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="aufgaben">Aufgaben<a class="headerlink" href="#aufgaben" title="Permanent link">&para;</a></h1>
+<h5 id="aufgabe-1-wurfelspiel">Aufgabe 1 (Würfelspiel)<a class="headerlink" href="#aufgabe-1-wurfelspiel" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 1</summary><p><strong>Vorbereitung (siehe <a href="../einstieg/#einstieg">Einstieg</a>)</strong></p>
+<ol>
+<li>Informieren Sie sich über die Klasse <code>JOptionPane</code> aus dem Paket <code>javax.swing</code> (z.B. <a href="https://docs.oracle.com/javase/10/docs/api/javax/swing/JOptionPane.html">hier</a> oder <a href="https://www.java-tutorial.org/joptionpane.html">hier</a> oder <a href="https://de.wikibooks.org/wiki/Java_Standard:_Grafische_Oberfl%C3%A4chen_mit_Swing:_Top_Level_Container:_javax_swing_JOptionPane">hier</a>) <br/>
+<em>Sollten Sie mit dem Java-Modulsystem arbeiten, d.h. sollten Sie in Ihrem Java-Projekt eine Datei <code>module-info.java</code> haben, dann müssen Sie in diese Datei (in den Anweisungsblock) die Anweisung <code>requires java.desktop;</code> einfügen - das ist das Modul, in dem sich das Paket <code>javax.swing</code> befindet.</em> </li>
+<li>Erstellen Sie insbesondere folgenden Dialog (in den Buttons kann auch <code>Yes</code> und <code>No</code> stehen) und prüfen Sie, ob der <code>Nein</code>- oder der <code>Ja</code>-Button gedrückt wurde (im Beispiel steht <code>A</code> für den Namen eines Spielers – siehe Aufgabe unten):
+    <img alt="aufgabe1" src="../files/19_aufgabe1.png" /></li>
+</ol>
+<p><strong>Aufgabe</strong></p>
+<ol>
+<li>Implementieren Sie folgendes Würfelspiel:<ul>
+<li>An dem Spiel können beliebig viele Spieler teilnehmen.</li>
+<li>Die Spieler sind nacheinander an der Reihe.</li>
+<li>Wenn ein Spieler an der Reihe ist, dann befindet er sich in einem <em>Versuch</em>.</li>
+<li>In einem <em>Versuch</em> kann der Spieler so lange würfeln, bis er entweder<ul>
+<li>eine 6 würfelt oder er</li>
+<li>den Versuch freiwillig beendet.  </li>
+</ul>
+</li>
+<li>Hat der Spieler eine 6 gewürfelt, wird der gesamte <em>Versuch</em> mit <code>0</code> Punkten bewertet.</li>
+<li>Hat der Spieler den Versuch freiwillig beendet, wird die in dem <em>Versuch</em> erzielte Summe aus sein Punktekonto addiert (gespeichert).</li>
+</ul>
+</li>
+<li>Der Spieler, der zuerst eine bestimmte Punktzahl (z.B. <code>20</code>) erreicht hat, hat gewonnen. <br/>
+    Beispiel mit zwei Spielern <code>A</code> und <code>B</code> bis Gesamtpunktzahl <code>20</code>:
+    <img alt="aufgabe1" src="../files/20_aufgabe1.png" /></li>
+<li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
+</ol>
+</details>
+<h5 id="aufgabe-2-myinteger">Aufgabe 2 (MyInteger)<a class="headerlink" href="#aufgabe-2-myinteger" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 2</summary><p><strong>Vorbereitung (Selbstudium)</strong></p>
+<ol>
+<li>Eine <em>statische</em> Variable wird mit dem Schlüsselwort <code>static</code> deklariert, also z.B. <code>static int myVariable = 0;</code>. Der Zugriff auf eine solche statische Variable erfolgt nicht über eine Referenzvariable, sondern über den Klassennamen. Angenommen, die Variable <code>myVariable</code> wurde in der Klasse <code>MyClass</code> deklariert, dann erfolgt der Zugriff auf die Variable über <code>MyClass.myVariable</code>. Für Objektvariablen gilt, dass jedes Objekt seine eigene(n) Objektvariable(n) hat. Statische Variablen gibt es in der Klasse genau einmal. Alle Objekte "teilen" sich eine statische Variable. Eine statische Variable heißt deshalb auch <em>Klassenvariable</em>.</li>
+<li>Eine <em>statische</em> Methode wird ebenfalls mit dem Schlüsselwort <code>static</code> deklariert, also z.B. <code>public static void myMethod() {}</code>. Der Zugriff auf eine solche statische Methode erfolgt nicht über eine Referenzvariable, sondern über den Klassennamen. Angenommen, die Methode <code>myMethod()</code> wurde in der Klasse <code>MyClass</code> deklariert, dann erfolgt der Zugriff auf die Methode über <code>MyClass.myMethod()</code>. Wir kennen solche Methoden bereits, z.B. sind alle Methoden aus der Klasse <code>Math</code> statisch und wir können sie z.B. mit <code>Math.sqrt(value)</code> oder <code>Math.abs(value)</code> aufrufen. </li>
+<li>siehe z.B. <a href="https://javabeginners.de/Grundlagen/Modifikatoren/static.php">hier</a> oder <a href="https://www.programmierenlernenhq.de/statische-variablen-konstanten-und-methoden-in-java/">hier</a> oder <a href="http://www.gailer-net.de/tutorials/java/Notes/chap25/ch25_12.html">hier</a></li>
+</ol>
+<p><strong>Info</strong>: Die Klasse <code>MyInteger</code> ist eine sogenannte <em>Wrapper</em>-Klasse. Die Idee ist, dass <code>MyInteger</code> eine objektorientierte Hülle um den <code>int</code>-Typ darstellt. Implementieren Sie die Klasse <code>MyInteger</code>. Diese Klasse hat folgende Eigenschaften:</p>
+<ol>
+<li>Statische Konstanten vom Typ <code>int</code> <code>MAX_VALUE</code> und <code>MIN_VALUE</code>, welche als Wert die größte bzw. kleinste <code>int</code>-Zahl enthalten.</li>
+<li>Eine private Objektvariable <code>value</code> vom Typ <code>int</code>. (Dieser <code>value</code> hat jetzt eine "objektorientierte" Hülle: <code>MyInteger</code>).</li>
+<li>Eine statische Methode <code>parseInt(String s)</code>, die den übergebenen <code>String s</code> als <code>int</code>-Zahl zurückgibt, wenn <code>s</code> einer Zahl entspricht. Wenn nicht, wirft die Methode eine <code>IllegalArgumentException</code>. Beachten Sie:
+    a.  <code>s</code> kann mit <code>+</code> oder <code>–</code> beginnen,
+    b.  <code>s</code> kann führende Nullen aufweisen,
+    c.  die Länge von <code>s</code> kann mit <code>s.length()</code> ermittelt und jedes einzelne Zeichen aus <code>s</code> kann mit <code>s.charAt(index)</code> betrachtet werden. 
+    d.  Ist <code>s</code> leer, wird eine <code>IllegalArgumentException</code> geworfen und wenn <code>s</code> keiner Zahl entspricht auch.
+    e.  Die Exception wird nur weitergereicht, nicht hier behandelt.</li>
+<li>Zwei Konstruktoren <code>MyInteger(int value)</code> und <code>MyInteger(String s)</code>, die jeweils die Objektvariable <code>value</code> initialisieren. Der zweite Konstruktor verwendet <code>parseInt(String)</code> und kann ebenfalls eine <code>IllegalArgumentException</code> werfen (reicht die Exception von <code>parseInt(String)</code> weiter). </li>
+<li>Eine Objektmethode <code>intValue()</code>, die den Wert von <code>value</code> zurückgibt.</li>
+<li>Eine Objektmethode <code>doubleValue()</code>, die den Wert von <code>value</code> als <code>double</code> zurückgibt.</li>
+<li>Eine statische Methode <code>valueOf(String s)</code>, die ein Objekt von <code>MyInteger</code> erzeugt und zurückgibt (und evtl. eine <code>IllegalArgumentException</code> wirft).</li>
+<li>Eine statische Methode <code>valueOf(int value)</code>, die ein Objekt von <code>MyInteger</code> erzeugt und zurückgibt.</li>
+<li>Überschreiben Sie außerdem die Methoden <code>equals()</code> und <code>toString()</code> (<em>Zusatz:</em>  auch <code>hashCode()</code> überschreiben).</li>
+<li>Testen Sie Ihre Klasse ausführlich in einer <code>Testklasse</code> mit <code>main()</code>-Methode.</li>
+<li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
+</ol>
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../uebungen/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Übungen" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Übungen
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

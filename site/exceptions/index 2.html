@@ -590,10 +590,6 @@
                 
                 
                 <h1 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h1>
-<div class="admonition success">
-<p class="admonition-title">Motivation</p>
-<p>Wir wissen nun, wie wir einen <code>String</code> in ein <code>int</code> umwandeln. Nämlich mithilfe der <code>parseInt(String)</code>-Methode der Klasse <code>Integer</code>. Was aber passiert, wenn der <code>String</code> gar keiner Zahl entspricht? Dann wird eine <a href="../exceptions/#exceptions">Exception</a> geworfen und das Programm sofort beendet. Wir können aber gar nichts dafür, dass die Nutzerin keine Zahl eingegeben hat. Unser Programm ist eigentlich korrekt. Wie können wir den Programmabsturz verhindern? Wie können wir die Nutzerin solange bitten, eine Zahl einzugeben, bis sie wirklich eine Zahl eingibt?</p>
-</div>
 <p><em>Exceptions</em> kennen wir schon, denn sie passieren uns häufiger. Wenn wir z.B. auf einen Index in einem Array zugreifen, dieser Index aber gar nicht existiert, wird eine <code>ArrayIndexOutOfBounds</code>-Exception geworfen. Wenn wir auf eine Objekteigenschaft zugreifen wollen, z.B. eine Objektmethode, die dafür verwendete Referenzvariable aber gar nicht auf ein Objekt zeigt, sondern auf <code>null</code>, erhalten wir eine <code>NullPointerException</code>. Wenn bei einer Nutzereingabe eine Zahl erwartet wird, um damit weiterrechnen zu können, die Nutzerin gibt aber etwas anderes als eine Zahl ein, dann wird ebenfalls eine Exception <em>geworfen</em>. </p>
 <p>Wir wollen aber gar nicht, dass das Programm in solchen Fällen abstürzt, sondern wir wollen diesen „Fehler“ erkennen und darauf reagieren. Grundsätzlich gibt es also zwei Arten von Fehlern:</p>
 <ul>

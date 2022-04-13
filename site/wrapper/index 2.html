@@ -330,29 +330,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strings-in-wertetypen" class="md-nav__link">
-    Strings in Wertetypen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#links-zu-den-java-docs" class="md-nav__link">
     Links zu den Java-Docs
   </a>
-  
-    <nav class="md-nav" aria-label="Links zu den Java-Docs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ausblick" class="md-nav__link">
-    Ausblick
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -476,29 +456,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#strings-in-wertetypen" class="md-nav__link">
-    Strings in Wertetypen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#links-zu-den-java-docs" class="md-nav__link">
     Links zu den Java-Docs
   </a>
-  
-    <nav class="md-nav" aria-label="Links zu den Java-Docs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ausblick" class="md-nav__link">
-    Ausblick
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -520,10 +480,6 @@
                 
                 
                 <h1 id="wrapper-klassen">Wrapper-Klassen<a class="headerlink" href="#wrapper-klassen" title="Permanent link">&para;</a></h1>
-<div class="admonition success">
-<p class="admonition-title">Motivation</p>
-<p><a href="../einstieg/#ausblick">Letzte Woche</a> haben wir mit folgender Fragestellung geendet: Wie wandeln wir einen <code>String</code> zu einem <code>int</code> (oder <code>double</code>) um? Die Antwort, die uns den Ausblick auf das Thema der heutigen Woche gibt, war: <strong>mit Wrapper-Klassen</strong>.</p>
-</div>
 <p>In Programmierung I haben wir am Anfang die Datentypen <code>int</code>, <code>boolean</code>, <code>double</code>, <code>char</code>, <code>long</code> usw. kennengelernt. Wir haben diese Datentypen als <em>Wertetypen</em> kennenglernt, denn sie können nur Werte abbilden. Das Gegenstück dazu sind <em>Referenztypen</em>, welche Referenzen auf Objekte repräsentieren. Für jeden Wertetyp gibt es aber auch einen entsprechenden Referenztyp, die sogenannten <em>Wrapper-Klassen</em>. Diese sind <code>Integer</code>, <code>Double</code>, <code>Float</code>, <code>Short</code>, <code>Byte</code>, <code>Long</code>, <code>Character</code> und <code>Boolean</code> und befinden sich im <code>java.lang</code>-Paket (also dem Standardpaket von Java - muss nicht importiert werden). Wir werden diese Wrapper-Klassen dieses Semester häufiger verwenden, insbesondere wenn wir <em>Collections</em> kennenlernen. </p>
 <p>Die grundsätzliche Idee von <em>Wrapper-Klassen</em> ist das "Verpacken" (<em>wrappen</em>) eines Wertetyps in einen Referenztyp. Die folgende Abbildung soll das für das Beispiel <code>int</code> &harr; <code>Integer</code> verdeutlichen:</p>
 <p><img alt="wrapper" src="../files/42_wrapper.png" /></p>
@@ -673,16 +629,6 @@
 </div>
 <p>Die folgende Abbildung zeigt einen Überblick über die einzelnen Konvertierungen am Beispiel von <code>Double</code>. Beachten Sie dabei auch, dass ein Wert direkt aus einem passenden <code>String</code> erzeugt werden kann, indem die statische <code>&lt;WrapperTyp&gt;.parse&lt;WrapperTyp&gt;</code>-Methode verwendet wird. </p>
 <p><img alt="wrapper" src="../files/44_wrapper.png" /></p>
-<h2 id="strings-in-wertetypen">Strings in Wertetypen<a class="headerlink" href="#strings-in-wertetypen" title="Permanent link">&para;</a></h2>
-<p>Wir wissen jetzt schon, dass wir uns mithilfe der <code>valueOf(String s)</code>-Methode Objekte einer Wrapper-Klasse erzeugen können. Unter Verwendung von <code>intValue()</code> könnte man z.B. aus einem <code>Intger</code>-Objekt den <code>int</code>-Wert extrahieren. Das ginge auch mit <em>Auto-Unboxing</em>. Für die Umwandlung von <code>String</code> nach <code>int</code> verwendet man aber am besten die <code>parseInt()</code>-Methode. </p>
-<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">eingabe</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Geben Sie eine Zahl ein: &quot;</span><span class="p">);</span>
-<span class="kt">int</span> <span class="n">zahl</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">eingabe</span><span class="p">);</span>
-</code></pre></div>
-<p>Für <code>double</code> steht uns dafür <code>Double.parseDouble(String s)</code> zur Verfügung usw. </p>
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>Jetzt haben wir unser Problem gelöst, wir können <code>String</code> in einen <code>int</code> umwandeln! Wir kennen nun Wrapper-Klassen und deren <code>parseXXX(String)</code>-Methoden.</p>
-</div>
 <h2 id="links-zu-den-java-docs">Links zu den Java-Docs<a class="headerlink" href="#links-zu-den-java-docs" title="Permanent link">&para;</a></h2>
 <p>Hier sind die Links zu den jeweiligen Java-Dokumentationen der Klassen aufgelistet (für Java 11). Ein Blick lohnt sich, da für die einzelnen Klassen jeweils viele Objektmethoden zur Verfügung stehen, die Ihnen sehr nützlich sein können. </p>
 <ul>
@@ -699,10 +645,8 @@
 <div class="admonition übung">
 <p class="admonition-title">Übung</p>
 <p>Diese Übung gibt ein Hinweis auf das folgende Thema:
-Schauen Sie sich einmal die Java-Dokumentation der Klasse <code>Integer</code> an. Welche Exception kann die <code>parseInt(String)</code>-Methode werfen? </p>
+Schauen Sie sich einmal die Java-Dokumentation der Klasse <code>Integer</code> an. Welche Exception kann die <code>valueOf(String)</code>-Methode werfen? Welche Methode aus der Klasse <code>Integer</code> wird durch die <code>valueOf(String)</code>-Methode aufgerufen? </p>
 </div>
-<h3 id="ausblick">Ausblick<a class="headerlink" href="#ausblick" title="Permanent link">&para;</a></h3>
-<p>Wir wissen nun, wie wir einen <code>String</code> in ein <code>int</code> umwandeln. Nämlich mithilfe der <code>parseInt(String)</code>-Methode der Klasse <code>Integer</code>. Was aber passiert, wenn der <code>String</code> gar keiner Zahl entspricht? Dann wird eine <a href="../exceptions/#exceptions">Exception</a> geworfen und das Programm sofort beendet. Wir können aber gar nichts dafür, dass die Nutzerin keine Zahl eingegeben hat. Unser Programm ist eigentlich korrekt. Wie können wir den Programmabsturz verhindern? Wie können wir die Nutzerin solange bitten, eine Zahl einzugeben, bis sie wirklich eine Zahl eingibt?</p>
                 
               
               

@@ -66,8 +66,149 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	- siehe [**Einstieg**](./einstieg/#einstieg)
 	- siehe [**Aufgabe 1**](./aufgaben/#aufgabe-1-wurfelspiel)
 
+	??? "Quellcode aus der Vorlesung"
+		```java
+		package vorlesungen.vorlesung0406;
+
+		import java.util.Arrays;
+
+		import javax.swing.JOptionPane;
+
+		public class Vorlesung0406 {
+			
+			public static void print()
+			{
+				System.out.println("Endlich wieder Programmieren!");
+			}
+			
+			public static void input()
+			{
+				int auswahl = JOptionPane.showConfirmDialog(null, "Weiter machen?", "Fenstertitel", JOptionPane.YES_NO_OPTION);
+				
+				if(auswahl == JOptionPane.YES_OPTION)
+				{
+					// YES geklickt
+				}
+				else if(auswahl == JOptionPane.NO_OPTION)
+				{
+					// No geklickt
+				}
+				
+				String eingabe = JOptionPane.showInputDialog("Geben Sie eine Zahl ein : ");
+				System.out.println("Ihre Eingabe war " + eingabe);
+			}
+			
+			public static void testArrays()
+			{
+				int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+				String s = Arrays.toString(a);
+				System.out.println(s);
+				int[] b = { 11, 12, 3, 14, 5, 6, 17, 8, 19 };
+				
+				for (int index = 0; index < b.length; index++) 
+				{
+					System.out.print(b[index] + " ");
+					// b[index] = 5;
+				}
+				System.out.println();
+				
+				for(int element : b)
+				{
+					System.out.print(element + " ");
+					element = 5;
+				}
+				System.out.println();
+				
+				Arrays.sort(b);
+				System.out.println(Arrays.toString(b));
+				
+				
+			}
+
+			public static void main(String[] args) {
+				Vorlesung0406.print();
+				testArrays();
+				input();
+			}
+
+		}
+		```
+
 
 ??? question "11.-15.04.2022 - Wrapper-Klassen"
 	- siehe [**Wrapper-Klassen (boxing und unboxing)**](./wrapper/#wrapper-klassen)
 	- siehe [**Übung 1**](./uebungen/#ubung-1-wiederholung-und-codereview)
 	- siehe [**Aufgabe 2**](./aufgaben/#aufgabe-2-myinteger) 
+
+	??? "Quellcode aus der Vorlesung"
+		```java
+		package vorlesungen.vorlesung1306;
+
+		import javax.swing.JOptionPane;
+
+		public class Vorlesung1304 
+		{
+
+			static int divide(int nr1, int nr2)
+			{
+				return nr1 / nr2;
+			}
+
+			public static void main(String[] args) 
+			{
+				// Wrapper-Klassen 
+				
+				String eingabe = JOptionPane.showInputDialog("Geben Sie eine Zahl ein: ");
+
+				// 1. Konstruktoren --> deprecated!!! nicht verwenden
+				Integer i1 = new Integer(100); // int-Wert 
+				Integer i2 = new Integer("100"); // Zahl als String
+
+				Character c1 = new Character('a'); 
+				// Character c2 = new Character("a");
+
+				Integer max = Integer.MAX_VALUE; 
+				System.out.println(max);
+
+				// 2. valueOf() 
+				Integer i3 = Integer.valueOf(100); 
+				Integer i4 = Integer.valueOf("100");
+
+				// 3. Auto-Boxing 
+				Integer i5 = 100; 
+				System.out.println(i5);
+
+				Integer i6 = 1000; 
+				Integer i7 = 1000; 
+				Integer i8 = 1001;
+				System.out.println(i6 == i7); 
+				System.out.println(i8 >= i7);
+
+				Integer i9 = Integer.valueOf("1000"); 
+				int i10 = i9.intValue();
+
+				int i11 = Integer.valueOf("1000");
+
+				int nrInput = Integer.valueOf(eingabe); 
+				System.out.println("Sie haben " + nrInput + " eingegeben");
+
+
+				// Exceptions
+
+				int nr1 = 7; 
+				int nr2 = 0;
+				try {
+					int result = divide(nr1, nr2);
+					System.out.printf("%4d / %4d = %3d %n", nr1, nr2, result);
+				}
+				catch(ArithmeticException e) 
+				{
+					System.out.println("Division durch 0 ist nicht definiert");
+					// e.printStackTrace();
+				}
+
+				System.out.println("Programmende");
+			}
+
+		}
+		```

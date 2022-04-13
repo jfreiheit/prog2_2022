@@ -1,5 +1,8 @@
 # Wrapper-Klassen
 
+!!! success "Motivation"
+	[Letzte Woche](../einstieg/#ausblick) haben wir mit folgender Fragestellung geendet: Wie wandeln wir einen `String` zu einem `int` (oder `double`) um? Die Antwort, die uns den Ausblick auf das Thema der heutigen Woche gibt, war: **mit Wrapper-Klassen**.
+
 In Programmierung I haben wir am Anfang die Datentypen `int`, `boolean`, `double`, `char`, `long` usw. kennengelernt. Wir haben diese Datentypen als *Wertetypen* kennenglernt, denn sie können nur Werte abbilden. Das Gegenstück dazu sind *Referenztypen*, welche Referenzen auf Objekte repräsentieren. Für jeden Wertetyp gibt es aber auch einen entsprechenden Referenztyp, die sogenannten *Wrapper-Klassen*. Diese sind `Integer`, `Double`, `Float`, `Short`, `Byte`, `Long`, `Character` und `Boolean` und befinden sich im `java.lang`-Paket (also dem Standardpaket von Java - muss nicht importiert werden). Wir werden diese Wrapper-Klassen dieses Semester häufiger verwenden, insbesondere wenn wir *Collections* kennenlernen. 
 
 Die grundsätzliche Idee von *Wrapper-Klassen* ist das "Verpacken" (*wrappen*) eines Wertetyps in einen Referenztyp. Die folgende Abbildung soll das für das Beispiel `int` <--> `Integer` verdeutlichen:
@@ -185,6 +188,20 @@ Die folgende Abbildung zeigt einen Überblick über die einzelnen Konvertierunge
 
 ![wrapper](./files/44_wrapper.png)
 
+## Strings in Wertetypen
+
+Wir wissen jetzt schon, dass wir uns mithilfe der `valueOf(String s)`-Methode Objekte einer Wrapper-Klasse erzeugen können. Unter Verwendung von `intValue()` könnte man z.B. aus einem `Intger`-Objekt den `int`-Wert extrahieren. Das ginge auch mit *Auto-Unboxing*. Für die Umwandlung von `String` nach `int` verwendet man aber am besten die `parseInt()`-Methode. 
+
+```java
+String eingabe = JOptionPane.showInputDialog("Geben Sie eine Zahl ein: ");
+int zahl = Integer.parseInt(eingabe);
+```
+
+Für `double` steht uns dafür `Double.parseDouble(String s)` zur Verfügung usw. 
+
+!!! success
+	Jetzt haben wir unser Problem gelöst, wir können `String` in einen `int` umwandeln! Wir kennen nun Wrapper-Klassen und deren `parseXXX(String)`-Methoden.
+
 ## Links zu den Java-Docs
 
 Hier sind die Links zu den jeweiligen Java-Dokumentationen der Klassen aufgelistet (für Java 11). Ein Blick lohnt sich, da für die einzelnen Klassen jeweils viele Objektmethoden zur Verfügung stehen, die Ihnen sehr nützlich sein können. 
@@ -203,5 +220,8 @@ Hier sind die Links zu den jeweiligen Java-Dokumentationen der Klassen aufgelist
 !!! Übung 
 
 	Diese Übung gibt ein Hinweis auf das folgende Thema:
-	Schauen Sie sich einmal die Java-Dokumentation der Klasse `Integer` an. Welche Exception kann die `valueOf(String)`-Methode werfen? Welche Methode aus der Klasse `Integer` wird durch die `valueOf(String)`-Methode aufgerufen? 
+	Schauen Sie sich einmal die Java-Dokumentation der Klasse `Integer` an. Welche Exception kann die `parseInt(String)`-Methode werfen? 
 
+### Ausblick
+
+Wir wissen nun, wie wir einen `String` in ein `int` umwandeln. Nämlich mithilfe der `parseInt(String)`-Methode der Klasse `Integer`. Was aber passiert, wenn der `String` gar keiner Zahl entspricht? Dann wird eine [Exception](../exceptions/#exceptions) geworfen und das Programm sofort beendet. Wir können aber gar nichts dafür, dass die Nutzerin keine Zahl eingegeben hat. Unser Programm ist eigentlich korrekt. Wie können wir den Programmabsturz verhindern? Wie können wir die Nutzerin solange bitten, eine Zahl einzugeben, bis sie wirklich eine Zahl eingibt?

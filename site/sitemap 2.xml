@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/aufgaben/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/einstieg/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/exceptions/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/uebungen/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/wiederholung/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/wrapper/</loc>
-         <lastmod>2022-04-13</lastmod>
+         <lastmod>2022-04-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
