@@ -35,7 +35,7 @@
 	System.out.println(binaryToDecimal("101201"));	// -1
 	```
 
-	6. Implementieren Sie eine Methode `static String toLowerCase(String input)`. Diese Methode wandelt alle Kleinbuchstaben ('a'...'z') in Großbuchstaben um (und nur diese - alle anderen Zeichen bleiben erhalten). Schauen Sie sich dazu auch nochmal die [ASCII-Tabelle](https://freiheit.f4.htw-berlin.de/prog1/variablen/#char) an.
+	6. Implementieren Sie eine Methode `static String toLowerCase(String input)`. Diese Methode wandelt alle Großbuchstaben ('A'...'Z') in Kleinbuchstaben um (und nur diese - alle anderen Zeichen bleiben erhalten). Schauen Sie sich dazu auch nochmal die [ASCII-Tabelle](https://freiheit.f4.htw-berlin.de/prog1/variablen/#char) an.
 
 	7. Testen Sie die Methode `toLowerCase(String input)` z.B. mit den folgenden Aufrufen:
 	```java
