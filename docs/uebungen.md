@@ -64,3 +64,55 @@
 	(()))				// nicht korrekt
 	())(				// nicht korrekt
 	```
+
+
+##### Übung 3 (Exceptions)
+
+??? "Übung 3 (26. + 28.4.)"
+
+	1. Schreiben Sie ein Programm zur Eingabe von zwei Zahlen mithilfe der Klasse `JOptionPane` aus dem und deren Division! Fangen Sie folgende Ausnahmen ab:
+		- Falls die Eingabe keiner Zahl entspricht.
+		- Falls die zweite Zahl eine 0 ist.
+
+	2. **Scenario**:
+		- Fenster zur Eingabe von Zahl 1 öffnet sich: <br/>
+			![uebung2](./files/22_uebung2.png)
+		- falsche Eingabe - keine Zahl:  <br/>
+			![uebung2](./files/23_uebung2.png)
+		- Fenster öffnet sich erneut (andere Nachricht!):  <br/>
+			![uebung2](./files/24_uebung2.png)
+		- Fenster zur Eingabe von Zahl 2 öffnet sich:  <br/>
+			![uebung2](./files/25_uebung2.png)
+		- die Division Zahl1/Zahl2 schlägt fehl (`ArithmeticException`), deshalb (andere Nachricht!):  <br/>
+			![uebung2](./files/26_uebung2.png)
+		- Ergebnis  <br/>
+			![uebung2](./files/27_uebung2.png)
+
+	3. Lagern Sie eine solche Eingabemöglichkeit in eine wiederverwendbare Methode aus, z.B. `public int inputInt(int min, int max)`, welche die eingegebene Zahl zurückgibt, wobei die eingegebene Zahl im Bereich `[min, max]` liegen muss.
+
+	4. Lesen Sie eine Anzahl von Sekunden ein und schreiben Sie eine Umrechnung, so dass folgende Ausgabe entsteht (die Eingabe ist hier über die Konsole gezeigt) :
+		```bash
+		Gib eine Anzahl von Sekunden ein: 3456789
+		3456789 Sekunden sind 40 Tage, 13 Minuten, 9 Sekunden.
+		```
+
+		```bash
+		Gib eine Anzahl von Sekunden ein: 2345678
+		2345678 Sekunden sind 27 Tage, 3 Stunden, 34 Minuten, 38 Sekunden.
+		```
+
+		```bash
+		Gib eine Anzahl von Sekunden ein: 123456
+		123456 Sekunden sind 1 Tag, 10 Stunden, 17 Minuten, 36 Sekunden.
+		```
+
+		```bash
+		Gib eine Anzahl von Sekunden ein: 12345
+		12345 Sekunden sind 3 Stunden, 25 Minuten, 45 Sekunden.		
+		```
+
+	5. Lesen Sie eine Zahl ein und geben Sie die Quersumme der Zahl aus.
+
+
+	**Viel Spaß!**
+

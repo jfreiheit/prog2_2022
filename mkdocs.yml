@@ -67,6 +67,8 @@ nav:
     - Einstieg: einstieg.md
     - Wrapperklassen: wrapper.md
     - Exceptions: exceptions.md 
+    - Aufzählungstypen: enum.md 
+    - Mehrdimensionale Arrays: mdarrays.md 
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md
 

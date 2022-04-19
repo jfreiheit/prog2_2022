@@ -284,6 +284,36 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -328,6 +358,13 @@
         <li class="md-nav__item">
   <a href="#ubung-2-string-und-algorithmisches-denken" class="md-nav__link">
     Übung 2 (String und algorithmisches Denken)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-3-exceptions" class="md-nav__link">
+    Übung 3 (Exceptions)
   </a>
   
 </li>
@@ -390,6 +427,13 @@
         <li class="md-nav__item">
   <a href="#ubung-2-string-und-algorithmisches-denken" class="md-nav__link">
     Übung 2 (String und algorithmisches Denken)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-3-exceptions" class="md-nav__link">
+    Übung 3 (Exceptions)
   </a>
   
 </li>
@@ -481,6 +525,56 @@
 </li>
 </ol>
 </details>
+<h5 id="ubung-3-exceptions">Übung 3 (Exceptions)<a class="headerlink" href="#ubung-3-exceptions" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 3 (26. + 28.4.)</summary><ol>
+<li>
+<p>Schreiben Sie ein Programm zur Eingabe von zwei Zahlen mithilfe der Klasse <code>JOptionPane</code> aus dem und deren Division! Fangen Sie folgende Ausnahmen ab:</p>
+<ul>
+<li>Falls die Eingabe keiner Zahl entspricht.</li>
+<li>Falls die zweite Zahl eine 0 ist.</li>
+</ul>
+</li>
+<li>
+<p><strong>Scenario</strong>:</p>
+<ul>
+<li>Fenster zur Eingabe von Zahl 1 öffnet sich: <br/>
+    <img alt="uebung2" src="../files/22_uebung2.png" /></li>
+<li>falsche Eingabe - keine Zahl:  <br/>
+    <img alt="uebung2" src="../files/23_uebung2.png" /></li>
+<li>Fenster öffnet sich erneut (andere Nachricht!):  <br/>
+    <img alt="uebung2" src="../files/24_uebung2.png" /></li>
+<li>Fenster zur Eingabe von Zahl 2 öffnet sich:  <br/>
+    <img alt="uebung2" src="../files/25_uebung2.png" /></li>
+<li>die Division Zahl1/Zahl2 schlägt fehl (<code>ArithmeticException</code>), deshalb (andere Nachricht!):  <br/>
+    <img alt="uebung2" src="../files/26_uebung2.png" /></li>
+<li>Ergebnis  <br/>
+    <img alt="uebung2" src="../files/27_uebung2.png" /></li>
+</ul>
+</li>
+<li>
+<p>Lagern Sie eine solche Eingabemöglichkeit in eine wiederverwendbare Methode aus, z.B. <code>public int inputInt(int min, int max)</code>, welche die eingegebene Zahl zurückgibt, wobei die eingegebene Zahl im Bereich <code>[min, max]</code> liegen muss.</p>
+</li>
+<li>
+<p>Lesen Sie eine Anzahl von Sekunden ein und schreiben Sie eine Umrechnung, so dass folgende Ausgabe entsteht (die Eingabe ist hier über die Konsole gezeigt) :
+    <div class="highlight"><pre><span></span><code>Gib eine Anzahl von Sekunden ein: <span class="m">3456789</span>
+<span class="m">3456789</span> Sekunden sind <span class="m">40</span> Tage, <span class="m">13</span> Minuten, <span class="m">9</span> Sekunden.
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>Gib eine Anzahl von Sekunden ein: <span class="m">2345678</span>
+<span class="m">2345678</span> Sekunden sind <span class="m">27</span> Tage, <span class="m">3</span> Stunden, <span class="m">34</span> Minuten, <span class="m">38</span> Sekunden.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Gib eine Anzahl von Sekunden ein: <span class="m">123456</span>
+<span class="m">123456</span> Sekunden sind <span class="m">1</span> Tag, <span class="m">10</span> Stunden, <span class="m">17</span> Minuten, <span class="m">36</span> Sekunden.
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Gib eine Anzahl von Sekunden ein: <span class="m">12345</span>
+<span class="m">12345</span> Sekunden sind <span class="m">3</span> Stunden, <span class="m">25</span> Minuten, <span class="m">45</span> Sekunden.     
+</code></pre></div>
+</li>
+<li>
+<p>Lesen Sie eine Zahl ein und geben Sie die Quersumme der Zahl aus.</p>
+</li>
+</ol>
+<p><strong>Viel Spaß!</strong></p>
+</details>
                 
               
               
@@ -500,7 +594,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../exceptions/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Exceptions" rel="prev">
+        <a href="../mdarrays/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Mehrdimensionale Arrays" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -509,7 +603,7 @@
               <span class="md-footer__direction">
                 Zurück
               </span>
-              Exceptions
+              Mehrdimensionale Arrays
             </div>
           </div>
         </a>

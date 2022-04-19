@@ -59,4 +59,859 @@
 
 
 
+##### Aufgabe 3 (Solitaire)
+
+??? "Aufgabe 3"
+
+ 	**Information und Vorbereitung**
+
+ 	Wir wenden [Aufzählungstypen](../enum/#aufzahlungstypen-enum) und [mehrdimensionale Arrays](../mdarrays/#mehrdimensionale-arrays) an. 
+
+ 	Wir beginnen, ein [Englisches Solitär](https://de.wikipedia.org/wiki/Solit%C3%A4r_(Brettspiel)) zu programmieren. Einige kennen es auch als Steckhalma. Ziel des Spiels ist, alle Steine bis auf einen (der am besten in der Mitte übrig bleibt), zu entfernen. Ein Zug ist wie folgt: ein Stein springt über einen anderen Stein und der übersprungene Stein wird entfernt. Es gibt viele [Lösungen](http://www.franks-fundgrube.de/sport/solitaire.html) dafür. Einige Klassen sind bereits gegeben:
+
+ 	??? "Klasse Point.java"
+ 		```java
+ 		package aufgaben.aufgabe3;
+
+		/*
+		 * ein Point repreasentiert eine Position
+		 * im Spielfeld, bestehend aus der Nummer 
+		 * fuer die Zeile (row) und der Nummer
+		 * fuer die Spalte (col)
+		 */
+		public class Point {
+			private int row;
+			private int col;
+			
+			/*
+			 * Konstruktor zur Erzeugung einer 
+			 * Position bestehend aus row und col
+			 */
+			public Point(int row, int col)
+			{
+				this.row = row;
+				this.col = col;
+			}
+			
+			public int getRow() {
+				return this.row;
+			}
+
+			public int getCol() {
+				return this.col;
+			}
+			
+			@Override
+			public String toString()
+			{
+				return "("+ this.row + "," + this.col + ")";
+			}
+		}
+ 		```
+
+ 	??? "Klasse Move.java"
+ 		```java
+		package aufgaben.aufgabe3;
+
+		/*
+		 * diese Klasse repraesentiert einen Zug
+		 * Variablen sind Point from
+		 * und Point to
+		 * es wird nicht geprueft, ob der Zug ueberhaupt
+		 * moeglich ist
+		 */
+		public class Move {
+			private Point from;
+			private Point to;
+			
+			/*
+			 * ein Zug von dem from-Point (fromRow,fromCol)
+			 * zum to-Point (toRow,toCol)
+			 */
+			public Move(int fromRow, int fromCol, int toRow, int toCol)
+			{
+				this.from = new Point(fromRow, fromCol);
+				this.to = new Point(toRow, toCol);
+			}
+			
+			/*
+			 * in dem Konstruktor werden in this.from und this.to nicht einfach
+			 * die Referenzen von from und to gespeichert, sondern davon Kopien
+			 * erstellt, damit das Programm robuster gegen das Aendern von
+			 * Referenzen ist
+			 */
+			public Move(Point from, Point to)
+			{
+				this.from = new Point(from.getRow(), from.getCol());
+				this.to = new Point(to.getRow(), to.getCol());
+			}
+			
+			/*
+			 * der Getter fuer den Point from gibt keine Referenz auf
+			 * den Point from zurueck, sondern eine Kopie (einen Klon)
+			 * von from --> Referenzen koennen "verbogen" werden, aber
+			 * die Kopien bleiben unveraendert
+			 */
+			public Point getFrom()
+			{
+				return new Point(this.from.getRow(), this.from.getCol());
+			}
+			
+			/*
+			 * der Getter fuer den Point to gibt keine Referenz auf
+			 * den Point to zurueck, sondern eine Kopie (einen Klon)
+			 * von to --> Referenzen koennen "verbogen" werden, aber
+			 * die Kopien bleiben unveraendert
+			 */
+			public Point getTo()
+			{
+				return new Point(this.to.getRow(), this.to.getCol());
+			}
+
+		}
+ 
+ 	??? "Klasse Moves.java"
+ 		```java
+		package aufgaben.aufgabe3;
+
+		/*
+		 * diese Klasse repraesentiert eine Folge 
+		 * von Zuegen (Move), die in einem Array
+		 * moves gespeichert sind
+		 */
+		public class Moves {
+			private Move[] moves;
+			
+			/*
+			 * der Konstruktor erstellt ein leeres moves-Array
+			 * (d.h. noch keine Zuege (Moves) gespeichert)
+			 */
+			public Moves()
+			{
+				this.moves = new Move[0];
+			}
+			
+			/*
+			 * der Konstruktor erstellt ein moves-Array mit einem
+			 * Move - dem erste Zug (firstMove) 
+			 */
+			public Moves(Move firstMove)
+			{
+				this.moves = new Move[1];
+				this.moves[0] = firstMove;
+			}
+			
+			/*
+			 * Anzahl der bisher gespeicherten Zuege
+			 */
+			public int getLength()
+			{
+				return this.moves.length;
+			}
+			
+			/*
+			 * fuegt einen Zug (nextMove) zum moves-Array hinzu
+			 * dazu muss das moves-Array um 1 laenger sein als zuvor
+			 * es wird eine Kopie aller Zuege erstellt und dann
+			 * der nextMove hinzugefuegt
+			 */
+			public void addMove(Move nextMove)
+			{
+				Move[] newMoves = new Move[this.moves.length + 1];
+				for (int index = 0; index < this.moves.length; index++) {
+					newMoves[index] = this.moves[index];
+				}
+				newMoves[newMoves.length - 1] = new Move(nextMove.getFrom(), nextMove.getTo());
+				this.moves = newMoves;
+			}
+			
+			/*
+			 * gibt den Move zurueck, der im moves-Array unter dem Index index
+			 * gespeichert ist;
+			 * kann sein, dass index kein korrekter Index im moves-Array ist, 
+			 * dann wird eine IllegalArgumentException geworfen
+			 */
+			public Move getMoveAtIndex(int index) throws IllegalArgumentException
+			{
+				try {
+					return this.moves[index];
+				}
+				catch(ArrayIndexOutOfBoundsException e)
+				{
+					throw new IllegalArgumentException("kein gueltiger Index!");
+				}
+			}
+			
+			/*
+			 * Ausgabe aller im moves-Array gespeicherten Zuege
+			 * wird nur zum Debuggen benoetigt
+			 */
+			public void printMoves()
+			{
+				System.out.printf("%n---%n");
+				for (int index = 0; index < this.moves.length; index++) {
+					Move move = this.moves[index];
+					Point from = move.getFrom();
+					Point to = move.getTo();
+					System.out.println(from.toString() + " --> " + to.toString());
+				}
+				System.out.printf("%n---%n%n");
+			}
+		}
+		```
+ 
+ 	??? "enum State.java"
+ 		```java
+		package aufgaben.aufgabe3;
+
+		/*
+		 * FREE - der Platz ist ein Spielfeld, aber kein Spielstein drauf
+		 * USED - der Platz ist ein Spielfeld mit Spielstein drauf
+		 * NOT  - der Platz gehoert nicht zum Spielfeld
+		 */
+		public enum State {
+			FREE, USED, NOT
+		}		
+		```
+
+ 	**Aufgabe**
+
+ 	Befüllen Sie die Klasse `Solitaire.java`, wie in den Kommentaren beschrieben:
+ 
+ 	??? "Klasse Solitaire.java"
+ 		```java
+		package aufgaben.aufgabe3.loesung;
+
+		public class Solitaire {
+			private Moves game;
+			private State[][] field;
+			
+			public Solitaire()
+			{
+				this.game = new Moves();
+				this.field = new State[7][7];
+				for(int row = 0; row < this.field.length; row++)
+				{
+					for(int col = 0; col < this.field[row].length; col++)
+					{
+						if((row < 2 || row > 4) && (col < 2 || col > 4))
+						{
+							this.field[row][col] = State.NOT;
+						}
+						else
+						{
+							this.field[row][col] = State.USED;
+						}
+					}
+				}
+				this.field[3][3] = State.FREE;
+			}
+			
+			/*
+			 * Geben Sie das Spielfeld aus! Am Anfang sollte auf der
+			 * Konsole so ein Bild erscheinen:
+			 *     o o o     
+			 *     o o o     
+			 * o o o o o o o 
+			 * o o o   o o o 
+			 * o o o o o o o 
+			 *     o o o     
+			 *     o o o 
+			 * 
+			 */
+			public void print()
+			{
+
+			}
+			
+			/*
+			 * diese Methode gibt ein true zurueck, wenn von der
+			 * uebergebenen Position (row,col) ein Zug moeglich ist
+			 * d.h. 
+			 * 1. auf der angegebenen Position muss ein Stein sein
+			 * 2. zwei Steine weiter (oben, unten, rechts oder links)
+			 * 		darf kein Stein sein
+			 * 3. dazwischen muss ein Stein sein
+			 */
+			public boolean possibleFrom(int row, int col)
+			{
+
+				return false;
+			}
+			
+			/*
+			 * diese Methode gibt alle Positionen (Point) zurueck,
+			 * AUF die von (fromRow,fromCol) aus gesprungen werden
+			 * kann
+			 */
+			public Point[] possibleTo(int fromRow, int fromCol)
+			{
+				if(!possibleFrom(fromRow, fromCol)) return new Point[0];
+				
+				/* 
+				 * naechste Zeile muss entfernt werden!
+				 * sttatdessen muessen Sie alle Point-Objekte ermitteln AUF die
+				 * gesprungen werden kann. Diese Point-Objekte werden in einem 
+				 * Point-Array gespeichert, welches zurückgegeben wird.
+				 */
+				return null;
+			}
+			
+			/* 
+			 * diese Methode erzeugt ein Moves-Objekt
+			 * in dieses Moves-Objekt werden mithilfe der
+			 * Objektmethode addMove() (aus Moves) alle
+			 * moeglichen Zuege hinzugefuegt
+			 * (moeglich im aktuellen Zustand von field[][])
+			 */
+			public Moves possibleMoves()
+			{
+				Moves possibleMoves = new Moves();
+
+				// next line for debugging
+				possibleMoves.printMoves();
+				return possibleMoves;
+			}
+				
+			/*
+			 * gibt ein true zurueck, wenn im aktuellen Zustand 
+			 * von field[][] ueberhaupt noch ein Zug moeglich ist
+			 * sonst false
+			 */
+			public boolean movePossible()
+			{
+
+				return false;
+			}
+			
+			/*
+			 * ruft die Methode move(Move move) auf,
+			 * wenn ein Zug moeglich ist (dann true zurueck)
+			 * sonst false
+			 */
+			public boolean moveFirstPossible()
+			{
+				if(!movePossible()) return false;
+				/*
+				 *  hier einen moeglichen Zug ausfuehren
+				 *  den ersten, den Sie finden (siehe
+				 *  possibleMoves() )
+				 */
+				return true;
+			}
+			
+			/*
+			 * hier wird der Zug Move move ausgefuehrt
+			 * nach dem Zug ist 
+			 * 1. die from-Position leer
+			 * 2. die to-Position mit einem Stein besetzt
+			 * 3. dazwischen leer (Stein wird "entfernt")
+			 * falls Zug nicht moeglich, wird eine 
+			 * IllegalArgumentException geworfen 
+			 */
+			public void move(Move move) throws IllegalArgumentException
+			{
+
+			}
+
+		}
+		```
+
+		Sie können selbstverständlich beliebig viele weitere (Hilfs-)Methoden hinzufügen. 
+
+		Testen Sie Ihr Spiel in einer `Testklasse`. Führen Sie einige Züge aus und geben danach immer das Spielfeld auf die Konsole aus. Die Konsole könnte z.B. dann so aussehen:
+ 
+ 	??? "mögliche Konsolenausgaben"
+		```bash
+		    o o o     
+		    o o o     
+		o o o o o o o 
+		o o o   o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(1,3) --> (3,3)
+		(3,1) --> (3,3)
+		(3,5) --> (3,3)
+		(5,3) --> (3,3)
+
+		---
+
+		    o o o     
+		    o   o     
+		o o o   o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,1) --> (2,3)
+		(2,5) --> (2,3)
+		(4,3) --> (2,3)
+
+		---
+
+		    o o o     
+		    o   o     
+		o     o o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(0,2) --> (2,2)
+		(2,4) --> (2,2)
+		(3,3) --> (1,3)
+		(4,1) --> (2,1)
+		(4,2) --> (2,2)
+
+		---
+
+		      o o     
+		        o     
+		o   o o o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(0,4) --> (0,2)
+		(2,3) --> (2,1)
+		(3,2) --> (1,2)
+		(3,3) --> (1,3)
+		(4,1) --> (2,1)
+
+		---
+
+		    o         
+		        o     
+		o   o o o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,3) --> (2,1)
+		(2,4) --> (0,4)
+		(3,2) --> (1,2)
+		(3,3) --> (1,3)
+		(4,1) --> (2,1)
+
+		---
+
+		    o         
+		        o     
+		o o     o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,0) --> (2,2)
+		(2,4) --> (0,4)
+		(2,5) --> (2,3)
+		(4,2) --> (2,2)
+		(4,3) --> (2,3)
+
+		---
+
+		    o         
+		        o     
+		    o   o o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,4) --> (0,4)
+		(2,5) --> (2,3)
+		(3,2) --> (1,2)
+		(4,0) --> (2,0)
+		(4,1) --> (2,1)
+		(4,3) --> (2,3)
+
+		---
+
+		    o   o     
+		              
+		    o     o o 
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,6) --> (2,4)
+		(3,2) --> (1,2)
+		(4,0) --> (2,0)
+		(4,1) --> (2,1)
+		(4,3) --> (2,3)
+		(4,4) --> (2,4)
+
+		---
+
+		    o   o     
+		              
+		    o   o     
+		o o o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,2) --> (1,2)
+		(3,4) --> (1,4)
+		(4,0) --> (2,0)
+		(4,1) --> (2,1)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+
+		---
+
+		    o   o     
+		    o         
+		        o     
+		o o   o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(0,2) --> (2,2)
+		(3,0) --> (3,2)
+		(3,4) --> (1,4)
+		(3,4) --> (3,2)
+		(4,0) --> (2,0)
+		(4,1) --> (2,1)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+		(5,2) --> (3,2)
+
+		---
+
+		        o     
+		              
+		    o   o     
+		o o   o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,0) --> (3,2)
+		(3,4) --> (1,4)
+		(3,4) --> (3,2)
+		(4,0) --> (2,0)
+		(4,1) --> (2,1)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+		(5,2) --> (3,2)
+
+		---
+
+		        o     
+		              
+		    o   o     
+		    o o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,2) --> (1,2)
+		(3,3) --> (3,1)
+		(3,4) --> (1,4)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+
+		---
+
+		        o     
+		    o         
+		        o     
+		      o o o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,4) --> (1,4)
+		(3,4) --> (3,2)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+		(5,2) --> (3,2)
+
+		---
+
+		        o     
+		    o   o     
+		              
+		      o   o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(0,4) --> (2,4)
+		(3,6) --> (3,4)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+		(5,2) --> (3,2)
+		(5,4) --> (3,4)
+
+		---
+
+		              
+		    o         
+		        o     
+		      o   o o 
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,6) --> (3,4)
+		(4,3) --> (2,3)
+		(4,5) --> (2,5)
+		(4,6) --> (2,6)
+		(5,2) --> (3,2)
+		(5,4) --> (3,4)
+
+		---
+
+		              
+		    o         
+		        o     
+		      o o     
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(3,3) --> (3,5)
+		(3,4) --> (1,4)
+		(3,4) --> (3,2)
+		(4,3) --> (2,3)
+		(5,2) --> (3,2)
+
+		---
+
+		              
+		    o         
+		        o     
+		          o   
+		o o o o o o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(4,5) --> (2,5)
+		(5,2) --> (3,2)
+		(5,3) --> (3,3)
+		(5,4) --> (3,4)
+
+		---
+
+		              
+		    o         
+		        o o   
+		              
+		o o o o o   o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(2,4) --> (2,6)
+		(2,5) --> (2,3)
+		(4,3) --> (4,5)
+		(5,2) --> (3,2)
+		(5,3) --> (3,3)
+		(5,4) --> (3,4)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o o o o o   o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(4,3) --> (4,5)
+		(5,2) --> (3,2)
+		(5,3) --> (3,3)
+		(5,4) --> (3,4)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o o o     o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(4,1) --> (4,3)
+		(4,6) --> (4,4)
+		(5,2) --> (3,2)
+		(6,3) --> (4,3)
+		(6,4) --> (4,4)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o     o   o o 
+		    o o o     
+		    o o o     
+
+
+		---
+		(4,6) --> (4,4)
+		(5,3) --> (3,3)
+		(6,2) --> (4,2)
+		(6,4) --> (4,4)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o     o o     
+		    o o o     
+		    o o o     
+
+
+		---
+		(4,3) --> (4,5)
+		(4,4) --> (4,2)
+		(5,3) --> (3,3)
+		(5,4) --> (3,4)
+		(6,2) --> (4,2)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o         o   
+		    o o o     
+		    o o o     
+
+
+		---
+		(6,2) --> (4,2)
+		(6,3) --> (4,3)
+		(6,4) --> (4,4)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o   o     o   
+		      o o     
+		      o o     
+
+
+		---
+		(5,4) --> (5,2)
+		(6,3) --> (4,3)
+		(6,4) --> (4,4)
+		(6,4) --> (6,2)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o   o     o   
+		    o         
+		      o o     
+
+
+		---
+		(4,2) --> (6,2)
+		(5,2) --> (3,2)
+		(6,4) --> (6,2)
+
+		---
+
+		              
+		    o         
+		            o 
+		              
+		o         o   
+		              
+		    o o o     
+
+		              
+		    o         
+		            o 
+		              
+		o         o   
+		              
+		    o o o     
+
+		```
+
+	 	Dabei steht z.B. 
+	 	```bash
+
+			---
+			(1,3) --> (3,3)
+			(3,1) --> (3,3)
+			(3,5) --> (3,3)
+			(5,3) --> (3,3)
+
+			---
+		```
+		für die in dem Zustand darüber möglichen Züge.	
+
+
+
 

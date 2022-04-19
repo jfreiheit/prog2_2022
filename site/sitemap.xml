@@ -16,7 +16,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://freiheit.f4.htw-berlin.de/prog2/enum/</loc>
+         <lastmod>2022-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://freiheit.f4.htw-berlin.de/prog2/exceptions/</loc>
+         <lastmod>2022-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://freiheit.f4.htw-berlin.de/prog2/mdarrays/</loc>
          <lastmod>2022-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -212,3 +212,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 		}
 		```
+
+??? question "18.-22.04.2022 - Exceptions"
+	- siehe [**Exceptions**](./exceptions/#exceptions)
+	- siehe [**Übung 2**](./uebungen/#ubung-3-exceptions)

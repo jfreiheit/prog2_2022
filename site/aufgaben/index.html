@@ -286,6 +286,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -347,6 +377,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-3-solitaire" class="md-nav__link">
+    Aufgabe 3 (Solitaire)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -390,6 +427,13 @@
         <li class="md-nav__item">
   <a href="#aufgabe-2-myinteger" class="md-nav__link">
     Aufgabe 2 (MyInteger)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-3-solitaire" class="md-nav__link">
+    Aufgabe 3 (Solitaire)
   </a>
   
 </li>
@@ -467,6 +511,834 @@
 <li>Testen Sie Ihre Klasse ausführlich in einer <code>Testklasse</code> mit <code>main()</code>-Methode.</li>
 <li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
 </ol>
+</details>
+<h5 id="aufgabe-3-solitaire">Aufgabe 3 (Solitaire)<a class="headerlink" href="#aufgabe-3-solitaire" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 3</summary><p><strong>Information und Vorbereitung</strong></p>
+<p>Wir wenden <a href="../enum/#aufzahlungstypen-enum">Aufzählungstypen</a> und <a href="../mdarrays/#mehrdimensionale-arrays">mehrdimensionale Arrays</a> an. </p>
+<p>Wir beginnen, ein <a href="https://de.wikipedia.org/wiki/Solit%C3%A4r_(Brettspiel)">Englisches Solitär</a> zu programmieren. Einige kennen es auch als Steckhalma. Ziel des Spiels ist, alle Steine bis auf einen (der am besten in der Mitte übrig bleibt), zu entfernen. Ein Zug ist wie folgt: ein Stein springt über einen anderen Stein und der übersprungene Stein wird entfernt. Es gibt viele <a href="http://www.franks-fundgrube.de/sport/solitaire.html">Lösungen</a> dafür. Einige Klassen sind bereits gegeben:</p>
+<details><summary>Klasse Point.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * ein Point repreasentiert eine Position</span>
+<span class="cm"> * im Spielfeld, bestehend aus der Nummer </span>
+<span class="cm"> * fuer die Zeile (row) und der Nummer</span>
+<span class="cm"> * fuer die Spalte (col)</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">row</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">col</span><span class="p">;</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Konstruktor zur Erzeugung einer </span>
+<span class="cm">     * Position bestehend aus row und col</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Point</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">row</span> <span class="o">=</span> <span class="n">row</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">col</span> <span class="o">=</span> <span class="n">col</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getRow</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">row</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getCol</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">col</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;(&quot;</span><span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">row</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">col</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Klasse Move.java</summary><p>```java
+package aufgaben.aufgabe3;</p>
+<p>/*
+ * diese Klasse repraesentiert einen Zug
+ * Variablen sind Point from
+ * und Point to
+ * es wird nicht geprueft, ob der Zug ueberhaupt
+ * moeglich ist
+ */
+public class Move {
+    private Point from;
+    private Point to;</p>
+<div class="codehilite"><pre><span></span><code>/*
+ * ein Zug von dem from-Point (fromRow,fromCol)
+ * zum to-Point (toRow,toCol)
+ */
+public Move(int fromRow, int fromCol, int toRow, int toCol)
+{
+    this.from = new Point(fromRow, fromCol);
+    this.to = new Point(toRow, toCol);
+}
+
+/*
+ * in dem Konstruktor werden in this.from und this.to nicht einfach
+ * die Referenzen von from und to gespeichert, sondern davon Kopien
+ * erstellt, damit das Programm robuster gegen das Aendern von
+ * Referenzen ist
+ */
+public Move(Point from, Point to)
+{
+    this.from = new Point(from.getRow(), from.getCol());
+    this.to = new Point(to.getRow(), to.getCol());
+}
+
+/*
+ * der Getter fuer den Point from gibt keine Referenz auf
+ * den Point from zurueck, sondern eine Kopie (einen Klon)
+ * von from --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber
+ * die Kopien bleiben unveraendert
+ */
+public Point getFrom()
+{
+    return new Point(this.from.getRow(), this.from.getCol());
+}
+
+/*
+ * der Getter fuer den Point to gibt keine Referenz auf
+ * den Point to zurueck, sondern eine Kopie (einen Klon)
+ * von to --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber
+ * die Kopien bleiben unveraendert
+ */
+public Point getTo()
+{
+    return new Point(this.to.getRow(), this.to.getCol());
+}
+</code></pre></div>
+
+<p>}</p>
+</details>
+<details><summary>Klasse Moves.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * diese Klasse repraesentiert eine Folge </span>
+<span class="cm"> * von Zuegen (Move), die in einem Array</span>
+<span class="cm"> * moves gespeichert sind</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Moves</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Move</span><span class="o">[]</span> <span class="n">moves</span><span class="p">;</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * der Konstruktor erstellt ein leeres moves-Array</span>
+<span class="cm">     * (d.h. noch keine Zuege (Moves) gespeichert)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Moves</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">moves</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Move</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * der Konstruktor erstellt ein moves-Array mit einem</span>
+<span class="cm">     * Move - dem erste Zug (firstMove) </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Moves</span><span class="p">(</span><span class="n">Move</span> <span class="n">firstMove</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">moves</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Move</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">firstMove</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Anzahl der bisher gespeicherten Zuege</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getLength</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * fuegt einen Zug (nextMove) zum moves-Array hinzu</span>
+<span class="cm">     * dazu muss das moves-Array um 1 laenger sein als zuvor</span>
+<span class="cm">     * es wird eine Kopie aller Zuege erstellt und dann</span>
+<span class="cm">     * der nextMove hinzugefuegt</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addMove</span><span class="p">(</span><span class="n">Move</span> <span class="n">nextMove</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Move</span><span class="o">[]</span> <span class="n">newMoves</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Move</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="p">.</span><span class="na">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">newMoves</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">newMoves</span><span class="o">[</span><span class="n">newMoves</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Move</span><span class="p">(</span><span class="n">nextMove</span><span class="p">.</span><span class="na">getFrom</span><span class="p">(),</span> <span class="n">nextMove</span><span class="p">.</span><span class="na">getTo</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">moves</span> <span class="o">=</span> <span class="n">newMoves</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * gibt den Move zurueck, der im moves-Array unter dem Index index</span>
+<span class="cm">     * gespeichert ist;</span>
+<span class="cm">     * kann sein, dass index kein korrekter Index im moves-Array ist, </span>
+<span class="cm">     * dann wird eine IllegalArgumentException geworfen</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Move</span> <span class="nf">getMoveAtIndex</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;kein gueltiger Index!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Ausgabe aller im moves-Array gespeicherten Zuege</span>
+<span class="cm">     * wird nur zum Debuggen benoetigt</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printMoves</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n---%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Move</span> <span class="n">move</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">moves</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+            <span class="n">Point</span> <span class="n">from</span> <span class="o">=</span> <span class="n">move</span><span class="p">.</span><span class="na">getFrom</span><span class="p">();</span>
+            <span class="n">Point</span> <span class="n">to</span> <span class="o">=</span> <span class="n">move</span><span class="p">.</span><span class="na">getTo</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; --&gt; &quot;</span> <span class="o">+</span> <span class="n">to</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n---%n%n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>enum State.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * FREE - der Platz ist ein Spielfeld, aber kein Spielstein drauf</span>
+<span class="cm"> * USED - der Platz ist ein Spielfeld mit Spielstein drauf</span>
+<span class="cm"> * NOT  - der Platz gehoert nicht zum Spielfeld</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">State</span> <span class="p">{</span>
+    <span class="n">FREE</span><span class="p">,</span> <span class="n">USED</span><span class="p">,</span> <span class="n">NOT</span>
+<span class="p">}</span>       
+</code></pre></div>
+</details>
+<p><strong>Aufgabe</strong></p>
+<p>Befüllen Sie die Klasse <code>Solitaire.java</code>, wie in den Kommentaren beschrieben:</p>
+<details><summary>Klasse Solitaire.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3.loesung</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solitaire</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Moves</span> <span class="n">game</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Solitaire</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">game</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moves</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">State</span><span class="o">[</span><span class="mi">7</span><span class="o">][</span><span class="mi">7</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">((</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">row</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">col</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">NOT</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Geben Sie das Spielfeld aus! Am Anfang sollte auf der</span>
+<span class="cm">     * Konsole so ein Bild erscheinen:</span>
+<span class="cm">     *     o o o     </span>
+<span class="cm">     *     o o o     </span>
+<span class="cm">     * o o o o o o o </span>
+<span class="cm">     * o o o   o o o </span>
+<span class="cm">     * o o o o o o o </span>
+<span class="cm">     *     o o o     </span>
+<span class="cm">     *     o o o </span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * diese Methode gibt ein true zurueck, wenn von der</span>
+<span class="cm">     * uebergebenen Position (row,col) ein Zug moeglich ist</span>
+<span class="cm">     * d.h. </span>
+<span class="cm">     * 1. auf der angegebenen Position muss ein Stein sein</span>
+<span class="cm">     * 2. zwei Steine weiter (oben, unten, rechts oder links)</span>
+<span class="cm">     *      darf kein Stein sein</span>
+<span class="cm">     * 3. dazwischen muss ein Stein sein</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">possibleFrom</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * diese Methode gibt alle Positionen (Point) zurueck,</span>
+<span class="cm">     * AUF die von (fromRow,fromCol) aus gesprungen werden</span>
+<span class="cm">     * kann</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Point</span><span class="o">[]</span> <span class="nf">possibleTo</span><span class="p">(</span><span class="kt">int</span> <span class="n">fromRow</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fromCol</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">possibleFrom</span><span class="p">(</span><span class="n">fromRow</span><span class="p">,</span> <span class="n">fromCol</span><span class="p">))</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+        <span class="cm">/* </span>
+<span class="cm">         * naechste Zeile muss entfernt werden!</span>
+<span class="cm">         * sttatdessen muessen Sie alle Point-Objekte ermitteln AUF die</span>
+<span class="cm">         * gesprungen werden kann. Diese Point-Objekte werden in einem </span>
+<span class="cm">         * Point-Array gespeichert, welches zurückgegeben wird.</span>
+<span class="cm">         */</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/* </span>
+<span class="cm">     * diese Methode erzeugt ein Moves-Objekt</span>
+<span class="cm">     * in dieses Moves-Objekt werden mithilfe der</span>
+<span class="cm">     * Objektmethode addMove() (aus Moves) alle</span>
+<span class="cm">     * moeglichen Zuege hinzugefuegt</span>
+<span class="cm">     * (moeglich im aktuellen Zustand von field[][])</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Moves</span> <span class="nf">possibleMoves</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Moves</span> <span class="n">possibleMoves</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moves</span><span class="p">();</span>
+
+        <span class="c1">// next line for debugging</span>
+        <span class="n">possibleMoves</span><span class="p">.</span><span class="na">printMoves</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">possibleMoves</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * gibt ein true zurueck, wenn im aktuellen Zustand </span>
+<span class="cm">     * von field[][] ueberhaupt noch ein Zug moeglich ist</span>
+<span class="cm">     * sonst false</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">movePossible</span><span class="p">()</span>
+    <span class="p">{</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * ruft die Methode move(Move move) auf,</span>
+<span class="cm">     * wenn ein Zug moeglich ist (dann true zurueck)</span>
+<span class="cm">     * sonst false</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">moveFirstPossible</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">movePossible</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="cm">/*</span>
+<span class="cm">         *  hier einen moeglichen Zug ausfuehren</span>
+<span class="cm">         *  den ersten, den Sie finden (siehe</span>
+<span class="cm">         *  possibleMoves() )</span>
+<span class="cm">         */</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * hier wird der Zug Move move ausgefuehrt</span>
+<span class="cm">     * nach dem Zug ist </span>
+<span class="cm">     * 1. die from-Position leer</span>
+<span class="cm">     * 2. die to-Position mit einem Stein besetzt</span>
+<span class="cm">     * 3. dazwischen leer (Stein wird &quot;entfernt&quot;)</span>
+<span class="cm">     * falls Zug nicht moeglich, wird eine </span>
+<span class="cm">     * IllegalArgumentException geworfen </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="n">Move</span> <span class="n">move</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Sie können selbstverständlich beliebig viele weitere (Hilfs-)Methoden hinzufügen. </p>
+<p>Testen Sie Ihr Spiel in einer <code>Testklasse</code>. Führen Sie einige Züge aus und geben danach immer das Spielfeld auf die Konsole aus. Die Konsole könnte z.B. dann so aussehen:</p>
+</details>
+<details><summary>mögliche Konsolenausgaben</summary><div class="highlight"><pre><span></span><code>    o o o     
+    o o o     
+o o o o o o o 
+o o o   o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">1</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+
+---
+
+    o o o     
+    o   o     
+o o o   o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+
+---
+
+    o o o     
+    o   o     
+o     o o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">0</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+
+---
+
+      o o     
+        o     
+o   o o o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">0</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">0</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+
+---
+
+    o         
+        o     
+o   o o o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">0</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+
+---
+
+    o         
+        o     
+o o     o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">0</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+
+---
+
+    o         
+        o     
+    o   o o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">0</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+
+---
+
+    o   o     
+
+    o     o o 
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,4<span class="o">)</span>
+
+---
+
+    o   o     
+
+    o   o     
+o o o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+
+---
+
+    o   o     
+    o         
+        o     
+o o   o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">0</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+
+---
+
+        o     
+
+    o   o     
+o o   o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,0<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,0<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+
+---
+
+        o     
+
+    o   o     
+    o o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,1<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+
+---
+
+        o     
+    o         
+        o     
+      o o o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+
+---
+
+        o     
+    o   o     
+
+      o   o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">0</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+        o     
+      o   o o 
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+        o     
+      o o     
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">3</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">1</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">3</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+
+---
+
+
+    o         
+        o     
+          o   
+o o o o o o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+        o o   
+
+o o o o o   o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">2</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,6<span class="o">)</span>
+<span class="o">(</span><span class="m">2</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">2</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o o o o o   o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o o o     o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o     o   o o 
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,6<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o     o o     
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,5<span class="o">)</span>
+<span class="o">(</span><span class="m">4</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,2<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o         o   
+    o o o     
+    o o o     
+
+
+---
+<span class="o">(</span><span class="m">6</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o   o     o   
+      o o     
+      o o     
+
+
+---
+<span class="o">(</span><span class="m">5</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">5</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,3<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">4</span>,4<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">6</span>,2<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o   o     o   
+    o         
+      o o     
+
+
+---
+<span class="o">(</span><span class="m">4</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">6</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">5</span>,2<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,2<span class="o">)</span>
+<span class="o">(</span><span class="m">6</span>,4<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">6</span>,2<span class="o">)</span>
+
+---
+
+
+    o         
+            o 
+
+o         o   
+
+    o o o     
+
+
+    o         
+            o 
+
+o         o   
+
+    o o o     
+</code></pre></div>
+<p>Dabei steht z.B. 
+<div class="highlight"><pre><span></span><code>    ---
+    <span class="o">(</span><span class="m">1</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+    <span class="o">(</span><span class="m">3</span>,1<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+    <span class="o">(</span><span class="m">3</span>,5<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+    <span class="o">(</span><span class="m">5</span>,3<span class="o">)</span> --&gt; <span class="o">(</span><span class="m">3</span>,3<span class="o">)</span>
+
+    ---
+</code></pre></div>
+für die in dem Zustand darüber möglichen Züge.  </p>
+</details>
 </details>
                 
               
