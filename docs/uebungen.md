@@ -90,29 +90,24 @@
 
 	3. Lagern Sie eine solche Eingabemöglichkeit in eine wiederverwendbare Methode aus, z.B. `public int inputInt(int min, int max)`, welche die eingegebene Zahl zurückgibt, wobei die eingegebene Zahl im Bereich `[min, max]` liegen muss.
 
-	4. Lesen Sie eine Anzahl von Sekunden ein und schreiben Sie eine Umrechnung, so dass folgende Ausgabe entsteht (die Eingabe ist hier über die Konsole gezeigt) :
+	4. Lesen Sie eine Zahl ein und geben Sie die Zahl umgedreht (rückwärts gelesen) wieder aus (führende Nullen entfallen):
 		```bash
-		Gib eine Anzahl von Sekunden ein: 3456789
-		3456789 Sekunden sind 40 Tage, 13 Minuten, 9 Sekunden.
+		3456789 --> 9876543
 		```
 
 		```bash
-		Gib eine Anzahl von Sekunden ein: 2345678
-		2345678 Sekunden sind 27 Tage, 3 Stunden, 34 Minuten, 38 Sekunden.
-		```
-
-		```bash
-		Gib eine Anzahl von Sekunden ein: 123456
-		123456 Sekunden sind 1 Tag, 10 Stunden, 17 Minuten, 36 Sekunden.
-		```
-
-		```bash
-		Gib eine Anzahl von Sekunden ein: 12345
-		12345 Sekunden sind 3 Stunden, 25 Minuten, 45 Sekunden.		
+		1000 --> 1
 		```
 
 	5. Lesen Sie eine Zahl ein und geben Sie die Quersumme der Zahl aus.
 
+		```bash
+		123456 --> 21
+		```
+
+		```bash
+		1000 --> 1		
+		```
 
 	**Viel Spaß!**
 
