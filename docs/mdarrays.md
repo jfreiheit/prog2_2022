@@ -8,7 +8,7 @@ Wir geben also den Typ der Elemente an (alle Elemente in einem Array sind vom se
 
 ![mdarrays](./files/17_mdarrays.png)
 
-Wir werden zweidimensionale Arrays betrachten. Vorstellen können wir uns gerade noch dreidimensionale, aber höhere Dimensionen sollten wir gar nicht verwenden, da dies eigentlich nur mit Fehlern behaftet sein kann. In zweidiemensionalen Arrays haben wir nun anstelle eines Indexes zwei. Man kann sich diese Indizes so verstellen, als würde der eine Index die Spalten nummerieren und der andere die Zeilen. Welcher Index wofür steht, bleibt Ihnen überlassen. Wir betrachten ein einführendes Beispiel:
+Wir werden zweidimensionale Arrays betrachten. Vorstellen können wir uns gerade noch dreidimensionale, aber höhere Dimensionen sollten wir gar nicht verwenden, da dies eigentlich nur mit Fehlern behaftet sein kann. In zweidimensionalen Arrays haben wir nun anstelle eines Indexes zwei. Man kann sich diese Indizes so vorstellen, als würde der eine Index die Spalten nummerieren und der andere die Zeilen. Welcher Index wofür steht, bleibt Ihnen überlassen. Wir betrachten ein einführendes Beispiel:
 
 === "zweidimensionales Array für das kleine Einmaleins"
 	```java linenums="1"

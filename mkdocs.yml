@@ -69,6 +69,7 @@ nav:
     - Exceptions: exceptions.md 
     - Aufzählungstypen: enum.md 
     - Mehrdimensionale Arrays: mdarrays.md 
+    - Collections: collections.md 
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md
 

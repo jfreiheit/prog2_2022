@@ -314,6 +314,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -365,6 +380,20 @@
         <li class="md-nav__item">
   <a href="#ubung-3-exceptions" class="md-nav__link">
     Übung 3 (Exceptions)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-4-enum-und-zweidimensionale-arrays" class="md-nav__link">
+    Übung 4 (enum und zweidimensionale Arrays)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-5-listen-und-mengen" class="md-nav__link">
+    Übung 5 (Listen und Mengen)
   </a>
   
 </li>
@@ -434,6 +463,20 @@
         <li class="md-nav__item">
   <a href="#ubung-3-exceptions" class="md-nav__link">
     Übung 3 (Exceptions)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-4-enum-und-zweidimensionale-arrays" class="md-nav__link">
+    Übung 4 (enum und zweidimensionale Arrays)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-5-listen-und-mengen" class="md-nav__link">
+    Übung 5 (Listen und Mengen)
   </a>
   
 </li>
@@ -571,6 +614,229 @@
 </ol>
 <p><strong>Viel Spaß!</strong></p>
 </details>
+<h5 id="ubung-4-enum-und-zweidimensionale-arrays">Übung 4 (enum und zweidimensionale Arrays)<a class="headerlink" href="#ubung-4-enum-und-zweidimensionale-arrays" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 4 (3. + 5.5.)</summary><ol>
+<li>
+<p>Gegeben ist die folgende Klasse <code>TicTacToe</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung2</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
+<span class="p">{</span>
+    <span class="o">???</span> <span class="n">hier</span> <span class="n">soll</span> <span class="n">ein</span> <span class="kd">enum</span> <span class="n">definiert</span> <span class="n">werden</span> <span class="o">???</span>
+    <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">TicTacToe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="k">new</span> <span class="o">???</span><span class="n">welcher</span> <span class="n">Typ</span><span class="o">???[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+          <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="o">???</span><span class="n">welcher</span> <span class="n">Typ</span><span class="o">???</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==???</span><span class="n">was</span> <span class="n">kommt</span> <span class="n">hier</span> <span class="n">hin</span><span class="o">???</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="o">!=???</span><span class="n">was</span> <span class="n">kommt</span> <span class="n">hier</span> <span class="n">hin</span><span class="o">???</span><span class="p">)</span>   
+            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</li>
+<li>
+<p>Fügen Sie die <code>??? ... ???</code> korrekt aus.</p>
+</li>
+<li>Fügen Sie alle notwendigen Klammern <code>{ }</code> ein, so dass die Anweisungsblöcke korrekt geklammert sind. </li>
+<li>
+<p>Erweitern Sie die Klasse <code>TicTacToe</code> um eine <code>print()</code>-Methode, die das Spielfeld auf die Konsole ausgibt (Setzen Sie z.B. für den Player <code>RED</code> ein <code>x</code> und für den Player <code>Black</code> ein <code>o</code> und für <code>EMPTY</code> ein Leerzeichen oder ein <code>-</code>). Die Ausgabe nach jeweils 2 Zügen von <code>RED</code> und <code>BLACK</code> könnte dann z.B. so aussehen: </p>
+<div class="highlight"><pre><span></span><code>- o o 
+- x - 
+- - x 
+</code></pre></div>
+</li>
+<li>
+<p>Erweitern Sie die Klasse <code>TicTacToe</code> um eine <code>gewonnen()</code>-Methode (<code>true</code>, wenn ein Spieler drei Felder horizontal, diagonal oder vertikal belegt hat; ansonsten <code>false</code>).</p>
+</li>
+<li>Erweitern Sie die Klasse <code>TicTacToe</code> um eine <code>unentschieden()</code>-Methode (<code>true</code>, wenn alle Felder besetzt sind, aber kein Spieler gewonnen hat; ansonsten <code>false</code>).</li>
+<li>Erstellen Sie eine Test-Klasse mit <code>main()</code>-Methode. Erstellen sie darin ein Objekt der Klasse <code>TicTacToe</code>. Führen Sie Züge aus (<code>makeMove()</code>) und prüfen Sie, ob gewonnen wurde oder unentschieden ist (mit entsprechenden Ausgaben). </li>
+<li>
+<p>Für 6. müssen Sie in der Testklasse Ihr <code>enum State</code> importieren. Warum ist das so? Was könnten Sie machen, damit das nicht notwendig ist?</p>
+</li>
+<li>
+<p><em>Zusatz:</em> Sie können die Klasse <code>TicTacToe</code> beliebig erweitern, z.B.:</p>
+<ul>
+<li>um Ausgaben, wenn gewonnen bzw. es unentschieden ist,</li>
+<li>um Fehler in den Indizes <code>i</code> und <code>j</code> bei der <code>makeMove()</code>-Methode abzufangen,</li>
+<li>eine Methode <code>spielen()</code> implementieren, die zufällig für die Spieler die Steine setzt usw.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Viel Spaß!</strong></p>
+</details>
+<h5 id="ubung-5-listen-und-mengen">Übung 5 (Listen und Mengen)<a class="headerlink" href="#ubung-5-listen-und-mengen" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 5 (10. + 12.5.)</summary><ol>
+<li>Erstellen Sie eine Klasse <code>Uebung5</code> mit <code>main()</code>-Methode.</li>
+<li>Definieren Sie in der <code>main()</code>-Methode eine Variable <code>words</code> vom Typ <code>String[]</code> und weisen Sie dieser Variablen folgende Werte zu:
+    <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Linux&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Facebook&quot;</span><span class="p">,</span> <span class="s">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s">&quot;IBM&quot;</span><span class="p">,</span> <span class="s">&quot;Lenovo&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;IBM&quot;</span><span class="p">,</span> <span class="s">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;Twitter&quot;</span><span class="p">,</span> <span class="s">&quot;Skype&quot;</span><span class="p">,</span> <span class="s">&quot;Chrome&quot;</span><span class="p">,</span> <span class="s">&quot;Linux&quot;</span><span class="p">,</span> <span class="s">&quot;Firefox&quot;</span><span class="p">};</span>
+</code></pre></div></li>
+</ol>
+<p><strong>A. Listen (<code>List</code>)</strong></p>
+<ol>
+<li>Erstellen Sie eine Methode <code>public static List&lt;String&gt; createArrayList(String[] words)</code>. In dieser Methode soll eine <code>ArrayList</code> erstellt werden. Alle Elemente in dieser Liste sind vom Typ <code>String</code>. Befüllen Sie diese Liste mit allen Wörtern aus dem <code>words</code>-Array. Die Methode gibt die befüllte Liste (<code>List</code>) zurück. </li>
+<li>Erstellen Sie eine Methode <code>public static void printList(List&lt;String&gt; list)</code>. Diese Methode gibt alle Elemente der Liste <code>list</code> auf der Konsole aus. Geben Sie auch die Anzahl der Elemente der Liste aus. </li>
+<li>Erstellen Sie in der <code>main()</code>-Methode mithilfe der Methode <code>createArrayList(words)</code> eine Liste und speichern Sie diese Liste in einer Variablen vom Typ <code>List&lt;String&gt;</code>. Geben Sie alle Elemente dieser Liste mithilfe der Methode <code>printList()</code> auf der Konsole aus. </li>
+<li>
+<p>Studieren Sie alle Methoden für <code>List</code> unter <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html</a>.</p>
+<ul>
+<li>
+<p>Ermitteln Sie den Index in der Liste, in der <code>"Apple"</code> das <strong>erste</strong> Mal auftaucht. Erzeugen Sie folgende Ausgabe: 
+        <div class="highlight"><pre><span></span><code>Index des ersten Auftretens von Apple  : <span class="m">1</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Ermitteln Sie den Index in der Liste, in der <code>"Apple"</code> das <strong>letzte</strong> Mal auftaucht. Erzeugen Sie folgende Ausgabe: 
+        <div class="highlight"><pre><span></span><code>Index des letzten Auftretens von Apple : <span class="m">9</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Geben Sie den Wert des <strong>ersten</strong> Elementes der Liste aus. Erzeugen Sie folgende Ausgabe: 
+        <div class="highlight"><pre><span></span><code>erstes Element der Liste : Linux
+</code></pre></div></p>
+</li>
+<li>
+<p>Geben Sie den Wert des <strong>letzten</strong> Elementes der Liste aus. Erzeugen Sie folgende Ausgabe: 
+        <div class="highlight"><pre><span></span><code>letztes Element der Liste : Firefox
+</code></pre></div></p>
+</li>
+<li>
+<p>Löschen Sie die Werte <code>"Apple"</code>, <code>"Google"</code> und <code>"Facebook"</code>. Geben Sie die Liste erneut mithilfe der <code>printList(list)</code>-Methode aus.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>B. Mengen (<code>Set</code>)</strong></p>
+<ol>
+<li>Erstellen Sie eine Methode <code>public static Set&lt;String&gt; createHashSet(String[] words)</code>. In dieser Methode soll eine <code>HashSet</code> erstellt werden. Alle Elemente in dieser Liste sind vom Typ <code>String</code>. Befüllen Sie diese Liste mit allen Wörtern aus dem <code>words</code>-Array. Die Methode gibt die befüllte Menge (<code>Set</code>) zurück. </li>
+<li>Erstellen Sie eine Methode <code>public static void printSet(Set&lt;String&gt; set)</code>. Diese Methode gibt alle Elemente der Menge <code>set</code> auf der Konsole aus. Geben Sie auch die Anzahl der Elemente der Menge aus. </li>
+<li>Erstellen Sie in der <code>main()</code>-Methode mithilfe der Methode <code>createHashSet(words)</code> eine Menge und speichern Sie diese Menge in einer Variablen vom Typ <code>Set&lt;String&gt;</code>. Geben Sie alle Elemente dieser Menge mithilfe der Methode <code>printSet()</code> auf der Konsole aus. Was beobachten Sie in Bezug auf die Anzahl der Elemente im Vergleich zur Anzahl der Elemente in der Liste? Warum ist das so?</li>
+<li>Erstellen Sie eine Methode <code>public static Set&lt;String&gt; createTreeSet(String[] words)</code>. In dieser Methode soll eine <code>TreeSet</code> erstellt werden. Alle Elemente in dieser Liste sind vom Typ <code>String</code>. Befüllen Sie diese Menge (<code>Set</code>) mit allen Wörtern aus dem <code>words</code>-Array. Die Methode gibt die befüllte Menge (<code>Set</code>) zurück. </li>
+<li>Erstellen Sie in der <code>main()</code>-Methode mithilfe der Methode <code>createTreeSet(words)</code> eine Menge und speichern Sie diese Menge in einer Variablen. Geben Sie alle Elemente dieser Menge mithilfe der Methode <code>printSet()</code> auf der Konsole aus. Was beobachten Sie in Bezug auf die Sortierung der Elemente im Vergleich zur <code>HashSet</code>?</li>
+</ol>
+<p><strong>Zusatz</strong></p>
+<ol>
+<li>Erstellen Sie für die Liste eine Methode <code>public static List&lt;String&gt; findDoublets(List&lt;String&gt; list)</code>. Diese Methode erstellt eine Liste, in der alle Elemente enthalten sind, die in <code>list</code> doppelt vorkommen. Diese Elemente werden dann auch doppelt in die Resultat-Liste übernommen. Geben Sie diese Liste mithilfe der <code>printList()</code>-Methode in der <code>main()</code>-Methode aus.</li>
+</ol>
+<details><summary>Mögliche Ausgabe (je nach Reihenfolge des Aufrufs der Methoden)</summary><div class="highlight"><pre><span></span><code>Liste mit <span class="m">16</span> Elementen :
+--------------------------
+Linux
+Apple
+Facebook
+Amazon
+IBM
+Lenovo
+Google
+IBM
+Microsoft
+Apple
+Google
+Twitter
+Skype
+Chrome
+Linux
+Firefox
+Index des ersten Auftretens von Apple  : <span class="m">1</span>
+Index des letzten Auftretens von Apple : <span class="m">9</span>
+erstes Element <span class="k">in</span> der Liste  : Linux
+letztes Element <span class="k">in</span> der Liste : Firefox
+
+Liste mit <span class="m">13</span> Elementen :
+--------------------------
+Linux
+Amazon
+IBM
+Lenovo
+IBM
+Microsoft
+Apple
+Google
+Twitter
+Skype
+Chrome
+Linux
+Firefox
+
+Doublets-
+Liste mit <span class="m">4</span> Elementen :
+--------------------------
+Linux
+IBM
+IBM
+Linux
+
+ohne Doublets-
+Liste mit <span class="m">9</span> Elementen :
+--------------------------
+Amazon
+Lenovo
+Microsoft
+Apple
+Google
+Twitter
+Skype
+Chrome
+Firefox
+
+Menge mit <span class="m">12</span> Elementen :
+--------------------------
+Lenovo
+Google
+Apple
+Skype
+Linux
+IBM
+Twitter
+Chrome
+Microsoft
+Amazon
+Facebook
+Firefox
+
+Menge mit <span class="m">12</span> Elementen :
+--------------------------
+Amazon
+Apple
+Chrome
+Facebook
+Firefox
+Google
+IBM
+Lenovo
+Linux
+Microsoft
+Skype
+Twitter
+</code></pre></div>
+</details>
+</details>
                 
               
               
@@ -590,7 +856,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../mdarrays/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Mehrdimensionale Arrays" rel="prev">
+        <a href="../collections/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Collections" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -599,7 +865,7 @@
               <span class="md-footer__direction">
                 Zurück
               </span>
-              Mehrdimensionale Arrays
+              Collections
             </div>
           </div>
         </a>

@@ -403,6 +403,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -524,8 +539,8 @@
                 <h1 id="aufzahlungstypen-enum">Aufzählungstypen (enum)<a class="headerlink" href="#aufzahlungstypen-enum" title="Permanent link">&para;</a></h1>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
 <p>Angenommen, Sie wollen mithilfe einer Variablen eine festgelegte Menge an Zuständen beschreiben, z.B.</p>
-<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">Tag</span> <span class="o">=</span> <span class="s">&quot;MONTAG&quot;</span>   <span class="c1">// kann auch Werte &quot;Dienstag&quot; usw. annehmen</span>
-<span class="kt">int</span> <span class="n">Tag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// Magic Number für &quot;Montag&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;MONTAG&quot;</span>   <span class="c1">// kann auch Werte &quot;Dienstag&quot; usw. annehmen</span>
+<span class="kt">int</span> <span class="n">tag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// Magic Number für &quot;Montag&quot;</span>
 </code></pre></div>
 <p>Das Problem: 
 - die Variablen können auch beliebige andere Werte (aus dem jeweiligen Wertebereich) annehmen, z.B. <code>Tag = "hallo"</code> oder <code>Tag=4711</code>,
@@ -562,9 +577,9 @@
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
 <span class="p">{</span>
     <span class="kt">int</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
-    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">EMPTY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">EMPTY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// Feld ist leer</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>       <span class="c1">// auf das Feld hat rot gesetzt</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>     <span class="c1">// auf das Feld hat schwarz gesetzt</span>
 
     <span class="n">TicTacToe</span><span class="p">()</span>
     <span class="p">{</span>
@@ -577,7 +592,7 @@
     <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="kt">int</span> <span class="n">player</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">EMPTY</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="o">==</span><span class="n">RED</span> <span class="o">||</span> <span class="n">player</span><span class="o">==</span><span class="n">BLACK</span><span class="p">)</span>  
-            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>     <span class="c1">// hier wird auf das Feld rot oder schwarz gesetzt</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

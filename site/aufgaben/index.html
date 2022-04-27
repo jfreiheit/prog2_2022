@@ -316,6 +316,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -384,6 +399,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-4-operationen-uber-mengen" class="md-nav__link">
+    Aufgabe 4 (Operationen über Mengen)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -434,6 +456,13 @@
         <li class="md-nav__item">
   <a href="#aufgabe-3-solitaire" class="md-nav__link">
     Aufgabe 3 (Solitaire)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-4-operationen-uber-mengen" class="md-nav__link">
+    Aufgabe 4 (Operationen über Mengen)
   </a>
   
 </li>
@@ -515,7 +544,8 @@
 <h5 id="aufgabe-3-solitaire">Aufgabe 3 (Solitaire)<a class="headerlink" href="#aufgabe-3-solitaire" title="Permanent link">&para;</a></h5>
 <details><summary>Aufgabe 3</summary><p><strong>Information und Vorbereitung</strong></p>
 <p>Wir wenden <a href="../enum/#aufzahlungstypen-enum">Aufzählungstypen</a> und <a href="../mdarrays/#mehrdimensionale-arrays">mehrdimensionale Arrays</a> an. </p>
-<p>Wir beginnen, ein <a href="https://de.wikipedia.org/wiki/Solit%C3%A4r_(Brettspiel)">Englisches Solitär</a> zu programmieren. Einige kennen es auch als Steckhalma. Ziel des Spiels ist, alle Steine bis auf einen (der am besten in der Mitte übrig bleibt), zu entfernen. Ein Zug ist wie folgt: ein Stein springt über einen anderen Stein und der übersprungene Stein wird entfernt. Es gibt viele <a href="http://www.franks-fundgrube.de/sport/solitaire.html">Lösungen</a> dafür. Einige Klassen sind bereits gegeben:</p>
+<p>Wir beginnen, ein <a href="https://de.wikipedia.org/wiki/Solit%C3%A4r_(Brettspiel)">Englisches Solitär</a> zu programmieren. Einige kennen es auch als Steckhalma. Ziel des Spiels ist, alle Steine bis auf einen (der am besten in der Mitte übrig bleibt), zu entfernen. Ein Zug ist wie folgt: ein Stein springt über einen anderen Stein und der übersprungene Stein wird entfernt. Es gibt viele <a href="http://www.franks-fundgrube.de/sport/solitaire.html">Lösungen</a> dafür. </p>
+<p>Teil der Aufgabe ist es auch, "fremden" Code zu lesen und zu verstehen, denn einige Klassen sind bereits gegeben:</p>
 <details><summary>Klasse Point.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
 
 <span class="cm">/*</span>
@@ -554,64 +584,65 @@
 <span class="p">}</span>
 </code></pre></div>
 </details>
-<details><summary>Klasse Move.java</summary><p>```java
-package aufgaben.aufgabe3;</p>
-<p>/*
- * diese Klasse repraesentiert einen Zug
- * Variablen sind Point from
- * und Point to
- * es wird nicht geprueft, ob der Zug ueberhaupt
- * moeglich ist
- */
-public class Move {
-    private Point from;
-    private Point to;</p>
-<div class="codehilite"><pre><span></span><code>/*
- * ein Zug von dem from-Point (fromRow,fromCol)
- * zum to-Point (toRow,toCol)
- */
-public Move(int fromRow, int fromCol, int toRow, int toCol)
-{
-    this.from = new Point(fromRow, fromCol);
-    this.to = new Point(toRow, toCol);
-}
+<details><summary>Klasse Move.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
 
-/*
- * in dem Konstruktor werden in this.from und this.to nicht einfach
- * die Referenzen von from und to gespeichert, sondern davon Kopien
- * erstellt, damit das Programm robuster gegen das Aendern von
- * Referenzen ist
- */
-public Move(Point from, Point to)
-{
-    this.from = new Point(from.getRow(), from.getCol());
-    this.to = new Point(to.getRow(), to.getCol());
-}
+<span class="cm">/*</span>
+<span class="cm"> * diese Klasse repraesentiert einen Zug</span>
+<span class="cm"> * Variablen sind Point from</span>
+<span class="cm"> * und Point to</span>
+<span class="cm"> * es wird nicht geprueft, ob der Zug ueberhaupt</span>
+<span class="cm"> * moeglich ist</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Move</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">from</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">to</span><span class="p">;</span>
 
-/*
- * der Getter fuer den Point from gibt keine Referenz auf
- * den Point from zurueck, sondern eine Kopie (einen Klon)
- * von from --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber
- * die Kopien bleiben unveraendert
- */
-public Point getFrom()
-{
-    return new Point(this.from.getRow(), this.from.getCol());
-}
+    <span class="cm">/*</span>
+<span class="cm">     * ein Zug von dem from-Point (fromRow,fromCol)</span>
+<span class="cm">     * zum to-Point (toRow,toCol)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Move</span><span class="p">(</span><span class="kt">int</span> <span class="n">fromRow</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fromCol</span><span class="p">,</span> <span class="kt">int</span> <span class="n">toRow</span><span class="p">,</span> <span class="kt">int</span> <span class="n">toCol</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">from</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">fromRow</span><span class="p">,</span> <span class="n">fromCol</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">to</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">toRow</span><span class="p">,</span> <span class="n">toCol</span><span class="p">);</span>
+    <span class="p">}</span>
 
-/*
- * der Getter fuer den Point to gibt keine Referenz auf
- * den Point to zurueck, sondern eine Kopie (einen Klon)
- * von to --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber
- * die Kopien bleiben unveraendert
- */
-public Point getTo()
-{
-    return new Point(this.to.getRow(), this.to.getCol());
-}
+    <span class="cm">/*</span>
+<span class="cm">     * in dem Konstruktor werden in this.from und this.to nicht einfach</span>
+<span class="cm">     * die Referenzen von from und to gespeichert, sondern davon Kopien</span>
+<span class="cm">     * erstellt, damit das Programm robuster gegen das Aendern von</span>
+<span class="cm">     * Referenzen ist</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">Move</span><span class="p">(</span><span class="n">Point</span> <span class="n">from</span><span class="p">,</span> <span class="n">Point</span> <span class="n">to</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">from</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="na">getRow</span><span class="p">(),</span> <span class="n">from</span><span class="p">.</span><span class="na">getCol</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">to</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">to</span><span class="p">.</span><span class="na">getRow</span><span class="p">(),</span> <span class="n">to</span><span class="p">.</span><span class="na">getCol</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * der Getter fuer den Point from gibt keine Referenz auf</span>
+<span class="cm">     * den Point from zurueck, sondern eine Kopie (einen Klon)</span>
+<span class="cm">     * von from --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber</span>
+<span class="cm">     * die Kopien bleiben unveraendert</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="nf">getFrom</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">from</span><span class="p">.</span><span class="na">getRow</span><span class="p">(),</span> <span class="k">this</span><span class="p">.</span><span class="na">from</span><span class="p">.</span><span class="na">getCol</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * der Getter fuer den Point to gibt keine Referenz auf</span>
+<span class="cm">     * den Point to zurueck, sondern eine Kopie (einen Klon)</span>
+<span class="cm">     * von to --&gt; Referenzen koennen &quot;verbogen&quot; werden, aber</span>
+<span class="cm">     * die Kopien bleiben unveraendert</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="nf">getTo</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">to</span><span class="p">.</span><span class="na">getRow</span><span class="p">(),</span> <span class="k">this</span><span class="p">.</span><span class="na">to</span><span class="p">.</span><span class="na">getCol</span><span class="p">());</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
 </code></pre></div>
-
-<p>}</p>
 </details>
 <details><summary>Klasse Moves.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
 
@@ -1339,6 +1370,30 @@ o         o
 </code></pre></div>
 für die in dem Zustand darüber möglichen Züge.  </p>
 </details>
+</details>
+<h5 id="aufgabe-4-operationen-uber-mengen">Aufgabe 4 (Operationen über Mengen)<a class="headerlink" href="#aufgabe-4-operationen-uber-mengen" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 4</summary><p>Implementieren Sie eine Klasse <code>SetOperations</code>. </p>
+<ol>
+<li>Erstellen Sie drei Objektvariablen (z.B. <code>numbers1</code>, <code>numbers2</code> und <code>both</code>) vom Typ <code>Set&lt;Integer&gt;</code>. Erzeugen Sie für diese Objektvariablen <code>TreeSet</code>-Objekte.</li>
+<li>Erstellen Sie eine Objektmethode <code>fill()</code>. In dieser Methode sollen die beiden Sets <code>numbers1</code> und <code>numbers2</code> mit Zufallszahlen aus dem Wertebereich <code>0..99</code> befüllt werden. Erzeugen Sie jeweils <code>100</code> Zufallszahlen (die <code>number</code>s-Sets werden dann aber jeweils weniger als 100 Einträge haben, da doppelte Elemente nicht aufgenommen werden.) <br>
+Beachten Sie, dass die <code>nextInt()</code>-Methode ein <code>int</code> zurückliefert. Dieses int muss zunächst in ein <code>Integer</code>-Objekt umgewandelt werden (<code>Integer.valueOf(int)</code>) und dieses <code>Integer</code>-Objekt wird dann dem Set hinzugefügt (wenn es nicht schon enthalten ist).</li>
+<li>Erstellen Sie eine Objektmethode <code>fillBothUnion()</code>. In dieser Methode wird die <code>both</code>-Menge derart befüllt, dass <code>both</code> einer <strong>Vereinigung</strong> der Mengen <code>numbers1</code> und <code>numbers2</code> entspricht. Für Methoden auf Mengen siehe z.B. <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html">https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html</a>.</li>
+<li>Erstellen Sie eine Objektmethode <code>fillBothIntersection()</code>. In dieser Methode wird die <code>both</code>-Menge derart befüllt, dass <code>both</code> einem <strong>Schnitt</strong> der Mengen <code>numbers1</code> und <code>numbers2</code> entspricht. </li>
+<li>Erstellen Sie eine Objektmethode <code>fillBothDifference()</code>. In dieser Methode wird die <code>both</code>-Menge derart befüllt, dass <code>both</code> der <strong>Differenz</strong> der Menge <code>numbers1</code> minus der Menge <code>numbers2</code> entspricht. </li>
+<li>Schreiben Sie eine Methode <code>print()</code> so, dass jede Menge als ein Quadrat (10x10) aus Punkten auf der Konsole erscheint. Es wird ein Punkt gezeichnet, wenn die entsprechende Zahl (die 100 Punkte bilden die Zahlen 0..99 ab) in der Menge enthalten ist und es wird kein Punkt gezeichnet, wenn die Zahl nicht vorhanden ist. (Anstelle von Punkten können Sie auch jedes beliebige Zeichen (<code>o, *, #, x, ...</code>) verwenden). <br>
+Gestalten Sie die Ausgabe so, dass die drei Mengen <code>numbers1</code>, <code>numbers2</code> und <code>both</code> nebeneinander auf der Konsole erscheinen. </li>
+<li>
+<p>Testen Sie alle drei Methoden <code>fillBothUnion()</code>, <code>fillBothIntersection()</code> und <code>fillBothDifference()</code>. Die Ausgabe könnte wie folgt sein (<code>A</code> stellt die Menge <code>numbers1</code> dar, <code>B</code> die Menge <code>numbers2</code> und rechts ist jeweils die <code>both</code>-Menge dargestellt): </p>
+<p><img alt="aufgabe5" src="../files/39_aufgabe5.png" /></p>
+<p><img alt="aufgabe5" src="../files/40_aufgabe5.png" /></p>
+<p><img alt="aufgabe5" src="../files/41_aufgabe5.png" /></p>
+</li>
+</ol>
+<p><strong>Tipps</strong>: </p>
+<ul>
+<li>Für die schwarzen Punkte habe ich das Character <code>'\u25cf'</code> verwendet (ein passendes Leerzeichen dazu ist <code>'\u2009'</code>). Das Zeichen für die Vereinigung ist <code>'\u222a'</code> und für den Schnitt <code>'\u2229'</code>. </li>
+<li>Schauen Sie sich auch im Skript <a href="./collections/#mengenoperationen">Mengenoperationen</a> an. </li>
+</ul>
 </details>
                 
               

@@ -5,8 +5,8 @@
 Angenommen, Sie wollen mithilfe einer Variablen eine festgelegte Menge an Zuständen beschreiben, z.B.
 
 ```java
-String Tag = "MONTAG" 	// kann auch Werte "Dienstag" usw. annehmen
-int Tag = 0; 			// Magic Number für "Montag"
+String tag = "MONTAG" 	// kann auch Werte "Dienstag" usw. annehmen
+int tag = 0; 			// Magic Number für "Montag"
 ```
 
 Das Problem: 
@@ -46,9 +46,9 @@ Das Problem:
 	public class TicTacToe 
 	{
 		int[][] field;
-		static final int EMPTY = 0;
-		static final int RED = 1;
-		static final int BLACK = 2;
+		static final int EMPTY = 0;		// Feld ist leer
+		static final int RED = 1;		// auf das Feld hat rot gesetzt
+		static final int BLACK = 2;		// auf das Feld hat schwarz gesetzt
 
 		TicTacToe()
 		{
@@ -61,7 +61,7 @@ Das Problem:
 		void makeMove(int i, int j, int player)
 		{
 			if(field[i][j]==EMPTY && player==RED || player==BLACK) 	
-				field[i][j]=player;
+				field[i][j]=player;		// hier wird auf das Feld rot oder schwarz gesetzt
 		}
 	}
 	```
