@@ -65,6 +65,134 @@
 	())(				// nicht korrekt
 	```
 
+??? success "Eine mögliche Lösung für Übung 2"
+	```java
+	package uebungen.uebung2.loesung;
+
+	public class Uebung2 {
+		
+		public static boolean isBinaryNumber(String s)
+		{
+			for(int index=0; index < s.length(); index++)
+			{
+				char c = s.charAt(index);
+				if(!(c=='0' || c=='1'))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+		
+		public static int binaryToDecimal(String s)
+		{
+			if(isBinaryNumber(s))
+			{
+				int decimalValue = 0;
+				for(int index=0; index < s.length(); index++)
+				{
+					char c = s.charAt(index);
+					int value = c - '0';
+					decimalValue = decimalValue * 2 + value;
+				}
+				return decimalValue;
+			}
+			else return -1;
+		}
+		
+		public static String toLowerCase(String input)
+		{
+			String output = "";
+			for(int index=0; index < input.length(); index++)
+			{
+				char c = input.charAt(index);
+				if(c >= 'A' && c<= 'Z')
+				{
+					c = (char)(c + 32);
+				}
+				output += c;
+			}
+			return output;
+		}
+			
+		public static boolean isPalindrome(String input)
+		{
+			String s = toLowerCase(input);
+			boolean palindrome = true;
+			while(palindrome && s.length() > 1)
+			{
+				char c1 = s.charAt(0); 
+				char c2 = s.charAt(s.length() - 1);
+				if(c1 == c2)
+				{
+					s = s.substring(1,s.length() - 1);
+				}
+				else 
+				{
+					palindrome = false;
+				}
+			}
+			return palindrome;
+		}
+			
+		public static boolean checkBraces(String input)
+		{
+			int nrOpening = 0;	// man koennte auch fuer jede oeffnende ++ und
+			int nrClosing = 0;	// jede schliessende -- und dann nur eine Variable
+			boolean correct = true;
+			for(int index=0; correct && index < input.length(); index++)
+			{
+				char c = input.charAt(index);
+				if(c== '(') 
+				{
+					nrOpening++;
+				}
+				else if(c== ')') 
+				{
+					nrClosing++;
+				}
+				
+				if(nrClosing > nrOpening)	// dann waere hier < 0
+				{
+					correct = false;
+				}
+			}
+			if(nrOpening != nrClosing) 		// dann waere hier == 0
+			{
+				correct = false;
+			}
+			return correct;
+		}
+
+		public static void main(String[] args) {
+			System.out.println(isBinaryNumber("101101"));	// true
+			System.out.println(isBinaryNumber("0"));		// true
+			System.out.println(isBinaryNumber("101a01"));	// false
+			System.out.println(isBinaryNumber("101201"));	// false
+
+			System.out.println(binaryToDecimal("101101"));	// 45
+			System.out.println(binaryToDecimal("0"));		// 0
+			System.out.println(binaryToDecimal("000001"));	// 1
+			System.out.println(binaryToDecimal("100000"));	// 32
+			System.out.println(binaryToDecimal("101a01"));	// -1
+			System.out.println(binaryToDecimal("101201"));	// -1
+			
+			System.out.println(toLowerCase("abcdEFG"));		// abcdefg
+			System.out.println(toLowerCase("abcd123EFG"));	// abcd123efg
+			System.out.println(toLowerCase("ABC XYZ !%"));	// abc xyz !%
+		
+			System.out.println(isPalindrome("Otto"));		// true
+			System.out.println(isPalindrome("abc_CBA"));	// true
+			System.out.println(isPalindrome("abc_-CBA"));	// false
+			System.out.println(isPalindrome("-"));			// true
+			System.out.println(isPalindrome("Dreh mal am Herd"));	// false
+			// das letzte waere okay, wenn man bei der Pruefung
+			// die Leerzeichen ignorieren wuerde, waere auch moeglich
+		}
+
+	}
+	```
+
 
 ##### Übung 3 (Exceptions)
 
@@ -110,6 +238,161 @@
 		```
 
 	**Viel Spaß!**
+
+??? success "Eine mögliche Lösung für Übung 3"
+	```java
+	package uebungen.uebung3.loesung;
+
+	import javax.swing.JOptionPane;
+
+	public class Uebung3 
+	{
+		public static int inputInt(String message)
+		{
+			int number = 0;
+			boolean notANumber = true;
+			while(notANumber)
+			{
+				String input = JOptionPane.showInputDialog(message);
+		
+				try 
+				{
+					number = Integer.parseInt(input);
+					notANumber = false;
+				} 
+				catch (NumberFormatException e) 
+				{
+					message = "Ihre Eingabe war keine Zahl!";
+				}
+			}
+			return number;
+		}
+		
+		public static int inputInt(String message, int min, int max)
+		{
+			int number = 0;
+			boolean notANumber = true;
+			while(notANumber)
+			{
+				String input = JOptionPane.showInputDialog(message);
+		
+				try 
+				{
+					number = Integer.parseInt(input);
+					if(number >= min && number <= max)
+					{
+						notANumber = false;
+					}
+					else
+					{
+						message = "Zahl nicht zwischen " + min + " und " + max +" !";
+					}
+				} 
+				catch (NumberFormatException e) 
+				{
+					message = "Ihre Eingabe war keine Zahl!";
+				}
+			}
+			return number;
+		}
+		
+		public static void printDivide()
+		{
+			int number1 = inputInt("Zahl 1:");
+			int number2 = 0;
+			double result = 0.0;
+			
+			boolean isZero = true;
+			String message = "Zahl 2:";
+			
+			while(isZero)
+			{
+				number2 = inputInt(message);
+		
+				try 
+				{
+					result = number1 / number2;
+					isZero = false;
+				} 
+				catch (ArithmeticException e) 
+				{
+					message = "Zahl darf nicht 0 sein";
+				}
+			}
+			String output = number1 + " / " + number2 + " = " + result;
+			
+			JOptionPane.showMessageDialog(null, output);
+		}
+		
+		public static void printReverse()
+		{
+			int number = inputInt("Zahl : ");
+			int copyNumber = number;		// fuer spaetere Ausgabe
+			int reverse = 0;
+			
+			while(number != 0)
+			{
+				int last = number % 10; 
+				reverse = reverse * 10 + last;
+				number = number / 10;	
+			}
+			
+			String output = copyNumber + " --> " + reverse;
+			JOptionPane.showMessageDialog(null, output); 
+		}
+		
+		
+		public static void printChecksum()
+		{
+			int number = inputInt("Zahl : ");
+			int copyNumber = number;		// fuer spaetere Ausgabe
+			int checksum = 0;
+			
+			while(number != 0)
+			{
+				int last = number % 10; 
+				checksum = checksum + last;
+				number = number / 10;	
+			}
+			
+			String output = "Die Quersumme von " + copyNumber + " ist " + checksum;
+			JOptionPane.showMessageDialog(null, output); 
+		}
+
+		public static void main(String[] args) 
+		{
+			
+			  int number1 = inputInt("Geben Sie eine Zahl ein :");
+			  System.out.println(number1);
+
+			  int choice = JOptionPane.showConfirmDialog(null, "Wollen Sie weiterspielen?",
+			  "Abfrage", JOptionPane.YES_NO_OPTION); 
+			  System.out.println(choice);
+			  
+			  if(choice == JOptionPane.YES_OPTION) 
+			  { 
+				  System.out.println("yes geklickt"); 
+			  }
+			  if(choice == JOptionPane.NO_OPTION) 
+			  { 
+				  System.out.println("no geklickt"); 
+			  }
+			  if(choice == JOptionPane.CANCEL_OPTION) 
+			  { 
+				  System.out.println("no geklickt");
+			  }
+			 
+			  printDivide();
+			
+			  printReverse();
+			  
+			  printChecksum();
+
+		}
+
+	}
+	```
+
 
 ##### Übung 4 (enum und zweidimensionale Arrays)
 

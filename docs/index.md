@@ -215,7 +215,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 ??? question "18.-22.04.2022 - Exceptions"
 	- siehe [**Exceptions**](./exceptions/#exceptions)
-	- siehe [**Übung 2**](./uebungen/#ubung-3-exceptions)
+	- siehe [**Übung 2**](./uebungen/#ubung-2-string-und-algorithmisches-denken)
 
 	??? "Quellcode aus der Vorlesung - Klasse Vorlesung0420.java"
 		```java
@@ -411,3 +411,9 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		    }
 		}
 		```
+
+
+??? question "25.-29.04.2022 - Exceptions"
+	- siehe [**Exceptions**](./exceptions/#exceptions)
+	- siehe [**Übung 3**](./uebungen/#ubung-3-exceptions)
+	- siehe [**Aufgabe 3**](./aufgaben/#aufgabe-3-solitaire)
