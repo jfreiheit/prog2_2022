@@ -1765,7 +1765,7 @@
 
 ??? "Übung 6 (17. + 19.5.)"
 
-	1. Erstellen Sie eine Klasse `Uebung5` mit `main()`-Methode.
+	1. Erstellen Sie eine Klasse `Uebung6` mit `main()`-Methode.
 	2. Definieren Sie in der `main()`-Methode eine Variable `words` vom Typ `String[]` und weisen Sie dieser Variablen folgende Werte zu:
 		```java
 		String[] words = {"Linux", "Apple", "Facebook", "Amazon", "IBM", "Lenovo", "Google", "IBM", "Microsoft", "Apple", "Google", "Twitter", "Skype", "Chrome", "Linux", "Firefox"};

@@ -391,6 +391,21 @@
   
   
     <li class="md-nav__item">
+      <a href="maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -995,6 +1010,145 @@
 <li>siehe <a href="./uebungen/#ubung-3-exceptions"><strong>Übung 3</strong></a></li>
 <li>siehe <a href="./aufgaben/#aufgabe-3-solitaire"><strong>Aufgabe 3</strong></a></li>
 </ul>
+</details>
+<details class="question"><summary>02.-06.05.2022 - Aufzählungstypen und mehrdimensionale Arrays</summary><ul>
+<li>siehe <a href="./enum/#aufzahlungstypen-enum"><strong>Aufzählungstypen</strong></a></li>
+<li>siehe <a href="./mdarrays/#mehrdimensionale-arrays"><strong>Mehrdimensionale Arrays</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-4-string"><strong>Übung 4</strong></a></li>
+</ul>
+<details><summary>Quellcode aus der Vorlesung - Klasse Vorlesung0504.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vorlesung0504</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">IllegalSideLengthException</span><span class="p">,</span> <span class="n">IllegalTriangleException</span>
+    <span class="p">{</span>
+        <span class="n">Triangle</span> <span class="n">t1</span><span class="p">;</span>
+
+
+        <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
+        <span class="n">t1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">test</span><span class="p">();</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IllegalSideLengthException</span> <span class="o">|</span> <span class="n">IllegalTriangleException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Programmende&quot;</span><span class="p">);</span>
+
+
+        <span class="n">Tag</span> <span class="n">day</span> <span class="o">=</span> <span class="n">Tag</span><span class="p">.</span><span class="na">MONTAG</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">day</span> <span class="o">==</span> <span class="n">Tag</span><span class="p">.</span><span class="na">DIENSTAG</span><span class="p">)</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+
+        <span class="kt">int</span><span class="o">[][]</span> <span class="n">zda</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">zda</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">zda</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">zda</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">row</span> <span class="o">*</span> <span class="n">col</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Laenge &quot;</span> <span class="o">+</span> <span class="n">zda</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">zda</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">zda</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;[%d][%d] &quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Quellcode aus der Vorlesung - Klasse IllegalTriangleException.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IllegalTriangleException</span> <span class="kd">extends</span> <span class="n">RuntimeException</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">IllegalTriangleException</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">IllegalTriangleException</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Each side has to be smaller than the sum of the other sides.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Quellcode aus der Vorlesung - Klasse IllegalSideLengthException.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IllegalSideLengthException</span> <span class="kd">extends</span> <span class="n">RuntimeException</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">IllegalSideLengthException</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">IllegalSideLengthException</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Each side has to be greater than zero!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Quellcode aus der Vorlesung - Klasse Triangle.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung00504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Triangle</span>
+<span class="p">{</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+
+        <span class="kd">public</span> <span class="nf">Triangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalSideLengthException</span><span class="p">,</span> <span class="n">IllegalTriangleException</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span><span class="n">b</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span><span class="n">c</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalSideLengthException</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span><span class="n">b</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span><span class="n">c</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalTriangleException</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Quellcode aus der Vorlesung - enum Tag.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">Tag</span> <span class="p">{</span>
+    <span class="n">MONTAG</span><span class="p">,</span> <span class="n">DIENSTAG</span><span class="p">,</span> <span class="n">MITTWOCH</span><span class="p">,</span> <span class="n">DONNERSTAG</span><span class="p">,</span> <span class="n">FREITAG</span><span class="p">,</span> <span class="n">SAMSTAG</span><span class="p">,</span> <span class="n">SONNTAG</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Quellcode aus der Vorlesung - enum Player.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0504</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">Player</span> 
+<span class="p">{</span>
+    <span class="n">RED</span><span class="p">,</span> <span class="n">BLACK</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
 </details>
                 
               

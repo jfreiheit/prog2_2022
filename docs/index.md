@@ -417,3 +417,156 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 	- siehe [**Exceptions**](./exceptions/#exceptions)
 	- siehe [**Übung 3**](./uebungen/#ubung-3-exceptions)
 	- siehe [**Aufgabe 3**](./aufgaben/#aufgabe-3-solitaire)
+
+
+??? question "02.-06.05.2022 - Aufzählungstypen und mehrdimensionale Arrays"
+	- siehe [**Aufzählungstypen**](./enum/#aufzahlungstypen-enum)
+	- siehe [**Mehrdimensionale Arrays**](./mdarrays/#mehrdimensionale-arrays)
+	- siehe [**Übung 4**](./uebungen/#ubung-4-string)
+
+	??? "Quellcode aus der Vorlesung - Klasse Vorlesung0504.java"
+		```java
+		package vorlesungen.vorlesung0504;
+
+		public class Vorlesung0504 {
+			
+			public static void test() throws IllegalSideLengthException, IllegalTriangleException
+			{
+				Triangle t1;
+
+
+				t1 = new Triangle(3,4,8);
+				t1.print();
+			}
+
+			public static void main(String[] args) 
+			{
+
+				try {
+					test();
+				} catch (IllegalSideLengthException | IllegalTriangleException e) {
+					
+					System.out.println(e.getMessage());
+				}
+
+			
+				System.out.println("Programmende");
+
+				
+				Tag day = Tag.MONTAG;
+				
+				if(day == Tag.DIENSTAG)
+				{
+					
+				}
+				
+				int[][] zda = new int[3][4];
+				for(int row = 0; row < zda.length; row++)
+				{
+					for(int col = 0; col < zda[row].length; col++)
+					{
+						zda[row][col] = row * col;
+					}
+				}
+				
+				System.out.println("Laenge " + zda.length);
+				
+				for(int row = 0; row < zda.length; row++)
+				{
+					for(int col = 0; col < zda[row].length; col++)
+					{
+						System.out.printf("[%d][%d] ", row, col);
+					}
+					System.out.println();
+				}
+			}
+
+		}
+		```
+
+	??? "Quellcode aus der Vorlesung - Klasse IllegalTriangleException.java"
+		```java
+		package vorlesungen.vorlesung0504;
+
+		public class IllegalTriangleException extends RuntimeException
+		{
+			public IllegalTriangleException(String s)
+			{
+				super(s);
+			}
+			
+			public IllegalTriangleException()
+			{
+				super("Each side has to be smaller than the sum of the other sides.");
+			}
+		}
+		```
+
+	??? "Quellcode aus der Vorlesung - Klasse IllegalSideLengthException.java"
+		```java
+		package vorlesungen.vorlesung0504;
+
+		public class IllegalSideLengthException extends RuntimeException
+		{
+			public IllegalSideLengthException(String s)
+			{
+				super(s);
+			}
+			
+			public IllegalSideLengthException()
+			{
+				super("Each side has to be greater than zero!");
+			}
+		}
+		```
+
+	??? "Quellcode aus der Vorlesung - Klasse Triangle.java"
+		```java
+		package vorlesungen.vorlesung00504;
+
+		public class Triangle
+		{
+		        private int a;
+			    private int b;
+			    private int c;
+
+			    public Triangle(int a, int b, int c) throws IllegalSideLengthException, IllegalTriangleException
+			    {
+			    	if(a <= 0 ||b <= 0 ||c <= 0 )
+			    	{
+			    		throw new IllegalSideLengthException();
+			    	}
+			    	else if(a > (b+c) ||b > (a+c) ||c > (a+b) )
+			    	{
+			    		throw new IllegalTriangleException();
+			    	}
+			    	else
+			    	{
+				        this.a = a;
+				        this.b = b;
+				        this.c = c;
+			    	}
+			    }
+		}
+		```
+
+	??? "Quellcode aus der Vorlesung - enum Tag.java"
+		```java
+		package vorlesungen.vorlesung0504;
+
+		public enum Tag {
+			MONTAG, DIENSTAG, MITTWOCH, DONNERSTAG, FREITAG, SAMSTAG, SONNTAG
+		}
+		```
+
+	??? "Quellcode aus der Vorlesung - enum Player.java"
+		```java
+		package vorlesungen.vorlesung0504;
+
+		public enum Player 
+		{
+		    RED, BLACK
+		}
+		```
+
+

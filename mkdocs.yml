@@ -70,6 +70,7 @@ nav:
     - Aufzählungstypen: enum.md 
     - Mehrdimensionale Arrays: mdarrays.md 
     - Collections: collections.md 
+    - Maps: maps.md
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md
 
