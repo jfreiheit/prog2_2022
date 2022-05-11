@@ -43,9 +43,9 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 1. | 04.-08.04.2022 | [Organisatorisches](#), [Wiederholung](./wiederholung/#datentypen), [Einstieg](./einstieg/#einstieg) | - | - | - | 
 | 1. | 11.-15.04.2022 | [Wrapper-Klassen (boxing und unboxing)](./wrapper/#wrapper-klassen)| [Übung 1](./uebungen/#ubung-1-wiederholung-und-codereview) |[Aufgabe 1](./aufgaben/#aufgabe-1-wurfelspiel) | 25.04.2022 | 
 | 2. | 18.-22.04.2022 | [Exceptions](./exceptions/#exceptions) | [Übung 2](./uebungen/#ubung-2-string-und-algorithmisches-denken) |[Aufgabe 2](./aufgaben/#aufgabe-2-myinteger) | 02.05.2022 | 
-| 3. | 25.-29.04.2022 | Testen mit JUnit | Übung 3 |Aufgabe 3 | 09.05.2022 | 
-| 4. | 02.-06.05.2022 | Collections (List und Set) | Übung 4 |Aufgabe 4 | 16.05.2022 | 
-| 5. | 09.-13.05.2022 | Collections (Map) | Übung 5 |Aufgabe 5 | 23.05.2022 | 
+| 3. | 25.-29.04.2022 | Testen mit JUnit | Übung 3 |Aufgabe 3 | 16.05.2022 | 
+| 4. | 02.-06.05.2022 | Collections (List und Set) | Übung 4 |Aufgabe 4 | 23.05.2022 | 
+| 5. | 09.-13.05.2022 | Collections (Map) | Übung 5 |Aufgabe 5 | 30.05.2022 | 
 | 6. | 16.-20.05.2022 | Abstrakte Klassen| Übung 6 | - | - | 
 | 7. | 23.-27.05.2022 | Interfaces | Übung 7 |Aufgabe 6 | 06.06.2022 | 
 | 8. | 30.-03.06.2022 | GUI Einführung | Übung 8 |Aufgabe 7 | 13.06.2022 | 
@@ -568,5 +568,130 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		    RED, BLACK
 		}
 		```
+
+??? question "09.-13.05.2022 - Collections Lists und Sets"
+	- siehe [**Collections**](./collections/#collections)
+	- siehe [**Übung 6**](./uebungen/#ubung-6-listen-und-mengen)
+	- siehe [**Aufgabe 4**](./aufgaben/#aufgabe-4-operationen-uber-mengen)
+
+	??? "Quellcode aus der Vorlesung - Klasse Vorlesung0511.java"
+		```java
+		package vorlesungen.vorlesung0511;
+
+		import java.util.ArrayList;
+		import java.util.HashSet;
+		import java.util.Iterator;
+		import java.util.LinkedList;
+		import java.util.List;
+		import java.util.Random;
+		import java.util.Set;
+		import java.util.TreeSet;
+
+		public class Vorlesung0511 
+		{
+
+			public static void main(String[] args) 
+			{
+				List<Integer> list1 = new ArrayList<>();
+				List<String> list2 = new LinkedList<>();
+				
+				Set<String> set1 = new HashSet<>();
+				Set<Integer> set2 = new TreeSet<>();
+				
+				String str1 = "erster";
+				String str2 = "zweiter";
+				String str3 = "dritter";
+				String str4 = "zweiter";
+				
+				System.out.printf("%n%n----------- Elemente zu set1 hinzufuegen --------------%n%n");
+				
+				System.out.println("empty ? " + set1.isEmpty());
+				System.out.println("hinzugefuegt ? " + set1.add(str1));
+				System.out.println("hinzugefuegt ? " + set1.add(str2));
+				System.out.println("hinzugefuegt ? " + set1.add(str3));
+				System.out.println("hinzugefuegt ? " + set1.add(str4));
+				System.out.println("empty ? " + set1.isEmpty());
+				
+				System.out.println("erster in set1 ? " + set1.contains("erster"));
+				
+				System.out.println("Laenge von set1 : " + set1.size());
+				
+				// set1.add(new Random());  // Fehler wg. Set<String>
+				
+				System.out.println("Laenge von set1 : " + set1.size());
+				
+				
+				set2.add(3);		// hier Auto-Boxing!
+				
+				set1.add(Integer.toString(1));
+				
+				System.out.printf("%n%n----------- alle Elemente aus set1 ausgeben --------------%n%n");
+				for(String element : set1)
+				{
+					System.out.println(element);
+				}
+				
+				// set1.remove("dritter");		// wuerde gehen
+				
+				
+				System.out.printf("%n%n----------- Iterator von set1 --------------%n%n");
+
+				Iterator<String> it = set1.iterator();
+				while(it.hasNext())
+				{
+					String next = it.next();
+					if(next.equals("dritter"))
+					{
+						it.remove();		// loescht aus set1
+					}
+					System.out.println(next);
+				}
+				
+				System.out.printf("%n%n----------- nochmal alle Elemente aus set1 ausgeben --------------%n%n");
+				
+				for(String element : set1)
+				{
+					System.out.println(element);
+				}
+				
+				System.out.printf("%n%n----------- list1 --------------%n%n");
+				
+				list1.add(3);	// Integer 3 hinzufuegen - Auto-Boxing!
+				list1.add(5);	// Integer 5 hinzufuegen - Auto-Boxing!
+				
+				for(Integer element : list1)
+				{
+					System.out.println(element);
+				}
+				
+				System.out.println("Element an Index 1 :" + list1.get(1));
+				// System.out.println(list1.get(2));
+				
+				list1.add(4);	// Integer 4 hinzufuegen - Auto-Boxing!
+				
+				for(Integer element : list1)
+				{
+					System.out.println(element);
+				}
+				
+				list1.remove(1);	// Integer-Objekt 5  Index 1
+				list1.remove(1);	// Integer-Objekt 4  Index 1
+				
+				System.out.println("size : " + list1.size());
+				
+
+				System.out.printf("%n%n----------- nur noch die 3 in list1 --------------%n%n");	
+				for(Integer element : list1)
+				{
+					System.out.println(element);
+				}
+				
+				System.out.println(list1.get(0));
+
+			}
+
+		}
+		```
+
 
 

@@ -568,7 +568,7 @@
 <td>Testen mit JUnit</td>
 <td>Übung 3</td>
 <td>Aufgabe 3</td>
-<td>09.05.2022</td>
+<td>16.05.2022</td>
 </tr>
 <tr>
 <td>4.</td>
@@ -576,7 +576,7 @@
 <td>Collections (List und Set)</td>
 <td>Übung 4</td>
 <td>Aufgabe 4</td>
-<td>16.05.2022</td>
+<td>23.05.2022</td>
 </tr>
 <tr>
 <td>5.</td>
@@ -584,7 +584,7 @@
 <td>Collections (Map)</td>
 <td>Übung 5</td>
 <td>Aufgabe 5</td>
-<td>23.05.2022</td>
+<td>30.05.2022</td>
 </tr>
 <tr>
 <td>6.</td>
@@ -1146,6 +1146,129 @@
 <span class="kd">public</span> <span class="kd">enum</span> <span class="n">Player</span> 
 <span class="p">{</span>
     <span class="n">RED</span><span class="p">,</span> <span class="n">BLACK</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question"><summary>09.-13.05.2022 - Collections Lists und Sets</summary><ul>
+<li>siehe <a href="./collections/#collections"><strong>Collections</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-6-listen-und-mengen"><strong>Übung 6</strong></a></li>
+<li>siehe <a href="./aufgaben/#aufgabe-4-operationen-uber-mengen"><strong>Aufgabe 4</strong></a></li>
+</ul>
+<details><summary>Quellcode aus der Vorlesung - Klasse Vorlesung0511.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0511</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vorlesung0511</span> 
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">set2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="n">String</span> <span class="n">str1</span> <span class="o">=</span> <span class="s">&quot;erster&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">str3</span> <span class="o">=</span> <span class="s">&quot;dritter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">str4</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- Elemente zu set1 hinzufuegen --------------%n%n&quot;</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;empty ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hinzugefuegt ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">str1</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hinzugefuegt ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">str2</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hinzugefuegt ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">str3</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hinzugefuegt ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">str4</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;empty ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;erster in set1 ? &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;erster&quot;</span><span class="p">));</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Laenge von set1 : &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+        <span class="c1">// set1.add(new Random());  // Fehler wg. Set&lt;String&gt;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Laenge von set1 : &quot;</span> <span class="o">+</span> <span class="n">set1</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+
+        <span class="n">set2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>        <span class="c1">// hier Auto-Boxing!</span>
+
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- alle Elemente aus set1 ausgeben --------------%n%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">element</span> <span class="p">:</span> <span class="n">set1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// set1.remove(&quot;dritter&quot;);      // wuerde gehen</span>
+
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- Iterator von set1 --------------%n%n&quot;</span><span class="p">);</span>
+
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">set1</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">String</span> <span class="n">next</span> <span class="o">=</span> <span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">next</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;dritter&quot;</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">it</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>        <span class="c1">// loescht aus set1</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">next</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- nochmal alle Elemente aus set1 ausgeben --------------%n%n&quot;</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">element</span> <span class="p">:</span> <span class="n">set1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- list1 --------------%n%n&quot;</span><span class="p">);</span>
+
+        <span class="n">list1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>   <span class="c1">// Integer 3 hinzufuegen - Auto-Boxing!</span>
+        <span class="n">list1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>   <span class="c1">// Integer 5 hinzufuegen - Auto-Boxing!</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">element</span> <span class="p">:</span> <span class="n">list1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Element an Index 1 :&quot;</span> <span class="o">+</span> <span class="n">list1</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+        <span class="c1">// System.out.println(list1.get(2));</span>
+
+        <span class="n">list1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>   <span class="c1">// Integer 4 hinzufuegen - Auto-Boxing!</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">element</span> <span class="p">:</span> <span class="n">list1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">list1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    <span class="c1">// Integer-Objekt 5  Index 1</span>
+        <span class="n">list1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>    <span class="c1">// Integer-Objekt 4  Index 1</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;size : &quot;</span> <span class="o">+</span> <span class="n">list1</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n----------- nur noch die 3 in list1 --------------%n%n&quot;</span><span class="p">);</span>    
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">element</span> <span class="p">:</span> <span class="n">list1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list1</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="p">}</span>
+
 <span class="p">}</span>
 </code></pre></div>
 </details>
