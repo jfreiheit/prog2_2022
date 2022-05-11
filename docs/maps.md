@@ -6,7 +6,7 @@ Obwohl Maps Collections sind, wurde für sie nicht das Interface [Collection](ht
 
 #### Statt `add()` und `addAll()` hier `put()` und `putAll()`
 
-Da nicht das `Collections`-Interface für `Maps`implementiert wurde, erfolgt das Hinzufügen eines Schlüssel-Werte-Paares zu einer `Map` leider auch nicht über `add()` bzw. das Hinzufügen einer Collection nicht über `addAll()`, sondern über 
+Da nicht das `Collections`-Interface für `Maps` implementiert wurde, erfolgt das Hinzufügen eines Schlüssel-Werte-Paares zu einer `Map` leider auch nicht über `add()` bzw. das Hinzufügen einer Collection nicht über `addAll()`, sondern über 
 
 - `put(K key, V value)` und
 - `putAll(Map m)`.
@@ -67,9 +67,9 @@ public class Maps {
 
 - In Zeile `8` wird unsere `Map` erzeugt. Die Referenzvariable auf die `Map` heißt `m`. Die Schlüssel sind vom Typ `String` und die Werte sind vom Typ `Double`. Das konkrete Objekt wird durch den Aufruf des Konstruktors der Klasse `HashMap` erzeugt. 
 - In Zeile `9` fügen wir mithilfe der `put()`-Methode ein neues Schlüssel-Werte-Paar hinzu. Der Schlüssel (*key*) ist `"s0512345"`, der Wert (*value*) ist `1.7`. Beachten Sie, dass hier ein *Auto-Boxing* des `double`-Wertes `1.7` in ein `Double` stattfindet. 
-- In Zeile `10` fügen wir mithilfe der `put()`-Methode ein weiters Schlüssel-Werte-Paar hinzu. Der Schlüssel (*key*) ist `"s0587654"`, der Wert (*value*) ist `2.3` (erneut *Auto-Boxing*). 
+- In Zeile `10` fügen wir mithilfe der `put()`-Methode ein weiteres Schlüssel-Werte-Paar hinzu. Der Schlüssel (*key*) ist `"s0587654"`, der Wert (*value*) ist `2.3` (erneut *Auto-Boxing*). 
 - In Zeile `11` wird erneut die `put()`-Methode aufgerufen. Der Schlüssel `"s0512345"` existiert jedoch bereits. Deshalb wird nur der Wert geändert. Aus dem alten Wert `1.7` wird nun `2.7`. Die `Map` enthält nach dieser Anweisung (noch nur) **zwei** Einträge. 
-- In Zeile `12` fügen wir mithilfe der `put()`-Methode ein weiters Schlüssel-Werte-Paar hinzu. Der Schlüssel (*key*) ist `"s0555555"`, der Wert (*value*) ist `3.0` (erneut *Auto-Boxing*). 
+- In Zeile `12` fügen wir mithilfe der `put()`-Methode ein weiteres Schlüssel-Werte-Paar hinzu. Der Schlüssel (*key*) ist `"s0555555"`, der Wert (*value*) ist `3.0` (erneut *Auto-Boxing*). 
 
 Nach diesen Anweisungen sieht unsere Map also wie folgt aus (die Überschriften der Tabelle dienen nur der Orientierung):
 
