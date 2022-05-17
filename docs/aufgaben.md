@@ -944,5 +944,84 @@
 
 
 
+##### Aufgabe 5 (Maps)
+
+??? "Aufgabe 5"
+
+	1. Testen Sie folgenden Code:
+
+		```java
+		long a = 1000;
+		Integer b = 1000; 		
+		Integer c = 1000; 		
+		System.out.println(a == b);
+		System.out.println(b == c);
+		```
+
+		Was stellen Sie fest und warum? Ändern Sie den Vergleich der Variablen `b` und `c` so, dass `true` ausgegeben wird. Die ersten drei Zeilen bleiben dabei unverändert. Sie benötigen also einen anderen Vergleich als `b == c`. 
+
+	2. Erstellen Sie eine Klasse `PizzaMenu`. Erzeugen Sie darin eine `HashMap` und fügen Sie folgende Pizzen mit ihren Preisen ein:
+
+		| Pizza | Preis | 
+		|-------|-------|
+		|Margherita |7,00 |
+		|Veggie	|7,50 |
+		|Salami	|8,50 |
+		|Schinken |8,50 |
+
+	3. Schreiben Sie eine Methode `public static boolean existingPizza(Map<String,Double> menu, String pizza)`, die testet, ob eine eingegebene Pizza im Menü existiert. 
+
+	4. Schreiben Sie eine Methode `public static void printPrice(Map<String,Double> menu, String pizza)`, die für eine eingegebene Pizza den Preis ausgibt. Verwenden Sie dazu `existingPizza()`. Beispielausgabe: 
+
+		```bash
+		Salami: 8.50 Euro
+		Hawaii: Diese Pizza gibt es nicht.
+		```
+
+	5. Schreiben Sie eine `printMenu()`-Methode, die ausgibt, wie viele Pizzen es im Menü gibt. Wenn das Menü nicht leer ist, sollen zudem alle Pizzen mit ihrem Preis ausgegeben werden. Beispielausgabe:
+
+		```bash
+		// Beispiel fuer leeres Menue
+		##############
+		Das Menu enthält 0 Pizzen.
+		##############
+		```
+
+		```bash
+		// Beispiel fuer Menue
+		##############
+		Das Menu enthält 4 Pizzen.
+		Pizza Margherita: 7.00 Euro
+		Pizza Salami: 8.50 Euro
+		Pizza Schinken: 8.50 Euro
+		Pizza Veggie: 7.50 Euro
+		##############
+		```		
+
+	6. Ändern Sie den Preis der `Schinken`-Pizza in der `HashMap` zu `8,20`. 
+
+	7. Schreiben Sie eine Methode `public static void affordablePizza(Map<String,Double> menu, double maxPrice)`, die alle Pizzen ausgibt, die man sich für einen bestimmten Betrag leisten kann. Beispielausgabe:
+
+		```bash
+		Eingegebener Betrag: 4.0 Euro
+		Leider gibt es zu diesem Preis keine Pizza.
+		Eingegebener Betrag: 8.0 Euro
+		Mögliche Pizzen: [Margherita, Veggie]
+		```
+
+	8. Das Menu wird überarbeitet, löschen Sie daher alle Einträge. Füllen Sie das Menü anschließend mit diesen neuen Pizzen:
+
+		| Pizza | Preis | 
+		|-------|-------|
+		|Verde |7,00 |
+		|Hawaii	|8,20 |
+		|Tradizionale	|8,50 |
+
+	9. Legen Sie ein zweites Menü an und kopieren Sie alle Einträge aus dem ersten Menü hinein. Löschen Sie im zweiten Menü die Pizza `Hawaii` und geben Sie die Namen aller noch verfügbaren Pizzen aus.
+
+	10. Finden Sie in Ihrem Code ein Beispiel für Auto-Boxing und schreiben Sie einen entsprechenden Kommentar.
+
+
+
 
 

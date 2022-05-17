@@ -43,7 +43,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 1. | 04.-08.04.2022 | [Organisatorisches](#), [Wiederholung](./wiederholung/#datentypen), [Einstieg](./einstieg/#einstieg) | - | - | - | 
 | 1. | 11.-15.04.2022 | [Wrapper-Klassen (boxing und unboxing)](./wrapper/#wrapper-klassen)| [Übung 1](./uebungen/#ubung-1-wiederholung-und-codereview) |[Aufgabe 1](./aufgaben/#aufgabe-1-wurfelspiel) | 25.04.2022 | 
 | 2. | 18.-22.04.2022 | [Exceptions](./exceptions/#exceptions) | [Übung 2](./uebungen/#ubung-2-string-und-algorithmisches-denken) |[Aufgabe 2](./aufgaben/#aufgabe-2-myinteger) | 02.05.2022 | 
-| 3. | 25.-29.04.2022 | Testen mit JUnit | Übung 3 |Aufgabe 3 | 16.05.2022 | 
+| 3. | 25.-29.04.2022 | Aufgabe 2 besprochen | Übung 3 |Aufgabe 3 | 16.05.2022 | 
 | 4. | 02.-06.05.2022 | Collections (List und Set) | Übung 4 |Aufgabe 4 | 23.05.2022 | 
 | 5. | 09.-13.05.2022 | Collections (Map) | Übung 5 |Aufgabe 5 | 30.05.2022 | 
 | 6. | 16.-20.05.2022 | Abstrakte Klassen| Übung 6 | - | - | 

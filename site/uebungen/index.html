@@ -420,6 +420,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ubung-7-maps" class="md-nav__link">
+    Übung 7 (Maps)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -506,6 +513,13 @@
         <li class="md-nav__item">
   <a href="#ubung-6-listen-und-mengen" class="md-nav__link">
     Übung 6 (Listen und Mengen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-7-maps" class="md-nav__link">
+    Übung 7 (Maps)
   </a>
   
 </li>
@@ -2242,6 +2256,127 @@ public class StringPi
 </ol>
 <p><strong>Viel Spaß!</strong></p>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 4</summary><div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Uebung4.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung4</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung4</span> 
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">nrOfOccurrences</span><span class="p">(</span><span class="n">String</span> <span class="n">sub</span><span class="p">,</span> <span class="n">String</span> <span class="n">str</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">nrOfOccurrences</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">LENGTH_OF_SUBSTRING</span> <span class="o">=</span> <span class="n">sub</span><span class="p">.</span><span class="na">length</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">str</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">-</span><span class="n">LENGTH_OF_SUBSTRING</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="n">LENGTH_OF_SUBSTRING</span><span class="p">).</span><span class="na">equals</span><span class="p">(</span><span class="n">sub</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">nrOfOccurrences</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">nrOfOccurrences</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">testAllCombinations</span><span class="p">(</span><span class="n">String</span> <span class="n">str</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">String</span> <span class="n">sub</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">maxOcc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">maxSub</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i1</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i2</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i2</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i3</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i3</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i4</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i4</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i4</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">sub</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i3</span><span class="p">)</span> <span class="o">+</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i4</span><span class="p">);</span>
+                        <span class="kt">int</span> <span class="n">nrOfOccurrences</span> <span class="o">=</span> <span class="n">nrOfOccurrences</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+                        <span class="k">if</span><span class="p">(</span><span class="n">nrOfOccurrences</span> <span class="o">&gt;=</span> <span class="n">maxOcc</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="n">maxOcc</span> <span class="o">=</span> <span class="n">nrOfOccurrences</span><span class="p">;</span>
+                            <span class="n">maxSub</span> <span class="o">=</span> <span class="n">sub</span><span class="p">;</span>
+                            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">maxOcc</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">maxSub</span><span class="p">);</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">String</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">StringPi</span><span class="p">.</span><span class="na">PI</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">nrOO</span> <span class="o">=</span> <span class="n">nrOfOccurrences</span><span class="p">(</span><span class="s">&quot;2541&quot;</span><span class="p">,</span> <span class="n">pi</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nrOO</span><span class="p">);</span>
+
+        <span class="n">testAllCombinations</span><span class="p">(</span><span class="n">pi</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="ubung-5-enum-und-zweidimensionale-arrays">Übung 5 (enum und zweidimensionale Arrays)<a class="headerlink" href="#ubung-5-enum-und-zweidimensionale-arrays" title="Permanent link">&para;</a></h5>
 <details><summary>Übung 5 (10. + 12.5.)</summary><ol>
 <li>
@@ -2319,6 +2454,453 @@ public class StringPi
 </li>
 </ol>
 <p><strong>Viel Spaß!</strong></p>
+</details>
+<details class="question"><summary>mögliche Lösung für Übung 5</summary><div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TicTacToe.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung5</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
+<span class="p">{</span>
+
+    <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">TicTacToe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">State</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="n">State</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">row</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span> 
+                <span class="o">&amp;&amp;</span> <span class="n">col</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">col</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span> 
+                <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">player</span><span class="o">!=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span> 
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">row</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">col</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;- &quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;x &quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="c1">// BLACK</span>
+                <span class="p">{</span>
+                    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;o &quot;</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">gewonnen</span><span class="p">(</span><span class="n">State</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">player</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="c1">// alle drei Zeilen pruefen</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">row</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// alle drei Spalten pruefen</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">col</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Diagonale von links oben nach rechts unten</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Diagonale von rechts oben nach links unten</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printResultat</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Rot hat gewonnen!!!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">BLACK</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Schwarz hat gewonnen!!!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">unentschieden</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Unentschieden!!!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">makeRandomMove</span><span class="p">(</span><span class="n">State</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">player</span> <span class="o">!=</span> <span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Random</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+            <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+            <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+            <span class="k">while</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]!=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+                <span class="n">col</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">spielen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">State</span> <span class="n">player</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">unentschieden</span><span class="p">()</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">)</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">BLACK</span><span class="p">)))</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">makeRandomMove</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">printResultat</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">player</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">player</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">BLACK</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">player</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// player = (player == State.RED) ? State.BLACK : State.RED;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">voll</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">row</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">col</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">unentschieden</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">voll</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">RED</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">gewonnen</span><span class="p">(</span><span class="n">State</span><span class="p">.</span><span class="na">BLACK</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">State.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung5</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">State</span> <span class="p">{</span>
+    <span class="n">EMPTY</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLACK</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">TestTicTacToe.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung5</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestTicTacToe</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">TicTacToe</span> <span class="n">ttt</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TicTacToe</span><span class="p">();</span>
+        <span class="n">ttt</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="cm">/*</span>
+<span class="cm">        ttt.makeMove(1, 1, State.RED);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(1, 2, State.BLACK);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(1, -1, State.BLACK);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(0, 1, State.RED);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(2, 1, State.BLACK);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(1, 0, State.RED);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(0, 0, State.BLACK);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(0, 2, State.RED);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(2, 0, State.BLACK);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        ttt.makeMove(2, 2, State.RED);</span>
+<span class="cm">        ttt.printResultat();</span>
+<span class="cm">        ttt.print();</span>
+<span class="cm">        */</span>
+        <span class="n">ttt</span><span class="p">.</span><span class="na">spielen</span><span class="p">();</span>
+        <span class="c1">// ttt.makeRandomMove(State.RED);</span>
+        <span class="c1">// ttt.print();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 </details>
 <h5 id="ubung-6-listen-und-mengen">Übung 6 (Listen und Mengen)<a class="headerlink" href="#ubung-6-listen-und-mengen" title="Permanent link">&para;</a></h5>
 <details><summary>Übung 6 (17. + 19.5.)</summary><ol>
@@ -2464,6 +3046,448 @@ Skype
 Twitter
 </code></pre></div>
 </details>
+</details>
+<h5 id="ubung-7-maps">Übung 7 (Maps)<a class="headerlink" href="#ubung-7-maps" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 7</summary><ol>
+<li>
+<p>Erstellen Sie eine Klasse <code>Stadt</code> mit folgenden Objektvariablen:</p>
+<ul>
+<li><code>String name;</code></li>
+<li><code>List&lt;Integer&gt; bevoelkerung;</code></li>
+<li><code>float flaeche;</code></li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie für die Klasse <code>Stadt</code> einen parametrisierten Konstruktor <code>public Stadt(String name, List&lt;Integer&gt; bevoelkerung, float flaeche)</code>, der die Objektvariablen initialisiert.</p>
+</li>
+<li>Erstellen Sie für die Klasse <code>Stadt</code> eine <code>print()</code>-Methode, so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.):
+    <div class="highlight"><pre><span></span><code>Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div></li>
+<li>Erstellen Sie eine Klasse <code>StadtTest</code> mit <code>main()</code>-Methode. Kopieren Sie in die Klasse die Methode <code>public static Stadt[] staedte()</code> hinein:
+    <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+    <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+    <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+    <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+    <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+    <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+    <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+    <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+    <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+    <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+    <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+    <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+<span class="p">}</span>       
+</code></pre></div></li>
+</ol>
+<p><strong>Liste</strong></p>
+<ol>
+<li>Erstellen Sie in der <code>main()</code>-Methode eine <code>List&lt;Stadt&gt; staedteListe = new ArrayList&lt;&gt;();</code>. Fügen Sie der <code>staedteListe</code> alle Städte aus dem durch Aufruf der <code>staedte()</code>-Methode erzeugtem Array zu.</li>
+<li>Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der <code>print()</code>-Methode aus der Klasse <code>Stadt</code> aus.</li>
+</ol>
+<p><strong>Menge</strong></p>
+<ol>
+<li>Erstellen Sie in der <code>main()</code>-Methode eine <code>Set&lt;Stadt&gt; staedteMenge = new HashSet&lt;&gt;();</code>. Fügen Sie der <code>staedteMenge</code> alle Städte aus dem durch Aufruf der <code>staedte()</code>-Methode erzeugtem Array zu.</li>
+<li>Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der <code>print()</code>-Methode aus der Klasse <code>Stadt</code> aus.</li>
+<li>Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?</li>
+</ol>
+<p><strong>Stadt - Teil 2</strong></p>
+<ol>
+<li>Implementieren Sie in der Klasse <code>Stadt</code> die <code>equals(Object)</code>- und die <code>hashCode()</code>-Methode.</li>
+<li>Führen Sie danach die <code>StadtTest</code>-Klasse erneut aus. Was hat sich an der Menge geändert?</li>
+</ol>
+<p><strong>Maps</strong></p>
+<ol>
+<li>Erstellen Sie in der <code>main()</code>-Methode eine <code>Map&lt;Integer, Stadt&gt; staedteMap = new HashMap&lt;&gt;();</code>. Fügen Sie der <code>staedteMap</code> einen fortlaufenden, eindeutigen <code>Integer</code>-Wert beginnend mit <code>1</code> als <em>Key</em> sowie alle alle Städte aus dem durch Aufruf der <code>staedte()</code>-Methode erzeugtem Array als <em>Value</em> hinzu.</li>
+<li>Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der <code>print()</code>-Methode aus der Klasse <code>Stadt</code> aus. Beginnen Sie die Zeile jeweils mit der Ausgabe des <em>Keys</em>.</li>
+</ol>
+<p><strong>Ausgaben</strong></p>
+<div class="highlight"><pre><span></span><code>------------ Liste --------------
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+
+------------ Menge --------------
+Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+
+------------ Maps --------------
+<span class="m">1</span>  Berlin            <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+<span class="m">2</span>  Hamburg           <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+<span class="m">3</span>  Muenchen          <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+<span class="m">4</span>  Koeln             <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+<span class="m">5</span>  Frankfurt/Main    <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+<span class="m">6</span>  Berlin            <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div>
+</details>
+<details class="info"><summary>von Frau Busjahn vorkommentierten Klassen</summary><div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Stadt.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">//import</span>
+
+<span class="c1">//1. Erstellen Sie eine Klasse Stadt mit folgenden Objektvariablen:</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span> 
+<span class="p">{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">flaeche</span><span class="p">;</span>
+
+    <span class="c1">//2. Erstellen Sie für die Klasse Stadt einen parametrisierten Konstruktor </span>
+    <span class="c1">//public Stadt(String name, List&lt;Integer&gt; bevoelkerung, float flaeche), </span>
+    <span class="c1">//der die Objektvariablen initialisiert.</span>
+    <span class="kd">public</span> <span class="nf">Stadt</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">,</span> <span class="kt">float</span> <span class="n">flaeche</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Da es sich um einen Konstruktor einer Kindklasse handelt, sollte zuerst explizit der Konstruktor der Elternklasse aufrufen werden</span>
+        <span class="c1">//kann aber wie implements erst später ergänzt werden</span>
+
+        <span class="c1">//Objektvariablen initialisieren</span>
+        <span class="k">this</span><span class="p">.</span><span class="o">???</span> <span class="o">=</span> <span class="o">???</span><span class="p">;</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+
+    <span class="c1">//3. Erstellen Sie für die Klasse Stadt eine print()-Methode, </span>
+    <span class="c1">//so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.): </span>
+    <span class="c1">//Berlin     891,68 km2    3.382.169   3.460.725   3.574.830</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Namen der Stadt, ihre Fläche und &quot;km2&quot; ausgeben</span>
+
+        <span class="c1">//mithilfe einer Schleife oder Iterator Einträge der Bevölkerungs-Liste ausgeben</span>
+        <span class="c1">//Beispiel für Schleife: </span>
+        <span class="c1">//https://freiheit.f4.htw-berlin.de/prog2/collections/#die-for-each-schleife</span>
+        <span class="c1">//Beispiel für Iterator:</span>
+        <span class="c1">//https://freiheit.f4.htw-berlin.de/prog2/collections/#listen</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">//Teil 2</span>
+    <span class="c1">//1. Implementieren Sie in der Klasse Stadt die equals(Object)- und die hashCode()-Methode.</span>
+    <span class="c1">//Führen Sie danach die StadtTest-Klasse erneut aus. Was hat sich an der Menge geändert?</span>
+    <span class="c1">//Kommentieren Sie hashCode() wieder aus und führen StadtTest erneut aus. Was ändert sich?</span>
+    <span class="c1">//Kommentieren Sie equals() wieder aus und führen StadtTest erneut aus. Was ändert sich?</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Es soll getestet werden, ob der Name des übergebenen Stadt-Objekts o gleich dem Namen des aktuellen Stadt-Objekts ist</span>
+        <span class="c1">//Vorher müssen erst ein paar Fälle abgeklärt werden:       </span>
+        <span class="c1">// wenn übergebenes Objekt o null ist, gib false zurück</span>
+        <span class="c1">// wenn übergebenes Objekt o gleich dem aktuellen Objekt der Klasse ist, gib true zurück</span>
+        <span class="c1">// wenn die Laufzeitklasse des übergebenen Objekts o nicht gleich der Laufzeitklasse des aktuellen Objekts ist,</span>
+        <span class="c1">// gib false zurück</span>
+
+        <span class="c1">//Wenn diese drei Fälle nicht eingetreten sind:</span>
+        <span class="c1">//Stadt-Objekt anlegen vom übergebenen Objekt o     </span>
+        <span class="c1">//testen ob der Name des übergebenen Stadt-Objekts gleich dem Namen des aktuellen Stadt-Objekts ist</span>
+        <span class="c1">//Ergebnis zurückgeben      </span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Hashcode des Stadtnamens zurückgeben</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">StadtTest.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">//import </span>
+
+<span class="c1">//4. Erstellen Sie eine Klasse StadtTest mit main()-Methode. </span>
+<span class="c1">//Kopieren Sie in die Klasse die Methode public static Stadt[] staedte() hinein: </span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+        <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>   
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Liste --------------%n&quot;</span><span class="p">);</span>
+
+        <span class="c1">//1. Erstellen Sie in der main()-Methode eine List&lt;Stadt&gt; staedteListe = new ArrayList&lt;&gt;();. </span>
+        <span class="c1">//Fügen Sie der staedteListe alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteListe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">//durch staedte iterieren und die Städte zur staedteListe hinzufügen</span>
+
+        <span class="c1">//2. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung </span>
+        <span class="c1">//der print()-Methode aus der Klasse Stadt aus.</span>
+
+        <span class="c1">//durch staedteListe iterieren und für jeden Eintrag die print()-Methode aufrufen</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Menge --------------%n&quot;</span><span class="p">);</span>
+
+        <span class="c1">//1. Erstellen Sie in der main()-Methode eine Set&lt;Stadt&gt; staedteMenge = new HashSet&lt;&gt;();. </span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">//Fügen Sie der staedteMenge alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.</span>
+
+        <span class="c1">//analog zur gleichen Aufgabe mit der Liste oben</span>
+
+            <span class="c1">//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der </span>
+            <span class="c1">//print()-Methode aus der Klasse Stadt aus.</span>
+            <span class="c1">//analog zur gleichen Aufgabe mit der Liste oben</span>
+
+        <span class="c1">//Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?</span>
+
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Maps --------------%n&quot;</span><span class="p">);</span>
+
+        <span class="c1">//1. Erstellen Sie in der main()-Methode eine Map&lt;Integer, Stadt&gt; staedteMap = new HashMap&lt;&gt;();. </span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">//Fügen Sie der staedteMap einen fortlaufenden, eindeutigen Integer-Wert beginnend mit 1 als Key </span>
+        <span class="c1">//sowie alle alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array als Value hinzu.</span>
+
+            <span class="c1">//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der print()-Methode aus der Klasse Stadt aus. </span>
+            <span class="c1">//Beginnen Sie die Zeile jeweils mit der Ausgabe des Keys.</span>
+
+        <span class="c1">//Beispiel, wie man eine Map durchgeht: https://freiheit.f4.htw-berlin.de/prog2/maps/#durch-eine-map-laufen</span>
+        <span class="c1">//erst den key ausgeben</span>
+        <span class="c1">//dann die Werte</span>
+
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 </details>
                 
               

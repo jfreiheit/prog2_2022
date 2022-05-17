@@ -421,6 +421,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-5-maps" class="md-nav__link">
+    Aufgabe 5 (Maps)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -478,6 +485,13 @@
         <li class="md-nav__item">
   <a href="#aufgabe-4-operationen-uber-mengen" class="md-nav__link">
     Aufgabe 4 (Operationen über Mengen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-5-maps" class="md-nav__link">
+    Aufgabe 5 (Maps)
   </a>
   
 </li>
@@ -1409,6 +1423,117 @@ Gestalten Sie die Ausgabe so, dass die drei Mengen <code>numbers1</code>, <code>
 <li>Für die schwarzen Punkte habe ich das Character <code>'\u25cf'</code> verwendet (ein passendes Leerzeichen dazu ist <code>'\u2009'</code>). Das Zeichen für die Vereinigung ist <code>'\u222a'</code> und für den Schnitt <code>'\u2229'</code>. </li>
 <li>Schauen Sie sich auch im Skript <a href="./collections/#mengenoperationen">Mengenoperationen</a> an. </li>
 </ul>
+</details>
+<h5 id="aufgabe-5-maps">Aufgabe 5 (Maps)<a class="headerlink" href="#aufgabe-5-maps" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 5</summary><ol>
+<li>
+<p>Testen Sie folgenden Code:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>       
+<span class="n">Integer</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>       
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">);</span>
+</code></pre></div>
+<p>Was stellen Sie fest und warum? Ändern Sie den Vergleich der Variablen <code>b</code> und <code>c</code> so, dass <code>true</code> ausgegeben wird. Die ersten drei Zeilen bleiben dabei unverändert. Sie benötigen also einen anderen Vergleich als <code>b == c</code>. </p>
+</li>
+<li>
+<p>Erstellen Sie eine Klasse <code>PizzaMenu</code>. Erzeugen Sie darin eine <code>HashMap</code> und fügen Sie folgende Pizzen mit ihren Preisen ein:</p>
+<table>
+<thead>
+<tr>
+<th>Pizza</th>
+<th> Preis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Margherita</td>
+<td>7,00</td>
+</tr>
+<tr>
+<td>Veggie</td>
+<td>7,50</td>
+</tr>
+<tr>
+<td>Salami</td>
+<td>8,50</td>
+</tr>
+<tr>
+<td>Schinken</td>
+<td>8,50</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static boolean existingPizza(Map&lt;String,Double&gt; menu, String pizza)</code>, die testet, ob eine eingegebene Pizza im Menü existiert. </p>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static void printPrice(Map&lt;String,Double&gt; menu, String pizza)</code>, die für eine eingegebene Pizza den Preis ausgibt. Verwenden Sie dazu <code>existingPizza()</code>. Beispielausgabe: </p>
+<div class="highlight"><pre><span></span><code>Salami: <span class="m">8</span>.50 Euro
+Hawaii: Diese Pizza gibt es nicht.
+</code></pre></div>
+</li>
+<li>
+<p>Schreiben Sie eine <code>printMenu()</code>-Methode, die ausgibt, wie viele Pizzen es im Menü gibt. Wenn das Menü nicht leer ist, sollen zudem alle Pizzen mit ihrem Preis ausgegeben werden. Beispielausgabe:</p>
+<div class="highlight"><pre><span></span><code>// Beispiel fuer leeres Menue
+<span class="c1">##############</span>
+Das Menu enthält <span class="m">0</span> Pizzen.
+<span class="c1">##############</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>// Beispiel fuer Menue
+<span class="c1">##############</span>
+Das Menu enthält <span class="m">4</span> Pizzen.
+Pizza Margherita: <span class="m">7</span>.00 Euro
+Pizza Salami: <span class="m">8</span>.50 Euro
+Pizza Schinken: <span class="m">8</span>.50 Euro
+Pizza Veggie: <span class="m">7</span>.50 Euro
+<span class="c1">##############</span>
+</code></pre></div>
+</li>
+<li>
+<p>Ändern Sie den Preis der <code>Schinken</code>-Pizza in der <code>HashMap</code> zu <code>8,20</code>. </p>
+</li>
+<li>
+<p>Schreiben Sie eine Methode <code>public static void affordablePizza(Map&lt;String,Double&gt; menu, double maxPrice)</code>, die alle Pizzen ausgibt, die man sich für einen bestimmten Betrag leisten kann. Beispielausgabe:</p>
+<div class="highlight"><pre><span></span><code>Eingegebener Betrag: <span class="m">4</span>.0 Euro
+Leider gibt es zu diesem Preis keine Pizza.
+Eingegebener Betrag: <span class="m">8</span>.0 Euro
+Mögliche Pizzen: <span class="o">[</span>Margherita, Veggie<span class="o">]</span>
+</code></pre></div>
+</li>
+<li>
+<p>Das Menu wird überarbeitet, löschen Sie daher alle Einträge. Füllen Sie das Menü anschließend mit diesen neuen Pizzen:</p>
+<table>
+<thead>
+<tr>
+<th>Pizza</th>
+<th> Preis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verde</td>
+<td>7,00</td>
+</tr>
+<tr>
+<td>Hawaii</td>
+<td>8,20</td>
+</tr>
+<tr>
+<td>Tradizionale</td>
+<td>8,50</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Legen Sie ein zweites Menü an und kopieren Sie alle Einträge aus dem ersten Menü hinein. Löschen Sie im zweiten Menü die Pizza <code>Hawaii</code> und geben Sie die Namen aller noch verfügbaren Pizzen aus.</p>
+</li>
+<li>
+<p>Finden Sie in Ihrem Code ein Beispiel für Auto-Boxing und schreiben Sie einen entsprechenden Kommentar.</p>
+</li>
+</ol>
 </details>
                 
               

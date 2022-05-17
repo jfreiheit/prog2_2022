@@ -1708,6 +1708,70 @@
 	**Viel Spaß!**
 
 
+??? question "mögliche Lösung für Übung 4"
+	
+	=== "Uebung4.java"
+		```java linenums="1"
+		package uebungen.uebung4;
+
+		public class Uebung4 
+		{
+
+		    public static int nrOfOccurrences(String sub, String str)
+		    {
+		        int nrOfOccurrences = 0;
+
+		        final int LENGTH_OF_SUBSTRING = sub.length();
+		        for(int index=0; index <= str.length()-LENGTH_OF_SUBSTRING; index++)
+		        {
+		            if(str.substring(index, index+LENGTH_OF_SUBSTRING).equals(sub))
+		            {
+		                nrOfOccurrences++;
+		            }
+		        }
+
+		        return nrOfOccurrences;
+		    }
+
+		    public static void testAllCombinations(String str)
+		    {
+		        String sub = "";
+		        int maxOcc = 0;
+		        String maxSub = "";
+		        for (int i1 = 0; i1 < 10; i1++)
+		        {
+		            for (int i2 = 0; i2 < 10; i2++)
+		            {
+		                for (int i3 = 0; i3 < 10; i3++)
+		                {
+		                    for (int i4 = 0; i4 < 10; i4++)
+		                    {
+		                        sub = String.valueOf(i1) + String.valueOf(i2) + String.valueOf(i3) + String.valueOf(i4);
+		                        int nrOfOccurrences = nrOfOccurrences(sub, str);
+		                        if(nrOfOccurrences >= maxOcc)
+		                        {
+		                            maxOcc = nrOfOccurrences;
+		                            maxSub = sub;
+		                            System.out.println(maxOcc + " " + maxSub);
+		                        }
+		                    }
+		                }
+		            }
+		        }
+		    }
+
+		    public static void main(String[] args)
+		    {
+		        String pi = StringPi.PI;
+		        int nrOO = nrOfOccurrences("2541", pi);
+		        System.out.println(nrOO);
+
+		        testAllCombinations(pi);
+		    }
+
+		}
+		```
+
 
 ##### Übung 5 (enum und zweidimensionale Arrays)
 
@@ -1760,6 +1824,240 @@
 		- eine Methode `spielen()` implementieren, die zufällig für die Spieler die Steine setzt usw.
 
 	**Viel Spaß!**
+
+
+??? question "mögliche Lösung für Übung 5"
+	
+	=== "TicTacToe.java"
+		```java linenums="1"
+		package uebungen.uebung5;
+
+		import java.util.Random;
+
+		public class TicTacToe 
+		{
+
+			State[][] field;
+
+			public TicTacToe()
+			{
+				this.field = new State[3][3];
+				for(int i=0; i<this.field.length; i++)
+				{
+					for(int j=0; j<this.field[i].length; j++)
+					{
+						field[i][j]=State.EMPTY;
+					}
+				}
+			}
+
+			public void makeMove(int row, int col, State player)
+			{
+				if(row>=0 && row<this.field.length 
+						&& col>=0 && col<this.field[row].length 
+						&& this.field[row][col] == State.EMPTY)
+				{
+					if(player!=State.EMPTY) 
+					{
+						this.field[row][col]=player;
+					}
+				}
+			}
+
+			public void print()
+			{
+				for(int row=0; row<this.field.length; row++)
+				{
+					for(int col=0; col<this.field[row].length; col++)
+					{
+						if(field[row][col]==State.EMPTY)
+						{
+							System.out.print("- ");
+						}
+						else if(field[row][col]==State.RED)
+						{
+							System.out.print("x ");
+						}
+						else // BLACK
+						{
+							System.out.print("o ");
+						}
+					}
+					System.out.println();
+				}
+				System.out.println();
+			}
+			
+			public boolean gewonnen(State player)
+			{
+				if(player == State.EMPTY) return false;
+				
+				// alle drei Zeilen pruefen
+				for(int row=0; row<this.field.length; row++)
+				{
+					if(this.field[row][0] == player && this.field[row][1] == player && this.field[row][2] == player)
+					{
+						return true;
+					}
+				}
+				
+				// alle drei Spalten pruefen
+				for(int col=0; col<this.field.length; col++)
+				{
+					if(this.field[0][col] == player && this.field[1][col] == player && this.field[2][col] == player)
+					{
+						return true;
+					}
+				}
+				
+				// Diagonale von links oben nach rechts unten
+				if(this.field[0][0] == player && this.field[1][1] == player && this.field[2][2] == player)
+				{
+					return true;
+				}
+				
+				// Diagonale von rechts oben nach links unten
+				if(this.field[0][2] == player && this.field[1][1] == player && this.field[2][0] == player)
+				{
+					return true;
+				}
+				return false;
+			}
+			
+			public void printResultat()
+			{
+				if(this.gewonnen(State.RED))
+				{
+					System.out.println("Rot hat gewonnen!!!");
+				}
+				else if(this.gewonnen(State.BLACK))
+				{
+					System.out.println("Schwarz hat gewonnen!!!");
+				}
+				else if(this.unentschieden())
+				{
+					System.out.println("Unentschieden!!!");
+				}
+			}
+			
+			public void makeRandomMove(State player)
+			{
+				if(player != State.EMPTY)
+				{
+					Random r = new Random();
+					int row = r.nextInt(3);
+					int col = r.nextInt(3);
+					while(this.field[row][col]!=State.EMPTY)
+					{
+						row = r.nextInt(3);
+						col = r.nextInt(3);
+					}
+					this.field[row][col]=player;
+				}
+			}
+			
+			public void spielen()
+			{
+				State player = State.RED;
+				while(!(this.unentschieden() || this.gewonnen(State.RED) || this.gewonnen(State.BLACK)))
+				{
+					this.makeRandomMove(player);
+					this.print();
+					this.printResultat();
+					if(player == State.RED)
+					{
+						player = State.BLACK;
+					}
+					else
+					{
+						player = State.RED;
+					}
+					
+					// player = (player == State.RED) ? State.BLACK : State.RED;
+				}
+			}
+			
+			public boolean voll()
+			{
+				for(int row=0; row<this.field.length; row++)
+				{
+					for(int col=0; col<this.field[row].length; col++)
+					{
+						if(field[row][col]==State.EMPTY)
+						{
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+			
+			public boolean unentschieden()
+			{
+				return (this.voll() && !this.gewonnen(State.RED) && !this.gewonnen(State.BLACK));
+			}
+		}
+		```
+
+	=== "State.java"
+		```java linenums="1"
+		package uebungen.uebung5;
+
+		public enum State {
+			EMPTY, RED, BLACK
+		}
+		```
+	
+	=== "TestTicTacToe.java"
+		```java linenums="1"
+		package uebungen.uebung5;
+
+		public class TestTicTacToe {
+
+			public static void main(String[] args) 
+			{
+				TicTacToe ttt = new TicTacToe();
+				ttt.print();
+				/*
+				ttt.makeMove(1, 1, State.RED);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(1, 2, State.BLACK);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(1, -1, State.BLACK);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(0, 1, State.RED);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(2, 1, State.BLACK);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(1, 0, State.RED);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(0, 0, State.BLACK);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(0, 2, State.RED);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(2, 0, State.BLACK);
+				ttt.printResultat();
+				ttt.print();
+				ttt.makeMove(2, 2, State.RED);
+				ttt.printResultat();
+				ttt.print();
+				*/
+				ttt.spielen();
+				// ttt.makeRandomMove(State.RED);
+				// ttt.print();
+			}
+
+		}
+
+		```
 
 ##### Übung 6 (Listen und Mengen)
 
@@ -1904,6 +2202,290 @@
 		Microsoft
 		Skype
 		Twitter
+		```
+
+
+##### Übung 7 (Maps)
+
+??? "Übung 7"
+
+	1. Erstellen Sie eine Klasse `Stadt` mit folgenden Objektvariablen:
+		- `String name;`
+		- `List<Integer> bevoelkerung;`
+		- `float flaeche;`
+
+	2. Erstellen Sie für die Klasse `Stadt` einen parametrisierten Konstruktor `public Stadt(String name, List<Integer> bevoelkerung, float flaeche)`, der die Objektvariablen initialisiert.
+	3. Erstellen Sie für die Klasse `Stadt` eine `print()`-Methode, so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.):
+		```bash
+		Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		```
+	4. Erstellen Sie eine Klasse `StadtTest` mit `main()`-Methode. Kopieren Sie in die Klasse die Methode `public static Stadt[] staedte()` hinein:
+		```java
+		public static Stadt[] staedte()
+		{
+			Stadt[] staedte = new Stadt[6];
+			List<Integer> berlinBevoelkerung = new ArrayList<>();
+			berlinBevoelkerung.add(3382169);	
+			berlinBevoelkerung.add(3460725);	
+			berlinBevoelkerung.add(3574830);
+			staedte[0] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+			
+			List<Integer> hamburgBevoelkerung = new ArrayList<>();
+			hamburgBevoelkerung.add(1715392);	
+			hamburgBevoelkerung.add(1786448);	
+			hamburgBevoelkerung.add(1810438);	
+			staedte[1] = new Stadt("Hamburg", hamburgBevoelkerung, 755.22f);
+			
+			List<Integer> muenchenBevoelkerung = new ArrayList<>();
+			muenchenBevoelkerung.add(1210223);	
+			muenchenBevoelkerung.add(1353186);	
+			muenchenBevoelkerung.add(1464301);
+			staedte[2] = new Stadt("Muenchen", muenchenBevoelkerung, 310.70f);
+			
+			List<Integer> koelnBevoelkerung = new ArrayList<>();
+			koelnBevoelkerung.add(962884);	
+			koelnBevoelkerung.add(1007119);	
+			koelnBevoelkerung.add(1075935);	
+			staedte[3] = new Stadt("Koeln", koelnBevoelkerung, 405.02f);
+			
+			List<Integer> frankfurtBevoelkerung = new ArrayList<>();
+			frankfurtBevoelkerung.add(648550);	
+			frankfurtBevoelkerung.add(679664);	
+			frankfurtBevoelkerung.add(736414);
+			staedte[4] = new Stadt("Frankfurt/Main", frankfurtBevoelkerung, 248.31f);
+			
+			berlinBevoelkerung = new ArrayList<>();
+			berlinBevoelkerung.add(3382169);	
+			berlinBevoelkerung.add(3460725);	
+			berlinBevoelkerung.add(3574830);
+			staedte[5] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+			
+			return staedte;
+		}		
+		```
+
+	**Liste**
+
+	5. Erstellen Sie in der `main()`-Methode eine `List<Stadt> staedteListe = new ArrayList<>();`. Fügen Sie der `staedteListe` alle Städte aus dem durch Aufruf der `staedte()`-Methode erzeugtem Array zu.
+	6. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der `print()`-Methode aus der Klasse `Stadt` aus.
+
+	**Menge**
+
+	5. Erstellen Sie in der `main()`-Methode eine `Set<Stadt> staedteMenge = new HashSet<>();`. Fügen Sie der `staedteMenge` alle Städte aus dem durch Aufruf der `staedte()`-Methode erzeugtem Array zu.
+	6. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der `print()`-Methode aus der Klasse `Stadt` aus.
+	7. Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?
+
+	**Stadt - Teil 2**
+
+	5. Implementieren Sie in der Klasse `Stadt` die `equals(Object)`- und die `hashCode()`-Methode.
+	6. Führen Sie danach die `StadtTest`-Klasse erneut aus. Was hat sich an der Menge geändert?
+
+	**Maps**
+
+	5. Erstellen Sie in der `main()`-Methode eine `Map<Integer, Stadt> staedteMap = new HashMap<>();`. Fügen Sie der `staedteMap` einen fortlaufenden, eindeutigen `Integer`-Wert beginnend mit `1` als *Key* sowie alle alle Städte aus dem durch Aufruf der `staedte()`-Methode erzeugtem Array als *Value* hinzu.
+	6. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der `print()`-Methode aus der Klasse `Stadt` aus. Beginnen Sie die Zeile jeweils mit der Ausgabe des *Keys*.
+
+	**Ausgaben**
+
+	```bash
+	------------ Liste --------------
+	Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+	Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+	Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+	Koeln              405,02 km2      962.884   1.007.119   1.075.935
+	Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+	Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+
+	------------ Menge --------------
+	Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+	Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+	Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+	Koeln              405,02 km2      962.884   1.007.119   1.075.935
+	Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+
+	------------ Maps --------------
+	1  Berlin            891,68 km2    3.382.169   3.460.725   3.574.830
+	2  Hamburg           755,22 km2    1.715.392   1.786.448   1.810.438
+	3  Muenchen          310,70 km2    1.210.223   1.353.186   1.464.301
+	4  Koeln             405,02 km2      962.884   1.007.119   1.075.935
+	5  Frankfurt/Main    248,31 km2      648.550     679.664     736.414
+	6  Berlin            891,68 km2    3.382.169   3.460.725   3.574.830
+	``` 
+
+
+??? info "von Frau Busjahn vorkommentierten Klassen"
+	
+	=== "Stadt.java"
+		```java linenums="1"
+		//import
+
+		//1. Erstellen Sie eine Klasse Stadt mit folgenden Objektvariablen:
+		public class Stadt 
+		{
+			String name;
+			List<Integer> bevoelkerung;
+			float flaeche;
+			
+			//2. Erstellen Sie für die Klasse Stadt einen parametrisierten Konstruktor 
+			//public Stadt(String name, List<Integer> bevoelkerung, float flaeche), 
+			//der die Objektvariablen initialisiert.
+			public Stadt(String name, List<Integer> bevoelkerung, float flaeche)
+			{
+				//Da es sich um einen Konstruktor einer Kindklasse handelt, sollte zuerst explizit der Konstruktor der Elternklasse aufrufen werden
+				//kann aber wie implements erst später ergänzt werden
+				
+				//Objektvariablen initialisieren
+				this.??? = ???;
+				...
+			}
+			
+			//3. Erstellen Sie für die Klasse Stadt eine print()-Methode, 
+			//so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.): 
+			//Berlin     891,68 km2    3.382.169   3.460.725   3.574.830
+			void print()
+			{
+				//Namen der Stadt, ihre Fläche und "km2" ausgeben
+				
+				//mithilfe einer Schleife oder Iterator Einträge der Bevölkerungs-Liste ausgeben
+				//Beispiel für Schleife: 
+				//https://freiheit.f4.htw-berlin.de/prog2/collections/#die-for-each-schleife
+				//Beispiel für Iterator:
+				//https://freiheit.f4.htw-berlin.de/prog2/collections/#listen
+				
+			}
+			
+			//Teil 2
+			//1. Implementieren Sie in der Klasse Stadt die equals(Object)- und die hashCode()-Methode.
+			//Führen Sie danach die StadtTest-Klasse erneut aus. Was hat sich an der Menge geändert?
+			//Kommentieren Sie hashCode() wieder aus und führen StadtTest erneut aus. Was ändert sich?
+			//Kommentieren Sie equals() wieder aus und führen StadtTest erneut aus. Was ändert sich?
+
+			@Override
+			public boolean equals(Object o)
+			{
+				//Es soll getestet werden, ob der Name des übergebenen Stadt-Objekts o gleich dem Namen des aktuellen Stadt-Objekts ist
+				//Vorher müssen erst ein paar Fälle abgeklärt werden:		
+				// wenn übergebenes Objekt o null ist, gib false zurück
+				// wenn übergebenes Objekt o gleich dem aktuellen Objekt der Klasse ist, gib true zurück
+				// wenn die Laufzeitklasse des übergebenen Objekts o nicht gleich der Laufzeitklasse des aktuellen Objekts ist,
+				// gib false zurück
+				
+				//Wenn diese drei Fälle nicht eingetreten sind:
+				//Stadt-Objekt anlegen vom übergebenen Objekt o		
+				//testen ob der Name des übergebenen Stadt-Objekts gleich dem Namen des aktuellen Stadt-Objekts ist
+				//Ergebnis zurückgeben		
+						
+			}
+			
+			@Override
+			public int hashCode()
+			{
+				//Hashcode des Stadtnamens zurückgeben
+			}
+		}
+		```
+	
+	=== "StadtTest.java"
+		```java linenums="1"
+
+		//import 
+
+		//4. Erstellen Sie eine Klasse StadtTest mit main()-Methode. 
+		//Kopieren Sie in die Klasse die Methode public static Stadt[] staedte() hinein: 
+		public class StadtTest
+		{
+			public static Stadt[] staedte()
+			{
+				Stadt[] staedte = new Stadt[6];
+				List<Integer> berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[0] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				List<Integer> hamburgBevoelkerung = new ArrayList<>();
+				hamburgBevoelkerung.add(1715392);	
+				hamburgBevoelkerung.add(1786448);	
+				hamburgBevoelkerung.add(1810438);	
+				staedte[1] = new Stadt("Hamburg", hamburgBevoelkerung, 755.22f);
+				
+				List<Integer> muenchenBevoelkerung = new ArrayList<>();
+				muenchenBevoelkerung.add(1210223);	
+				muenchenBevoelkerung.add(1353186);	
+				muenchenBevoelkerung.add(1464301);
+				staedte[2] = new Stadt("Muenchen", muenchenBevoelkerung, 310.70f);
+				
+				List<Integer> koelnBevoelkerung = new ArrayList<>();
+				koelnBevoelkerung.add(962884);	
+				koelnBevoelkerung.add(1007119);	
+				koelnBevoelkerung.add(1075935);	
+				staedte[3] = new Stadt("Koeln", koelnBevoelkerung, 405.02f);
+				
+				List<Integer> frankfurtBevoelkerung = new ArrayList<>();
+				frankfurtBevoelkerung.add(648550);	
+				frankfurtBevoelkerung.add(679664);	
+				frankfurtBevoelkerung.add(736414);
+				staedte[4] = new Stadt("Frankfurt/Main", frankfurtBevoelkerung, 248.31f);
+				
+				berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[5] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				return staedte;
+			}
+			
+			public static void main(String[] args)
+			{	
+				System.out.printf("%n------------ Liste --------------%n");
+				
+				//1. Erstellen Sie in der main()-Methode eine List<Stadt> staedteListe = new ArrayList<>();. 
+				//Fügen Sie der staedteListe alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.
+				List<Stadt> staedteListe = new ArrayList<>();
+				
+				//durch staedte iterieren und die Städte zur staedteListe hinzufügen
+						
+				//2. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung 
+				//der print()-Methode aus der Klasse Stadt aus.
+				
+				//durch staedteListe iterieren und für jeden Eintrag die print()-Methode aufrufen
+						
+				System.out.printf("%n------------ Menge --------------%n");
+				
+				//1. Erstellen Sie in der main()-Methode eine Set<Stadt> staedteMenge = new HashSet<>();. 
+				Set<Stadt> staedteMenge = new HashSet<>();
+				
+				//Fügen Sie der staedteMenge alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.
+				
+				//analog zur gleichen Aufgabe mit der Liste oben
+				
+		    		//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der 
+		    		//print()-Methode aus der Klasse Stadt aus.
+		    		//analog zur gleichen Aufgabe mit der Liste oben
+		    		
+		   		//Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?
+
+				
+				System.out.printf("%n------------ Maps --------------%n");
+
+				//1. Erstellen Sie in der main()-Methode eine Map<Integer, Stadt> staedteMap = new HashMap<>();. 
+				Map<Integer, Stadt> staedteMap = new HashMap<>();
+				
+				//Fügen Sie der staedteMap einen fortlaufenden, eindeutigen Integer-Wert beginnend mit 1 als Key 
+				//sowie alle alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array als Value hinzu.
+		    	
+		    		//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der print()-Methode aus der Klasse Stadt aus. 
+		    		//Beginnen Sie die Zeile jeweils mit der Ausgabe des Keys.
+				
+				//Beispiel, wie man eine Map durchgeht: https://freiheit.f4.htw-berlin.de/prog2/maps/#durch-eine-map-laufen
+				//erst den key ausgeben
+				//dann die Werte
+				
+				
+			}
+
+		}
 		```
 
 
