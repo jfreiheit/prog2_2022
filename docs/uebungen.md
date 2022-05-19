@@ -2059,6 +2059,7 @@
 
 		```
 
+
 ##### Übung 6 (Listen und Mengen)
 
 ??? "Übung 6 (17. + 19.5.)"
@@ -2204,10 +2205,222 @@
 		Twitter
 		```
 
+??? question "mögliche Lösung für Übung 6"
+	
+	=== "Uebung6.java"
+		```java linenums="1"
+		package uebungen.uebung5.loesung;
+
+		import java.util.ArrayList;
+		import java.util.HashSet;
+		import java.util.Iterator;
+		import java.util.List;
+		import java.util.Set;
+		import java.util.TreeSet;
+
+		public class Uebung6 {
+
+			//A1. Erstellen Sie eine Methode public static List<String> createArrayList(String[] words). 
+			//In dieser Methode soll eine ArrayList erstellt werden. Alle Elemente in dieser Liste sind vom Typ String. 
+			//Befüllen Sie diese Liste mit allen Wörtern aus dem words-Array. Die Methode gibt die befüllte Liste (List) zurück.
+			public static List<String> createArrayList(String[] words){
+				// neue ArrayList mit String als Type anlegen
+				List<String> list = new ArrayList<>();
+
+				// jedes Element aus words in die Liste einfügen
+				for(int i=0; i<words.length; i++) {
+					list.add(words[i]);
+				}
+
+				return list;		
+			}
+
+
+			//A2. Erstellen Sie eine Methode public static void printList(List<String> list). 
+			//Diese Methode gibt alle Elemente der Liste list auf der Konsole aus. 
+			//Geben Sie auch die Anzahl der Elemente der Liste aus.
+			public static void printList(List<String> list)
+			{
+				//Variante 1: Iterator
+				System.out.println("--Iterator--");					
+				Iterator<String> it = list.iterator();
+				while(it.hasNext()) {
+					System.out.println(it.next());
+				}
+
+
+				//Variante 2: for-Schleife
+				System.out.println("--Schleife--");
+				for(String s : list)
+				{
+					System.out.println(s);
+				}
+
+				//Anzahl der Elemente ausgeben
+				System.out.println("Die Liste hat "+ list.size() + " Elemente.");
+			}
+
+			//B1. Erstellen Sie eine Methode public static Set<String> createHashSet(String[] words). 
+			//In dieser Methode soll eine HashSet erstellt werden. 
+			//Alle Elemente in dieser Liste sind vom Typ String. 
+			//Befüllen Sie diese Liste mit allen Wörtern aus dem words-Array. 
+			//Die Methode gibt die befüllte Menge (Set) zurück.
+			public static Set<String> createHashSet(String[] words)
+			{
+				Set<String> set = new HashSet<>();		
+				for(int i=0; i<words.length; i++) {
+					set.add(words[i]);
+				}
+				return set;	
+			}
+
+			//B2. Erstellen Sie eine Methode public static void printSet(Set<String> set). 
+			//Diese Methode gibt alle Elemente der Menge set auf der Konsole aus. 
+			//Geben Sie auch die Anzahl der Elemente der Menge aus. 
+			public static void printSet(Set<String> set)
+			{
+				for(String s : set)
+				{
+					System.out.println(s);
+				}
+
+				System.out.println("Das Set hat "+ set.size() + " Elemente.");
+			}
+
+			//B4. Erstellen Sie eine Methode public static Set<String> createTreeSet(String[] words). 
+			//In dieser Methode soll eine TreeSet erstellt werden. 
+			//Alle Elemente in dieser Liste sind vom Typ String. 
+			//Befüllen Sie diese Menge (Set) mit allen Wörtern aus dem words-Array. 
+			//Die Methode gibt die befüllte Menge (Set) zurück. 
+			public static Set<String> createTreeSet(String[] words)
+			{		
+				Set<String> set = new TreeSet<>();
+				for(int i=0; i<words.length; i++) {
+					set.add(words[i]);
+				}
+				return set;	
+			}
+
+			//Zusatz: Erstellen Sie für die Liste eine Methode public static List<String> findDoublets(List<String> list). 
+			//Diese Methode erstellt eine Liste, in der alle Elemente enthalten sind, die in list doppelt vorkommen. 
+			//Diese Elemente werden dann auch doppelt in die Resultat-Liste übernommen. 
+			//Geben Sie diese Liste mithilfe der printList()-Methode in der main()-Methode aus.
+			public static List<String> findDoublets(List<String> list)
+			{
+				//Grundidee 
+				//Beispiel-Liste: "a" "b" "a" "c" "a"
+
+				//Index:  0 1 2 3 4
+				//Inhalt: a b a c a
+
+				//erster Index von "a": 0
+				//letzter Index von "a":4 
+				//0 != 4 -> es gibt Duplikate 
+				//erster Index von "b":1
+				//letzter Index von "b":1
+				//1 == 1 -> keine Duplikate, also diesen Eintrag als Einzeleintrag merken
+				//...
+
+				//leere Liste "singles" für Einzeleinträge anlegen
+				List<String> singles = new ArrayList<>();
+
+				//durch list iterieren und testen ob das Element Duplikate hat, 
+				//wenn nicht in "singles" speichern 
+				Iterator<String> it = list.iterator();
+				//it = copy.iterator();
+				while(it.hasNext()) {
+					String s = it.next();
+					if(list.indexOf(s) == list.lastIndexOf(s)) singles.add(s);
+				}
+
+				//Kopie von list anlegen
+				List<String> copy = new ArrayList<>();
+				it = list.iterator();
+				while(it.hasNext()) copy.add(it.next());
+
+				//alle singles aus der kopierten Liste entfernen
+				copy.removeAll(singles);
+				return copy;
+				//um zu testen, warum die Kopie nötig ist:
+				//copy.removeAll(singles); und return copy; ersetzen durch
+				//list.removeAll(singles); 
+				//return list;
+				//und dann die Ausgabe von l2 in der main anschauen
+
+			}
+
+			public static void main(String[] args) {
+				String[] words = {"Linux", "Apple", "Facebook", "Amazon", "IBM", "Lenovo", "Google", "IBM", "Microsoft", "Apple", "Google", "Twitter", "Skype", "Chrome", "Linux", "Firefox"};
+
+				System.out.println("---------- A ----------");
+				//A3. Erstellen Sie in der main()-Methode mithilfe der Methode createArrayList(words) eine 
+				//Liste und speichern Sie diese Liste in einer Variablen vom Typ List<String>. 
+				List<String> l1 = createArrayList(words);		
+				//Geben Sie alle Elemente dieser Liste mithilfe der Methode printList() auf der Konsole aus. 
+				printList(l1);
+
+				//A4. Ermitteln Sie den Index in der Liste, in der "Apple" das erste Mal auftaucht. 
+				//Erzeugen Sie folgende Ausgabe:  Index des ersten Auftretens von Apple  : 1
+				System.out.println("Index des ersten Auftretens von Apple: " + l1.indexOf("Apple"));
+
+				//Ermitteln Sie den Index in der Liste, in der "Apple" das letzte Mal auftaucht. 
+				//Erzeugen Sie folgende Ausgabe: Index des letzten Auftretens von Apple : 9
+				System.out.println("Index des letzten Auftretens von Apple: " + l1.lastIndexOf("Apple"));
+
+				//Geben Sie den Wert des ersten Elementes der Liste aus. 
+				//Erzeugen Sie folgende Ausgabe: erstes Element der Liste : Linux
+				System.out.println("erstes Element der Liste: " + l1.get(0));
+
+				//Geben Sie den Wert des letzten Elementes der Liste aus. 
+				//Erzeugen Sie folgende Ausgabe: letztes Element der Liste : Firefox
+				System.out.println("letztes Element der Liste: " + l1.get(l1.size()-1));
+
+				//Löschen Sie die Werte "Apple", "Google" und "Facebook". 
+				//Geben Sie die Liste erneut mithilfe der printList(list)-Methode aus.
+				//1. Möglichkeit: nur 1. Vorkommen löschen
+				l1.remove("Apple");
+				l1.remove("Google");
+				l1.remove("Facebook");
+				printList(l1);
+				//2. Möglichkeit: alle löschen
+				while(l1.remove("Apple"));
+				while(l1.remove("Google"));
+				while(l1.remove("Facebook"));
+				printList(l1);
+
+				System.out.println("---------- B ----------");
+				System.out.println("-------HashSet------");
+				//B3. Erstellen Sie in der main()-Methode mithilfe der Methode createHashSet(words) 
+				//eine Menge und speichern Sie diese Menge in einer Variablen vom Typ Set<String>. 
+				Set<String> h1 = createHashSet(words);
+				//Geben Sie alle Elemente dieser Menge mithilfe der Methode printSet() auf der Konsole aus. 
+				//Was beobachten Sie in Bezug auf die Anzahl der Elemente im Vergleich zur Anzahl der Elemente 
+				//in der Liste? Warum ist das so?
+				printSet(h1);
+
+				System.out.println("-------TreeSet------");
+				//B5. Erstellen Sie in der main()-Methode mithilfe der Methode createTreeSet(words) 
+				//eine Menge und speichern Sie diese Menge in einer Variablen. 
+				Set<String> t1 = createTreeSet(words);
+				//Geben Sie alle Elemente dieser Menge mithilfe der Methode printSet() auf der Konsole aus. 
+				//Was beobachten Sie in Bezug auf die Sortierung der Elemente im Vergleich zur HashSet? 
+				printSet(t1);
+
+				System.out.println("-------Duplicates------");
+				List<String> l2 =  createArrayList(words);	
+				List<String> d = findDoublets(l2);
+				printList(d);	
+				printList(l2);
+			}
+
+		}
+		```
+
+
 
 ##### Übung 7 (Maps)
 
-??? "Übung 7"
+??? "Übung 7 (24. + 26.5.)"
 
 	1. Erstellen Sie eine Klasse `Stadt` mit folgenden Objektvariablen:
 		- `String name;`
@@ -2487,5 +2700,453 @@
 
 		}
 		```
+
+##### Übung 8 (Interfaces)
+
+??? "Übung 8 (31.6. - 2.7.)"
+
+	1. Wir beschäftigen uns nochmal mit der Übung 7, d.h. mit `Stadt` und `StadtTest`. Dieses Mal geht es uns aber mehr um die Verwendung des Interfaces `Comparable`. Zunächst sind die beiden Klassen `Stadt` und `StadtTest` wie folgt gegeben (das haben wir so in Übung 7 erarbeitet - es gibt eine Änderung in `StadtTest`, dort benutzen wir jetzt ): 
+
+		=== "Stadt.java" 
+		```java
+		import java.util.*;
+
+		public class Stadt
+		{
+			String name;
+			List<Integer> bevoelkerung;
+			float flaeche;
+			
+			public Stadt(String name, List<Integer> bevoelkerung, float flaeche)
+			{
+				super();
+				this.name = name;
+				this.bevoelkerung = bevoelkerung;
+				this.flaeche = flaeche;
+			}
+			
+			void print()
+			{
+				System.out.printf("%-15s %9.2f km2 ", name, flaeche);
+				for(Integer i : bevoelkerung)
+				{
+					System.out.printf("%,12d", i);
+				}
+				System.out.println();
+			}
+			
+			@Override
+			public boolean equals(Object o)
+			{
+				if(o==null) return false;
+				if(o==this) return true;
+				if(this.getClass()!=o.getClass()) return false;
+				
+				Stadt other = (Stadt)o;
+				return (this.name.equals(other.name));
+			}
+			
+			@Override
+			public int hashCode()
+			{
+				return this.name.hashCode();
+			}
+
+		}
+		```
+
+		=== "StadtTest.java" 
+		```java
+		public class StadtTest
+		{
+			public static Stadt[] staedte()
+			{
+				Stadt[] staedte = new Stadt[6];
+				List<Integer> berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[0] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				List<Integer> hamburgBevoelkerung = new ArrayList<>();
+				hamburgBevoelkerung.add(1715392);	
+				hamburgBevoelkerung.add(1786448);	
+				hamburgBevoelkerung.add(1810438);	
+				staedte[1] = new Stadt("Hamburg", hamburgBevoelkerung, 755.22f);
+				
+				List<Integer> muenchenBevoelkerung = new ArrayList<>();
+				muenchenBevoelkerung.add(1210223);	
+				muenchenBevoelkerung.add(1353186);	
+				muenchenBevoelkerung.add(1464301);
+				staedte[2] = new Stadt("Muenchen", muenchenBevoelkerung, 310.70f);
+				
+				List<Integer> koelnBevoelkerung = new ArrayList<>();
+				koelnBevoelkerung.add(962884);	
+				koelnBevoelkerung.add(1007119);	
+				koelnBevoelkerung.add(1075935);	
+				staedte[3] = new Stadt("Koeln", koelnBevoelkerung, 405.02f);
+				
+				List<Integer> frankfurtBevoelkerung = new ArrayList<>();
+				frankfurtBevoelkerung.add(648550);	
+				frankfurtBevoelkerung.add(679664);	
+				frankfurtBevoelkerung.add(736414);
+				staedte[4] = new Stadt("Frankfurt/Main", frankfurtBevoelkerung, 248.31f);
+				
+				berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[5] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				return staedte;
+			}
+			
+			public static void main(String[] args)
+			{
+				System.out.printf("%n------------ Menge --------------%n");
+				Set<Stadt> staedteMenge = new HashSet<>();
+				for(Stadt s : staedte())
+				{
+					staedteMenge.add(s);
+				}
+				for(Stadt s : staedteMenge)
+				{
+					s.print();
+				}
+				
+				System.out.printf("%n------------ Maps --------------%n");
+				Map<MyInteger, Stadt> staedteMap = new HashMap<>();
+				int i = 1;
+				for(Stadt s : staedte())
+				{
+					staedteMap.put(new MyInteger(i++), s);
+				}
+				for(Map.Entry<MyInteger, Stadt> entry : staedteMap.entrySet())
+				{
+					MyInteger key = entry.getKey();
+					System.out.printf("%-3d",key.intValue());
+					entry.getValue().print();
+				}
+			}
+		}
+		```
+
+	2. Für die Schlüssel in der `Map` benutzen wir die selbstgeschriebne Klasse `MyInteger`:
+
+		=== "MyInteger.java" 
+		```java
+		public class MyInteger 
+		{
+			private int value;
+			
+			public MyInteger(int value)
+			{
+				this.value = value;
+			}
+			
+			public int intValue()
+			{
+				return this.value;
+			}
+			
+			public static MyInteger valueOf(int value)
+			{
+				return new MyInteger(value);
+			}
+		}
+		```
+
+	3. Ändern Sie in der `StadtTest.java` den Konstruktoraufruf der `Set` von `HashSet` nach `TreeSet` und führen Sie die Klasse aus - es wird eine Exception geworfen (`Stadt cannot be cast to class java.lang.Comparable`). Implementieren Sie für `Stadt` das Interface `Comparable<Stadt>` so, dass nach den Namen der Städte sortiert wird. Führen Sie dann erneut `StadtTest.java` aus. Es sollte folgende Ausgabe für die `Set` erzeugt werden:
+
+		```bash
+		------------ Menge --------------
+		Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		```
+
+	4. Ändern Sie `compareTo()` in `Stadt` so, dass die Namen der Städte **absteigend** sortiert werden und führen Sie dann `StadtTest.java` erneut aus. Es sollte folgende Ausgabe erzeugt werden:
+
+		```bash
+		------------ Menge --------------
+		Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		```
+
+	5. Ändern Sie `compareTo()` in `Stadt` so, dass die Städte **absteigend** nach ihrer Fläche sortiert werden und führen Sie dann `StadtTest.java` erneut aus. Es sollte folgende Ausgabe erzeugt werden:
+
+		```bash
+		------------ Menge --------------
+		Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		```
+
+	6. Ändern Sie in der `StadtTest.java` den Konstruktoraufruf der `Map` von `HashMap` nach `TreeMap` und führen Sie die Klasse aus - es wird eine Exception geworfen (`MyInteger cannot be cast to class java.lang.Comparable`). Implementieren Sie für `MyInteger` das Interface `Comparable<MyInteger>` so, dass nach den Größen der Werte sortiert wird. Führen Sie dann erneut `StadtTest.java` aus. Es sollte folgende Ausgabe für die `Map` erzeugt werden:
+
+		```bash
+		------------ Maps --------------
+		1  Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		2  Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		3  Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		4  Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		5  Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		6  Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		```
+
+	7. Ändern Sie `compareTo()` in `MyInteger` so, dass die Werte der Schlüssel **absteigend** sortiert werden und führen Sie dann `StadtTest.java` erneut aus. Es sollte folgende Ausgabe erzeugt werden:
+
+		```bash
+		------------ Maps --------------
+		6  Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		5  Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		4  Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		3  Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		2  Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		1  Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		```
+
+	- **Zusatz**: Schreiben Sie in `StadtTest.java` eine Methode `public static boolean contains(Map<MyInteger, Stadt> staedteMap, Stadt stadt)`, die ein `true` zurückgibt, wenn die Stadt `stadt` bereits in der `staedteMap` als ein `value` existiert. *Tipp*: Die Methode `get(Object key)` aus `Map` gibt den zu `key` gehörigen `value` zurück und mit `keySet()` bekommt man die Menge aller `keys` aus der `Map` ermittelt. Testen Sie die Methode, indem Sie zur Menge nur dann die `stadt` hinzufügen, wenn sie nicht bereits in der Menge aufgeführt ist. Sie sollten folgende Ausgabe erhalten: 
+
+		```bash
+		------------ Maps --------------
+		5  Frankfurt/Main     248,31 km2      648.550     679.664     736.414
+		4  Koeln              405,02 km2      962.884   1.007.119   1.075.935
+		3  Muenchen           310,70 km2    1.210.223   1.353.186   1.464.301
+		2  Hamburg            755,22 km2    1.715.392   1.786.448   1.810.438
+		1  Berlin             891,68 km2    3.382.169   3.460.725   3.574.830
+		```
+
+	- **Vorkommentierte Klassen**:
+
+		=== "Stadt.java" 
+		```java
+		import java.util.*;
+
+		//3. Implementieren Sie für Stadt das Interface Comparable<Stadt> so, 
+		//dass nach den Namen der Städte sortiert wird. 
+		public class Stadt implements?/extends? Comparable<Stadt>
+		{
+			String name;
+			List<Integer> bevoelkerung;
+			float flaeche;
+			
+			public Stadt(String name, List<Integer> bevoelkerung, float flaeche)
+			{
+				super();
+				this.name = name;
+				this.bevoelkerung = bevoelkerung;
+				this.flaeche = flaeche;
+			}
+			
+			void print()
+			{
+				System.out.printf("%-15s %9.2f km2 ", name, flaeche);
+				for(Integer i : bevoelkerung)
+				{
+					System.out.printf("%,12d", i);
+				}
+				System.out.println();
+			}
+			
+			@Override
+			public boolean equals(Object o)
+			{
+				if(o==null) return false;
+				if(o==this) return true;
+				if(this.getClass()!=o.getClass()) return false;
+				
+				Stadt other = (Stadt)o;
+				return (this.name.equals(other.name));
+			}
+			
+			@Override
+			public int hashCode()
+			{
+				return this.name.hashCode();
+			}
+
+
+			//3. Ändern Sie compareTo() in Stadt so, dass nach den Namen der 
+			//Städte sortiert werden kann.	
+			
+			//4. Ändern Sie compareTo() in Stadt so, dass die Namen der 
+			//Städte absteigend sortiert werden	
+			
+			//5. Ändern Sie compareTo() in Stadt so, 
+			//dass die Städte absteigend nach ihrer Fläche sortiert werden.
+			
+			//Beispiel aus dem Script
+			//@Override
+		    	//public int compareTo(Circle o) {
+		        //	if(this.radius > o.radius) return 1;
+		        //	else if(this.radius < o.radius) return -1;
+		        //	else return 0; // this.radius == o.radius
+		   	//}		
+			@Override
+			public int compareTo(??? ???) {
+			
+				
+			}	
+
+		}
+		```
+
+		=== "StadtTest.java" 
+		```java
+		import java.util.*;
+
+		public class StadtTest
+		{
+			public static Stadt[] staedte()
+			{
+				Stadt[] staedte = new Stadt[6];
+				List<Integer> berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[0] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				List<Integer> hamburgBevoelkerung = new ArrayList<>();
+				hamburgBevoelkerung.add(1715392);	
+				hamburgBevoelkerung.add(1786448);	
+				hamburgBevoelkerung.add(1810438);	
+				staedte[1] = new Stadt("Hamburg", hamburgBevoelkerung, 755.22f);
+				
+				List<Integer> muenchenBevoelkerung = new ArrayList<>();
+				muenchenBevoelkerung.add(1210223);	
+				muenchenBevoelkerung.add(1353186);	
+				muenchenBevoelkerung.add(1464301);
+				staedte[2] = new Stadt("Muenchen", muenchenBevoelkerung, 310.70f);
+				
+				List<Integer> koelnBevoelkerung = new ArrayList<>();
+				koelnBevoelkerung.add(962884);	
+				koelnBevoelkerung.add(1007119);	
+				koelnBevoelkerung.add(1075935);	
+				staedte[3] = new Stadt("Koeln", koelnBevoelkerung, 405.02f);
+				
+				List<Integer> frankfurtBevoelkerung = new ArrayList<>();
+				frankfurtBevoelkerung.add(648550);	
+				frankfurtBevoelkerung.add(679664);	
+				frankfurtBevoelkerung.add(736414);
+				staedte[4] = new Stadt("Frankfurt/Main", frankfurtBevoelkerung, 248.31f);
+				
+				berlinBevoelkerung = new ArrayList<>();
+				berlinBevoelkerung.add(3382169);	
+				berlinBevoelkerung.add(3460725);	
+				berlinBevoelkerung.add(3574830);
+				staedte[5] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+				
+				return staedte;
+			}
+			
+			//Zusatz: Schreiben Sie in StadtTest.java eine Methode 
+			//public static boolean contains(Map<MyInteger, Stadt> staedteMap, Stadt stadt), 
+			//die ein true zurückgibt, wenn die Stadt stadt bereits in der staedteMap als ein 
+			//value existiert. 
+			//Tipp: Die Methode get(Object key) aus Map gibt den zu key gehörigen value zurück 
+			//und mit keySet() bekommt man die Menge aller keys aus der Map ermittelt. 
+			//Testen Sie die Methode, indem Sie zur Menge nur dann die stadt hinzufügen, 
+			//wenn sie nicht bereits in der Menge aufgeführt ist.
+			public static boolean contains(Map<MyInteger, Stadt> staedteMap, Stadt stadt)
+			{
+				//alle Schlüssel ermitteln mit keySet() 
+				
+				//durch alle Schlüssel iterieren und testen ob der jeweilige Schlüssel 
+				//gleich der übergebenen Stadt ist
+				//wird die Stadt gefunden -> return true, sonst false	
+				
+			}
+			
+			public static void main(String[] args)
+			{
+				
+				System.out.printf("%n------------ Menge --------------%n");
+				//3. Ändern Sie in der StadtTest.java den Konstruktoraufruf der 
+				//Set von HashSet nach TreeSet und führen Sie die Klasse aus - 
+				//es wird eine Exception geworfen (Stadt cannot be cast to 
+				//class java.lang.Comparable). 
+				Set<Stadt> staedteMenge = new HashSet<>();
+				for(Stadt s : staedte())
+				{
+					staedteMenge.add(s);
+				}
+				for(Stadt s : staedteMenge)
+				{
+					s.print();
+				}
+				
+				System.out.printf("%n------------ Maps --------------%n");
+				//6. Ändern Sie in der StadtTest.java den Konstruktoraufruf der Map von 	
+				//HashMap nach TreeMap und führen Sie die Klasse aus - es wird eine Exception
+				// geworfen (MyInteger cannot be cast to class java.lang.Comparable). 
+				Map<MyInteger, Stadt> staedteMap = new HashMap<>();
+				int i = 1;
+				for(Stadt s : staedte())
+				{
+					//für die Zusatzaufgabe muss hier noch geprüft werden, ob s bereits in   
+					//der Map vorhanden ist, dafür wird die contains-Methode benötigt 
+				 	staedteMap.put(new MyInteger(i++), s);
+				}			
+				
+				for(Map.Entry<MyInteger, Stadt> entry : staedteMap.entrySet())
+				{
+					MyInteger key = entry.getKey();
+					System.out.printf("%-3d",key.intValue());
+					entry.getValue().print();
+				}
+				
+			}
+
+		}
+
+		```
+
+		=== "MyInteger.java" 
+		```java
+		//6. Implementieren Sie für MyInteger das Interface Comparable<MyInteger> so, 
+		//dass nach den Größen der Werte sortiert wird. 
+		public class MyInteger implements?/extends? ???<???>
+		{
+			private int value;
+			
+			public MyInteger(int value)
+			{
+				this.value = value;
+			}
+			
+			public int intValue()
+			{
+				return this.value;
+			}
+			
+			public static MyInteger valueOf(int value)
+			{
+				return new MyInteger(value);
+			}
+
+			//7. Ändern Sie compareTo() in MyInteger so, dass 
+			//die Werte der Schlüssel absteigend sortiert werden.
+			//Beispiel aus dem Script für AUFsteigend sortiert:
+			//public int compareTo(Rectangle o) {
+		        //	int diff = (this.height+this.width) - (o.height+o.width);
+		        //	return diff;
+		    	//}
+			@Override
+			public int compareTo(??? ???) {
+			
+			
+			}
+		}
+		```
+
+
 
 

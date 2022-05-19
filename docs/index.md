@@ -43,12 +43,12 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 1. | 04.-08.04.2022 | [Organisatorisches](#), [Wiederholung](./wiederholung/#datentypen), [Einstieg](./einstieg/#einstieg) | - | - | - | 
 | 1. | 11.-15.04.2022 | [Wrapper-Klassen (boxing und unboxing)](./wrapper/#wrapper-klassen)| [Übung 1](./uebungen/#ubung-1-wiederholung-und-codereview) |[Aufgabe 1](./aufgaben/#aufgabe-1-wurfelspiel) | 25.04.2022 | 
 | 2. | 18.-22.04.2022 | [Exceptions](./exceptions/#exceptions) | [Übung 2](./uebungen/#ubung-2-string-und-algorithmisches-denken) |[Aufgabe 2](./aufgaben/#aufgabe-2-myinteger) | 02.05.2022 | 
-| 3. | 25.-29.04.2022 | Aufgabe 2 besprochen | Übung 3 |Aufgabe 3 | 16.05.2022 | 
-| 4. | 02.-06.05.2022 | Collections (List und Set) | Übung 4 |Aufgabe 4 | 23.05.2022 | 
-| 5. | 09.-13.05.2022 | Collections (Map) | Übung 5 |Aufgabe 5 | 30.05.2022 | 
-| 6. | 16.-20.05.2022 | Abstrakte Klassen| Übung 6 | - | - | 
-| 7. | 23.-27.05.2022 | Interfaces | Übung 7 |Aufgabe 6 | 06.06.2022 | 
-| 8. | 30.-03.06.2022 | GUI Einführung | Übung 8 |Aufgabe 7 | 13.06.2022 | 
+| 3. | 25.-29.04.2022 | Aufgabe 2 besprochen | [Übung 3](./uebungen/#ubung-3-exceptions) |[Aufgabe 3](./aufgaben/#aufgabe-3-solitaire) | 16.05.2022 | 
+| 4. | 02.-06.05.2022 | [Collections (List und Set)](./collections/#collections) | [Übung 4](./uebungen/#ubung-4-string) |[Aufgabe 4](./aufgaben/#aufgabe-4-operationen-uber-mengen) | 23.05.2022 | 
+| 5. | 09.-13.05.2022 | [Collections (Map)](./maps/#maps) | [Übung 5](./uebungen/#ubung-5-enum-und-zweidimensionale-arrays) |[Aufgabe 5](./aufgaben/#aufgabe-5-maps) | 30.05.2022 | 
+| 6. | 16.-20.05.2022 | [Abstrakte Klassen](./abstrakt/#abstrakte-klassen) | [Übung 6](./uebungen/#ubung-6-listen-und-mengen) | - | - | 
+| 7. | 23.-27.05.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 7](./uebungen/#ubung-7-maps) |[Aufgabe 6](./aufgaben/#aufgabe-6-interfaces) | 06.06.2022 | 
+| 8. | 30.-03.06.2022 | GUI Einführung | [Übung 8](./uebungen/#ubung-8-interfaces) |Aufgabe 7 | 13.06.2022 | 
 | 9. | 06.-10.06.2022 | GUI Ereignisse  | Übung 9 |Aufgabe 8 | 20.06.2022 | 
 | 10. | 13.-17.06.2022 | GUI Graphics | Übung 10 |Aufgabe 9 | 04.07.2022 | 
 | 12. | 20.-24.06.2022 | Mausereignisse | Übung 11 |Aufgabe 10 | 11.07.2022 |
@@ -693,5 +693,106 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		}
 		```
 
+
+
+??? question "16.-20.05.2022 - Collections Maps"
+	- siehe [**Maps**](./prog2/maps/#maps)
+	- siehe [**Übung 7**](./uebungen/#ubung-7-maps)
+	- siehe [**Aufgabe 5**](./aufgaben/#aufgabe-5-maps)
+
+	??? "Quellcode aus der Vorlesung - Klasse Vorlesung0518.java"
+		```java
+		package vorlesungen.vorlesung0518;
+
+		import java.util.ArrayList;
+		import java.util.Collection;
+		import java.util.HashMap;
+		import java.util.HashSet;
+		import java.util.List;
+		import java.util.Map;
+		import java.util.Set;
+		import java.util.TreeSet;
+
+		public class Vorlesung0518 
+		{
+			public static void print(List<String> list)
+			{
+				for(String element : list)
+				{
+					System.out.print(element + " ");
+				}
+				System.out.println();
+			}
+			
+			public static void print(Set<String> set)
+			{
+				for(String element : set)
+				{
+					System.out.print(element + " ");
+				}
+				System.out.println();
+			}
+
+			public static void main(String[] args) 
+			{
+				Set<String> set1 = new TreeSet<>();
+				set1.add("A");
+				set1.add("F");
+				set1.add("I");
+				set1.add("C");
+				
+				Set<String> set2 = new TreeSet<>();
+				set2.add("D");
+				set2.add("G");
+				set2.add("Z");
+				set2.add("K");
+				
+				print(set1);
+				print(set2);
+				
+				set1.addAll(set2);
+				print(set1);
+				
+				set1.retainAll(set2);
+				print(set1);
+				
+				System.out.println(set1.equals(set2));
+				
+				set1.add("H");
+				System.out.println(set1.equals(set2));
+				print(set1);
+				
+				set1.removeAll(set2);
+				print(set1);
+				
+				
+				Map<String, Double> myMap = new HashMap<>();
+				myMap.put("s0512345", 1.7);
+				myMap.put("s0587654", 1.3);
+				myMap.put("s0512345", 2.3);
+				
+				Set<Map.Entry<String, Double>> dataSet = myMap.entrySet();
+				
+				for(Map.Entry<String, Double> entry : dataSet)
+				{
+					System.out.println(entry.getKey() + " : " + entry.getValue());
+				}
+				
+				Set<String> keys = myMap.keySet();
+				for(String key : keys)
+				{
+					System.out.println(key);
+				}
+				
+				Collection<Double> values = myMap.values();
+				for(Double value : values)
+				{
+					System.out.println(value);
+				}
+				
+			}
+
+		}
+		```
 
 

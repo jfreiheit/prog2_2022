@@ -71,6 +71,8 @@ nav:
     - Mehrdimensionale Arrays: mdarrays.md 
     - Collections: collections.md 
     - Maps: maps.md
+    - Abstrakte Klassen: abstrakt.md 
+    - Interfaces: interfaces.md 
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md
 

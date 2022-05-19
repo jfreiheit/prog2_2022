@@ -406,6 +406,36 @@
   
   
     <li class="md-nav__item">
+      <a href="abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -566,47 +596,47 @@
 <td>3.</td>
 <td>25.-29.04.2022</td>
 <td>Aufgabe 2 besprochen</td>
-<td>Übung 3</td>
-<td>Aufgabe 3</td>
+<td><a href="./uebungen/#ubung-3-exceptions">Übung 3</a></td>
+<td><a href="./aufgaben/#aufgabe-3-solitaire">Aufgabe 3</a></td>
 <td>16.05.2022</td>
 </tr>
 <tr>
 <td>4.</td>
 <td>02.-06.05.2022</td>
-<td>Collections (List und Set)</td>
-<td>Übung 4</td>
-<td>Aufgabe 4</td>
+<td><a href="./collections/#collections">Collections (List und Set)</a></td>
+<td><a href="./uebungen/#ubung-4-string">Übung 4</a></td>
+<td><a href="./aufgaben/#aufgabe-4-operationen-uber-mengen">Aufgabe 4</a></td>
 <td>23.05.2022</td>
 </tr>
 <tr>
 <td>5.</td>
 <td>09.-13.05.2022</td>
-<td>Collections (Map)</td>
-<td>Übung 5</td>
-<td>Aufgabe 5</td>
+<td><a href="./maps/#maps">Collections (Map)</a></td>
+<td><a href="./uebungen/#ubung-5-enum-und-zweidimensionale-arrays">Übung 5</a></td>
+<td><a href="./aufgaben/#aufgabe-5-maps">Aufgabe 5</a></td>
 <td>30.05.2022</td>
 </tr>
 <tr>
 <td>6.</td>
 <td>16.-20.05.2022</td>
-<td>Abstrakte Klassen</td>
-<td>Übung 6</td>
+<td><a href="./abstrakt/#abstrakte-klassen">Abstrakte Klassen</a></td>
+<td><a href="./uebungen/#ubung-6-listen-und-mengen">Übung 6</a></td>
 <td> -</td>
 <td>-</td>
 </tr>
 <tr>
 <td>7.</td>
 <td>23.-27.05.2022</td>
-<td>Interfaces</td>
-<td>Übung 7</td>
-<td>Aufgabe 6</td>
+<td><a href="./interfaces/#interfaces">Interfaces</a></td>
+<td><a href="./uebungen/#ubung-7-maps">Übung 7</a></td>
+<td><a href="./aufgaben/#aufgabe-6-interfaces">Aufgabe 6</a></td>
 <td>06.06.2022</td>
 </tr>
 <tr>
 <td>8.</td>
 <td>30.-03.06.2022</td>
 <td>GUI Einführung</td>
-<td>Übung 8</td>
+<td><a href="./uebungen/#ubung-8-interfaces">Übung 8</a></td>
 <td>Aufgabe 7</td>
 <td>13.06.2022</td>
 </tr>
@@ -1266,6 +1296,105 @@
         <span class="p">}</span>
 
         <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">list1</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question"><summary>16.-20.05.2022 - Collections Maps</summary><ul>
+<li>siehe <a href="./prog2/maps/#maps"><strong>Maps</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-7-maps"><strong>Übung 7</strong></a></li>
+<li>siehe <a href="./aufgaben/#aufgabe-5-maps"><strong>Aufgabe 5</strong></a></li>
+</ul>
+<details><summary>Quellcode aus der Vorlesung - Klasse Vorlesung0518.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0518</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vorlesung0518</span> 
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">element</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">element</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">element</span> <span class="p">:</span> <span class="n">set</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">element</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">);</span>
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">);</span>
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;I&quot;</span><span class="p">);</span>
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">);</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">set2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">);</span>
+        <span class="n">set2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;G&quot;</span><span class="p">);</span>
+        <span class="n">set2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Z&quot;</span><span class="p">);</span>
+        <span class="n">set2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;K&quot;</span><span class="p">);</span>
+
+        <span class="n">print</span><span class="p">(</span><span class="n">set1</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">set2</span><span class="p">);</span>
+
+        <span class="n">set1</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">set2</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">set1</span><span class="p">);</span>
+
+        <span class="n">set1</span><span class="p">.</span><span class="na">retainAll</span><span class="p">(</span><span class="n">set2</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">set1</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">set1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">set2</span><span class="p">));</span>
+
+        <span class="n">set1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">set1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">set2</span><span class="p">));</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">set1</span><span class="p">);</span>
+
+        <span class="n">set1</span><span class="p">.</span><span class="na">removeAll</span><span class="p">(</span><span class="n">set2</span><span class="p">);</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">set1</span><span class="p">);</span>
+
+
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Double</span><span class="o">&gt;</span> <span class="n">myMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">myMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0512345&quot;</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">);</span>
+        <span class="n">myMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0587654&quot;</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">);</span>
+        <span class="n">myMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0512345&quot;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">dataSet</span> <span class="o">=</span> <span class="n">myMap</span><span class="p">.</span><span class="na">entrySet</span><span class="p">();</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Double</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">dataSet</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">myMap</span><span class="p">.</span><span class="na">keySet</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">key</span> <span class="p">:</span> <span class="n">keys</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">myMap</span><span class="p">.</span><span class="na">values</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Double</span> <span class="n">value</span> <span class="p">:</span> <span class="n">values</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+        <span class="p">}</span>
 
     <span class="p">}</span>
 

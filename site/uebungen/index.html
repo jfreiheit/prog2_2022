@@ -344,6 +344,36 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -423,6 +453,13 @@
         <li class="md-nav__item">
   <a href="#ubung-7-maps" class="md-nav__link">
     Übung 7 (Maps)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-8-interfaces" class="md-nav__link">
+    Übung 8 (Interfaces)
   </a>
   
 </li>
@@ -520,6 +557,13 @@
         <li class="md-nav__item">
   <a href="#ubung-7-maps" class="md-nav__link">
     Übung 7 (Maps)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-8-interfaces" class="md-nav__link">
+    Übung 8 (Interfaces)
   </a>
   
 </li>
@@ -3047,8 +3091,423 @@ Twitter
 </code></pre></div>
 </details>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 6</summary><div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Uebung6.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung5.loesung</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Iterator</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung6</span> <span class="p">{</span>
+
+    <span class="c1">//A1. Erstellen Sie eine Methode public static List&lt;String&gt; createArrayList(String[] words). </span>
+    <span class="c1">//In dieser Methode soll eine ArrayList erstellt werden. Alle Elemente in dieser Liste sind vom Typ String. </span>
+    <span class="c1">//Befüllen Sie diese Liste mit allen Wörtern aus dem words-Array. Die Methode gibt die befüllte Liste (List) zurück.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">createArrayList</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">words</span><span class="p">){</span>
+        <span class="c1">// neue ArrayList mit String als Type anlegen</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">// jedes Element aus words in die Liste einfügen</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">words</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">list</span><span class="p">;</span>        
+    <span class="p">}</span>
+
+
+    <span class="c1">//A2. Erstellen Sie eine Methode public static void printList(List&lt;String&gt; list). </span>
+    <span class="c1">//Diese Methode gibt alle Elemente der Liste list auf der Konsole aus. </span>
+    <span class="c1">//Geben Sie auch die Anzahl der Elemente der Liste aus.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Variante 1: Iterator</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--Iterator--&quot;</span><span class="p">);</span>                 
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+        <span class="p">}</span>
+
+
+        <span class="c1">//Variante 2: for-Schleife</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;--Schleife--&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">//Anzahl der Elemente ausgeben</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Die Liste hat &quot;</span><span class="o">+</span> <span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; Elemente.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//B1. Erstellen Sie eine Methode public static Set&lt;String&gt; createHashSet(String[] words). </span>
+    <span class="c1">//In dieser Methode soll eine HashSet erstellt werden. </span>
+    <span class="c1">//Alle Elemente in dieser Liste sind vom Typ String. </span>
+    <span class="c1">//Befüllen Sie diese Liste mit allen Wörtern aus dem words-Array. </span>
+    <span class="c1">//Die Methode gibt die befüllte Menge (Set) zurück.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">createHashSet</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">words</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>      
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">words</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">set</span><span class="p">;</span> 
+    <span class="p">}</span>
+
+    <span class="c1">//B2. Erstellen Sie eine Methode public static void printSet(Set&lt;String&gt; set). </span>
+    <span class="c1">//Diese Methode gibt alle Elemente der Menge set auf der Konsole aus. </span>
+    <span class="c1">//Geben Sie auch die Anzahl der Elemente der Menge aus. </span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printSet</span><span class="p">(</span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">set</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Das Set hat &quot;</span><span class="o">+</span> <span class="n">set</span><span class="p">.</span><span class="na">size</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; Elemente.&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//B4. Erstellen Sie eine Methode public static Set&lt;String&gt; createTreeSet(String[] words). </span>
+    <span class="c1">//In dieser Methode soll eine TreeSet erstellt werden. </span>
+    <span class="c1">//Alle Elemente in dieser Liste sind vom Typ String. </span>
+    <span class="c1">//Befüllen Sie diese Menge (Set) mit allen Wörtern aus dem words-Array. </span>
+    <span class="c1">//Die Methode gibt die befüllte Menge (Set) zurück. </span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">createTreeSet</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">words</span><span class="p">)</span>
+    <span class="p">{</span>       
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">words</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">words</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">set</span><span class="p">;</span> 
+    <span class="p">}</span>
+
+    <span class="c1">//Zusatz: Erstellen Sie für die Liste eine Methode public static List&lt;String&gt; findDoublets(List&lt;String&gt; list). </span>
+    <span class="c1">//Diese Methode erstellt eine Liste, in der alle Elemente enthalten sind, die in list doppelt vorkommen. </span>
+    <span class="c1">//Diese Elemente werden dann auch doppelt in die Resultat-Liste übernommen. </span>
+    <span class="c1">//Geben Sie diese Liste mithilfe der printList()-Methode in der main()-Methode aus.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">findDoublets</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Grundidee </span>
+        <span class="c1">//Beispiel-Liste: &quot;a&quot; &quot;b&quot; &quot;a&quot; &quot;c&quot; &quot;a&quot;</span>
+
+        <span class="c1">//Index:  0 1 2 3 4</span>
+        <span class="c1">//Inhalt: a b a c a</span>
+
+        <span class="c1">//erster Index von &quot;a&quot;: 0</span>
+        <span class="c1">//letzter Index von &quot;a&quot;:4 </span>
+        <span class="c1">//0 != 4 -&gt; es gibt Duplikate </span>
+        <span class="c1">//erster Index von &quot;b&quot;:1</span>
+        <span class="c1">//letzter Index von &quot;b&quot;:1</span>
+        <span class="c1">//1 == 1 -&gt; keine Duplikate, also diesen Eintrag als Einzeleintrag merken</span>
+        <span class="c1">//...</span>
+
+        <span class="c1">//leere Liste &quot;singles&quot; für Einzeleinträge anlegen</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">singles</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="c1">//durch list iterieren und testen ob das Element Duplikate hat, </span>
+        <span class="c1">//wenn nicht in &quot;singles&quot; speichern </span>
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="c1">//it = copy.iterator();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">list</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="n">singles</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">//Kopie von list anlegen</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">copy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span> <span class="n">copy</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+
+        <span class="c1">//alle singles aus der kopierten Liste entfernen</span>
+        <span class="n">copy</span><span class="p">.</span><span class="na">removeAll</span><span class="p">(</span><span class="n">singles</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="p">;</span>
+        <span class="c1">//um zu testen, warum die Kopie nötig ist:</span>
+        <span class="c1">//copy.removeAll(singles); und return copy; ersetzen durch</span>
+        <span class="c1">//list.removeAll(singles); </span>
+        <span class="c1">//return list;</span>
+        <span class="c1">//und dann die Ausgabe von l2 in der main anschauen</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;Linux&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Facebook&quot;</span><span class="p">,</span> <span class="s">&quot;Amazon&quot;</span><span class="p">,</span> <span class="s">&quot;IBM&quot;</span><span class="p">,</span> <span class="s">&quot;Lenovo&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;IBM&quot;</span><span class="p">,</span> <span class="s">&quot;Microsoft&quot;</span><span class="p">,</span> <span class="s">&quot;Apple&quot;</span><span class="p">,</span> <span class="s">&quot;Google&quot;</span><span class="p">,</span> <span class="s">&quot;Twitter&quot;</span><span class="p">,</span> <span class="s">&quot;Skype&quot;</span><span class="p">,</span> <span class="s">&quot;Chrome&quot;</span><span class="p">,</span> <span class="s">&quot;Linux&quot;</span><span class="p">,</span> <span class="s">&quot;Firefox&quot;</span><span class="p">};</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;---------- A ----------&quot;</span><span class="p">);</span>
+        <span class="c1">//A3. Erstellen Sie in der main()-Methode mithilfe der Methode createArrayList(words) eine </span>
+        <span class="c1">//Liste und speichern Sie diese Liste in einer Variablen vom Typ List&lt;String&gt;. </span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">createArrayList</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>       
+        <span class="c1">//Geben Sie alle Elemente dieser Liste mithilfe der Methode printList() auf der Konsole aus. </span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
+
+        <span class="c1">//A4. Ermitteln Sie den Index in der Liste, in der &quot;Apple&quot; das erste Mal auftaucht. </span>
+        <span class="c1">//Erzeugen Sie folgende Ausgabe:  Index des ersten Auftretens von Apple  : 1</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Index des ersten Auftretens von Apple: &quot;</span> <span class="o">+</span> <span class="n">l1</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">));</span>
+
+        <span class="c1">//Ermitteln Sie den Index in der Liste, in der &quot;Apple&quot; das letzte Mal auftaucht. </span>
+        <span class="c1">//Erzeugen Sie folgende Ausgabe: Index des letzten Auftretens von Apple : 9</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Index des letzten Auftretens von Apple: &quot;</span> <span class="o">+</span> <span class="n">l1</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">));</span>
+
+        <span class="c1">//Geben Sie den Wert des ersten Elementes der Liste aus. </span>
+        <span class="c1">//Erzeugen Sie folgende Ausgabe: erstes Element der Liste : Linux</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;erstes Element der Liste: &quot;</span> <span class="o">+</span> <span class="n">l1</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+        <span class="c1">//Geben Sie den Wert des letzten Elementes der Liste aus. </span>
+        <span class="c1">//Erzeugen Sie folgende Ausgabe: letztes Element der Liste : Firefox</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;letztes Element der Liste: &quot;</span> <span class="o">+</span> <span class="n">l1</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+
+        <span class="c1">//Löschen Sie die Werte &quot;Apple&quot;, &quot;Google&quot; und &quot;Facebook&quot;. </span>
+        <span class="c1">//Geben Sie die Liste erneut mithilfe der printList(list)-Methode aus.</span>
+        <span class="c1">//1. Möglichkeit: nur 1. Vorkommen löschen</span>
+        <span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">);</span>
+        <span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Google&quot;</span><span class="p">);</span>
+        <span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Facebook&quot;</span><span class="p">);</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
+        <span class="c1">//2. Möglichkeit: alle löschen</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Apple&quot;</span><span class="p">));</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Google&quot;</span><span class="p">));</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;Facebook&quot;</span><span class="p">));</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">l1</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;---------- B ----------&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-------HashSet------&quot;</span><span class="p">);</span>
+        <span class="c1">//B3. Erstellen Sie in der main()-Methode mithilfe der Methode createHashSet(words) </span>
+        <span class="c1">//eine Menge und speichern Sie diese Menge in einer Variablen vom Typ Set&lt;String&gt;. </span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">h1</span> <span class="o">=</span> <span class="n">createHashSet</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+        <span class="c1">//Geben Sie alle Elemente dieser Menge mithilfe der Methode printSet() auf der Konsole aus. </span>
+        <span class="c1">//Was beobachten Sie in Bezug auf die Anzahl der Elemente im Vergleich zur Anzahl der Elemente </span>
+        <span class="c1">//in der Liste? Warum ist das so?</span>
+        <span class="n">printSet</span><span class="p">(</span><span class="n">h1</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-------TreeSet------&quot;</span><span class="p">);</span>
+        <span class="c1">//B5. Erstellen Sie in der main()-Methode mithilfe der Methode createTreeSet(words) </span>
+        <span class="c1">//eine Menge und speichern Sie diese Menge in einer Variablen. </span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">createTreeSet</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+        <span class="c1">//Geben Sie alle Elemente dieser Menge mithilfe der Methode printSet() auf der Konsole aus. </span>
+        <span class="c1">//Was beobachten Sie in Bezug auf die Sortierung der Elemente im Vergleich zur HashSet? </span>
+        <span class="n">printSet</span><span class="p">(</span><span class="n">t1</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;-------Duplicates------&quot;</span><span class="p">);</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">l2</span> <span class="o">=</span>  <span class="n">createArrayList</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>  
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">findDoublets</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>   
+        <span class="n">printList</span><span class="p">(</span><span class="n">l2</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="ubung-7-maps">Übung 7 (Maps)<a class="headerlink" href="#ubung-7-maps" title="Permanent link">&para;</a></h5>
-<details><summary>Übung 7</summary><ol>
+<details><summary>Übung 7 (24. + 26.5.)</summary><ol>
 <li>
 <p>Erstellen Sie eine Klasse <code>Stadt</code> mit folgenden Objektvariablen:</p>
 <ul>
@@ -3153,7 +3612,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 <span class="m">6</span>  Berlin            <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
 </code></pre></div>
 </details>
-<details class="info"><summary>von Frau Busjahn vorkommentierten Klassen</summary><div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Stadt.java</label><div class="tabbed-content">
+<details class="info"><summary>von Frau Busjahn vorkommentierten Klassen</summary><div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Stadt.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3288,7 +3747,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">StadtTest.java</label><div class="tabbed-content">
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">StadtTest.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3489,6 +3948,445 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 </div>
 </div>
 </details>
+<h5 id="ubung-8-interfaces">Übung 8 (Interfaces)<a class="headerlink" href="#ubung-8-interfaces" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 8 (31.6. - 2.7.)</summary><ol>
+<li>
+<p>Wir beschäftigen uns nochmal mit der Übung 7, d.h. mit <code>Stadt</code> und <code>StadtTest</code>. Dieses Mal geht es uns aber mehr um die Verwendung des Interfaces <code>Comparable</code>. Zunächst sind die beiden Klassen <code>Stadt</code> und <code>StadtTest</code> wie folgt gegeben (das haben wir so in Übung 7 erarbeitet - es gibt eine Änderung in <code>StadtTest</code>, dort benutzen wir jetzt ): </p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Stadt.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span>
+<span class="p">{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">flaeche</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Stadt</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">,</span> <span class="kt">float</span> <span class="n">flaeche</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">bevoelkerung</span> <span class="o">=</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">=</span> <span class="n">flaeche</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-15s %9.2f km2 &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flaeche</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="p">:</span> <span class="n">bevoelkerung</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%,12d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="k">this</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="o">!=</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="n">Stadt</span> <span class="n">other</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stadt</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">name</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">StadtTest.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+        <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Menge --------------%n&quot;</span><span class="p">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">staedteMenge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedteMenge</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Maps --------------%n&quot;</span><span class="p">);</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">staedteMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">),</span> <span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">staedteMap</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">MyInteger</span> <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-3d&quot;</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+            <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</li>
+<li>
+<p>Für die Schlüssel in der <code>Map</code> benutzen wir die selbstgeschriebne Klasse <code>MyInteger</code>:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">MyInteger.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> 
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</li>
+<li>
+<p>Ändern Sie in der <code>StadtTest.java</code> den Konstruktoraufruf der <code>Set</code> von <code>HashSet</code> nach <code>TreeSet</code> und führen Sie die Klasse aus - es wird eine Exception geworfen (<code>Stadt cannot be cast to class java.lang.Comparable</code>). Implementieren Sie für <code>Stadt</code> das Interface <code>Comparable&lt;Stadt&gt;</code> so, dass nach den Namen der Städte sortiert wird. Führen Sie dann erneut <code>StadtTest.java</code> aus. Es sollte folgende Ausgabe für die <code>Set</code> erzeugt werden:</p>
+<div class="highlight"><pre><span></span><code>------------ Menge --------------
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+</code></pre></div>
+</li>
+<li>
+<p>Ändern Sie <code>compareTo()</code> in <code>Stadt</code> so, dass die Namen der Städte <strong>absteigend</strong> sortiert werden und führen Sie dann <code>StadtTest.java</code> erneut aus. Es sollte folgende Ausgabe erzeugt werden:</p>
+<div class="highlight"><pre><span></span><code>------------ Menge --------------
+Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div>
+</li>
+<li>
+<p>Ändern Sie <code>compareTo()</code> in <code>Stadt</code> so, dass die Städte <strong>absteigend</strong> nach ihrer Fläche sortiert werden und führen Sie dann <code>StadtTest.java</code> erneut aus. Es sollte folgende Ausgabe erzeugt werden:</p>
+<div class="highlight"><pre><span></span><code>------------ Menge --------------
+Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+</code></pre></div>
+</li>
+<li>
+<p>Ändern Sie in der <code>StadtTest.java</code> den Konstruktoraufruf der <code>Map</code> von <code>HashMap</code> nach <code>TreeMap</code> und führen Sie die Klasse aus - es wird eine Exception geworfen (<code>MyInteger cannot be cast to class java.lang.Comparable</code>). Implementieren Sie für <code>MyInteger</code> das Interface <code>Comparable&lt;MyInteger&gt;</code> so, dass nach den Größen der Werte sortiert wird. Führen Sie dann erneut <code>StadtTest.java</code> aus. Es sollte folgende Ausgabe für die <code>Map</code> erzeugt werden:</p>
+<div class="highlight"><pre><span></span><code>------------ Maps --------------
+<span class="m">1</span>  Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+<span class="m">2</span>  Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+<span class="m">3</span>  Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+<span class="m">4</span>  Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+<span class="m">5</span>  Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+<span class="m">6</span>  Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div>
+</li>
+<li>
+<p>Ändern Sie <code>compareTo()</code> in <code>MyInteger</code> so, dass die Werte der Schlüssel <strong>absteigend</strong> sortiert werden und führen Sie dann <code>StadtTest.java</code> erneut aus. Es sollte folgende Ausgabe erzeugt werden:</p>
+<div class="highlight"><pre><span></span><code>------------ Maps --------------
+<span class="m">6</span>  Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+<span class="m">5</span>  Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+<span class="m">4</span>  Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+<span class="m">3</span>  Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+<span class="m">2</span>  Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+<span class="m">1</span>  Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div>
+</li>
+<li>
+<p><strong>Zusatz</strong>: Schreiben Sie in <code>StadtTest.java</code> eine Methode <code>public static boolean contains(Map&lt;MyInteger, Stadt&gt; staedteMap, Stadt stadt)</code>, die ein <code>true</code> zurückgibt, wenn die Stadt <code>stadt</code> bereits in der <code>staedteMap</code> als ein <code>value</code> existiert. <em>Tipp</em>: Die Methode <code>get(Object key)</code> aus <code>Map</code> gibt den zu <code>key</code> gehörigen <code>value</code> zurück und mit <code>keySet()</code> bekommt man die Menge aller <code>keys</code> aus der <code>Map</code> ermittelt. Testen Sie die Methode, indem Sie zur Menge nur dann die <code>stadt</code> hinzufügen, wenn sie nicht bereits in der Menge aufgeführt ist. Sie sollten folgende Ausgabe erhalten: </p>
+<div class="highlight"><pre><span></span><code>------------ Maps --------------
+<span class="m">5</span>  Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</span>.550     <span class="m">679</span>.664     <span class="m">736</span>.414
+<span class="m">4</span>  Koeln              <span class="m">405</span>,02 km2      <span class="m">962</span>.884   <span class="m">1</span>.007.119   <span class="m">1</span>.075.935
+<span class="m">3</span>  Muenchen           <span class="m">310</span>,70 km2    <span class="m">1</span>.210.223   <span class="m">1</span>.353.186   <span class="m">1</span>.464.301
+<span class="m">2</span>  Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>.715.392   <span class="m">1</span>.786.448   <span class="m">1</span>.810.438
+<span class="m">1</span>  Berlin             <span class="m">891</span>,68 km2    <span class="m">3</span>.382.169   <span class="m">3</span>.460.725   <span class="m">3</span>.574.830
+</code></pre></div>
+</li>
+<li>
+<p><strong>Vorkommentierte Klassen</strong>:</p>
+<div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Stadt.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="c1">//3. Implementieren Sie für Stadt das Interface Comparable&lt;Stadt&gt; so, </span>
+<span class="c1">//dass nach den Namen der Städte sortiert wird. </span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span> <span class="kd">implements</span><span class="o">?/</span><span class="kd">extends</span><span class="o">?</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">flaeche</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Stadt</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">,</span> <span class="kt">float</span> <span class="n">flaeche</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">bevoelkerung</span> <span class="o">=</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">=</span> <span class="n">flaeche</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-15s %9.2f km2 &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flaeche</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="p">:</span> <span class="n">bevoelkerung</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%,12d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="k">this</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="o">!=</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="n">Stadt</span> <span class="n">other</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stadt</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">name</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
+    <span class="p">}</span>
+
+
+    <span class="c1">//3. Ändern Sie compareTo() in Stadt so, dass nach den Namen der </span>
+    <span class="c1">//Städte sortiert werden kann.  </span>
+
+    <span class="c1">//4. Ändern Sie compareTo() in Stadt so, dass die Namen der </span>
+    <span class="c1">//Städte absteigend sortiert werden </span>
+
+    <span class="c1">//5. Ändern Sie compareTo() in Stadt so, </span>
+    <span class="c1">//dass die Städte absteigend nach ihrer Fläche sortiert werden.</span>
+
+    <span class="c1">//Beispiel aus dem Script</span>
+    <span class="c1">//@Override</span>
+        <span class="c1">//public int compareTo(Circle o) {</span>
+        <span class="c1">//  if(this.radius &gt; o.radius) return 1;</span>
+        <span class="c1">//  else if(this.radius &lt; o.radius) return -1;</span>
+        <span class="c1">//  else return 0; // this.radius == o.radius</span>
+    <span class="c1">//}     </span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="o">???</span> <span class="o">???</span><span class="p">)</span> <span class="p">{</span>
+
+
+    <span class="p">}</span>   
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">StadtTest.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+        <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">//Zusatz: Schreiben Sie in StadtTest.java eine Methode </span>
+    <span class="c1">//public static boolean contains(Map&lt;MyInteger, Stadt&gt; staedteMap, Stadt stadt), </span>
+    <span class="c1">//die ein true zurückgibt, wenn die Stadt stadt bereits in der staedteMap als ein </span>
+    <span class="c1">//value existiert. </span>
+    <span class="c1">//Tipp: Die Methode get(Object key) aus Map gibt den zu key gehörigen value zurück </span>
+    <span class="c1">//und mit keySet() bekommt man die Menge aller keys aus der Map ermittelt. </span>
+    <span class="c1">//Testen Sie die Methode, indem Sie zur Menge nur dann die stadt hinzufügen, </span>
+    <span class="c1">//wenn sie nicht bereits in der Menge aufgeführt ist.</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span><span class="p">,</span> <span class="n">Stadt</span> <span class="n">stadt</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//alle Schlüssel ermitteln mit keySet() </span>
+
+        <span class="c1">//durch alle Schlüssel iterieren und testen ob der jeweilige Schlüssel </span>
+        <span class="c1">//gleich der übergebenen Stadt ist</span>
+        <span class="c1">//wird die Stadt gefunden -&gt; return true, sonst false   </span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Menge --------------%n&quot;</span><span class="p">);</span>
+        <span class="c1">//3. Ändern Sie in der StadtTest.java den Konstruktoraufruf der </span>
+        <span class="c1">//Set von HashSet nach TreeSet und führen Sie die Klasse aus - </span>
+        <span class="c1">//es wird eine Exception geworfen (Stadt cannot be cast to </span>
+        <span class="c1">//class java.lang.Comparable). </span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">staedteMenge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedteMenge</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Maps --------------%n&quot;</span><span class="p">);</span>
+        <span class="c1">//6. Ändern Sie in der StadtTest.java den Konstruktoraufruf der Map von     </span>
+        <span class="c1">//HashMap nach TreeMap und führen Sie die Klasse aus - es wird eine Exception</span>
+        <span class="c1">// geworfen (MyInteger cannot be cast to class java.lang.Comparable). </span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="c1">//für die Zusatzaufgabe muss hier noch geprüft werden, ob s bereits in   </span>
+            <span class="c1">//der Map vorhanden ist, dafür wird die contains-Methode benötigt </span>
+            <span class="n">staedteMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">),</span> <span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>           
+
+        <span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">staedteMap</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">MyInteger</span> <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-3d&quot;</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+            <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">MyInteger.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">//6. Implementieren Sie für MyInteger das Interface Comparable&lt;MyInteger&gt; so, </span>
+<span class="c1">//dass nach den Größen der Werte sortiert wird. </span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> <span class="kd">implements</span><span class="o">?/</span><span class="kd">extends</span><span class="o">?</span> <span class="o">???&lt;???&gt;</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//7. Ändern Sie compareTo() in MyInteger so, dass </span>
+    <span class="c1">//die Werte der Schlüssel absteigend sortiert werden.</span>
+    <span class="c1">//Beispiel aus dem Script für AUFsteigend sortiert:</span>
+    <span class="c1">//public int compareTo(Rectangle o) {</span>
+        <span class="c1">//  int diff = (this.height+this.width) - (o.height+o.width);</span>
+        <span class="c1">//  return diff;</span>
+        <span class="c1">//}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="o">???</span> <span class="o">???</span><span class="p">)</span> <span class="p">{</span>
+
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</li>
+</ol>
+</details>
                 
               
               
@@ -3508,7 +4406,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../maps/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Maps" rel="prev">
+        <a href="../interfaces/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Interfaces" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -3517,7 +4415,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
               <span class="md-footer__direction">
                 Zurück
               </span>
-              Maps
+              Interfaces
             </div>
           </div>
         </a>

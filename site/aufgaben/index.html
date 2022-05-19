@@ -346,6 +346,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -428,6 +458,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-6-interfaces" class="md-nav__link">
+    Aufgabe 6 (Interfaces)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -496,6 +533,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-6-interfaces" class="md-nav__link">
+    Aufgabe 6 (Interfaces)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -543,6 +587,340 @@
 <li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
 </ol>
 </details>
+<details class="question"><summary>eine mögliche Lösung für Aufgabe 1</summary><div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Spiel.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe1</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Spiel</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">siegPunkte</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Spieler</span><span class="o">[]</span> <span class="n">spieler</span><span class="p">;</span>
+
+    <span class="n">Spiel</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">anzSpieler</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">siegPunkte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">input</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">inputOk</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="n">input</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Anzahl Spieler :&quot;</span><span class="p">);</span>
+                <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="n">anzSpieler</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">catch</span><span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">inputOk</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="n">input</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Siegpunkte :&quot;</span><span class="p">);</span>
+                <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="n">siegPunkte</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">catch</span><span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="n">Spiel</span><span class="p">.</span><span class="na">siegPunkte</span> <span class="o">=</span> <span class="n">siegPunkte</span><span class="p">;</span>
+        <span class="n">spieler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Spieler</span><span class="o">[</span><span class="n">anzSpieler</span><span class="o">]</span><span class="p">;</span>
+
+        <span class="n">namenErmitteln</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="n">Spiel</span><span class="p">(</span><span class="kt">int</span> <span class="n">siegPunkte</span><span class="p">,</span> <span class="kt">int</span> <span class="n">anzSpieler</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Spiel</span><span class="p">.</span><span class="na">siegPunkte</span> <span class="o">=</span> <span class="n">siegPunkte</span><span class="p">;</span>
+        <span class="n">spieler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Spieler</span><span class="o">[</span><span class="n">anzSpieler</span><span class="o">]</span><span class="p">;</span>
+
+        <span class="cm">/* Spielernamen sind A, B, C ...</span>
+<span class="cm">        char name = &#39;A&#39;;</span>
+<span class="cm">        for(int i=0; i&lt;spieler.length; i++)</span>
+<span class="cm">        {</span>
+<span class="cm">            spieler[i] = new Spieler(String.valueOf(name));</span>
+<span class="cm">            name ++;</span>
+<span class="cm">        }</span>
+<span class="cm">        */</span>
+
+        <span class="cm">/* Spielernamen werden eingegeben</span>
+<span class="cm">         * wenn man namenErmitteln() auskommentiert,</span>
+<span class="cm">         * kann man die obige for-Schleife nehmen, damit</span>
+<span class="cm">         * man nicht immer die Spielernamen eingeben muss</span>
+<span class="cm">         * - zum Testen</span>
+<span class="cm">         */</span>
+        <span class="n">namenErmitteln</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">namenErmitteln</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">spieler</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Name des Spielers &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s">&quot; :&quot;</span><span class="p">);</span>
+            <span class="n">spieler</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Spieler</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">spielen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">gewonnen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">gewonnen</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">gewonnen</span> <span class="o">=</span> <span class="n">spieler</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">.</span><span class="na">wuerfeln</span><span class="p">();</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="o">&lt;</span><span class="n">spieler</span><span class="p">.</span><span class="na">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">//Spiel spiel = new Spiel(30, 3);</span>
+        <span class="n">Spiel</span> <span class="n">spiel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Spiel</span><span class="p">();</span>
+        <span class="n">spiel</span><span class="p">.</span><span class="na">spielen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Spieler.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe1</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Spieler</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">aktStand</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Random</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="n">Spieler</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">aktStand</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAktStand</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">aktStand</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">wuerfeln</span><span class="p">()</span>
+    <span class="p">{</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%nSpieler %s ist an der Reihe (bisher %d Punkte) %n ----------------------------------------- %n&quot;</span> <span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">aktStand</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">reihe</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">wurf</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">boolean</span> <span class="n">ende</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">ende</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">wurf</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%s hat eine %d gewuerfelt %n&quot;</span> <span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">,</span> <span class="n">wurf</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">wurf</span><span class="o">==</span><span class="mi">6</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Versuch zu Ende %n Aktueller Spielstand von %s : %d Punkte %n Der naechste Spieler ist dran%n&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">aktStand</span><span class="p">);</span>
+                <span class="n">ende</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">aktStand</span><span class="o">+</span><span class="n">reihe</span><span class="o">+</span><span class="n">wurf</span> <span class="o">&gt;=</span> <span class="n">Spiel</span><span class="p">.</span><span class="na">siegPunkte</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%s hat insgesamt %d Punkte und somit gewonnen !!!&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">,</span> <span class="p">(</span><span class="n">aktStand</span><span class="o">+</span><span class="n">reihe</span><span class="o">+</span><span class="n">wurf</span><span class="p">));</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>     <span class="c1">// eine 1..5 gewuerfelt und noch nicht gewonnen</span>
+            <span class="p">{</span>
+                <span class="n">reihe</span> <span class="o">+=</span> <span class="n">wurf</span><span class="p">;</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;in diesem Versuch bisher %d Punkte -- insgesamt %d Punkte %n&quot;</span><span class="p">,</span> <span class="n">reihe</span><span class="p">,</span> <span class="p">(</span><span class="n">aktStand</span><span class="o">+</span><span class="n">reihe</span><span class="p">));</span>
+                <span class="kt">int</span> <span class="n">dialogResult</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showConfirmDialog</span> <span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="o">+</span> <span class="s">&quot;, wollen Sie weiter wuerfeln? &quot;</span><span class="p">,</span> <span class="s">&quot;Weiter wuerfeln?&quot;</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_NO_OPTION</span><span class="p">);</span>
+                <span class="n">ende</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">dialogResult</span><span class="o">==</span><span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_OPTION</span><span class="p">);</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">ende</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">aktStand</span> <span class="o">+=</span> <span class="n">reihe</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="aufgabe-2-myinteger">Aufgabe 2 (MyInteger)<a class="headerlink" href="#aufgabe-2-myinteger" title="Permanent link">&para;</a></h5>
 <details><summary>Aufgabe 2</summary><p><strong>Vorbereitung (Selbstudium)</strong></p>
 <ol>
@@ -569,6 +947,494 @@
 <li>Testen Sie Ihre Klasse ausführlich in einer <code>Testklasse</code> mit <code>main()</code>-Methode.</li>
 <li>Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!</li>
 </ol>
+</details>
+<details class="question"><summary>eine mögliche Lösung für Aufgabe 2</summary><div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">MyInteger.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe2</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MAX_VALUE</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MIN_VALUE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2147483648</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="o">=</span><span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isDigit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">c</span><span class="o">==</span><span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;1&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;2&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;3&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;4&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;5&#39;</span> <span class="o">||</span>
+                <span class="n">c</span><span class="o">==</span><span class="sc">&#39;6&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;7&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;8&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;9&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">asciivalue</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">intvalue</span> <span class="o">=</span> <span class="n">asciivalue</span><span class="o">-</span><span class="mi">48</span><span class="p">;</span> <span class="c1">// 0 ist 048 bis 9 ist 057</span>
+        <span class="k">return</span> <span class="n">intvalue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">parseInt</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="kt">boolean</span> <span class="n">negativ</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;leer&quot;</span><span class="p">);</span>
+        <span class="c1">// pruefe, ob erstes Zeichen + oder -</span>
+        <span class="c1">// merken und weiter mit Rest</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;+&#39;</span><span class="p">)</span> <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;-&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">negativ</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl&quot;</span><span class="p">);</span>
+        <span class="c1">// entferne führende Nullen</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isDigit</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;keine Zahl!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">exponent</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">zahl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">zahl</span> <span class="o">=</span> <span class="n">zahl</span> <span class="o">+</span> <span class="n">charToInt</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">exponent</span><span class="p">);</span>
+            <span class="n">exponent</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">negativ</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">zahl</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="n">zahl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">doubleValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">other</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> 
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>   
+
+        <span class="n">MyInteger</span> <span class="n">otherInt</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyInteger</span><span class="p">)</span><span class="n">other</span><span class="p">;</span>  
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">==</span> <span class="n">otherInt</span><span class="p">.</span><span class="na">value</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">+</span><span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">MyInteger</span> <span class="n">otherMyInteger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">,</span> <span class="n">otherMyInteger</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">MyIntegerMain.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe2</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyIntegerMain</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">MyInteger</span>   <span class="n">mi1</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi2</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi3</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi4</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> 
+                    <span class="n">mi5</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi6</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi7</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi8</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span>
+                    <span class="n">mi9</span><span class="o">=</span><span class="kc">null</span><span class="p">,</span> <span class="n">mi10</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi1</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;-00002147483648&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;hallo&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">mi4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">);</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi5</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi5</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi6</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;-00002147483648&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi6</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi7</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;hallo&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">mi8</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">);</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi9</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi9</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">mi10</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">mi10</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi2 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi2</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi3 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi3</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi4 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi4</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi5 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi5</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi6 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi6</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi7 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi7</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi8 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi8</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi9 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi9</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mi1 equals mi10 ? : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi10</span><span class="p">));</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hashCode mi1 : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hashCode mi2 : &quot;</span> <span class="o">+</span> <span class="n">mi2</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hashCode mi3 : &quot;</span> <span class="o">+</span> <span class="n">mi3</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">NullPointerException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Objekt existiert nicht!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;hashCode mi4 : &quot;</span> <span class="o">+</span> <span class="n">mi4</span><span class="p">.</span><span class="na">hashCode</span><span class="p">());</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intValue mi1 : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intValue mi2 : &quot;</span> <span class="o">+</span> <span class="n">mi2</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intValue mi3 : &quot;</span> <span class="o">+</span> <span class="n">mi3</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">NullPointerException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Objekt existiert nicht!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;intValue mi4 : &quot;</span> <span class="o">+</span> <span class="n">mi4</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;doubleValue mi1 : &quot;</span> <span class="o">+</span> <span class="n">mi1</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">());</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;doubleValue mi2 : &quot;</span> <span class="o">+</span> <span class="n">mi2</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">());</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;doubleValue mi3 : &quot;</span> <span class="o">+</span> <span class="n">mi3</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">NullPointerException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Objekt existiert nicht!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;doubleValue mi4 : &quot;</span> <span class="o">+</span> <span class="n">mi4</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">());</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 </details>
 <h5 id="aufgabe-3-solitaire">Aufgabe 3 (Solitaire)<a class="headerlink" href="#aufgabe-3-solitaire" title="Permanent link">&para;</a></h5>
 <details><summary>Aufgabe 3</summary><p><strong>Information und Vorbereitung</strong></p>
@@ -1400,6 +2266,350 @@ o         o
 für die in dem Zustand darüber möglichen Züge.  </p>
 </details>
 </details>
+<details class="question"><summary>eine mögliche Lösung für Aufgabe 3</summary><div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Solitaire.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solitaire</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Moves</span> <span class="n">game</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Solitaire</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">game</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moves</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">State</span><span class="o">[</span><span class="mi">7</span><span class="o">][</span><span class="mi">7</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">((</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">row</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">col</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">NOT</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;o &quot;</span><span class="p">);</span>
+                <span class="k">else</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;  &quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">possibleFrom</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">row</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">row</span><span class="o">&lt;</span><span class="mi">7</span> <span class="o">&amp;&amp;</span> <span class="n">col</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">col</span><span class="o">&lt;</span><span class="mi">7</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// up ?</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">-</span><span class="mi">2</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="c1">// down ?</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">row</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">+</span><span class="mi">2</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="c1">// right ?</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">col</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">+</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="c1">// left ?</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">col</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Point</span><span class="o">[]</span> <span class="nf">possibleTo</span><span class="p">(</span><span class="kt">int</span> <span class="n">fromRow</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fromCol</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">possibleFrom</span><span class="p">(</span><span class="n">fromRow</span><span class="p">,</span> <span class="n">fromCol</span><span class="p">))</span> <span class="k">return</span> <span class="k">new</span> <span class="n">Point</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+        <span class="c1">// there is at least one To-Point</span>
+        <span class="kt">int</span> <span class="n">nrOfPossibleTos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromRow</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">-</span><span class="mi">2</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">nrOfPossibleTos</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromRow</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">+</span><span class="mi">2</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">nrOfPossibleTos</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromCol</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">+</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">nrOfPossibleTos</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromCol</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">nrOfPossibleTos</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="n">Point</span><span class="o">[]</span> <span class="n">tos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">[</span><span class="n">nrOfPossibleTos</span><span class="o">]</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromRow</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">-</span><span class="mi">2</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">tos</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">fromRow</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">fromCol</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromRow</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">+</span><span class="mi">2</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">tos</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">fromRow</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">fromCol</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromCol</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">+</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">tos</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">fromRow</span><span class="p">,</span> <span class="n">fromCol</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fromCol</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">-</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">)</span> <span class="n">tos</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">fromRow</span><span class="p">,</span> <span class="n">fromCol</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tos</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">Moves</span> <span class="nf">possibleMoves</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Moves</span> <span class="n">possibleMoves</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Moves</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">possibleFrom</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">Point</span><span class="o">[]</span> <span class="n">tos</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">possibleTo</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+                    <span class="n">Point</span> <span class="n">from</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">);</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span><span class="o">&lt;</span><span class="n">tos</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">possibleMoves</span><span class="p">.</span><span class="na">addMove</span><span class="p">(</span><span class="k">new</span> <span class="n">Move</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">tos</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">));</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// next line for debug</span>
+        <span class="n">possibleMoves</span><span class="p">.</span><span class="na">printMoves</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">possibleMoves</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">movePossible</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">possibleFrom</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">))</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">moveFirstPossible</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">movePossible</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">Moves</span> <span class="n">possibleMoves</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">possibleMoves</span><span class="p">();</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="n">Move</span> <span class="n">move</span> <span class="o">=</span> <span class="n">possibleMoves</span><span class="p">.</span><span class="na">getMoveAtIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="n">move</span><span class="p">);</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Zug nicht moeglich! Index : 0&quot;</span><span class="p">);</span>
+                <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="n">Move</span> <span class="n">move</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">from</span> <span class="o">=</span> <span class="n">move</span><span class="p">.</span><span class="na">getFrom</span><span class="p">();</span>
+        <span class="n">Point</span> <span class="n">to</span> <span class="o">=</span> <span class="n">move</span><span class="p">.</span><span class="na">getTo</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">fromRow</span> <span class="o">=</span> <span class="n">from</span><span class="p">.</span><span class="na">getRow</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">fromCol</span> <span class="o">=</span> <span class="n">from</span><span class="p">.</span><span class="na">getCol</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">toRow</span> <span class="o">=</span> <span class="n">to</span><span class="p">.</span><span class="na">getRow</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">toCol</span> <span class="o">=</span> <span class="n">to</span><span class="p">.</span><span class="na">getCol</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">middleRow</span> <span class="o">=</span> <span class="p">(</span><span class="n">fromRow</span> <span class="o">+</span> <span class="n">toRow</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">middleCol</span> <span class="o">=</span> <span class="p">(</span><span class="n">fromCol</span> <span class="o">+</span> <span class="n">toCol</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromRow</span><span class="o">][</span><span class="n">fromCol</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">middleRow</span><span class="o">][</span><span class="n">middleCol</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">FREE</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">toRow</span><span class="o">][</span><span class="n">toCol</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">USED</span><span class="p">;</span>  
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Zug nicht moeglich! (&quot;</span> <span class="o">+</span> <span class="n">fromRow</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">fromCol</span> <span class="o">+</span> <span class="s">&quot;) --&gt; &quot;</span>
+                    <span class="o">+</span> <span class="s">&quot;( &quot;</span> <span class="o">+</span> <span class="n">toRow</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">toCol</span> <span class="o">+</span> <span class="s">&quot;) &quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Testklasse.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">aufgaben.aufgabe3</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Testklasse</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Solitaire</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solitaire</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">moveFirstPossible</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="aufgabe-4-operationen-uber-mengen">Aufgabe 4 (Operationen über Mengen)<a class="headerlink" href="#aufgabe-4-operationen-uber-mengen" title="Permanent link">&para;</a></h5>
 <details><summary>Aufgabe 4</summary><p>Implementieren Sie eine Klasse <code>SetOperations</code>. </p>
 <ol>
@@ -1532,6 +2742,157 @@ Mögliche Pizzen: <span class="o">[</span>Margherita, Veggie<span class="o">]</s
 </li>
 <li>
 <p>Finden Sie in Ihrem Code ein Beispiel für Auto-Boxing und schreiben Sie einen entsprechenden Kommentar.</p>
+</li>
+</ol>
+</details>
+<h5 id="aufgabe-6-interfaces">Aufgabe 6 (Interfaces)<a class="headerlink" href="#aufgabe-6-interfaces" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 6</summary><ol>
+<li>
+<p>Das <a href="https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)"><em>Observer</em>-Entwurfsmuster</a> gehört zu den am meisten verwendeten <em>Designmustern/Designpattern/Pattern</em> in der Programmierung. Es wird auch <em>Beobachter</em>-Muster oder <em>Publisher</em>-Pattern genannt. Wir werden dieses Muster in Kürze sehr häufig anwenden, wenn wir <em>Nutzerereignisse</em>  in grafischen Oberflächen behandeln. Man kann sich dieses Pattern so vorstellen, dass der <em>Publisher</em> eine Zeitung oder auch Slack ist und dass <em>Listener</em> diese Zeitung (oder Slack) "abonnieren". Immer, wenn eine Nachricht veröffentlicht wird, dann erfahren alle Abonnenten davon. Wir werden eine (einfache) Implementierung dieses Entwurfsmusters durchführen.</p>
+</li>
+<li>
+<p>Erstellen Sie ein Interface <code>Publisher</code> mit folgenden (abstrakten) Methoden:</p>
+<ul>
+<li><code>public boolean register(Listener listener);</code></li>
+<li><code>public boolean unregister(Listener listener);</code></li>
+<li><code>public void notifyListeners();</code> </li>
+<li><code>public String getUpdate(Listener listener);</code></li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie ein weiteres Interface <code>Listener</code> mit folgenden (abstrakten) Methoden:</p>
+<ul>
+<li><code>public void update();</code></li>
+<li><code>public void setPublisher(Publisher publisher);</code></li>
+<li><code>public void removePublisher(Publisher publisher);</code></li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie eine Klasse <code>Slack</code>, die das <code>Publisher</code>-Interface implementiert. Objektvariablen der Klasse sind</p>
+<ul>
+<li><code>private Set&lt;Listener&gt; listeners;</code> (speichert alle "Abonnenten"; kann gerne auch eine Liste sein)</li>
+<li>
+<p><code>private int nrOfMessages;</code> (speichert die aktuelle Nummer einer veröffentlichten Nachricht - die Nachrichten, die veröffentlicht werden, sollen fortlaufend nummeriert werden) </p>
+</li>
+<li>
+<p>Im parameterlosen Konstruktor werden die Menge (oder Liste) erzeugt und die <code>nrOfMessages</code> auf `0 gesetzt. </p>
+</li>
+<li>
+<p>In der Methode <code>register(Listener listener)</code> wird der <code>listener</code> in die Set <code>listeners</code> eingefügt. Geben Sie ein <code>true</code> zurück, wenn <code>listener</code> tatsächlich eingefügt wurde und <code>false</code> sonst (falls er schon in der Menge (oder Liste) war.</p>
+</li>
+<li>
+<p>In der Methode <code>unregister(Listener listener)</code> wird der <code>listener</code> wieder aus der Set <code>listeners</code> gelöscht. Geben Sie ein <code>true</code> zurück, wenn <code>listener</code> tatsächlich gelöscht wurde und <code>false</code> sonst (falls er nicht in der Menge (oder Liste) war.</p>
+</li>
+<li>
+<p>In der Methode <code>notifyListeners()</code> wird für alle <code>listener</code> aus der Menge <code>listeners</code> die <code>update()</code>-Methode aufgerufen (siehe <code>Listener</code> und <code>Student</code>). </p>
+</li>
+<li>
+<p>Die Methode <code>getUpdate(Listener obj)</code> liefert einfach folgenden String zurück: <code>"Breaking News " + this.nrOfMessages</code>.</p>
+</li>
+<li>
+<p>Erstellen Sie eine Methode <code>public void publishNews()</code>, in der die <code>nrOfMessages</code> um 1 erhöht und die 
+    Methode <code>notifyListeners()</code> aufgerufen wird. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Erstellen Sie eine Klasse <code>Student</code>, die das <code>Listener</code>-Interface implementiert. Objektvariablen der Klasse sind</p>
+<ul>
+<li><code>private String name;</code> (speichert den Namen von <code>Student</code>)</li>
+<li>
+<p><code>private Publisher publisher;</code> (speichert den <code>Publisher</code>, an den sich <code>Student</code> anmeldet) </p>
+</li>
+<li>
+<p>Im parametrisierten Konstruktor <code>public Student(String name)</code> wird der Name initalisiert. </p>
+</li>
+<li>
+<p>In der Methode <code>setPublisher(Publisher publisher)</code> wird die <code>register()</code>-Methode des <code>publisher</code> aufgerufen und der Wert der Objektvariable <code>publisher</code> gesetzt. Geben Sie bei erfolgreicher Anmeldung an den <code>publisher</code> auf die Konsole <code>this.name + " registered!"</code> aus. </p>
+</li>
+<li>
+<p>In der Methode <code>removePublisher(Publisher publisher)</code> meldet sich <code>Student</code> wieder vom <code>publisher</code> ab (Aufruf von <code>unregister()</code> und Ausgabe auf die Konsole <code>this.name + " deregistered!"</code>.</p>
+</li>
+<li>
+<p>In der Methode <code>update()</code> wird die <code>getUpdate()</code>-Methode des <code>publisher</code> aufgerufen und die zurückgegebene Nachricht <code>msg</code> wie folgt auf die Konsole ausgegben: <code>this.name + " received " + msg</code>. </p>
+</li>
+<li>
+<p>Implementieren Sie für <code>Student</code> auch die Methoden <code>equals()</code> und <code>hashCode()</code>. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Wenn Sie Ihre Implementierung mit folgender Klasse testen:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Testklasse</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>       
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">NR_OF_STUDENTS</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">Slack</span> <span class="n">slack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Slack</span><span class="p">();</span>
+
+        <span class="n">Student</span><span class="o">[]</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">[</span><span class="n">NR_OF_STUDENTS</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">Character</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;A&#39;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">students</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">students</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+            <span class="n">c</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">students</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">slack</span><span class="p">.</span><span class="na">publishNews</span><span class="p">();</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">slack</span><span class="p">.</span><span class="na">publishNews</span><span class="p">();</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span> 
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">slack</span><span class="p">.</span><span class="na">publishNews</span><span class="p">();</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">.</span><span class="na">removePublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">students</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="na">setPublisher</span><span class="p">(</span><span class="n">slack</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">slack</span><span class="p">.</span><span class="na">publishNews</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>dann sollte die Ausgabe ungefähr so sein: </p>
+<div class="highlight"><pre><span></span><code>A registered!
+B registered!
+C registered!
+D registered!
+E registered!
+D received Breaking News <span class="m">1</span>
+C received Breaking News <span class="m">1</span>
+B received Breaking News <span class="m">1</span>
+A received Breaking News <span class="m">1</span>
+E received Breaking News <span class="m">1</span>
+
+B deregistered!
+D deregistered!
+
+C received Breaking News <span class="m">2</span>
+A received Breaking News <span class="m">2</span>
+E received Breaking News <span class="m">2</span>
+
+B registered!
+C deregistered!
+E deregistered!
+
+B received Breaking News <span class="m">3</span>
+A received Breaking News <span class="m">3</span>
+
+A deregistered!
+B deregistered!
+D registered!
+
+D received Breaking News <span class="m">4</span>
+</code></pre></div>
 </li>
 </ol>
 </details>

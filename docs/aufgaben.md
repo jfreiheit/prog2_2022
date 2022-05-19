@@ -28,6 +28,180 @@
 	3. Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!
 
 
+??? question "eine mögliche Lösung für Aufgabe 1"
+	
+	=== "Spiel.java"
+		```java linenums="1"
+		package aufgaben.aufgabe1;
+
+		import javax.swing.JOptionPane;
+
+		public class Spiel {
+			public static int siegPunkte;
+			private Spieler[] spieler;
+			
+			Spiel()
+			{
+				int anzSpieler = 0;
+				int siegPunkte = 0;
+				boolean inputOk = false;
+				String input = "";
+				
+				while(!inputOk)
+				{
+					try
+					{
+						input = JOptionPane.showInputDialog("Anzahl Spieler :");
+						inputOk = true;
+						anzSpieler = Integer.parseInt(input);
+					}
+					catch(NumberFormatException e)
+					{
+						inputOk = false;
+					}
+				}
+				
+				inputOk = false;
+				
+				while(!inputOk)
+				{
+					try
+					{
+						input = JOptionPane.showInputDialog("Siegpunkte :");
+						inputOk = true;
+						siegPunkte = Integer.parseInt(input);
+					}
+					catch(NumberFormatException e)
+					{
+						inputOk = false;
+					}
+				}
+				
+				Spiel.siegPunkte = siegPunkte;
+				spieler = new Spieler[anzSpieler];
+				
+				namenErmitteln();
+			}
+			
+			Spiel(int siegPunkte, int anzSpieler)
+			{
+				Spiel.siegPunkte = siegPunkte;
+				spieler = new Spieler[anzSpieler];
+				
+				/* Spielernamen sind A, B, C ...
+				char name = 'A';
+				for(int i=0; i<spieler.length; i++)
+				{
+					spieler[i] = new Spieler(String.valueOf(name));
+					name ++;
+				}
+				*/
+				
+				/* Spielernamen werden eingegeben
+				 * wenn man namenErmitteln() auskommentiert,
+				 * kann man die obige for-Schleife nehmen, damit
+				 * man nicht immer die Spielernamen eingeben muss
+				 * - zum Testen
+				 */
+				namenErmitteln();
+			}
+			
+			private void namenErmitteln()
+			{
+				String name = "";
+				for(int i=0; i<spieler.length; i++)
+				{
+					name = JOptionPane.showInputDialog("Name des Spielers " + (i+1)+" :");
+					spieler[i] = new Spieler(name);
+				}
+			}
+			
+			public void spielen()
+			{
+				int index = 0;
+				boolean gewonnen = false;
+				while(!gewonnen)
+				{
+					gewonnen = spieler[index].wuerfeln();
+					index = (index<spieler.length-1) ? index+1 : 0;
+				}
+			}
+			
+			public static void main(String[] args)
+			{
+				//Spiel spiel = new Spiel(30, 3);
+				Spiel spiel = new Spiel();
+				spiel.spielen();
+			}
+			
+		}
+		```
+	
+	=== "Spieler.java"
+		```java linenums="1"
+		package aufgaben.aufgabe1;
+
+		import java.util.Random;
+
+		import javax.swing.JOptionPane;
+
+		public class Spieler {
+			private String name;
+			private int aktStand;
+			private Random r;
+			
+			Spieler(String name)
+			{
+				aktStand=0;
+				this.name = name;
+				r = new Random();
+			}
+			
+			public int getAktStand()
+			{
+				return this.aktStand;
+			}
+			
+			public boolean wuerfeln()
+			{
+				
+				System.out.printf("%n%nSpieler %s ist an der Reihe (bisher %d Punkte) %n ----------------------------------------- %n" , this.name, this.aktStand);
+				int reihe = 0;
+				int wurf = 0;
+				boolean ende = false;
+				while(!ende)
+				{
+					wurf = r.nextInt(6)+1;
+					System.out.printf("%s hat eine %d gewuerfelt %n" , this.name, wurf);
+					if(wurf==6)
+					{
+						System.out.printf("Versuch zu Ende %n Aktueller Spielstand von %s : %d Punkte %n Der naechste Spieler ist dran%n", this.name, this.aktStand);
+						ende = true;
+					}
+					else if(aktStand+reihe+wurf >= Spiel.siegPunkte)
+					{
+						System.out.printf("%s hat insgesamt %d Punkte und somit gewonnen !!!", this.name, (aktStand+reihe+wurf));
+						return true;
+					}
+					else	 // eine 1..5 gewuerfelt und noch nicht gewonnen
+					{
+						reihe += wurf;
+						System.out.printf("in diesem Versuch bisher %d Punkte -- insgesamt %d Punkte %n", reihe, (aktStand+reihe));
+						int dialogResult = JOptionPane.showConfirmDialog (null, this.name+ ", wollen Sie weiter wuerfeln? ", "Weiter wuerfeln?", JOptionPane.YES_NO_OPTION);
+						ende = !(dialogResult==JOptionPane.YES_OPTION);
+						if(ende)
+						{
+							aktStand += reihe;
+						}
+					}
+				}
+				return false;
+			}
+			
+		}
+		```
+
+
 ##### Aufgabe 2 (MyInteger)
 
 ??? "Aufgabe 2"
@@ -56,6 +230,257 @@
 	9.	Überschreiben Sie außerdem die Methoden `equals()` und `toString()` (*Zusatz:*  auch `hashCode()` überschreiben).
 	10. Testen Sie Ihre Klasse ausführlich in einer `Testklasse` mit `main()`-Methode.
 	11. Laden Sie Ihr Lösung in Moodle hoch! Viel Spaß und viel Erfolg!
+
+
+??? question "eine mögliche Lösung für Aufgabe 2"
+	
+	=== "MyInteger.java"
+		```java linenums="1"
+		package aufgaben.aufgabe2;
+
+		public class MyInteger
+		{
+			public static final int MAX_VALUE = 2147483647;
+			public static final int MIN_VALUE = -2147483648;
+			
+			private int value;
+			
+			public MyInteger(int value)
+			{
+				this.value=value;
+			}
+			
+			public MyInteger(String s) throws IllegalArgumentException
+			{
+				this.value = parseInt(s);
+			}
+			
+			private static boolean isDigit(char c)
+			{
+				return (c=='0' || c=='1' || c=='2' || c=='3' || c=='4' || c=='5' ||
+						c=='6' || c=='7' || c=='8' || c=='9');
+			}
+			
+			private static int charToInt(char c)
+			{
+				int asciivalue = c;
+				int intvalue = asciivalue-48; // 0 ist 048 bis 9 ist 057
+				return intvalue;
+			}
+			
+			public static int parseInt(String s) throws IllegalArgumentException
+			{
+				boolean negativ = false;
+				if(s.length()==0) throw new IllegalArgumentException("leer");
+				// pruefe, ob erstes Zeichen + oder -
+				// merken und weiter mit Rest
+				if(s.charAt(0)=='+') s = s.substring(1);
+				else if(s.charAt(0)=='-')
+				{
+					s = s.substring(1);
+					negativ = true;
+				}
+				if(s.length()==0) throw new IllegalArgumentException("nur '+' bzw. '-' --> keine Zahl");
+				// entferne führende Nullen
+				while(s.charAt(0)=='0')
+				{
+					s = s.substring(1);
+				}
+				for(int i=0; i<s.length(); i++)
+				{
+					if(!isDigit(s.charAt(i))) throw new IllegalArgumentException("keine Zahl!");
+				}
+				int exponent = 0;
+				int zahl = 0;
+				for(int i = s.length()-1; i>=0; i--)
+				{
+					zahl = zahl + charToInt(s.charAt(i))*(int)Math.pow(10, exponent);
+					exponent++;
+				}
+				if(negativ) return -zahl;
+				else return zahl;
+			}
+			
+			public int intValue()
+			{
+				return this.value;
+			}
+			
+			public double doubleValue()
+			{
+				return this.value;
+			}
+			
+			public static MyInteger valueOf(String s) throws IllegalArgumentException
+			{
+				return new MyInteger(s);
+			}
+			
+			public static MyInteger valueOf(int value)
+			{
+				return new MyInteger(value);
+			}
+			
+			@Override
+			public boolean equals(Object other)
+			{
+				if(other == null) return false;
+				if(this == other) return true; 
+				if(this.getClass() != other.getClass())	return false; 	
+
+				MyInteger otherInt = (MyInteger)other; 	
+				return (this.value == otherInt.value); 
+			}
+			
+			@Override
+			public int hashCode()
+			{
+				return this.value;
+			}
+			
+			@Override
+			public String toString()
+			{
+				return value+"";
+			}
+			
+			public static int compare(int x, int y)
+			{
+				return (x < y) ? -1 : ((x == y) ? 0 : 1);
+			}
+			
+			public int compareTo(MyInteger otherMyInteger)
+			{
+				return compare(this.value, otherMyInteger.value);
+			}
+		}
+		```
+	
+	=== "MyIntegerMain.java"
+		```java linenums="1"
+		package aufgaben.aufgabe2;
+
+		public class MyIntegerMain
+		{
+
+			public static void main(String[] args)
+			{
+				MyInteger 	mi1=null, mi2=null, mi3=null, mi4=null, 
+							mi5=null, mi6=null, mi7=null, mi8=null,
+							mi9=null, mi10=null;
+				try {
+					mi1 = new MyInteger("-2147483648");
+					System.out.println(mi1.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				try {
+					mi2 = new MyInteger("-00002147483648");
+					System.out.println(mi2.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				try {
+					mi3 = new MyInteger("hallo");
+					System.out.println(mi3.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				mi4 = new MyInteger(-2147483648);
+				try {
+					mi5 = MyInteger.valueOf("-2147483648");
+					System.out.println(mi5.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				try {
+					mi6 = MyInteger.valueOf("-00002147483648");
+					System.out.println(mi6.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				try {
+					mi7 = MyInteger.valueOf("hallo");
+					System.out.println(mi7.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				mi8 = MyInteger.valueOf(-2147483648);
+				try {
+					mi9 = MyInteger.valueOf("");
+					System.out.println(mi9.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				try {
+					mi10 = MyInteger.valueOf("+");
+					System.out.println(mi10.intValue());
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println(e.getMessage());
+				}
+				System.out.println("mi1 equals mi2 ? : " + mi1.equals(mi2));
+				System.out.println("mi1 equals mi3 ? : " + mi1.equals(mi3));
+				System.out.println("mi1 equals mi4 ? : " + mi1.equals(mi4));
+				System.out.println("mi1 equals mi5 ? : " + mi1.equals(mi5));
+				System.out.println("mi1 equals mi6 ? : " + mi1.equals(mi6));
+				System.out.println("mi1 equals mi7 ? : " + mi1.equals(mi7));
+				System.out.println("mi1 equals mi8 ? : " + mi1.equals(mi8));
+				System.out.println("mi1 equals mi9 ? : " + mi1.equals(mi9));
+				System.out.println("mi1 equals mi10 ? : " + mi1.equals(mi10));
+				
+				System.out.println("hashCode mi1 : " + mi1.hashCode());
+				System.out.println("hashCode mi2 : " + mi2.hashCode());
+				try {
+					System.out.println("hashCode mi3 : " + mi3.hashCode());
+				}
+				catch(NullPointerException e)
+				{
+					System.out.println("Objekt existiert nicht!");
+				}
+				System.out.println("hashCode mi4 : " + mi4.hashCode());
+				
+				System.out.println("intValue mi1 : " + mi1.intValue());
+				System.out.println("intValue mi2 : " + mi2.intValue());
+				try {
+					System.out.println("intValue mi3 : " + mi3.intValue());
+				}
+				catch(NullPointerException e)
+				{
+					System.out.println("Objekt existiert nicht!");
+				}
+				System.out.println("intValue mi4 : " + mi4.intValue());
+				
+				System.out.println("doubleValue mi1 : " + mi1.doubleValue());
+				System.out.println("doubleValue mi2 : " + mi2.doubleValue());
+				try {
+					System.out.println("doubleValue mi3 : " + mi3.doubleValue());
+				}
+				catch(NullPointerException e)
+				{
+					System.out.println("Objekt existiert nicht!");
+				}
+				System.out.println("doubleValue mi4 : " + mi4.doubleValue());
+				
+			}
+
+		}
+		```
 
 
 
@@ -916,6 +1341,185 @@
 		für die in dem Zustand darüber möglichen Züge.	
 
 
+??? question "eine mögliche Lösung für Aufgabe 3"
+	
+	=== "Solitaire.java"
+		```java linenums="1"
+		package aufgaben.aufgabe3;
+
+		public class Solitaire {
+			private Moves game;
+			private State[][] field;
+			
+			public Solitaire()
+			{
+				this.game = new Moves();
+				this.field = new State[7][7];
+				for(int row = 0; row < this.field.length; row++)
+				{
+					for(int col = 0; col < this.field[row].length; col++)
+					{
+						if((row < 2 || row > 4) && (col < 2 || col > 4))
+						{
+							this.field[row][col] = State.NOT;
+						}
+						else
+						{
+							this.field[row][col] = State.USED;
+						}
+					}
+				}
+				this.field[3][3] = State.FREE;
+			}
+			
+			public void print()
+			{
+				for(int row = 0; row < this.field.length; row++)
+				{
+					for(int col = 0; col < this.field[row].length; col++)
+					{
+						if(this.field[row][col] == State.USED) System.out.print("o ");
+						else System.out.print("  ");
+					}
+					System.out.println();
+				}
+				System.out.println();
+			}
+			
+			public boolean possibleFrom(int row, int col)
+			{
+				if(row>=0 && row<7 && col>=0 && col<7 && this.field[row][col] == State.USED)
+				{
+					// up ?
+					if(row > 1 && this.field[row-1][col] == State.USED && this.field[row-2][col] == State.FREE) return true;
+					// down ?
+					if(row < 5 && this.field[row+1][col] == State.USED && this.field[row+2][col] == State.FREE) return true;
+					// right ?
+					if(col < 5 && this.field[row][col+1] == State.USED && this.field[row][col+2] == State.FREE) return true;
+					// left ?
+					if(col > 1 && this.field[row][col-1] == State.USED && this.field[row][col-2] == State.FREE) return true;
+				}
+				return false;
+			}
+			
+			public Point[] possibleTo(int fromRow, int fromCol)
+			{
+				if(!possibleFrom(fromRow, fromCol)) return new Point[0];
+				
+				// there is at least one To-Point
+				int nrOfPossibleTos = 0;
+				if(fromRow > 1 && this.field[fromRow-1][fromCol] == State.USED && this.field[fromRow-2][fromCol] == State.FREE) nrOfPossibleTos++;
+				if(fromRow < 5 && this.field[fromRow+1][fromCol] == State.USED && this.field[fromRow+2][fromCol] == State.FREE) nrOfPossibleTos++;
+				if(fromCol < 5 && this.field[fromRow][fromCol+1] == State.USED && this.field[fromRow][fromCol+2] == State.FREE) nrOfPossibleTos++;
+				if(fromCol > 1 && this.field[fromRow][fromCol-1] == State.USED && this.field[fromRow][fromCol-2] == State.FREE) nrOfPossibleTos++;
+				
+				Point[] tos = new Point[nrOfPossibleTos];
+				int index = 0;
+				if(fromRow > 1 && this.field[fromRow-1][fromCol] == State.USED && this.field[fromRow-2][fromCol] == State.FREE) tos[index++] = new Point(fromRow-2, fromCol);
+				if(fromRow < 5 && this.field[fromRow+1][fromCol] == State.USED && this.field[fromRow+2][fromCol] == State.FREE) tos[index++] = new Point(fromRow+2, fromCol);
+				if(fromCol < 5 && this.field[fromRow][fromCol+1] == State.USED && this.field[fromRow][fromCol+2] == State.FREE) tos[index++] = new Point(fromRow, fromCol+2);
+				if(fromCol > 1 && this.field[fromRow][fromCol-1] == State.USED && this.field[fromRow][fromCol-2] == State.FREE) tos[index++] = new Point(fromRow, fromCol-2);
+				return tos;
+			}
+			
+			public Moves possibleMoves()
+			{
+				Moves possibleMoves = new Moves();
+				for(int row = 0; row < this.field.length; row++)
+				{
+					for(int col = 0; col < this.field[row].length; col++)
+					{
+						if(possibleFrom(row,col))
+						{
+							Point[] tos = this.possibleTo(row, col);
+							Point from = new Point(row,col);
+							for(int index=0; index<tos.length; index++)
+							{
+								possibleMoves.addMove(new Move(from, tos[index]));
+							}
+						}
+					}
+				}
+				// next line for debug
+				possibleMoves.printMoves();
+				return possibleMoves;
+			}
+				
+			public boolean movePossible()
+			{
+				for(int row = 0; row < this.field.length; row++)
+				{
+					for(int col = 0; col < this.field[row].length; col++)
+					{
+						if(possibleFrom(row,col)) return true;
+					}
+				}
+				return false;
+			}
+			
+			public boolean moveFirstPossible()
+			{
+				if(!movePossible()) return false;
+				else {
+					Moves possibleMoves = this.possibleMoves();
+					try {
+						Move move = possibleMoves.getMoveAtIndex(0);
+						this.move(move);
+						return true;
+					}
+					catch(IllegalArgumentException e)
+					{
+						System.out.println("Zug nicht moeglich! Index : 0");
+						return false;
+					}
+				}
+			}
+			
+			public void move(Move move) throws IllegalArgumentException
+			{
+				Point from = move.getFrom();
+				Point to = move.getTo();
+				int fromRow = from.getRow();
+				int fromCol = from.getCol();
+				int toRow = to.getRow();
+				int toCol = to.getCol();
+				int middleRow = (fromRow + toRow) / 2;
+				int middleCol = (fromCol + toCol) / 2;
+				try {
+					this.field[fromRow][fromCol] = State.FREE;
+					this.field[middleRow][middleCol] = State.FREE;
+					this.field[toRow][toCol] = State.USED;	
+				}
+				catch(ArrayIndexOutOfBoundsException e)
+				{
+					throw new IllegalArgumentException("Zug nicht moeglich! (" + fromRow + ", " + fromCol + ") --> "
+							+ "( " + toRow + ", " + toCol + ") ");
+				}
+			}
+
+		}
+		```
+	
+	=== "Testklasse.java"
+		```java linenums="1"
+		package aufgaben.aufgabe3;
+
+		public class Testklasse {
+
+			public static void main(String[] args) {
+				Solitaire s = new Solitaire();
+				s.print();
+				while(s.moveFirstPossible())
+				{
+					s.print();
+				}
+				s.print();
+			}
+
+		}
+		```
+
+
 ##### Aufgabe 4 (Operationen über Mengen)
 
 ??? "Aufgabe 4"
@@ -1020,6 +1624,138 @@
 	9. Legen Sie ein zweites Menü an und kopieren Sie alle Einträge aus dem ersten Menü hinein. Löschen Sie im zweiten Menü die Pizza `Hawaii` und geben Sie die Namen aller noch verfügbaren Pizzen aus.
 
 	10. Finden Sie in Ihrem Code ein Beispiel für Auto-Boxing und schreiben Sie einen entsprechenden Kommentar.
+
+
+##### Aufgabe 6 (Interfaces)
+
+??? "Aufgabe 6"
+
+	1. Das [*Observer*-Entwurfsmuster](https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)) gehört zu den am meisten verwendeten *Designmustern/Designpattern/Pattern* in der Programmierung. Es wird auch *Beobachter*-Muster oder *Publisher*-Pattern genannt. Wir werden dieses Muster in Kürze sehr häufig anwenden, wenn wir *Nutzerereignisse*  in grafischen Oberflächen behandeln. Man kann sich dieses Pattern so vorstellen, dass der *Publisher* eine Zeitung oder auch Slack ist und dass *Listener* diese Zeitung (oder Slack) "abonnieren". Immer, wenn eine Nachricht veröffentlicht wird, dann erfahren alle Abonnenten davon. Wir werden eine (einfache) Implementierung dieses Entwurfsmusters durchführen.
+
+	2. Erstellen Sie ein Interface `Publisher` mit folgenden (abstrakten) Methoden:
+
+		- `public boolean register(Listener listener);`
+	- `public boolean unregister(Listener listener);`
+	- `public void notifyListeners();` 
+	- `public String getUpdate(Listener listener);`
+
+	3. Erstellen Sie ein weiteres Interface `Listener` mit folgenden (abstrakten) Methoden:
+
+		- `public void update();`
+	- `public void setPublisher(Publisher publisher);`
+	- `public void removePublisher(Publisher publisher);`
+
+	4. Erstellen Sie eine Klasse `Slack`, die das `Publisher`-Interface implementiert. Objektvariablen der Klasse sind
+
+		- `private Set<Listener> listeners;` (speichert alle "Abonnenten"; kann gerne auch eine Liste sein)
+	- `private int nrOfMessages;` (speichert die aktuelle Nummer einer veröffentlichten Nachricht - die Nachrichten, die veröffentlicht werden, sollen fortlaufend nummeriert werden) 
+
+		- Im parameterlosen Konstruktor werden die Menge (oder Liste) erzeugt und die `nrOfMessages` auf `0 gesetzt. 
+
+		- In der Methode `register(Listener listener)` wird der `listener` in die Set `listeners` eingefügt. Geben Sie ein `true` zurück, wenn `listener` tatsächlich eingefügt wurde und `false` sonst (falls er schon in der Menge (oder Liste) war.
+
+		- In der Methode `unregister(Listener listener)` wird der `listener` wieder aus der Set `listeners` gelöscht. Geben Sie ein `true` zurück, wenn `listener` tatsächlich gelöscht wurde und `false` sonst (falls er nicht in der Menge (oder Liste) war.
+
+		- In der Methode `notifyListeners()` wird für alle `listener` aus der Menge `listeners` die `update()`-Methode aufgerufen (siehe `Listener` und `Student`). 
+
+		- Die Methode `getUpdate(Listener obj)` liefert einfach folgenden String zurück: `"Breaking News " + this.nrOfMessages`.
+
+		- Erstellen Sie eine Methode `public void publishNews()`, in der die `nrOfMessages` um 1 erhöht und die 
+		Methode `notifyListeners()` aufgerufen wird. 
+
+	5. Erstellen Sie eine Klasse `Student`, die das `Listener`-Interface implementiert. Objektvariablen der Klasse sind
+
+		- `private String name;` (speichert den Namen von `Student`)
+	- `private Publisher publisher;` (speichert den `Publisher`, an den sich `Student` anmeldet) 
+
+		- Im parametrisierten Konstruktor `public Student(String name)` wird der Name initalisiert. 
+
+		- In der Methode `setPublisher(Publisher publisher)` wird die `register()`-Methode des `publisher` aufgerufen und der Wert der Objektvariable `publisher` gesetzt. Geben Sie bei erfolgreicher Anmeldung an den `publisher` auf die Konsole `this.name + " registered!"` aus. 
+
+		- In der Methode `removePublisher(Publisher publisher)` meldet sich `Student` wieder vom `publisher` ab (Aufruf von `unregister()` und Ausgabe auf die Konsole `this.name + " deregistered!"`.
+
+		- In der Methode `update()` wird die `getUpdate()`-Methode des `publisher` aufgerufen und die zurückgegebene Nachricht `msg` wie folgt auf die Konsole ausgegben: `this.name + " received " + msg`. 
+
+		- Implementieren Sie für `Student` auch die Methoden `equals()` und `hashCode()`. 
+
+	6. Wenn Sie Ihre Implementierung mit folgender Klasse testen:
+
+		```java
+		public class Testklasse {
+
+			public static void main(String[] args) 
+			{		
+				final int NR_OF_STUDENTS = 5;
+				Slack slack = new Slack();
+				
+				Student[] students = new Student[NR_OF_STUDENTS];
+				Character c = 'A';
+				for(int index=0; index < students.length; index++)
+				{
+					students[index] = new Student(c.toString());
+					c++;
+					students[index].setPublisher(slack);
+				}
+				slack.publishNews();
+				
+				System.out.println();
+				students[1].removePublisher(slack);
+				students[3].removePublisher(slack);
+				System.out.println();
+				slack.publishNews();
+				
+				System.out.println();
+				students[1].setPublisher(slack);
+				students[2].removePublisher(slack);
+				students[4].removePublisher(slack);	
+				System.out.println();
+				slack.publishNews();
+				
+				System.out.println();
+				students[0].removePublisher(slack);
+				students[1].removePublisher(slack);
+				students[3].setPublisher(slack);
+				System.out.println();
+				slack.publishNews();
+			}
+
+		}
+		```
+
+		dann sollte die Ausgabe ungefähr so sein: 
+
+		```bash
+		A registered!
+		B registered!
+		C registered!
+		D registered!
+		E registered!
+		D received Breaking News 1
+		C received Breaking News 1
+		B received Breaking News 1
+		A received Breaking News 1
+		E received Breaking News 1
+
+		B deregistered!
+		D deregistered!
+
+		C received Breaking News 2
+		A received Breaking News 2
+		E received Breaking News 2
+
+		B registered!
+		C deregistered!
+		E deregistered!
+
+		B received Breaking News 3
+		A received Breaking News 3
+
+		A deregistered!
+		B deregistered!
+		D registered!
+
+		D received Breaking News 4
+		```
 
 
 
