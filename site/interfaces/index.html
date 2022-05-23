@@ -572,7 +572,7 @@
 </tr>
 <tr>
 <td>es kann nur von einer (abstrakten) Klasse geerbt werden (Schlüsselwort <code>extends</code>)</td>
-<td>es können beliebig viele Interfaces implementiert werden (Schlüsselwort <code>implemenets</code>), mehrere Interfaces durch Komma getrennt</td>
+<td>es können beliebig viele Interfaces implementiert werden (Schlüsselwort <code>implements</code>), mehrere Interfaces durch Komma getrennt</td>
 </tr>
 <tr>
 <td>abstrakte Klassen können selbst Interfaces implementieren</td>
@@ -913,7 +913,7 @@
     <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>Die Methode implementiert Bubble-Sort. In Zeile <code>7</code> verwenden wir die <code>compareTo()</code>-Methode. Das geht genau deshalb, weil klar ist, dass ein Objekt, das (auch) vom Typ <code>Comparable</code> ist, diese Methode auf jeden Fall als Eigenschaft besitzt. Wenn wir nun in der Klasse, in der die Methode <code>sortieren()</code> implmentiert ist, folgende <code>main()</code>-Methode haben:</p>
+<p>Die Methode implementiert Bubble-Sort. In Zeile <code>7</code> verwenden wir die <code>compareTo()</code>-Methode. Das geht genau deshalb, weil klar ist, dass ein Objekt, das (auch) vom Typ <code>Comparable</code> ist, diese Methode auf jeden Fall als Eigenschaft besitzt. Wenn wir nun in der Klasse, in der die Methode <code>sortieren()</code> implementiert ist, folgende <code>main()</code>-Methode haben:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Rectangle</span><span class="o">[]</span> <span class="n">rectArr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
         <span class="n">rectArr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">);</span>
@@ -964,7 +964,7 @@
 </code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
-<p>Wir haben für unsere Klasse <code>Rectangle</code> das Interface <code>Comparable</code> implementiert. Das bedeutet, dass wir in <code>Rectangle</code> die Methode <code>compareTo()</code> so implementiert haben, dass <code>Rectangle</code>-Objekte der Größe nach sortiert werden können. Wir haben also eine <em>Ordnung</em> über <code>Rectangle</code>-Objekte definiert. Nach "außen" ist sichtbar, dass wir eine solche Ordnung implementiert haben, dass <code>Rectangle</code>-Objekte also <em>sortierbar</em> sind, weil sie (auch) vom Typ <code>Comparable</code> sind. Für alle Objekte, die in Java existieren, wissen wir, dass sie <em>sortierbar</em> sind, sobald sie auch vom Typ <code>Comparable</code> sind. <code>Comparable</code> stellt also eine <em>Schnittstelle</em> zur Sortierbarkeit dar. Wenn wir eine eigene Klasse schreiben und wir eine <em>Ordnung</em> über die Objekte dieser Klasse definieren können, sollten wir das Interface <code>Comparable</code> implementieren, denn dadurch geben wir nach "außen" an, das sich die Objekte der Klasse <em>sortieren</em> (<em>ordnen</em>) lassen.</p>
+<p>Wir haben für unsere Klasse <code>Rectangle</code> das Interface <code>Comparable</code> implementiert. Das bedeutet, dass wir in <code>Rectangle</code> die Methode <code>compareTo()</code> so implementiert haben, dass <code>Rectangle</code>-Objekte der Größe nach sortiert werden können. Wir haben also eine <em>Ordnung</em> über <code>Rectangle</code>-Objekte definiert. Nach "außen" ist sichtbar, dass wir eine solche Ordnung implementiert haben, dass <code>Rectangle</code>-Objekte also <em>sortierbar</em> sind, weil sie (auch) vom Typ <code>Comparable</code> sind. Für alle Objekte, die in Java existieren, wissen wir, dass sie <em>sortierbar</em> sind, sobald sie auch vom Typ <code>Comparable</code> sind. <code>Comparable</code> stellt also eine <em>Schnittstelle</em> zur Sortierbarkeit dar. Wenn wir eine eigene Klasse schreiben und wir eine <em>Ordnung</em> über die Objekte dieser Klasse definieren können, sollten wir das Interface <code>Comparable</code> implementieren, denn dadurch geben wir nach "außen" an, dass sich die Objekte der Klasse <em>sortieren</em> (<em>ordnen</em>) lassen.</p>
 </div>
 <h3 id="zwischenfazit">Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Permanent link">&para;</a></h3>
 <p>Wir haben nun schon mehrere Methoden kennengelernt, die wir für eigene Klassen implementieren sollten.</p>
@@ -1128,7 +1128,7 @@
     <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>Deshalb wäre es eine <strong>bessere Implementierung</strong>, wenn wir das Interface <code>Comparable</code> nicht in den konkreten Klassen <code>Rectangle</code> und <code>Circle</code> (und jede weitere Klasse, die wir auf der Basis von <code>Shape</code> erstellen), sondern gleich in der Abstrakten Klasse <code>Shape</code>:</p>
+<p>Deshalb wäre es eine <strong>bessere Implementierung</strong>, wenn wir das Interface <code>Comparable</code> nicht in den konkreten Klassen <code>Rectangle</code> und <code>Circle</code> (und in jeder weiteren Klasse, die wir auf der Basis von <code>Shape</code> erstellen) implementieren, sondern gleich in der Abstrakten Klasse <code>Shape</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span>
 <span class="p">{</span>
 
@@ -1294,7 +1294,7 @@
 </div>
 </div>
 <p>Beachten Sie, dass die Klassen <code>Rectangle</code> und <code>Circle</code> jetzt <strong>nur noch</strong> von <code>Shape</code> erben, aber nicht mehr das Interface <code>Comparable</code> implementieren (jeweils Zeile <code>1</code>). Es darf nicht mehrmals von einer Klasse implementiert werden und <code>Shape</code> implementiert es ja bereits. </p>
-<p>Da <code>Shape</code> diese Interface aber "implementiert", wird die Methode <code>compareTo()</code> als abstrakte Methode an die Klassen <code>Rectangle</code> und <code>Circle</code> vererbt. Die Methode muss also von diesen Klassen implementiert werden. Nun wird sie aber mit dem Parametertyp <code>Shape</code> vererbt (Zeile <code>24</code> bzw. <code>23</code>). Dieser Parameter muss deshalb zunächst innerhalb der Methode <code>compareTo()</code> konvertiert werden (Zeile <code>25</code> bzw. <code>26</code>). </p>
+<p>Da <code>Shape</code> diese Interface aber <em>implementiert</em>, wird die Methode <code>compareTo()</code> als abstrakte Methode an die Klassen <code>Rectangle</code> und <code>Circle</code> vererbt. Die Methode muss also von diesen Klassen implementiert werden. Nun wird sie aber mit dem Parametertyp <code>Shape</code> vererbt (Zeile <code>24</code> in <code>Rectangle.java</code> bzw. <code>23</code> in <code>Circle.java</code>). Dieser Parameter muss deshalb zunächst innerhalb der Methode <code>compareTo()</code> konvertiert werden (Zeile <code>25</code> in <code>Circle.java</code> bzw. <code>26</code> in <code>Rectangle.java</code>). </p>
 <p>Die <strong>allgemeine</strong> Anwendung der Methode <code>sortieren()</code> in der Testklasse gelingt nun aber:</p>
 <div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TestklasseShape.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>

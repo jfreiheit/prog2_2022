@@ -705,7 +705,7 @@
 <li>wie der Rückgabetyp der Methode ist und</li>
 <li>wie der Sichtbarkeitsmodifizierer dieser Methode ist.</li>
 </ul>
-<p>Prinzipiell ist für abstrakte Methoden zu beachten, dass sie das Schlüsselwort <code>abstract</code> im Methodenkopf deklarieren und dass abstrakte Methode keinen Methodenrumpf hat, also keine <code>{ }</code>. Die Deklaration einer abstrakten Methode endet aber mit einem Semikolon!</p>
+<p>Prinzipiell ist für abstrakte Methoden zu beachten, dass sie das Schlüsselwort <code>abstract</code> im Methodenkopf deklarieren und dass abstrakte Methode keinen Methodenrumpf haben, also keine <code>{ }</code>. Die Deklaration einer abstrakten Methode endet aber mit einem Semikolon!</p>
 <h3 id="verwendung-abstrakter-klassen">Verwendung abstrakter Klassen<a class="headerlink" href="#verwendung-abstrakter-klassen" title="Permanent link">&para;</a></h3>
 <p>Eine Klasse, die eine oder mehrere abstrakte Methoden enthält, ist eine abstrakte Klasse. Abtrakte Klassen dienen </p>
 <ol>
@@ -722,7 +722,7 @@
 
 <span class="p">}</span>
 </code></pre></div>
-<p>Beachten Sie, dass eine Klasse selbst als <code>abstract</code> deklariert werden muss, wenn sie abstrakte Methoden enthält. Deshalb enthält die Klassendeklaration in Zeile <code>1</code> ebanfalls das Schlüsselwort <code>abstract</code>. Sie liesse sich auch sonst gar nicht compilieren. </p>
+<p>Beachten Sie, dass eine Klasse selbst als <code>abstract</code> deklariert werden muss, wenn sie abstrakte Methoden enthält. Deshalb enthält die Klassendeklaration in Zeile <code>1</code> ebanfalls das Schlüsselwort <code>abstract</code>. Sie ließe sich auch sonst gar nicht compilieren. </p>
 <h4 id="rectangle-erbt-von-shape"><code>Rectangle</code> erbt von <code>Shape</code><a class="headerlink" href="#rectangle-erbt-von-shape" title="Permanent link">&para;</a></h4>
 <p><code>Shape</code> kann nun bereits als Typ verwendet werden. Es lassen sich aber keine Objekte von der Klasse <code>Shape</code> erzeugen. Vielmehr ist die Klasse <code>Shape</code> auch dazu da, um von ihr zu erben. Wir erzeugen uns deshalb eine Klasse <code>Rectangle</code>, die von <code>Shape</code> erbt. </p>
 <p>Wenn wir nun schreiben:</p>
@@ -825,7 +825,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>Natürlich könnte (und sollte) die Klasse auch noch um geeignete Implementierungen für mindestens die von <code>Object</code> geerbten Methoden <code>equals()</code> und <code>toString()</code> enthalten. </p>
+<p>Natürlich könnte (und sollte) die Klasse auch noch geeignete Implementierungen für mindestens die von <code>Object</code> geerbten Methoden <code>equals()</code> und <code>toString()</code> enthalten. </p>
 <h4 id="circle-erbt-von-shape"><code>Circle</code> erbt von <code>Shape</code><a class="headerlink" href="#circle-erbt-von-shape" title="Permanent link">&para;</a></h4>
 <p>Wir können beliebig oft von der Klasse <code>Shape</code> erben, d.h. wir können nun beliebig viele Klasse erstellen, die von der Klasse <code>Shape</code> erben. Für jede dieser Klassen gilt nun:</p>
 <ul>
@@ -982,7 +982,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>In dieser Testklasse sind vier Methoden implementiert, die als Parameter entweder Objekte vom Typ <code>Shape</code> oder vom Typ <code>Shape[]</code> erwarten. Von Objekten, die vom (Laufzeit-)Typ <code>Shape</code> sind, wissen wir, dass sie die Methoden <code>perimeter()</code> bzw. <code>area()</code> als Eigenschaften besitzen. Deshalb können wir diese Methoden auch in den jeweiligen Methoden für die <code>Shape</code>-Objekte aufrufen. </p>
-<p>Abstrakte Klassen fungieren also ein ein Muster für Klassen, die von den abstrakten Klassen erben, denn die abgeleiteten Klassen <strong>müssen</strong> genau diese Methoden implementieren, die von den abstrakten Klassen vorgegeben sind. Ohne jetzt wirklich zu wissen, welche <em>konkreten</em> Klassen von dieser abstrakten Klasse erben und auch, ohne wirklich zu wissen, von welcher <em>konkreten</em> Klasse die Objekte erzeugt wurden (z.B. <code>Rectangle</code> oder <code>Circle</code>), so wissen wir doch, dass diese Objekte zumindest über die Methoden <code>perimeter()</code> und <code>area()</code> verfügen. </p>
+<p>Abstrakte Klassen fungieren also ein Muster für Klassen, die von den abstrakten Klassen erben, denn die abgeleiteten Klassen <strong>müssen</strong> genau diese Methoden implementieren, die von den abstrakten Klassen vorgegeben sind. Ohne jetzt wirklich zu wissen, welche <em>konkreten</em> Klassen von dieser abstrakten Klasse erben und auch, ohne wirklich zu wissen, von welcher <em>konkreten</em> Klasse die Objekte erzeugt wurden (z.B. <code>Rectangle</code> oder <code>Circle</code>), so wissen wir doch, dass diese Objekte zumindest über die Methoden <code>perimeter()</code> und <code>area()</code> verfügen. </p>
 <h2 id="beispiele-aus-den-java-paketen">Beispiele aus den Java-Paketen<a class="headerlink" href="#beispiele-aus-den-java-paketen" title="Permanent link">&para;</a></h2>
 <p>In Java finden sich sehr viele abstrakte Klassen. Wir betrachten im Folgenden einige, zu denen wir bereits einen Bezug haben. </p>
 <h3 id="die-abstrakte-klasse-number">Die abstrakte Klasse <code>Number</code><a class="headerlink" href="#die-abstrakte-klasse-number" title="Permanent link">&para;</a></h3>

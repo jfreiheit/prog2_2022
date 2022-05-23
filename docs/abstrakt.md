@@ -53,7 +53,7 @@ Das Schlüsselwort `abstract` gibt an, dass die Methode nicht implementiert wird
 - wie der Rückgabetyp der Methode ist und
 - wie der Sichtbarkeitsmodifizierer dieser Methode ist.
 
-Prinzipiell ist für abstrakte Methoden zu beachten, dass sie das Schlüsselwort `abstract` im Methodenkopf deklarieren und dass abstrakte Methode keinen Methodenrumpf hat, also keine `{ }`. Die Deklaration einer abstrakten Methode endet aber mit einem Semikolon!
+Prinzipiell ist für abstrakte Methoden zu beachten, dass sie das Schlüsselwort `abstract` im Methodenkopf deklarieren und dass abstrakte Methode keinen Methodenrumpf haben, also keine `{ }`. Die Deklaration einer abstrakten Methode endet aber mit einem Semikolon!
 
 ### Verwendung abstrakter Klassen
 
@@ -77,7 +77,7 @@ public abstract class Shape
 }
 ```
 
-Beachten Sie, dass eine Klasse selbst als `abstract` deklariert werden muss, wenn sie abstrakte Methoden enthält. Deshalb enthält die Klassendeklaration in Zeile `1` ebanfalls das Schlüsselwort `abstract`. Sie liesse sich auch sonst gar nicht compilieren. 
+Beachten Sie, dass eine Klasse selbst als `abstract` deklariert werden muss, wenn sie abstrakte Methoden enthält. Deshalb enthält die Klassendeklaration in Zeile `1` ebanfalls das Schlüsselwort `abstract`. Sie ließe sich auch sonst gar nicht compilieren. 
 
 
 #### `Rectangle` erbt von `Shape`
@@ -150,7 +150,7 @@ public class Rectangle extends Shape
 }
 ```
 
-Natürlich könnte (und sollte) die Klasse auch noch um geeignete Implementierungen für mindestens die von `Object` geerbten Methoden `equals()` und `toString()` enthalten. 
+Natürlich könnte (und sollte) die Klasse auch noch geeignete Implementierungen für mindestens die von `Object` geerbten Methoden `equals()` und `toString()` enthalten. 
 
 
 #### `Circle` erbt von `Shape`
@@ -247,7 +247,7 @@ public class TestklasseShape
 
 In dieser Testklasse sind vier Methoden implementiert, die als Parameter entweder Objekte vom Typ `Shape` oder vom Typ `Shape[]` erwarten. Von Objekten, die vom (Laufzeit-)Typ `Shape` sind, wissen wir, dass sie die Methoden `perimeter()` bzw. `area()` als Eigenschaften besitzen. Deshalb können wir diese Methoden auch in den jeweiligen Methoden für die `Shape`-Objekte aufrufen. 
 
-Abstrakte Klassen fungieren also ein ein Muster für Klassen, die von den abstrakten Klassen erben, denn die abgeleiteten Klassen **müssen** genau diese Methoden implementieren, die von den abstrakten Klassen vorgegeben sind. Ohne jetzt wirklich zu wissen, welche *konkreten* Klassen von dieser abstrakten Klasse erben und auch, ohne wirklich zu wissen, von welcher *konkreten* Klasse die Objekte erzeugt wurden (z.B. `Rectangle` oder `Circle`), so wissen wir doch, dass diese Objekte zumindest über die Methoden `perimeter()` und `area()` verfügen. 
+Abstrakte Klassen fungieren also ein Muster für Klassen, die von den abstrakten Klassen erben, denn die abgeleiteten Klassen **müssen** genau diese Methoden implementieren, die von den abstrakten Klassen vorgegeben sind. Ohne jetzt wirklich zu wissen, welche *konkreten* Klassen von dieser abstrakten Klasse erben und auch, ohne wirklich zu wissen, von welcher *konkreten* Klasse die Objekte erzeugt wurden (z.B. `Rectangle` oder `Circle`), so wissen wir doch, dass diese Objekte zumindest über die Methoden `perimeter()` und `area()` verfügen. 
 
 ## Beispiele aus den Java-Paketen
 

@@ -7,7 +7,7 @@ Interfaces sind automatisch `abstract`, d.h. das Schlüsselwort `abstract` muss 
 | Abtrakte Klasse | Interface |
 |-----------------|-----------|
 |können abstrakte und nicht-abstrakte (also implementierte) Methoden haben |können nur abstrakte Methoden beinhalten |
-|es kann nur von einer (abstrakten) Klasse geerbt werden (Schlüsselwort `extends`) |es können beliebig viele Interfaces implementiert werden (Schlüsselwort `implemenets`), mehrere Interfaces durch Komma getrennt |
+|es kann nur von einer (abstrakten) Klasse geerbt werden (Schlüsselwort `extends`) |es können beliebig viele Interfaces implementiert werden (Schlüsselwort `implements`), mehrere Interfaces durch Komma getrennt |
 |abstrakte Klassen können selbst Interfaces implementieren |Interfaces können keine abstrakten Klassen implementieren (alle Methoden müssen ja abstrakt sein) |
 |das Schlüsselwort `abstract` deklariert eine abstrakte Klasse (und eine abstrakte Methode) |das Schlüsselwort `interface` deklariert ein Interface |
 |eine abstrakte Klasse kann von einer anderen abstrakten Klasse erben und mehrere Interfaces implementieren |ein Interface kann nur von *einem* anderen Interface erben |
@@ -242,7 +242,7 @@ Wir könnten nun also in jeder beliebigen Klasse eine Sortiermethode haben, z.B.
 	}
 ```
 
-Die Methode implementiert Bubble-Sort. In Zeile `7` verwenden wir die `compareTo()`-Methode. Das geht genau deshalb, weil klar ist, dass ein Objekt, das (auch) vom Typ `Comparable` ist, diese Methode auf jeden Fall als Eigenschaft besitzt. Wenn wir nun in der Klasse, in der die Methode `sortieren()` implmentiert ist, folgende `main()`-Methode haben:
+Die Methode implementiert Bubble-Sort. In Zeile `7` verwenden wir die `compareTo()`-Methode. Das geht genau deshalb, weil klar ist, dass ein Objekt, das (auch) vom Typ `Comparable` ist, diese Methode auf jeden Fall als Eigenschaft besitzt. Wenn wir nun in der Klasse, in der die Methode `sortieren()` implementiert ist, folgende `main()`-Methode haben:
 
 ```java
 public static void main(String[] args) {
@@ -301,7 +301,7 @@ für den Fall, dass wir in unserer Klasse `Rectangle` auch die `toString()`-Meth
 ```
 
 !!! success
-	Wir haben für unsere Klasse `Rectangle` das Interface `Comparable` implementiert. Das bedeutet, dass wir in `Rectangle` die Methode `compareTo()` so implementiert haben, dass `Rectangle`-Objekte der Größe nach sortiert werden können. Wir haben also eine *Ordnung* über `Rectangle`-Objekte definiert. Nach "außen" ist sichtbar, dass wir eine solche Ordnung implementiert haben, dass `Rectangle`-Objekte also *sortierbar* sind, weil sie (auch) vom Typ `Comparable` sind. Für alle Objekte, die in Java existieren, wissen wir, dass sie *sortierbar* sind, sobald sie auch vom Typ `Comparable` sind. `Comparable` stellt also eine *Schnittstelle* zur Sortierbarkeit dar. Wenn wir eine eigene Klasse schreiben und wir eine *Ordnung* über die Objekte dieser Klasse definieren können, sollten wir das Interface `Comparable` implementieren, denn dadurch geben wir nach "außen" an, das sich die Objekte der Klasse *sortieren* (*ordnen*) lassen.
+	Wir haben für unsere Klasse `Rectangle` das Interface `Comparable` implementiert. Das bedeutet, dass wir in `Rectangle` die Methode `compareTo()` so implementiert haben, dass `Rectangle`-Objekte der Größe nach sortiert werden können. Wir haben also eine *Ordnung* über `Rectangle`-Objekte definiert. Nach "außen" ist sichtbar, dass wir eine solche Ordnung implementiert haben, dass `Rectangle`-Objekte also *sortierbar* sind, weil sie (auch) vom Typ `Comparable` sind. Für alle Objekte, die in Java existieren, wissen wir, dass sie *sortierbar* sind, sobald sie auch vom Typ `Comparable` sind. `Comparable` stellt also eine *Schnittstelle* zur Sortierbarkeit dar. Wenn wir eine eigene Klasse schreiben und wir eine *Ordnung* über die Objekte dieser Klasse definieren können, sollten wir das Interface `Comparable` implementieren, denn dadurch geben wir nach "außen" an, dass sich die Objekte der Klasse *sortieren* (*ordnen*) lassen.
 
 ### Zwischenfazit
 
@@ -409,7 +409,7 @@ Wenn wir nun versuchen würden, die `sortieren()`-Methode auf ein `Circle[]` anz
 	}
 ```
 
-Deshalb wäre es eine **bessere Implementierung**, wenn wir das Interface `Comparable` nicht in den konkreten Klassen `Rectangle` und `Circle` (und jede weitere Klasse, die wir auf der Basis von `Shape` erstellen), sondern gleich in der Abstrakten Klasse `Shape`:
+Deshalb wäre es eine **bessere Implementierung**, wenn wir das Interface `Comparable` nicht in den konkreten Klassen `Rectangle` und `Circle` (und in jeder weiteren Klasse, die wir auf der Basis von `Shape` erstellen) implementieren, sondern gleich in der Abstrakten Klasse `Shape`:
 
 ```java
 public abstract class Shape implements Comparable<Shape>
@@ -507,7 +507,7 @@ Da `Shape` eine abstrakte Klasse ist, **muss** die Methode `compareTo()` **nicht
 
 Beachten Sie, dass die Klassen `Rectangle` und `Circle` jetzt **nur noch** von `Shape` erben, aber nicht mehr das Interface `Comparable` implementieren (jeweils Zeile `1`). Es darf nicht mehrmals von einer Klasse implementiert werden und `Shape` implementiert es ja bereits. 
 
-Da `Shape` diese Interface aber "implementiert", wird die Methode `compareTo()` als abstrakte Methode an die Klassen `Rectangle` und `Circle` vererbt. Die Methode muss also von diesen Klassen implementiert werden. Nun wird sie aber mit dem Parametertyp `Shape` vererbt (Zeile `24` bzw. `23`). Dieser Parameter muss deshalb zunächst innerhalb der Methode `compareTo()` konvertiert werden (Zeile `25` bzw. `26`). 
+Da `Shape` diese Interface aber *implementiert*, wird die Methode `compareTo()` als abstrakte Methode an die Klassen `Rectangle` und `Circle` vererbt. Die Methode muss also von diesen Klassen implementiert werden. Nun wird sie aber mit dem Parametertyp `Shape` vererbt (Zeile `24` in `Rectangle.java` bzw. `23` in `Circle.java`). Dieser Parameter muss deshalb zunächst innerhalb der Methode `compareTo()` konvertiert werden (Zeile `25` in `Circle.java` bzw. `26` in `Rectangle.java`). 
 
 Die **allgemeine** Anwendung der Methode `sortieren()` in der Testklasse gelingt nun aber:
 
