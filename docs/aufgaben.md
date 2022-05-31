@@ -1758,6 +1758,18 @@
 		```
 
 
+##### Aufgabe 7 (GUI)
+
+??? "Aufgabe 7"
+
+	1. Erstellen Sie die GUI für einen solchen Taschenrechner:
+
+		![uebung8](./files/61_uebung8.png)
+
+		Kann auch schicker sein :-) Viel Spaß!
+
+
+
 
 
 

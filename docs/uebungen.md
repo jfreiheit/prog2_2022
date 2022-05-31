@@ -3148,5 +3148,58 @@
 		```
 
 
+##### Übung 9 (GUI)
+
+??? "Übung 9"
+
+	1. Erstellen Sie folgende GUI:
+
+		![uebung8](./files/62_uebung8.png)
+
+
+??? question "vorkommentierte Klasse"
+	
+	=== "GUIUebung.java"
+		```java linenums="1"
+		//import
+
+
+		public class GUIUebung extends JFrame
+		{
+
+			public GUIUebung()
+			{
+				super();
+				
+				//Titel		
+				//Verhalten beim Schließen		
+				//Größe 		
+				//Sichtbarkeit 		
+				//...
+				//gute Vorlage:
+				//https://freiheit.f4.htw-berlin.de/prog2/gui/#erweitern-des-fensters-um-ein-jpanel
+				
+			}
+
+			private JPanel initContent()
+			{
+				//Ein paar Tipps:		
+				//mehrere Panels verwenden
+				//JTextField hat verschiedene Konstruktoren, nicht nur JTextField(int columns)
+				//Rahmen können mit BorderFactory erzeugt werden
+				//Beim FlowLayout ändert sich die Größe der Steuerelemente nicht,
+				//bei GridLayout passt sich die Größe an den Container an
+				
+			}
+
+			public static void main(String[] args) 
+			{
+				new GUIUebung();
+			}
+
+		}
+		```
+
+
 
 
