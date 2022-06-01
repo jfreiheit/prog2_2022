@@ -2420,7 +2420,7 @@
 
 ##### Übung 7 (Maps)
 
-??? "Übung 7 (24. + 26.5.)"
+??? "Übung 7 (31.5. - 2.6.)"
 
 	1. Erstellen Sie eine Klasse `Stadt` mit folgenden Objektvariablen:
 		- `String name;`
@@ -2544,9 +2544,6 @@
 			//der die Objektvariablen initialisiert.
 			public Stadt(String name, List<Integer> bevoelkerung, float flaeche)
 			{
-				//Da es sich um einen Konstruktor einer Kindklasse handelt, sollte zuerst explizit der Konstruktor der Elternklasse aufrufen werden
-				//kann aber wie implements erst später ergänzt werden
-				
 				//Objektvariablen initialisieren
 				this.??? = ???;
 				...
@@ -2703,7 +2700,7 @@
 
 ##### Übung 8 (Interfaces)
 
-??? "Übung 8 (31.6. - 2.7.)"
+??? "Übung 8 (7.6. - 9.6.)"
 
 	1. Wir beschäftigen uns nochmal mit der Übung 7, d.h. mit `Stadt` und `StadtTest`. Dieses Mal geht es uns aber mehr um die Verwendung des Interfaces `Comparable`. Zunächst sind die beiden Klassen `Stadt` und `StadtTest` wie folgt gegeben (das haben wir so in Übung 7 erarbeitet - es gibt eine Änderung in `StadtTest`, dort benutzen wir jetzt ): 
 
