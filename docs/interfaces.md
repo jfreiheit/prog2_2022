@@ -199,7 +199,7 @@ public class Rectangle extends Shape implements Comparable<Rectangle>
 }
 ```
 
-In Zukunft typisieren wir das `Comparable`-Interface noch bevor wir `Add unimplemented methods` wählen. Wir typisieren es stets mit der Klasse, in der wir das Interface implementieren. 
+In Zukunft typisieren wir das `Comparable`-Interface noch, bevor wir `Add unimplemented methods` wählen. Wir typisieren es stets mit der Klasse, in der wir das Interface implementieren. 
 
 Für die Implementierung müssen wir uns nun überlegen, wann ein `Rectangle`-Objekt größer (kleiner/gleich) sein soll, als ein anderes. Da `compareTo()` ein `int` zurückgibt, könnten wir z.B. die Summen von `height` und `width` verwenden:
 
@@ -218,7 +218,7 @@ Wenn die Summe von `height` und `width` von `this` größer ist, als von `o`, da
 
 Ein `Rectangle`-Objekt ist nicht nur vom Laufzeittyp `Rectangle`, sondern auch
 
-- von Laufzaittyp `Shape`, wegen `public class Rectangle extends Shape`, 
+- von Laufzeittyp `Shape`, wegen `public class Rectangle extends Shape`, 
 - vom Laufzeittyp `Comparable`, wegen `public class Rectangle implements Comparable` und
 - vom Laufzeittyp `Object`, weil das **immer** so ist, weil jede Klasse implizit von `Object` erbt. 
 
@@ -311,12 +311,6 @@ Wir haben nun schon mehrere Methoden kennengelernt, die wir für eigene Klassen 
 - Die `equals()`-Methode erben wir ebenfalls von `Objects`. Wir sollten `equals()` für "unsere" Klassen implementieren, um zu definieren, wann Objekte "unserer" Klasse *gleich* sind. Hierbei ist wichtig, zu beachten, dass `refVar1 == refVar2` ein reiner *Referenzvergleich* ist, der nichts darüber aussagt, ob die Objekte *gleich*  sind, sondern nur ein `true` ergibt, wenn beide Variablen auf dasselbe Objekt zeigen. Die *Gleichheit* von Objekten wird mittels `equals()`-Methode definiert. 
 - Die `hashCode()`-Methode erben wir ebenfalls von `Objects`. Wir sollten `hashCode()`genau dann implementieren, wenn wir `equals()` implementieren. Wichtig ist, dass zwei Objekte den gleichen Hash-Code haben (`hashCode()` liefert den gleichen `int`-Wert zurück), wenn die beiden Objekte laut `equals()` gleich sind. Gut ist darüber hinaus (aber nicht Bedingung), dass zwei Objekte einen unterschiedlichen Hash-Code haben, wenn sie laut `equals()`-Methode nicht gleich sind (`equals()`liefert `false` zurück). Der Hash-Code wird bei Hash-basierten Datentypen, wie z.B. Collections verwendet, um diese einzusortieren. 
 - Die Methode `compareTo()` muss implementiert werden, wenn wir das Interface `Comparable` implementieren. Mithilfe von `compareTo()` legen wir eine Ordnung über die Objekte der Klasse fest, d.h. wir geben an, wann ein Objekt größer/kleiner/gleich einem anderen Objekt der gleichen Klasse ist. Dadurch, dass wir das `Comparable`-Interface implementieren, zeigen wir nach "außen", dass die Objekte unserer Klasse *sortierbar*  sind. 
-
----
-
-***jetzt kommt noch ein Abschnitt für "Fortgeschrittene" - kann auch gerne ignoriert werden, aber vielleicht interessiert es ja einige von Ihnen***
-
----
 
 
 ### Eine bessere Implementierung
@@ -633,9 +627,7 @@ Obwohl wir nun in `Shape` das Interface `Comparable` implementieren, geben wir d
 		@Override
 		public int compareTo(Shape o) 
 		{	
-			if(this.area() > o.area()) return 1;
-			else if(this.area() < o.area()) return -1;
-			else return 0; // this.area() == o.area()
+			return (this.area() - o.area());
 		}
 
 	}

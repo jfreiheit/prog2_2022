@@ -696,7 +696,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 
 
 ??? question "16.-20.05.2022 - Collections Maps"
-	- siehe [**Maps**](./prog2/maps/#maps)
+	- siehe [**Maps**](./maps/#maps)
 	- siehe [**Übung 7**](./uebungen/#ubung-7-maps)
 	- siehe [**Aufgabe 5**](./aufgaben/#aufgabe-5-maps)
 
@@ -792,6 +792,126 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 				
 			}
 
+		}
+		```
+
+
+??? question "23.-27.05.2022 - Abstrakte Klassen"
+	- siehe [**Abstrakte Klassen**](./abstrakt/#abstrakte-klassen)
+	- siehe [**Übung 7**](./uebungen/#ubung-7-maps)
+	- siehe [**Aufgabe 5**](./aufgaben/#aufgabe-5-maps)
+
+	??? "Quellcode aus der Vorlesung - abstrakte Klasse Shape.java"
+		```java
+		package vorlesungen.vorlesung0525;
+
+		public abstract class Shape 
+		{
+			public abstract double perimeter();
+			
+			public abstract double area();
+		}
+		```
+
+	??? "Rectangle.java"
+		```java
+		package vorlesungen.vorlesung0525;
+
+		public class Rectangle extends Shape
+		{
+			private int width, height;
+			
+			
+			public Rectangle(int width, int height) 
+			{
+				this.width = width;
+				this.height = height;
+			}
+
+			@Override
+			public double perimeter() 
+			{
+				return 2 * (this.width + this.height);
+			}
+
+			@Override
+			public double area() 
+			{
+				return this.height * this.width;
+			}
+
+		}
+		```
+
+	??? "Circle.java"
+		```java
+		package vorlesungen.vorlesung0525;
+
+		public class Circle extends Shape 
+		{
+			private double radius;
+			
+			public Circle(double radius)
+			{
+				this.radius = radius;
+			}
+			
+			@Override
+			public double perimeter() 
+			{
+				return Math.PI * 2 * this.radius;
+			}
+
+			@Override
+			public double area() 
+			{
+				return Math.PI * this.radius * this.radius;
+			}
+
+		}
+		```
+
+	??? "Testklasse.java"
+		```java
+		package vorlesungen.vorlesung0525;
+
+		public class Testklasse 
+		{
+			public static void printPerimeter(Shape s)
+			{
+				System.out.println("perimeter : " + s.perimeter() + "cm");
+			}
+			
+			public static void printArea(Shape s)
+			{
+				System.out.println("area : " + s.area() + "cm^2");
+			}
+			
+			public static double getSumPerimeters(Shape[] shapes)
+			{
+				double sumPerimeters = 0.0;
+				for(Shape s : shapes)
+				{
+					sumPerimeters += s.perimeter();
+				}
+				return sumPerimeters;
+			}
+			
+			public static void main(String[] args) 
+			{
+				Rectangle r1 = new Rectangle(10, 20);
+				Shape r2 = new Rectangle(20,30);
+				printPerimeter(new Rectangle(20,30));
+				printPerimeter(r1);
+				printPerimeter(r2);
+				Shape[] shapes = new Shape[4];
+				shapes[0] = new Rectangle(20,30);
+				shapes[1] = new Circle(5.0);
+				shapes[2] = new Rectangle(11, 22);
+				shapes[3] = new Circle(15.0);
+				
+				System.out.println(getSumPerimeters(shapes));
+			}
 		}
 		```
 

@@ -875,7 +875,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<p>In Zukunft typisieren wir das <code>Comparable</code>-Interface noch bevor wir <code>Add unimplemented methods</code> wählen. Wir typisieren es stets mit der Klasse, in der wir das Interface implementieren. </p>
+<p>In Zukunft typisieren wir das <code>Comparable</code>-Interface noch, bevor wir <code>Add unimplemented methods</code> wählen. Wir typisieren es stets mit der Klasse, in der wir das Interface implementieren. </p>
 <p>Für die Implementierung müssen wir uns nun überlegen, wann ein <code>Rectangle</code>-Objekt größer (kleiner/gleich) sein soll, als ein anderes. Da <code>compareTo()</code> ein <code>int</code> zurückgibt, könnten wir z.B. die Summen von <code>height</code> und <code>width</code> verwenden:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
 <span class="normal">24</span>
@@ -892,7 +892,7 @@
 <h3 id="laufzeittypen-eines-rectangle-objektes">Laufzeittypen eines <code>Rectangle</code>-Objektes<a class="headerlink" href="#laufzeittypen-eines-rectangle-objektes" title="Permanent link">&para;</a></h3>
 <p>Ein <code>Rectangle</code>-Objekt ist nicht nur vom Laufzeittyp <code>Rectangle</code>, sondern auch</p>
 <ul>
-<li>von Laufzaittyp <code>Shape</code>, wegen <code>public class Rectangle extends Shape</code>, </li>
+<li>von Laufzeittyp <code>Shape</code>, wegen <code>public class Rectangle extends Shape</code>, </li>
 <li>vom Laufzeittyp <code>Comparable</code>, wegen <code>public class Rectangle implements Comparable</code> und</li>
 <li>vom Laufzeittyp <code>Object</code>, weil das <strong>immer</strong> so ist, weil jede Klasse implizit von <code>Object</code> erbt. </li>
 </ul>
@@ -989,9 +989,6 @@
 <li>Die <code>hashCode()</code>-Methode erben wir ebenfalls von <code>Objects</code>. Wir sollten <code>hashCode()</code>genau dann implementieren, wenn wir <code>equals()</code> implementieren. Wichtig ist, dass zwei Objekte den gleichen Hash-Code haben (<code>hashCode()</code> liefert den gleichen <code>int</code>-Wert zurück), wenn die beiden Objekte laut <code>equals()</code> gleich sind. Gut ist darüber hinaus (aber nicht Bedingung), dass zwei Objekte einen unterschiedlichen Hash-Code haben, wenn sie laut <code>equals()</code>-Methode nicht gleich sind (<code>equals()</code>liefert <code>false</code> zurück). Der Hash-Code wird bei Hash-basierten Datentypen, wie z.B. Collections verwendet, um diese einzusortieren. </li>
 <li>Die Methode <code>compareTo()</code> muss implementiert werden, wenn wir das Interface <code>Comparable</code> implementieren. Mithilfe von <code>compareTo()</code> legen wir eine Ordnung über die Objekte der Klasse fest, d.h. wir geben an, wann ein Objekt größer/kleiner/gleich einem anderen Objekt der gleichen Klasse ist. Dadurch, dass wir das <code>Comparable</code>-Interface implementieren, zeigen wir nach "außen", dass die Objekte unserer Klasse <em>sortierbar</em>  sind. </li>
 </ul>
-<hr />
-<p><strong><em>jetzt kommt noch ein Abschnitt für "Fortgeschrittene" - kann auch gerne ignoriert werden, aber vielleicht interessiert es ja einige von Ihnen</em></strong></p>
-<hr />
 <h3 id="eine-bessere-implementierung">Eine bessere Implementierung<a class="headerlink" href="#eine-bessere-implementierung" title="Permanent link">&para;</a></h3>
 <p>Wir haben bereits bei der Implementierung der Klasse <code>Rectangle</code> gesehen, dass wir das Interface <code>Comparable</code> bei der Implementierung von <code>Rectangle</code> typisieren sollten. Das wäre für eine wirklich korrekte Implementierung der Methode <code>sortieren()</code> ebenfalls angebracht. Dann würden wir in dieser Methode <code>Comparable</code> mit <code>Rectangle</code> typisieren:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1490,9 +1487,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span>
 <span class="p">{</span>
 
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">();</span>
@@ -1501,13 +1496,11 @@
 <span class="hll">    <span class="nd">@Override</span>
 </span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Shape</span> <span class="n">o</span><span class="p">)</span> 
 </span><span class="hll">    <span class="p">{</span>   
-</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">o</span><span class="p">.</span><span class="na">area</span><span class="p">())</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class="hll">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">o</span><span class="p">.</span><span class="na">area</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class="hll">        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// this.area() == o.area()</span>
+</span><span class="hll">        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">()</span> <span class="o">-</span> <span class="n">o</span><span class="p">.</span><span class="na">area</span><span class="p">());</span>
 </span><span class="hll">    <span class="p">}</span>
-</span>
-<span class="p">}</span>
-</code></pre></div>
+</span><span class="hll">
+</span><span class="hll"><span class="p">}</span>
+</span></code></pre></div>
 </td></tr></table>
 </div>
 </div>

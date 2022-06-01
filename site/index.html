@@ -1319,7 +1319,7 @@
 </details>
 </details>
 <details class="question"><summary>16.-20.05.2022 - Collections Maps</summary><ul>
-<li>siehe <a href="./prog2/maps/#maps"><strong>Maps</strong></a></li>
+<li>siehe <a href="./maps/#maps"><strong>Maps</strong></a></li>
 <li>siehe <a href="./uebungen/#ubung-7-maps"><strong>Übung 7</strong></a></li>
 <li>siehe <a href="./aufgaben/#aufgabe-5-maps"><strong>Aufgabe 5</strong></a></li>
 </ul>
@@ -1413,6 +1413,118 @@
 
     <span class="p">}</span>
 
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</details>
+<details class="question"><summary>23.-27.05.2022 - Abstrakte Klassen</summary><ul>
+<li>siehe <a href="./abstrakt/#abstrakte-klassen"><strong>Abstrakte Klassen</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-7-maps"><strong>Übung 7</strong></a></li>
+<li>siehe <a href="./aufgaben/#aufgabe-5-maps"><strong>Aufgabe 5</strong></a></li>
+</ul>
+<details><summary>Quellcode aus der Vorlesung - abstrakte Klasse Shape.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0525</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> 
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">();</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Rectangle.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0525</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Circle.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0525</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span> 
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<details><summary>Testklasse.java</summary><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0525</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Testklasse</span> 
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printPerimeter</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;perimeter : &quot;</span> <span class="o">+</span> <span class="n">s</span><span class="p">.</span><span class="na">perimeter</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;cm&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArea</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;area : &quot;</span> <span class="o">+</span> <span class="n">s</span><span class="p">.</span><span class="na">area</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;cm^2&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">getSumPerimeters</span><span class="p">(</span><span class="n">Shape</span><span class="o">[]</span> <span class="n">shapes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sumPerimeters</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span> <span class="p">:</span> <span class="n">shapes</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">sumPerimeters</span> <span class="o">+=</span> <span class="n">s</span><span class="p">.</span><span class="na">perimeter</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sumPerimeters</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Rectangle</span> <span class="n">r1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+        <span class="n">Shape</span> <span class="n">r2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+        <span class="n">printPerimeter</span><span class="p">(</span><span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">));</span>
+        <span class="n">printPerimeter</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+        <span class="n">printPerimeter</span><span class="p">(</span><span class="n">r2</span><span class="p">);</span>
+        <span class="n">Shape</span><span class="o">[]</span> <span class="n">shapes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Shape</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">);</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">15.0</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">getSumPerimeters</span><span class="p">(</span><span class="n">shapes</span><span class="p">));</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </details>
