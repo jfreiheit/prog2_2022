@@ -10,7 +10,7 @@ Das Java Developement Kit (JDK) beinhaltet verschiedene Bibliotheken zum Erstell
 
 Swing ist, wie bereits gesagt, auch nicht mehr neu und wird häufig als veraltet bezeichnet. Allerdings gibt es auch keine Alternativen. JavaFX sollte Swing ablösen, hat sich jedoch noch nicht durchgesetzt. Wir verwenden Swing aus zwei Gründen:
 
-- erstens ist es immernoch das am meisten verwendete Framework für die Erstellung von GUIs in nativen Desktopanwendungen (also alles, was nicht "Web" und was nicht "mobile" ist), bspw. wurde IntelliJ mit Swing aufgebaut und
+- erstens ist es immer noch das am meisten verwendete Framework für die Erstellung von GUIs in nativen Desktopanwendungen (also alles, was nicht "Web" und was nicht "mobile" ist), bspw. wurde IntelliJ mit Swing aufgebaut und
 - zweitens geht es uns um die *Konzepte*, d.h. um den hierarchischen Aufbau der Oberflächen, um Nutzereignisse und die Behandlung dieser. Wir werden uns im 3. Semester in "Webtechnologien" mit der Erstellung moderner Weboberflächen beschäftigen und dabei auf die Grundlagen aufbauen, die wir hier legen. Die Konzepte sind nämlich dieselben. 
 
 ### Elemente einer GUI
@@ -22,8 +22,8 @@ Eine GUI besteht aus verschiedenen Elementen, deren Zusammenspiel erst die *Benu
 Folgende Elemente sind in einer GUI von Bedeutung:
 
 - Das **Fenster** stellt den äußeren Rahmen einer grafischen Anwendung dar. Es enthält typischerweise einen Rahmen und eine Titelleiste, in der der Name des Fensters bzw. der Anwendung (in der oberen Abbildung `Window`) und drei Buttons zum Schließen des Fensters bzw. der Anwendung (das rote Kreuz in der oberen Abbildung), zum Vollbildmodus (das Quadrat) und zum Verkleinern des Fensters in die Taskleiste (der Unterstrich) enthalten sind. Der Rahmen, genau wie die Titelleiste mit den drei Buttons, sind aber optional. Ein Fenster enthält **Komponenten**.
-- **Komponenten** sind alle Oberflächen- bzw. Steuerelemente, d.h. Buttons (siehe oben `< Back` und `Next >`), Labels (Texte, z.B. `Checkbox`), Checkboxes (die Quadrate, die ein Häkchen haben können oder auch nicht), Ein- und Ausgabefelder, Auswahllisten usw. *Steuerlemente* sind also alle Elemente, die direkt der Ein- und Ausgabe dienen. Darüber hinaus gibt es noch die Komponente *Container*. Ein *Container* kann selbst wieder *Container*  enhalten oder *Steuerelemente*. *Container* sind nicht direkt sichtbar, sondern sie dienen der Strukturierung einer grafischen Oberfläche. 
-- **Layoutmanager** organisieren die Positionierung von Komponenten. Mithilfe von Layoutmanagern kann man Container unter- und/oder nebeneinander positionieren und organisiert somit die Anordnung der Steuerelmente. 
+- **Komponenten** sind alle Oberflächen- bzw. Steuerelemente, d.h. Buttons (siehe oben `< Back` und `Next >`), Labels (Texte, z.B. `Checkbox`), Checkboxes (die Quadrate, die ein Häkchen haben können oder auch nicht), Ein- und Ausgabefelder, Auswahllisten usw. *Steuerelemente* sind also alle Elemente, die direkt der Ein- und Ausgabe dienen. Darüber hinaus gibt es noch die Komponente *Container*. Ein *Container* kann selbst wieder *Container*  enhalten oder *Steuerelemente*. *Container* sind nicht direkt sichtbar, sondern sie dienen der Strukturierung einer grafischen Oberfläche. 
+- **Layoutmanager** organisieren die Positionierung von Komponenten. Mithilfe von Layoutmanagern kann man Container unter- und/oder nebeneinander positionieren und organisiert somit die Anordnung der Steuerelemente. 
 - **Menüs** sind einblendbare Befehlsleisten. Es gibt die Menüs, die meistens oben in der Menüleiste verankert sind und *Kontextmenüs*, die dort erscheinen, wo man, meistens mit der rechten, Maustaste hinklickt. 
 - **Events** (*Ereignisse*) haben zunächst nichts mit der Darstellung selbst zu tun. Sie sind aber für die Benutzbarkeit sehr wichtig, denn jede Nutzeraktion löst ein Ereignis aus, welches wir im Programm behandeln können, z.B. Mausklicks, Mausbewegungen, Tastatureingaben, Bewegen, Vergrößern, Verkleinern des Fensters usw. Wir werden uns sehr ausführlich mit der *Behandlung von Ereignissen* beschäftigen.
 - **Zeichenoperationen** dienen der Erstellung von Punkten, Linien, Text usw. in Fenstern. Während die Steuerelemente ein festes Aussehen besitzen (anpassbar, je nach Betriebssystem und unterschiedlichen *Look&Feel*-Frameworks), können mit Zeichenoperationen beliebige Elemente erstellt und dargestellt werden, z.B. Grafiken, Kurven oder Diagramme.
@@ -32,7 +32,7 @@ Wir werden auf alle diese Elemente eingehen und starten jetzt aber mit unserem e
 
 ### Ein erstes Fenster mit Swing
 
-Wir erstellen uns eine Klasse `MyFirstWindow`. Von dieser Klasse erzeugen wir uns ein Objekt. Dazu implementieren wir den parameterlosen Konstruktor dieser Klasse. In diesem Konstruktor wird ein `JFrame` erzeugt - das ist das **Fenster** bei Swing. Wir haben in dieser Klasse auch eine `main()`-Methode. Das ist nicht ganz sauber, da die `main()`-methode ja eigentlich keine Eigenschaft unserer Klasse ist, deren *Responsibility* die Erstellung eines Fensters ist, aber wir vereinfachen hier zu Anfang:
+Wir erstellen uns eine Klasse `MyFirstWindow`. Von dieser Klasse erzeugen wir uns ein Objekt. Dazu implementieren wir den parameterlosen Konstruktor dieser Klasse. In diesem Konstruktor wird ein `JFrame` erzeugt - das ist das **Fenster** bei Swing. Wir haben in dieser Klasse auch eine `main()`-Methode. Das ist nicht ganz sauber, da die `main()`-Methode ja eigentlich keine Eigenschaft unserer Klasse ist, deren *Responsibility* die Erstellung eines Fensters ist, aber wir vereinfachen hier zu Anfang:
 
 ```java linenums="1"
 import javax.swing.JFrame;
@@ -70,7 +70,7 @@ Wir betrachten das Programm im Detail:
 - Die Klasse [JFrame](https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/javax/swing/JFrame.html) stellt eine Unmenge an Objektmethoden zur Verfügung, um das Fenster zu verändern. Viele dieser Methoden sind auch aus Klassen des `java.awt`-Pakets geerbt, z.B. von [Frame](https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Frame.html), von [Component](https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Component.html), von [Container](https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Container.html) oder von [Window](https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Window.html), aber dazu kommen wir später. Wir wenden einige dieser Methoden bereits an:
 - In Zeile `9` setzen wir mithilfe der Objektmethode `setTitle()` einen Titel für unser Fenster, hier `"My first window"`. Um den Titel zu setzen, gibt es auch einen parametrisierten Konstruktor von `JFrame`, dem dieser Titel übergeben werden kann. 
 - In Zeile `10` definieren wir, was passieren soll, wenn wir auf den `Schließen`-Buttons des Fensters klicken (also auf das rote Kreuz oder den roten Kreis in der Titelleiste). Mit der statischen Konstanten `EXIT_ON_CLOSE` aus der Klasse `JFrame` legen wir fest, dass sowohl das Fenster geschlossen als auch das Programm beendet werden soll, wenn wir den `Schließen`-Button anklicken. Diese Option ist auch die einzig empfohlene Option für das Schließen des (Haupt-)Fensters. Leider ist sie nicht Standard, so dass wir das immer mitprogrammieren müssen. Sollten Sie diese Anweisung vergessen, so schließt sich zwar das Fenster, nicht jedoch das Programm. 
-- In Zeile `11` legen wir die Größe des Fensters in Pixeln fest. Hier wird die Breite mit `400`Pixeln und die Höhe mit `300` Pixeln festgelegt. Die Größe des Fensters ist somit abhängig von der Auflösung Ihres Monitors. Wenn Sie diese Angabe "vergessen", erscheint das Fenster genau so groß, wie es nötig ist, um alle Steuerelemente in dem Fenster darzustellen. Sie würden also nur die drei Knöpfe in der Titelleiste sehen. Diese "minimal erforderliche" Größe eines Fensters erreicht man auch mit der Objektmethode `pack()`, die das Fenster genau so groß darstellt, dass alle Steuerlemente sichtbar sind. 
+- In Zeile `11` legen wir die Größe des Fensters in Pixeln fest. Hier wird die Breite mit `400`Pixeln und die Höhe mit `300` Pixeln festgelegt. Die Größe des Fensters ist somit abhängig von der Auflösung Ihres Monitors. Wenn Sie diese Angabe "vergessen", erscheint das Fenster genau so groß, wie es nötig ist, um alle Steuerelemente in dem Fenster darzustellen. Sie würden also nur die drei Knöpfe in der Titelleiste sehen. Diese "minimal erforderliche" Größe eines Fensters erreicht man auch mit der Objektmethode `pack()`, die das Fenster genau so groß darstellt, dass alle Steuerelemente sichtbar sind. 
 - In Zeile `12` legen wir fest, *wo* das Fenster auf unserem Monitor erscheint. Die linke obere Ecke des Monitors hat die Koordinaten `(0,0)`. Der erste Parameterwert in `setLocation()` legt fest, wie weit nach *rechts* der linke obere Punkt des Fensters auf unserem Monitor verschoben wird und der zweite Parameterwert legt fest, wie weit nach *unten* der linke obere Punkt des Fensters verschoben wird. Hier verschieben wir also das Fenster um `300` Pixel nach rechts und um `200` Pixel nach unten. Wenn Sie diese Angabe nicht treffen, erscheint das Fenster in der linken oberen Ecke des Monitors. 
 - In Zeile `13` setzen wir das Fenster auf *sichtbar*. Diese Anweisung sollten wir nicht vegessen, denn ansonsten sieht man das Fenster nicht und Sie wundern sich. 
 
@@ -192,7 +192,7 @@ Den Zugriff auf die *Content Pane* erhalten wir mithilfe der Objektmethode
 
 Unser Beispiel des Einfärbens des Hintergrundes sieht also korrekt so aus:
 
-```java linenums="1" hl_lines="2"
+```java linenums="1" hl_lines="12"
 import java.awt.Color;
 import javax.swing.JFrame;
 
@@ -224,12 +224,12 @@ Beachten Sie, dass die *Content Pane* des Fensters zwar nun `CYAN` ist, dafür a
 
 #### Container-Komponenten
 
-Ehe wir Steuerelemente zun unserem Fenster hinzufügen, wollen wir auf die Unterscheidung zwischen *Steuerelementen* und *Containern* eingehen. Ein Fenster enthält *Komponenten* (`JComponent`). *Komponenten* können sein:
+Ehe wir Steuerelemente zu unserem Fenster hinzufügen, wollen wir auf die Unterscheidung zwischen *Steuerelementen* und *Containern* eingehen. Ein Fenster enthält *Komponenten* (`JComponent`). *Komponenten* können sein:
 
 - *Steuerelemente*; das sind die sichtbaren Teile im Fenster, d.h. Buttons, Eingabefelder, Checkboxen usw. und
 - *Container*; diese sieht man nicht direkt, sie dienen der Strukturierung der GUI. 
 
-*Container* können weitere *Komponenten* (also *Container* oder *Steuerelemente*) enthalten. *Steuerlelemente* enthalten aber **keine** weiteren *Komponenten*. Durch das Verschachteln von *Containern* in *Containern* entsteht eine "Hierarchie" (oder besser gesagt: eine "Baumstruktur") in unserer GUI:
+*Container* können weitere *Komponenten* (also *Container* oder *Steuerelemente*) enthalten. *Steuerelemente* enthalten aber **keine** weiteren *Komponenten*. Durch das Verschachteln von *Containern* in *Containern* entsteht eine "Hierarchie" (oder besser gesagt: eine "Baumstruktur") in unserer GUI:
 
 ![gui](./files/53_gui.png)
 
@@ -243,8 +243,8 @@ Wichtig ist:
 - Die *Content Pane* ist selbst ein *Container*. 
 - Zur *Content Pane* können neue *Komponenten* (*Container* oder *Steuerelemente*) hinzugefügt werden. 
 - Zum Hinzufügen neuer *Komponenten* wird die Objektmethode `add()` verwendet.
-- Eine typische Klasse für einen *Container* ist die Klasse `JPanel`. `JPanels` können also ineinander verschachtelt werden, d.h. ein `JPanel` kann selbst wieder anderer `JPanels` entahlten (oder *Steuerlemente*).
-- Typische *Sterelemente* (die in der Baumstruktur die “Blätter“ bilden), sind `JButton`, `JLabel`, `JCheckBox`, `JRadioButton`, ...
+- Eine typische Klasse für einen *Container* ist die Klasse `JPanel`. `JPanels` können also ineinander verschachtelt werden, d.h. ein `JPanel` kann selbst wieder anderer `JPanels` entahlten (oder *Steuerelemente*).
+- Typische *Steuerelemente* (die in der Baumstruktur die “Blätter“ bilden), sind `JButton`, `JLabel`, `JCheckBox`, `JRadioButton`, ...
 
 #### Erweitern des Fensters um ein JPanel
 
@@ -333,13 +333,13 @@ Das Fenster sieht nun so aus:
 
 Wir haben also ein `JLabel` (einen Text) hinzugefügt ("Name"), ein `JTextField` (ein Eingabefeld, für das die Breite `10` Zeichen definiert wurde) sowie ein `JButton` (ein Button, auf dem "Klick mich!" steht). Bei allen drei Elementen handelt es sich um *Steuerelemente*. 
 
-Beachten Sie, dass die Elemente nebeneinander angeordnet sind. Das ist die Standardeinstellung für ein `JPanel`. Solche Einstellungen können später mit einem *Layout-Manager* geändert werden. Die Steuerelemente werden solange nebeneinander angeordnet, solange sie nebeneinander passen. Wenn Sie die Fensterbreite schmaler gestalten (mit der Maus zusammenschieben), schieben sich die Steuerlemente untereinander. Um aber Kontrolle über die Anordnung der Steuerlemente zu gelangen, betrachten wir nun *Layout-Manager*. 
+Beachten Sie, dass die Elemente nebeneinander angeordnet sind. Das ist die Standardeinstellung für ein `JPanel`. Solche Einstellungen können später mit einem *Layout-Manager* geändert werden. Die Steuerelemente werden solange nebeneinander angeordnet, solange sie nebeneinander passen. Wenn Sie die Fensterbreite schmaler gestalten (mit der Maus zusammenschieben), schieben sich die Steuerelemente untereinander. Um aber Kontrolle über die Anordnung der Steuerelemente zu gelangen, betrachten wir nun *Layout-Manager*. 
 
 ### Layout-Manager
 
 *Layout-Manager* dienen der Anordnung von Komponenten. Es gibt viele Layout-Manager (`FlowLayout`, `BorderLAyout`, `CardLayout`, `OverlayLayout`, `GridLayout`, `GridBagLayout`, `BoxLayout`, `GroupLayout`, ...). Wir werden aber nicht alle betrachten, da dies erstens auf Dauer langweilig ist und zweitens [Layout-Manager ineinander verschachtelt](./#verschachteln-von-layout-managern) werden können. Vielmehr können *Container* ineinander verschachtelt werden und diesen *Containern* unterschiedliche Layout-Manager zugewiesen werden. 
 
-Es wird also einem *Container* ein Layout-Manager zugewisen und die *Komponenten* in diesem *Container* sind dann so angeordnet, wie der Layout-Manager es definiert (nebeneinander oder untereinander oder übereinander ...). Das Zuweisen 
+Es wird also einem *Container* ein Layout-Manager zugewiesen und die *Komponenten* in diesem *Container* sind dann so angeordnet, wie der Layout-Manager es definiert (nebeneinander oder untereinander oder übereinander ...). Das Zuweisen 
 eines Layout-Managers zu einem *Container* erfolgt mithilfe von
 
 ```java
@@ -392,7 +392,7 @@ Für `GridLayout` gibt es noch einen weiteren parametrisierten Konstruktor, näm
 
 ![gui](./files/58_gui.png)
 
-**Wichtig** ist, dass sich die Größe der Komponenten der Größe des Containes anpasst, in der die Komponenten enthalten sind. das bedeutet, dass mit der Größe des Containers auch die Steuerlemente größer werden! Das bedeutet, dass im Gegensatz zum `FlowLayout` z.B. Buttons in diesem Layout-Manager keine feste Größe haben!
+**Wichtig** ist, dass sich die Größe der Komponenten der Größe des Containes anpasst, in der die Komponenten enthalten sind. das bedeutet, dass mit der Größe des Containers auch die Steuerelemente größer werden! Das bedeutet, dass im Gegensatz zum `FlowLayout` z.B. Buttons in diesem Layout-Manager keine feste Größe haben!
 
 !!! Übung
 	Verwenden Sie die `initContent()`-Methode aus der `FlowLayout`-Übung (mit den 6 Buttons). Weisen Sie dem `mainPanel` das `GridLayout` zu. Probieren Sie ruhig mal verschiedene `rows`, `columns`, `hgap`, `vgap`-Werte. Verändern Sie mit der Maus die Größe des Fensters. Beachten Sie, dass sich die Größe der Buttons **ändert**! 
@@ -523,9 +523,9 @@ Zur besseren Erkennung wurde den einzelnen `JPanel` auch noch jeweils eine Hinte
 
 ![gui](./files/60_gui.png)
 
-- Das `JPanel oben` ist im `FlowLayout`. Diesem Panel werden zwei Steuerelemente hinzugefügt: ein `JLabel` (`"Name"`) und ein `JTextField` der Breite 10 (Zeichen). Da das Panel im `FlowLayout` ist, erscheinen beide Steuerelmente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind zentriert angeordnet (`FlowLayout.CENTER`) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von `10` Pixeln. Dem Panel wurde die Hintergrundfarbe `LIGHT-GRAY` zugewiesen. 
+- Das `JPanel oben` ist im `FlowLayout`. Diesem Panel werden zwei Steuerelemente hinzugefügt: ein `JLabel` (`"Name"`) und ein `JTextField` der Breite 10 (Zeichen). Da das Panel im `FlowLayout` ist, erscheinen beide Steuerelemente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind zentriert angeordnet (`FlowLayout.CENTER`) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von `10` Pixeln. Dem Panel wurde die Hintergrundfarbe `LIGHT-GRAY` zugewiesen. 
 - Das `JPanel mitte` ist im `GridLayout` mit 3 Zeilen und 2 Spalten. Diesem Panel werden 6 `JButton` zugeordnet. Die Buttons haben einen vertikalen und horizontalen Abstand von jeweils 10 Pixeln (zwischen den Buttons ist der Abstand also 20). Beachten Sie, dass die Größe der Buttons an die Fenstergröße angepasst sind. Mit wachsender Fenstergröße wachsen auch die Button-Größen. Dem Panel wurde die Hintergrundfarbe `GREEN` zugewiesen. 
-- Das `JPanel unten` ist im `FlowLayout`. Diesem Panel werden zwei `JButton` hinzugefügt. Das das Panel im `FlowLayout` ist, erscheinen beide Steuerelmente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind rechtsbündig angeordnet (`FlowLayout.RIGHT`) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von jeweils `5` Pixeln. Beachten Sie, dass die Buttons in ihrer Standardgröße sind (und stets bleiben). Dem Panel wurde die Hintergrundfarbe `LIGHT-GRAY` zugewiesen.
+- Das `JPanel unten` ist im `FlowLayout`. Diesem Panel werden zwei `JButton` hinzugefügt. Das das Panel im `FlowLayout` ist, erscheinen beide Steuerelemente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind rechtsbündig angeordnet (`FlowLayout.RIGHT`) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von jeweils `5` Pixeln. Beachten Sie, dass die Buttons in ihrer Standardgröße sind (und stets bleiben). Dem Panel wurde die Hintergrundfarbe `LIGHT-GRAY` zugewiesen.
 
 Noch ein Wort zu den Größen:
 
@@ -537,7 +537,7 @@ Noch ein Wort zu den Größen:
 Sie können beliebig viele Container in beliebiger Tiefe ineinanderschachteln und den Containern unterschiedliche Layout_Manager zuweisen. Damit gelingt ihnen jede denkbare Gestaltung grafischer Nutzeroberflächen. Weitere Anregungen zur Verwendung von Layout-Managern finden Sie z.B. [hier](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html). 
 
 !!! Übung
-	Ändern Sie ausschließlich die Höhe des Fensters und dann einmal ausschließlich die Breite des Fensters und begründen Sie da jeweilige Ergebnis!
+	Ändern Sie ausschließlich die Höhe des Fensters und dann einmal ausschließlich die Breite des Fensters und begründen Sie das jeweilige Ergebnis!
 
 
 !!! success
