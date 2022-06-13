@@ -376,8 +376,38 @@
   
   
     <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../gui/" class="md-nav__link">
         GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
       </a>
     </li>
   
@@ -482,6 +512,20 @@
         <li class="md-nav__item">
   <a href="#ubung-9-gui" class="md-nav__link">
     Übung 9 (GUI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-10-junit" class="md-nav__link">
+    Übung 10 (JUnit)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-11-ereignisbehandlung-actionlistener" class="md-nav__link">
+    Übung 11 (Ereignisbehandlung - ActionListener)
   </a>
   
 </li>
@@ -593,6 +637,20 @@
         <li class="md-nav__item">
   <a href="#ubung-9-gui" class="md-nav__link">
     Übung 9 (GUI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-10-junit" class="md-nav__link">
+    Übung 10 (JUnit)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-11-ereignisbehandlung-actionlistener" class="md-nav__link">
+    Übung 11 (Ereignisbehandlung - ActionListener)
   </a>
   
 </li>
@@ -4497,6 +4555,210 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </div>
 </div>
 </details>
+<h5 id="ubung-10-junit">Übung 10 (JUnit)<a class="headerlink" href="#ubung-10-junit" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 10</summary><ul>
+<li>Probieren Sie sich mit <code>JUnit</code> aus! Schreiben Sie Unit-Tests für Ihre <code>MyInteger</code>-Klasse aus <a href="../aufgaben/#aufgabe-2-myinteger">Aufgabe 2</a>.  </li>
+</ul>
+</details>
+<h5 id="ubung-11-ereignisbehandlung-actionlistener">Übung 11 (Ereignisbehandlung - ActionListener)<a class="headerlink" href="#ubung-11-ereignisbehandlung-actionlistener" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 11</summary><ol>
+<li>Erstellen Sie ein Fenster mit einem Textfeld und zwei Buttons <code>add</code> und <code>remove</code>. Sowohl das Textfeld als auch die beiden Buttons sollen Objektvariablen (und somit zugreifbar von allen Methoden der Klasse) sein.</li>
+<li>Unterteilen Sie das <code>main</code>-<code>JPanel</code> zunächst in zwei <code>JPanel</code>s <code>unten</code> und <code>oben</code>. Dem <code>JPanel oben</code> werden das Textfeld und die beiden Buttons hinzugefügt. Setzen Sie die Hintergrundfarbe des JPanels <code>oben</code> auf <code>YELLOW</code>.  Setzen Sie die Hintergrundfarbe des JPanels <code>unten</code> auf <code>CYAN</code>. Das JPanel <code>unten</code> soll ebenfalls eine Objektvariable sein.</li>
+<li>
+<p>Setzen Sie die Größe des Fensters auf Werte, so dass es wie folgt erscheint:
+    <img alt="uebung9" src="../files/67_uebung9.png" /></p>
+</li>
+<li>
+<p>Fügen Sie folgende Objektvariable hinzu: <code>List&lt;JLabel&gt; labels = new ArrayList&lt;&gt;();</code></p>
+</li>
+<li>
+<p>Implementieren Sie den <code>ActionListener</code> wie folgt: <br/>
+    Wird der <code>add</code>-Button gedrückt, </p>
+<ul>
+<li>
+<p>wird der Liste <code>labels</code> ein <code>JLabel</code> hinzugefügt, wobei der Text des JLabels dem Text im Textfeld entspricht (der Text des Textfeldes kann über die Objektmethode <code>getText()</code> von JTextField ausgelesen werden).</p>
+</li>
+<li>
+<p>Die Liste <code>labels</code> wird vollständig ausgelesen und jedes <code>JLabel</code> aus <code>labels</code> wird dem <code>JPanel unten</code> mithilfe der <code>add()</code>-Methode von <code>JPanel</code> hinzugefügt.</p>
+</li>
+<li>
+<p>Rufen Sie <code>this.unten.revalidate();</code> auf – dies stößt ein Neuzeichnen des JPanels <code>unten</code> an.</p>
+</li>
+</ul>
+<p>Wird der „remove“-Button gedrückt,</p>
+<ul>
+<li>
+<p>wird das <code>JLabel</code> aus der Liste <code>labels</code> gelöscht, das den gleichen Text hat wie der Text, der im Textfeld eingegeben wurde.</p>
+</li>
+<li>
+<p>Außerdem wird das <code>JLabel</code> aus den <code>JPanel unten</code> entfernt (Objektmethode <code>remove()</code> von <code>JPanel</code>).</p>
+</li>
+<li>
+<p>Rufen Sie <code>this.unten.revalidate();</code> auf – dies stößt ein Neuzeichnen des JPanels unten an.</p>
+</li>
+</ul>
+<p><img alt="uebung9" src="../files/68_uebung9.png" /></p>
+</li>
+<li>
+<p><strong>Tipp</strong>: wenn Sie einem <code>JLabel</code> eine Hintergrundfarbe mit <code>setBackground(Color c)</code> setzen, dann sieht man diese nur, wenn Sie für dieses <code>JLabel</code> die Methode <code>setOpaque(true)</code> aufrufen. Nur dadurch werden für dieses <code>JLabel</code> alle Pixel gezeichnet, die in dessen <em>Grenzen</em> sind, d.h. das komplette Rechteck, das das <code>JLabel</code> ausfüllt. Ansonsten würde nur der Text "gezeichnet" und die Hintergrundfarbe wäre hinter dem Text versteckt. </p>
+</li>
+</ol>
+</details>
+<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Uebung11.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">//import</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung11</span> <span class="c1">// es werden JFrame und ActionListener benötigt</span>
+<span class="p">{</span>
+    <span class="c1">//Objektvariablen: </span>
+    <span class="c1">//1. Textfeld, zwei Buttons (add und remove)</span>
+    <span class="c1">//2. unteres Panel</span>
+    <span class="c1">//4. Liste mit Labeln</span>
+
+    <span class="kd">public</span> <span class="nf">Uebung11</span><span class="p">()</span>
+    <span class="p">{</span>       
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;TITEL&quot;</span><span class="p">);</span>
+
+        <span class="c1">//Verhalten beim Schließen      </span>
+        <span class="c1">//Größe         </span>
+        <span class="c1">//Sichtbarkeit      </span>
+        <span class="c1">//...</span>
+
+        <span class="c1">//2. main-JPanel in JPanels unten und oben unterteilen</span>
+        <span class="c1">//Dem Panel oben werden das Textfeld und die beiden Buttons hinzugefügt,</span>
+        <span class="c1">//das lagern wir in die Methode createOben() aus</span>
+        <span class="c1">//oben: Hintergrundfarbe ist YELLOW</span>
+        <span class="c1">//unten: Hintergrundfarbe ist CYAN</span>
+        <span class="c1">//Das Panel unten soll ebenfalls eine Objektvariable sein.</span>
+
+        <span class="c1">//4. neue ArrayList für die Label anlegen </span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">createOben</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//...</span>
+
+        <span class="k">return</span> <span class="n">panel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> 
+    <span class="p">{</span>
+
+        <span class="c1">//Quelle des Events ermitteln</span>
+
+        <span class="c1">//Falls es der &quot;add&quot;-Button ist</span>
+        <span class="c1">// - Text aus dem Textfeld übernehmen</span>
+        <span class="c1">// - neues Label mit dem Text anlegen </span>
+        <span class="c1">// - das Label formatieren (Hintergrundfarbe RED)</span>
+        <span class="c1">//   Tipp: wenn Sie einem JLabel eine Hintergrundfarbe mit setBackground(Color c) </span>
+        <span class="c1">//   setzen, dann sieht man diese nur, wenn Sie für dieses JLabel die Methode </span>
+        <span class="c1">//   setOpaque(true) aufrufen. Nur dadurch werden für dieses JLabel alle Pixel </span>
+        <span class="c1">//   gezeichnet, die in dessen Grenzen sind, d.h. das komplette Rechteck, </span>
+        <span class="c1">//   das das JLabel ausfüllt. Ansonsten würde nur der Text &quot;gezeichnet&quot; und </span>
+        <span class="c1">//   die Hintergrundfarbe wäre hinter dem Text versteckt.</span>
+        <span class="c1">// - das Label in Label-Liste einfügen </span>
+        <span class="c1">// - das Label dem unteren Panel hinzufügen</span>
+
+        <span class="c1">//Falls es der &quot;remove&quot;-Button ist</span>
+        <span class="c1">// - Text aus dem Textfeld übernehmen</span>
+        <span class="c1">// - durch die Label-Liste iterieren, um das zu entfernende Label zu finden  </span>
+        <span class="c1">//   Tipp: Iterator nehmen</span>
+        <span class="c1">//   Iterator&lt;Typ&gt; it = variable.iterator();</span>
+        <span class="c1">//   while(it.hasNext()){ </span>
+        <span class="c1">//      mach irgendwas mit it.next()</span>
+        <span class="c1">//   } </span>
+        <span class="c1">//   das Label muss sowohl aus der Liste als auch aus dem Panel entfernt werden </span>
+
+        <span class="c1">//Text im Textfeld löschen      </span>
+        <span class="c1">//weitere nötige Schritte requestFocus(), revalidate(), repaint()</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Uebung11</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
                 
               
               
@@ -4516,7 +4778,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../gui/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: GUI Einführung" rel="prev">
+        <a href="../ereignisse/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: GUI Ereignisse" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4525,7 +4787,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
               <span class="md-footer__direction">
                 Zurück
               </span>
-              GUI Einführung
+              GUI Ereignisse
             </div>
           </div>
         </a>

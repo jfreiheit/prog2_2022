@@ -73,7 +73,9 @@ nav:
     - Maps: maps.md
     - Abstrakte Klassen: abstrakt.md 
     - Interfaces: interfaces.md 
+    - JUnit-Testen: junit.md 
     - GUI Einführung: gui.md 
+    - GUI Ereignisse: ereignisse.md 
     - Übungen: uebungen.md
     - Aufgaben: aufgaben.md
 

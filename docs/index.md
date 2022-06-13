@@ -48,8 +48,8 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 5. | 09.-13.05.2022 | [Collections (Map)](./maps/#maps) | [Übung 5](./uebungen/#ubung-5-enum-und-zweidimensionale-arrays) |[Aufgabe 5](./aufgaben/#aufgabe-5-maps) | 30.05.2022 | 
 | 6. | 16.-20.05.2022 | [Abstrakte Klassen](./abstrakt/#abstrakte-klassen) | [Übung 6](./uebungen/#ubung-6-listen-und-mengen) | - | - | 
 | 7. | 23.-27.05.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 7](./uebungen/#ubung-7-maps) |[Aufgabe 6](./aufgaben/#aufgabe-6-interfaces) | 06.06.2022 | 
-| 8. | 30.-03.06.2022 | GUI Einführung | [Übung 8](./uebungen/#ubung-8-interfaces) |Aufgabe 7 | 13.06.2022 | 
-| 9. | 06.-10.06.2022 | GUI Ereignisse  | Übung 9 |Aufgabe 8 | 20.06.2022 | 
+| 8. | 30.-03.06.2022 | GUI Einführung | [Übung 8](./uebungen/#ubung-8-interfaces) |Aufgabe 7 | 20.06.2022 | 
+| 9. | 06.-10.06.2022 | GUI Ereignisse  | Übung 9 |Aufgabe 8 | 27.06.2022 | 
 | 10. | 13.-17.06.2022 | GUI Graphics | Übung 10 |Aufgabe 9 | 04.07.2022 | 
 | 12. | 20.-24.06.2022 | Mausereignisse | Übung 11 |Aufgabe 10 | 11.07.2022 |
 | 13. | 27.-01.07.2022 | Enumerations | Übung 12 | - | - |

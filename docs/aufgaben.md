@@ -1769,6 +1769,15 @@
 		Kann auch schicker sein :-) Viel Spaß!
 
 
+##### Aufgabe 8 (Ereignisbehandlung)
+
+??? "Aufgabe 8"
+
+	1. Implementieren Sie für den Taschenrechner aus Aufgabe 7 das `ActionListener`-Interface, so dass der Taschenrechner über möglichst viel Funktionalität verfügt. 
+	2. Minimumanforderung ist, dass durch die Eingabe von Ziffern Zahlen entstehen und dass die Buttons `+`, `-`, `/`, `+` und `=` insofern funktionieren, dass dadurch tatsächlich gerechnet wird, auch wenn die Regel "Punktrechnung geht vor Strichrechnung" nicht eingehalten wird. 
+	3. Eine erste Verbesserung (ist schon **Zusatz**) wäre, dass die Regel "Punktrechnung geht vor Strichrechnung" eingehalten wird.
+	4. Ab dann ist alles **Zusatz** und bedarf in vielen Fällen der Erweiterung der GUI: Verwendung und Beachten von Klammern (ist aber sehr schwer!), Speichern von Zwischenergebnissen, komplexere Operationen durch zuätzliche Tasten (Wurzel, Potenzieren, ...). Alles, was Sie möchten - Viel Spaß!
+
 
 
 
