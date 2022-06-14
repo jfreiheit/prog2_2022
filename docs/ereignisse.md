@@ -394,11 +394,6 @@ public class Ereignisbehandlung extends JFrame implements ActionListener
 
 Nun haben wir für die beiden Buttons eine unterschiedliche Ereignisbehandlung realisiert. 
 
----
-
-***Im Vorlesungsvideo vom 9.6. nur bis hier. Ab hier machen wir am 16.6. weiter.***
-
----
 
 #### ActionCommand
 
