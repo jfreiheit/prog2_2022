@@ -4468,6 +4468,363 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 </ol>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 8</summary><div class="tabbed-set" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Stadt.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung8</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">flaeche</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Stadt</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">,</span> <span class="kt">float</span> <span class="n">flaeche</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">bevoelkerung</span> <span class="o">=</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">=</span> <span class="n">flaeche</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-15s %9.2f km2 &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">flaeche</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">i</span> <span class="p">:</span> <span class="n">bevoelkerung</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%,12d&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="k">this</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="o">!=</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="n">Stadt</span> <span class="n">other</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stadt</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="na">name</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">&lt;</span> <span class="n">o</span><span class="p">.</span><span class="na">flaeche</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">&gt;</span> <span class="n">o</span><span class="p">.</span><span class="na">flaeche</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">StadtTest.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung8</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+        <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+        <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+        <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+        <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+        <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+        <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+        <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">contains</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span><span class="p">,</span> <span class="n">Stadt</span> <span class="n">stadt</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="o">&gt;</span> <span class="n">allKeys</span> <span class="o">=</span> <span class="n">staedteMap</span><span class="p">.</span><span class="na">keySet</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">MyInteger</span> <span class="n">key</span> <span class="p">:</span> <span class="n">allKeys</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">staedteMap</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">).</span><span class="na">equals</span><span class="p">(</span><span class="n">stadt</span><span class="p">))</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Menge --------------%n&quot;</span><span class="p">);</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">staedteMenge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedteMenge</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n------------ Maps --------------%n&quot;</span><span class="p">);</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">s</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">contains</span><span class="p">(</span><span class="n">staedteMap</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">staedteMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">i</span><span class="o">++</span><span class="p">),</span> <span class="n">s</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">staedteMap</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">MyInteger</span> <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-3d&quot;</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="na">intValue</span><span class="p">());</span>
+            <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">().</span><span class="na">print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>       
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">MyInteger.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung8</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">MyInteger</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">-</span> <span class="n">o</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="ubung-9-gui">Übung 9 (GUI)<a class="headerlink" href="#ubung-9-gui" title="Permanent link">&para;</a></h5>
 <details><summary>Übung 9</summary><ol>
 <li>
@@ -4476,7 +4833,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 </ol>
 </details>
-<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">GUIUebung.java</label><div class="tabbed-content">
+<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">GUIUebung.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4560,6 +4917,728 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 <li>Probieren Sie sich mit <code>JUnit</code> aus! Schreiben Sie Unit-Tests für Ihre <code>MyInteger</code>-Klasse aus <a href="../aufgaben/#aufgabe-2-myinteger">Aufgabe 2</a>.  </li>
 </ul>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 10 - Testklasse nicht vollständig, aber einige Testfälle</summary><div class="tabbed-set" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">MyInteger.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung10.loesung</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MAX_VALUE</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MIN_VALUE</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2147483648</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="o">=</span><span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">parseInt</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isDigit</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">c</span><span class="o">==</span><span class="sc">&#39;0&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;1&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;2&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;3&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;4&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;5&#39;</span> <span class="o">||</span>
+                <span class="n">c</span><span class="o">==</span><span class="sc">&#39;6&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;7&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;8&#39;</span> <span class="o">||</span> <span class="n">c</span><span class="o">==</span><span class="sc">&#39;9&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">charToInt</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">asciivalue</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">intvalue</span> <span class="o">=</span> <span class="n">asciivalue</span><span class="o">-</span><span class="mi">48</span><span class="p">;</span> <span class="c1">// 0 ist 48 bis 9 ist 57</span>
+        <span class="k">return</span> <span class="n">intvalue</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">parseInt</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;kein String&quot;</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;leerer String&quot;</span><span class="p">);</span>
+        <span class="c1">// pruefe, ob erstes Zeichen + oder -</span>
+        <span class="c1">// merken und weiter mit Rest</span>
+        <span class="kt">boolean</span> <span class="n">negativ</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;+&#39;</span><span class="p">)</span> <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;-&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">negativ</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl&quot;</span><span class="p">);</span>
+        <span class="c1">// entferne fuehrende Nullen</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="sc">&#39;0&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// String bestand nur aus Nullen --&gt; 0</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isDigit</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;keine Zahl!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">zahl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">ziffer</span> <span class="o">=</span> <span class="n">charToInt</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+            <span class="k">if</span><span class="p">((</span><span class="o">!</span><span class="n">negativ</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span> <span class="o">-</span> <span class="n">ziffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">zahl</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">negativ</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="o">+</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ziffer</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">zahl</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">negativ</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Zahl zu klein!&quot;</span><span class="p">);</span>
+                <span class="k">else</span> <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Zahl zu gross!&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">zahl</span> <span class="o">=</span> <span class="n">zahl</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">ziffer</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">negativ</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">zahl</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="n">zahl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">doubleValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">other</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">other</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> 
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="n">other</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>   
+
+        <span class="n">MyInteger</span> <span class="n">otherInt</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyInteger</span><span class="p">)</span><span class="n">other</span><span class="p">;</span>  
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">==</span> <span class="n">otherInt</span><span class="p">.</span><span class="na">value</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">+</span><span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span> <span class="p">((</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="p">:</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">MyInteger</span> <span class="n">otherMyInteger</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">,</span> <span class="n">otherMyInteger</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">MyIntegerTest.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung10.loesung</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.BeforeAll</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.DisplayName</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">MyIntegerTest</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="n">MyInteger</span> <span class="n">mi1</span><span class="p">,</span> <span class="n">mi2</span><span class="p">,</span> <span class="n">mi3</span><span class="p">,</span> <span class="n">mi4</span><span class="p">,</span> <span class="n">mi5</span><span class="p">,</span> <span class="n">mi6</span><span class="p">,</span> <span class="n">mi7</span><span class="p">;</span>
+
+    <span class="nd">@BeforeAll</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setUpBeforeClass</span><span class="p">()</span> <span class="kd">throws</span> <span class="n">Exception</span> 
+    <span class="p">{</span>
+        <span class="n">mi1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">);</span>
+        <span class="n">mi2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;+2147483647&quot;</span><span class="p">);</span>
+        <span class="n">mi3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">mi4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">mi5</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">mi6</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="s">&quot;-1&quot;</span><span class="p">);</span>
+        <span class="n">mi7</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="mi">2147483647</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * parseInt-Testfaelle:</span>
+<span class="cm">     *  null        -&gt; Exception (IAE) kein String</span>
+<span class="cm">     *  &quot;&quot;          -&gt; Exception (IAE) leerer String</span>
+<span class="cm">     *  &quot;+&quot;         -&gt; Exception (IAE) nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl</span>
+<span class="cm">     *  &quot;-&quot;         -&gt; Exception (IAE) nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl</span>
+<span class="cm">     *  &quot;-00000000&quot; -&gt; 0</span>
+<span class="cm">     *  &quot;+00000000&quot; -&gt; 0</span>
+<span class="cm">     *  &quot;-00000001&quot; -&gt; -1</span>
+<span class="cm">     *  &quot;+00000001&quot; -&gt;  1</span>
+<span class="cm">     *  &quot;123456a&quot;   -&gt; Exception (IAE) keine Zahl!</span>
+<span class="cm">     *  &quot;-123456a&quot;  -&gt; Exception (IAE) keine Zahl!</span>
+<span class="cm">     *  &quot;+123456a&quot;  -&gt; Exception (IAE) keine Zahl!</span>
+<span class="cm">     *  &quot;2147483648&quot;    -&gt; Exception (IAE) Zahl zu gross!</span>
+<span class="cm">     *  &quot;-2147483649&quot;   -&gt; Exception (IAE) Zahl zu klein!</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testParseIntPositiveInt</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;1234&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;1234\&quot; should be 1234&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;+1234&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;+1234\&quot; should be 1234&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;01234&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;01234\&quot; should be 1234&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testParseIntNegativeInt</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-1234&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;-1234\&quot; should be -1234&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">1234</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-01234&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;-01234\&quot; should be -1234&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testValueOfPositiveInt</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">MyInteger</span> <span class="n">m</span> <span class="o">=</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">1234</span><span class="p">);</span>
+
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s">&quot;shoul be an object&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="na">intValue</span><span class="p">(),</span> <span class="s">&quot;1234 should be 1234&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Input-String is null&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntNull</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;kein String&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Input-String is leer&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntLeer</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;leerer String&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Nur Plus oder Minus&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntNurPlusOderMinus</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+
+        <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;nur &#39;+&#39; bzw. &#39;-&#39; --&gt; keine Zahl&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Keine Zahl&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntKeineZahl</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;+1234a&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;keine Zahl!&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Zahl zu gross&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntZahlZuGross</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;2147483648&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Zahl zu gross!&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@DisplayName</span><span class="p">(</span><span class="s">&quot;Zahl zu klein&quot;</span><span class="p">)</span>
+    <span class="kt">void</span> <span class="nf">testParseIntZahlZuKlein</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-2147483649&quot;</span><span class="p">));</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Zahl zu klein!&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testParseIntNurNullen</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-000000000000&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;-000000000000\&quot; should be 0&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;+000000000000&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;+000000000000\&quot; should be 0&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;0000000000000&quot;</span><span class="p">),</span> <span class="s">&quot;\&quot;0000000000000\&quot; should be 0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testHashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">hashCode</span><span class="p">()</span><span class="o">==</span><span class="n">mi7</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(),</span> <span class="s">&quot;hashCode of mi2 and mi7 should be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">,</span> <span class="n">mi1</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(),</span> <span class="s">&quot;hashCode of mi1 should be -2147483648&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mi5</span><span class="p">.</span><span class="na">hashCode</span><span class="p">(),</span> <span class="s">&quot;hashCode of mi5 should be 0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testMyIntegerInt</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">mi4</span><span class="p">,</span> <span class="s">&quot;mi4 should be not null&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi6</span><span class="p">),</span> <span class="s">&quot;mi3 and mi6 should be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi2</span><span class="p">),</span> <span class="s">&quot;mi7 and mi2 should be equal&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testMyIntegerString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">mi1</span><span class="p">,</span> <span class="s">&quot;mi1 should be not null&quot;</span><span class="p">);</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">mi2</span><span class="p">,</span> <span class="s">&quot;mi2 should be not null&quot;</span><span class="p">);</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">mi6</span><span class="p">,</span> <span class="s">&quot;mi6 should be not null&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi6</span><span class="p">),</span> <span class="s">&quot;mi3 and mi6 should be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi2</span><span class="p">),</span> <span class="s">&quot;mi7 and mi2 should be equal&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testParseInt</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">),</span> <span class="s">&quot;should be -2147483648&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">+</span><span class="mi">2147483647</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;+00002147483647&quot;</span><span class="p">),</span> <span class="s">&quot;should be +2147483647&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&quot;-0000001&quot;</span><span class="p">),</span> <span class="s">&quot;should be -1&quot;</span><span class="p">);</span>   
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testIntValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">,</span> <span class="n">mi1</span><span class="p">.</span><span class="na">intValue</span><span class="p">(),</span> <span class="s">&quot;should be -2147483648&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">+</span><span class="mi">2147483647</span><span class="p">,</span> <span class="n">mi2</span><span class="p">.</span><span class="na">intValue</span><span class="p">(),</span> <span class="s">&quot;should be +2147483647&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">+</span><span class="mi">2147483647</span><span class="p">,</span> <span class="n">mi7</span><span class="p">.</span><span class="na">intValue</span><span class="p">(),</span> <span class="s">&quot;should be +2147483647&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testDoubleValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mf">2147483648.0</span><span class="p">,</span> <span class="n">mi1</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">(),</span> <span class="s">&quot;should be -2147483648.0&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">+</span><span class="mf">2147483647.0</span><span class="p">,</span> <span class="n">mi2</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">(),</span> <span class="s">&quot;should be +2147483647.0&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="o">+</span><span class="mf">2147483647.0</span><span class="p">,</span> <span class="n">mi7</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">(),</span> <span class="s">&quot;should be +2147483647.0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testValueOfString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi1&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2147483647&quot;</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi2&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2147483647&quot;</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi7&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testValueOfInt</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="o">-</span><span class="mi">2147483648</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi1&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2147483647</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi2&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">2147483647</span><span class="p">)),</span> <span class="s">&quot;should be equal to mi7&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testEqualsObject</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi6</span><span class="p">),</span> <span class="s">&quot;mi3 and mi6 should be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi7</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi2</span><span class="p">),</span> <span class="s">&quot;mi7 and mi2 should be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertFalse</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi4</span><span class="p">),</span> <span class="s">&quot;mi3 and mi4 should not be equal&quot;</span><span class="p">);</span>
+        <span class="n">assertFalse</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">mi5</span><span class="p">),</span> <span class="s">&quot;mi3 and mi5 should not be equal&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testToString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;-2147483648&quot;</span><span class="p">,</span> <span class="n">mi1</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span> <span class="s">&quot;should be &#39;-2147483648&#39;&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;2147483647&quot;</span><span class="p">,</span> <span class="n">mi2</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span> <span class="s">&quot;should be &#39;2147483647&#39; mi2&quot;</span><span class="p">);</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;2147483647&quot;</span><span class="p">,</span> <span class="n">mi7</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span> <span class="s">&quot;should be &#39;2147483647&#39; mi7&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testCompare</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;5,4 should be &gt; 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;4,4 should be == 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;4,5 should be &lt; 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;MAX,MIN should be &gt; 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;MAX,MAX should be == 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">compare</span><span class="p">(</span><span class="n">MyInteger</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">,</span> <span class="n">MyInteger</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;MIN,MAX should be &gt; 0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testCompareTo</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">mi2</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;mi1, mi2 should be &lt; 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">mi1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;mi2, mi1 should be &gt; 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi2</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">mi7</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;mi2, mi7 should be == 0&quot;</span><span class="p">);</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">mi3</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">mi6</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;mi3, mi6 should be == 0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="ubung-11-ereignisbehandlung-actionlistener">Übung 11 (Ereignisbehandlung - ActionListener)<a class="headerlink" href="#ubung-11-ereignisbehandlung-actionlistener" title="Permanent link">&para;</a></h5>
 <details><summary>Übung 11</summary><ol>
 <li>Erstellen Sie ein Fenster mit einem Textfeld und zwei Buttons <code>add</code> und <code>remove</code>. Sowohl das Textfeld als auch die beiden Buttons sollen Objektvariablen (und somit zugreifbar von allen Methoden der Klasse) sein.</li>
@@ -4604,7 +5683,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 </ol>
 </details>
-<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Uebung11.java</label><div class="tabbed-content">
+<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">Uebung11.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>

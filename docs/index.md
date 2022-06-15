@@ -42,18 +42,18 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 |-|-------|--------------------|-------|-----------------|------------------|
 | 1. | 04.-08.04.2022 | [Organisatorisches](#), [Wiederholung](./wiederholung/#datentypen), [Einstieg](./einstieg/#einstieg) | - | - | - | 
 | 1. | 11.-15.04.2022 | [Wrapper-Klassen (boxing und unboxing)](./wrapper/#wrapper-klassen)| [Übung 1](./uebungen/#ubung-1-wiederholung-und-codereview) |[Aufgabe 1](./aufgaben/#aufgabe-1-wurfelspiel) | 25.04.2022 | 
-| 2. | 18.-22.04.2022 | [Exceptions](./exceptions/#exceptions) | [Übung 2](./uebungen/#ubung-2-string-und-algorithmisches-denken) |[Aufgabe 2](./aufgaben/#aufgabe-2-myinteger) | 02.05.2022 | 
+| 2. | 18.-22.04.2022 | [Exceptions I](./exceptions/#exceptions) | [Übung 2](./uebungen/#ubung-2-string-und-algorithmisches-denken) |[Aufgabe 2](./aufgaben/#aufgabe-2-myinteger) | 02.05.2022 | 
 | 3. | 25.-29.04.2022 | Aufgabe 2 besprochen | [Übung 3](./uebungen/#ubung-3-exceptions) |[Aufgabe 3](./aufgaben/#aufgabe-3-solitaire) | 16.05.2022 | 
-| 4. | 02.-06.05.2022 | [Collections (List und Set)](./collections/#collections) | [Übung 4](./uebungen/#ubung-4-string) |[Aufgabe 4](./aufgaben/#aufgabe-4-operationen-uber-mengen) | 23.05.2022 | 
-| 5. | 09.-13.05.2022 | [Collections (Map)](./maps/#maps) | [Übung 5](./uebungen/#ubung-5-enum-und-zweidimensionale-arrays) |[Aufgabe 5](./aufgaben/#aufgabe-5-maps) | 30.05.2022 | 
-| 6. | 16.-20.05.2022 | [Abstrakte Klassen](./abstrakt/#abstrakte-klassen) | [Übung 6](./uebungen/#ubung-6-listen-und-mengen) | - | - | 
-| 7. | 23.-27.05.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 7](./uebungen/#ubung-7-maps) |[Aufgabe 6](./aufgaben/#aufgabe-6-interfaces) | 06.06.2022 | 
-| 8. | 30.-03.06.2022 | GUI Einführung | [Übung 8](./uebungen/#ubung-8-interfaces) |Aufgabe 7 | 20.06.2022 | 
-| 9. | 06.-10.06.2022 | GUI Ereignisse  | Übung 9 |Aufgabe 8 | 27.06.2022 | 
-| 10. | 13.-17.06.2022 | GUI Graphics | Übung 10 |Aufgabe 9 | 04.07.2022 | 
-| 12. | 20.-24.06.2022 | Mausereignisse | Übung 11 |Aufgabe 10 | 11.07.2022 |
-| 13. | 27.-01.07.2022 | Enumerations | Übung 12 | - | - |
-| 14. | 04.-08.07.2022 | Git | Übung 13 | - | - |
+| 4. | 02.-06.05.2022 | [Exceptions II](./exceptions/#exceptions) | [Übung 4](./uebungen/#ubung-4-string) |[Aufgabe 4](./aufgaben/#aufgabe-4-operationen-uber-mengen) | 23.05.2022 | 
+| 5. | 09.-13.05.2022 | [Collections (List und Set)](./collections/#collections) | [Übung 5](./uebungen/#ubung-5-enum-und-zweidimensionale-arrays) |[Aufgabe 5](./aufgaben/#aufgabe-5-maps) | 30.05.2022 | 
+| 6. | 16.-20.05.2022 | [Collections (Map)](./maps/#maps) | [Übung 6](./uebungen/#ubung-6-listen-und-mengen) | - | - | 
+| 7. | 23.-27.05.2022 | [Abstrakte Klassen](./abstrakt/#abstrakte-klassen) | [Übung 7](./uebungen/#ubung-7-maps) |[Aufgabe 6](./aufgaben/#aufgabe-6-interfaces) | 06.06.2022 | 
+| 8. | 30.-03.06.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 8](./uebungen/#ubung-8-interfaces) |- | 20.06.2022 | 
+| 9. | 06.-10.06.2022 | [GUI Einführung](./gui/#graphical-user-interfaces)  | - |[Aufgabe 7](./aufgaben/#aufgabe-7-gui) | 27.06.2022 | 
+| 10. | 13.-17.06.2022 | [JUnit](./junit/#junit-tests) und [Layout-Manager](./gui/#layout-manager) | [Übung 10](./uebungen/#ubung-10-junit) |[Aufgabe 8](./aufgaben/#aufgabe-8-ereignisbehandlung) | 04.07.2022 | 
+| 12. | 20.-24.06.2022 | [GUI Ereignisse](./ereignisse/#ereignisse) | [Übung 9](./uebungen/#ubung-9-gui) |Aufgabe 9 | 11.07.2022 |
+| 13. | 27.-01.07.2022 | Mausereignisse | Übung 12 | - | - |
+| 14. | 04.-08.07.2022 | Graphics | Übung 13 | - | - |
 | 15. | 11.-15.07.2022 | Klausurvorbereitung | - | - | - | 
 
 
@@ -213,7 +213,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		}
 		```
 
-??? question "18.-22.04.2022 - Exceptions"
+??? question "18.-22.04.2022 - Exceptions I"
 	- siehe [**Exceptions**](./exceptions/#exceptions)
 	- siehe [**Übung 2**](./uebungen/#ubung-2-string-und-algorithmisches-denken)
 
@@ -413,7 +413,7 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		```
 
 
-??? question "25.-29.04.2022 - Exceptions"
+??? question "25.-29.04.2022 - Exceptions II"
 	- siehe [**Exceptions**](./exceptions/#exceptions)
 	- siehe [**Übung 3**](./uebungen/#ubung-3-exceptions)
 	- siehe [**Aufgabe 3**](./aufgaben/#aufgabe-3-solitaire)
@@ -914,5 +914,413 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 			}
 		}
 		```
+
+
+??? question "30.-03.06.2022 - Interfaces"
+	- siehe [**Interfaces**](./interfaces/#interfaces)
+	- siehe [**Übung 8**](./uebungen/#ubung-8-interfaces)
+	- siehe [**Aufgabe 6**](./aufgaben/#aufgabe-6-interfaces)
+
+	??? "Quellcode aus der Vorlesung - Testklasse.java"
+		```java
+		package vorlesungen.vorlesung0601;
+
+		public class Testklasse 
+		{
+			public static void sort(Comparable[] unsorted)
+			{
+				for(int bubble=0; bubble<unsorted.length-1; bubble++)
+				{
+					for(int index = 0; index < unsorted.length-1-bubble; index++)
+					{
+						if(unsorted[index].compareTo((Rectangle)unsorted[index+1]) > 0)
+						{
+							Comparable tmp = unsorted[index+1];
+							unsorted[index+1] = unsorted[index];
+							unsorted[index] = tmp;
+						}
+					}
+				}
+			}
+			
+			public static void main(String[] args) 
+			{
+				String s1 = "Hallo";
+				String s2 = "Ballo";
+				System.out.println(s1.compareTo(s2));
+				
+				Rectangle[] rects = new Rectangle[4];
+				rects[0] = new Rectangle(33, 4);
+				rects[1] = new Rectangle(4, 43);
+				rects[2] = new Rectangle(3, 14);
+				rects[3] = new Rectangle(23, 4);
+				
+				System.out.printf("%n----- unsortiert ------%n%n");
+				for(Printable r : rects)
+				{
+					r.print();
+				}
+				
+				/*
+				if(rects instanceof Comparable[])
+				{
+					System.out.println("ja");
+				}
+				*/
+				
+				sort(rects);
+				
+				System.out.printf("%n----- sortiert ? ------%n%n");
+				
+				for(Printable r : rects)
+				{
+					r.print();
+				}
+				
+				System.out.printf("%n----- unsortiert ------%n%n");	
+				Circle[] circs = new Circle[4];
+				circs[0] = new Circle(4.0);
+				circs[1] = new Circle(3.0);
+				circs[2] = new Circle(5.0);
+				circs[3] = new Circle(2.0);
+				
+				for(Circle c : circs)
+				{
+					c.print();
+				}
+				
+				sort(circs);
+				
+				System.out.printf("%n----- sortiert ? ------%n%n");
+				for(Circle c : circs)
+				{
+					c.print();
+				}
+			}
+
+		}
+		```
+
+	??? "Rectangle.java"
+		```java
+		package vorlesungen.vorlesung0601;
+
+		public class Rectangle extends Shape implements Comparable<Rectangle>, Printable
+		{
+			private int width, height;
+			
+			
+			public Rectangle(int width, int height) 
+			{
+				this.width = width;
+				this.height = height;
+			}
+
+			@Override
+			public double perimeter() 
+			{
+				return 2 * (this.width + this.height);
+			}
+
+			@Override
+			public double area() 
+			{
+				return this.height * this.width;
+			}
+
+			@Override
+			public int compareTo(Rectangle o) {
+				
+				return ((this.height + this.width) - (o.height + o.width));
+			}
+
+			@Override
+			public void print() {
+				System.out.printf("%2d x %2d = %7.2f %n", this.height, this.width, this.area());
+				
+			}
+
+		}
+		```
+
+	??? "Circle.java"
+		```java
+		package vorlesungen.vorlesung0601;
+
+		public class Circle extends Shape implements Comparable<Circle>, Printable
+		{
+			private double radius;
+			
+			public Circle(double radius)
+			{
+				this.radius = radius;
+			}
+			
+			@Override
+			public double perimeter() 
+			{
+				return Math.PI * 2 * this.radius;
+			}
+
+			@Override
+			public double area() 
+			{
+				return Math.PI * this.radius * this.radius;
+			}
+
+			@Override
+			public void print() {
+				System.out.printf(" r=%.2fcm, d=%.2fcm, a=%.2fcm %n", this.radius, this.perimeter(), this.area());
+				
+			}
+
+			@Override
+			public int compareTo(Circle o) 
+			{
+				if(this.radius > o.radius)
+				{
+					return 1;
+				}
+				else if(this.radius < o.radius)
+				{
+					return -1;
+				}
+				else 
+				{
+					return 0;
+				}
+				
+			}
+
+		}
+		```
+
+	??? "Printable.java"
+		```java
+		package vorlesungen.vorlesung0601;
+
+		public interface Printable {
+			
+			public void print();
+
+		}
+		```
+
+
+
+??? question "06.-10.06.2022 - GUI Einführung"
+	- siehe [**GUI Einführung**](./gui/#graphical-user-interfaces)
+	- siehe [**Übung 9**](./uebungen/#ubung-9-gui) (machen wir am 21. und 23.6.)
+	- siehe [**Aufgabe 7**](./aufgaben/#aufgabe-7-gui) (um eine Woche verlängert)
+
+	??? "Quellcode aus der Vorlesung - MyFirstWindow.java"
+		```java
+		package vorlesungen.vorlesung0608;
+
+		import java.awt.Color;
+		import java.awt.FlowLayout;
+
+		import javax.swing.*;
+
+		public class MyFirstWindow extends JFrame
+		{
+			
+			public MyFirstWindow()
+			{
+				super();
+				
+				this.setTitle("My first window!");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				JPanel content = initContent();
+				this.getContentPane().add(content);
+				
+				this.setLocation(300, 200);
+				this.setSize(400, 300);
+				this.setVisible(true);
+			}
+			
+			public JPanel initContent()
+			{
+				JPanel main = new JPanel();
+				
+				main.setLayout(new FlowLayout(FlowLayout.LEFT, 120, 130));
+				
+				main.setBackground(Color.LIGHT_GRAY);
+				
+				JButton btn1 = new JButton("Button1");
+				main.add(btn1);
+				
+				JButton btn2 = new JButton("Button2");
+				main.add(btn2);
+				
+				JButton btn3 = new JButton("Button3");
+				main.add(btn3);
+				
+				JButton btn4 = new JButton("Button4 mit viel Text");
+				main.add(btn4);
+				
+				JButton btn5 = new JButton("1");
+				main.add(btn5);
+				
+				JButton btn6 = new JButton();
+				main.add(btn6);
+				
+				return main;
+			}
+
+		}
+		```
+
+	??? "Testklasse.java"
+		```java
+		package vorlesungen.vorlesung0608;
+
+		public class Testklasse {
+
+			public static void main(String[] args) 
+			{
+				new MyFirstWindow();
+
+			}
+
+		}
+		```
+
+
+??? question "13.-17.06.2022 - Layout-Manager"
+	- siehe [**Layout-Manager**](./gui/#layout-manager)
+	- siehe [**Übung 9**](./uebungen/#ubung-9-gui) 
+	- siehe [**Aufgabe 7**](./aufgaben/#aufgabe-7-gui) 
+
+	??? "Quellcode aus der Vorlesung - MySecondWindow.java"
+		```java
+		package vorlesungen.vorlesung0615;
+
+		import java.awt.BorderLayout;
+		import java.awt.Color;
+		import java.awt.FlowLayout;
+		import java.awt.GridLayout;
+
+		import javax.swing.*;
+
+		public class MySecondWindow extends JFrame
+		{
+			
+			public MySecondWindow()
+			{
+				super();
+				
+				this.setTitle("My first window!");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				JPanel content = this.initContent();
+				this.getContentPane().add(content);
+				
+				this.setLocation(300, 200);
+				this.setSize(400, 300);
+				this.setVisible(true);
+			}
+			
+			public JPanel initContent()
+			{
+				JPanel main = new JPanel();
+				
+				main.setLayout(new BorderLayout(30, 30));
+				
+				main.setBackground(Color.BLUE);
+				
+				JPanel oben = new JPanel();
+				oben.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+				main.add(oben, BorderLayout.NORTH);
+				
+				JPanel mitte = new JPanel();
+				mitte.setLayout(new GridLayout(6, 3, 10, 10));
+				mitte.setBackground(Color.GREEN);
+				main.add(mitte, BorderLayout.CENTER);
+				
+				JLabel lab1 = new JLabel("Name : ");
+				oben.add(lab1);
+				JTextField tf = new JTextField(20);
+				oben.add(tf);
+				
+				JButton[] btnArr = new JButton[18];
+				for (int i = 0; i < btnArr.length; i++) {
+					btnArr[i] = new JButton((i+1)+"");
+					mitte.add(btnArr[i]);
+				}
+				
+				JPanel unten = new JPanel();
+				unten.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
+				
+				JButton okBtn = new JButton("Ok");
+				unten.add(okBtn);
+				
+				JButton cnclBtn = new JButton("Cancel");
+				unten.add(cnclBtn);
+				
+				JRadioButton rb = new JRadioButton();
+				unten.add(rb);
+				
+				JCheckBox cb = new JCheckBox();
+				unten.add(cb);
+				
+				JPanel links = new JPanel();
+				JPanel rechts = new JPanel();
+				
+				main.add(links, BorderLayout.WEST);
+				main.add(rechts, BorderLayout.EAST);
+				
+				main.add(unten, BorderLayout.SOUTH);
+				/*
+				JButton btn1 = new JButton("NORTH");
+				main.add(btn1, BorderLayout.NORTH);
+				
+				JButton btn2 = new JButton("Button2");
+				main.add(btn2, BorderLayout.WEST);
+				
+				JButton btn3 = new JButton("Button3");
+				main.add(btn3, BorderLayout.EAST);
+				
+				JButton btn4 = new JButton("Button4 mit viel Text");
+				main.add(btn4, BorderLayout.SOUTH);
+				
+				JButton btn5 = new JButton("1");
+				main.add(btn5);
+				
+				JButton btn6 = new JButton();
+				main.add(btn6);
+				
+				JButton btn7 = new JButton("Button 7");
+				main.add(btn7, BorderLayout.CENTER);
+				*/
+				
+				return main;
+			}
+
+		}
+		```
+
+	??? "Testklasse.java"
+		```java
+		package vorlesungen.vorlesung0615;
+
+		public class Testklasse {
+
+			public static void main(String[] args) 
+			{
+				new MySecondWindow();
+
+			}
+
+		}
+		```
+
+
+
+
+
+
+
 
 

@@ -1,5 +1,99 @@
 # Ereignisse
 
+---
+
+***Aufgrund des Informatiktages am 22.6.2022 fällt die Vorlesung aus. Damit wir keine Zeit verlieren, ist das Folgende Thema (bis [ActionCommand](./#actioncommand)) als Selbstudium (E-Learning) gedacht. Zumindest fast vollständig Selbstudium, wir besprechen Fargen in der Vorlesung am 29.6.2022. Dazu gibt es auch das folgende Video aus dem letzten Jahr zusammen mit dem Source-Code, der darin erstellt wird:***
+
+
+??? question "Selbstudium GUI Ereignisse"
+	- siehe [**GUI Ereignisse**](./ereignisse/#ereignisse)
+	- siehe Video zu [**GUI Ereignisse**](./ereignisse/#ereignisse) - Vorlesung aus dem Vorjahr
+		<iframe src="https://mediathek.htw-berlin.de/media/embed?key=4f5d2b458b8f53ee9d453b9e6f3a5eef&width=720&height=389&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="389" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+	- Quellcode aus dem Video
+
+		=== "Ereignisbehandlung.java"
+
+			```java linenums="1"
+			import java.awt.BorderLayout;
+			import java.awt.Font;
+			import java.awt.event.ActionEvent;
+			import java.awt.event.ActionListener;
+
+			import javax.swing.*;
+
+			public class Ereignisbehandlung extends JFrame implements ActionListener
+			{
+				Integer anzKlicks = 0;
+				JLabel unten;
+				
+				public Ereignisbehandlung(){
+					super();
+					this.setTitle("Ereignisbehandlung");
+					this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					
+					JPanel content = this.initContent();
+					this.getContentPane().add(content);
+					
+					this.setSize(200, 150);
+					this.setLocation(200, 100);
+					this.setVisible(true);
+				}
+				
+				public JPanel initContent() {
+					JPanel mainPanel = new JPanel();
+					mainPanel.setLayout(new BorderLayout());
+					
+					JPanel oben = new JPanel();
+					
+					JButton minus = new JButton("-");
+					JButton plus = new JButton("+");
+					
+					oben.add(minus);
+					oben.add(plus);
+					
+					plus.addActionListener(this);
+					minus.addActionListener(this);
+					
+					this.unten = new JLabel(this.anzKlicks.toString());
+					this.unten.setFont(new Font("Verdana", Font.BOLD, 48));
+					this.unten.setHorizontalAlignment(JLabel.CENTER);
+					
+					mainPanel.add(oben, BorderLayout.NORTH);
+					mainPanel.add(unten, BorderLayout.CENTER);
+					
+					return mainPanel;
+				}
+				
+				public static void main(String[] args) {
+					new Ereignisbehandlung();
+				}
+
+				@Override
+				public void actionPerformed(ActionEvent e) 
+				{	
+					Object quelle = e.getSource(); 	// hat ActionEvent ausgeloest
+					if(quelle instanceof JButton)
+					{
+						JButton button = (JButton)quelle;
+						if(button.getText().equals("-"))
+						{
+							this.anzKlicks--;
+							System.out.println("Minus-Button geklickt ... " + this.anzKlicks);
+						}
+						else if(button.getText().equals("+"))
+						{
+							this.anzKlicks++;
+							System.out.println("Plus-Button geklickt ... " + this.anzKlicks);
+						}
+						this.unten.setText(this.anzKlicks.toString());
+					}
+				}
+
+			}		
+			```
+
+---
+
 Im vorangegangenen Kapitel haben wir gelernt, wie wir Grafische Nutzeroberflächen (GUI) erstellen können. Nun wollen wir uns anschauen, wie auf *Ereignisse* reagiert werden kann, die die Nutzerin auf dieser Grafischen Oberfläche auslöst. Wenn wir beispielsweise in unserem [Taschenrechner](../aufgaben/#aufgabe-8-gui) auf einen Button klicken, dann soll entweder die Ziffer in dem Textfeld oben erscheinen oder es soll die Operation ausgeführt werden, auf die wir geklickt haben. In grafischen Nutzeroberflächen gibt es nicht nur Buttons, auf deren Klick-Ereignisse wir reagieren wollen, es gibt auch Eingaben über die Tastatur, das Fenster kann mit der Maus bewegt, vergrößert oder verkleinert werden, es können Kontextdialoge durch das Drücken der rechten Maustaste geöffnet werden usw. Wir lernen hier, welche unterschiedlichen Ereignisse es gibt und wie wir diese *behandeln* können, d.h. wie wir die Reaktion auf diese Ereignisse implementieren. 
 
 Zunächst überlegen wir uns, wie es überhaupt möglich sein kann, dass *Ereignisse* (also Aktionen der Nutzerin) auf unserer grafischen Oberfläche erkannt werden und auf diese Ereignisse entsprechend reagiert werden kann. Man könnte (in einer Schleife) permanent bei der Maus oder der Tastatur anfragen, ob eine Taste gedrückt oder ob die Maus bewegt wurde. Das ist aber viel zu imperformant und würde das Programm blockieren. Diese Aufgabe wird nämlich von der Laufzeitumgebung automatisch übernommen. Im Hintergrund geschieht genau so etwas, aber wir müssen uns gar nicht darum kümmern. Wenn z.B. eine Maustaste gedrückt wird, dann wird im Hintergrund durch die Laufzeitumgebung eine bestimmte Methode aufgerufen (`mouseClicked()`). Woher wissen wir, wie diese Methode heißt? Die Antwort sind natürlich: **Interfaces**!
@@ -393,6 +487,12 @@ public class Ereignisbehandlung extends JFrame implements ActionListener
 ```
 
 Nun haben wir für die beiden Buttons eine unterschiedliche Ereignisbehandlung realisiert. 
+
+---
+
+>>>>>>>>>>>>>>> ***bis hier Selbstudium*** 
+
+---
 
 
 #### ActionCommand

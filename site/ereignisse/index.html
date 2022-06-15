@@ -697,6 +697,174 @@
                 
                 
                 <h1 id="ereignisse">Ereignisse<a class="headerlink" href="#ereignisse" title="Permanent link">&para;</a></h1>
+<hr />
+<p><strong><em>Aufgrund des Informatiktages am 22.6.2022 fällt die Vorlesung aus. Damit wir keine Zeit verlieren, ist das Folgende Thema (bis <a href="./#actioncommand">ActionCommand</a>) als Selbstudium (E-Learning) gedacht. Zumindest fast vollständig Selbstudium, wir besprechen Fargen in der Vorlesung am 29.6.2022. Dazu gibt es auch das folgende Video aus dem letzten Jahr zusammen mit dem Source-Code, der darin erstellt wird:</em></strong></p>
+<details class="question"><summary>Selbstudium GUI Ereignisse</summary><ul>
+<li>siehe <a href="./ereignisse/#ereignisse"><strong>GUI Ereignisse</strong></a></li>
+<li>siehe Video zu <a href="./ereignisse/#ereignisse"><strong>GUI Ereignisse</strong></a> - Vorlesung aus dem Vorjahr
+    <iframe src="https://mediathek.htw-berlin.de/media/embed?key=4f5d2b458b8f53ee9d453b9e6f3a5eef&width=720&height=389&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="389" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe></li>
+<li>
+<p>Quellcode aus dem Video</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Ereignisbehandlung.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Font</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ereignisbehandlung</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">ActionListener</span>
+<span class="p">{</span>
+    <span class="n">Integer</span> <span class="n">anzKlicks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">JLabel</span> <span class="n">unten</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Ereignisbehandlung</span><span class="p">(){</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Ereignisbehandlung&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+        <span class="n">JPanel</span> <span class="n">content</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">initContent</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">JPanel</span> <span class="n">oben</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+
+        <span class="n">JButton</span> <span class="n">minus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">);</span>
+        <span class="n">JButton</span> <span class="n">plus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">minus</span><span class="p">);</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">plus</span><span class="p">);</span>
+
+        <span class="n">plus</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="n">minus</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">unten</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">48</span><span class="p">));</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">JLabel</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">oben</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">unten</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Ereignisbehandlung</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> 
+    <span class="p">{</span>   
+        <span class="n">Object</span> <span class="n">quelle</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span>  <span class="c1">// hat ActionEvent ausgeloest</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">quelle</span> <span class="k">instanceof</span> <span class="n">JButton</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="p">(</span><span class="n">JButton</span><span class="p">)</span><span class="n">quelle</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Minus-Button geklickt ... &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Plus-Button geklickt ... &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>       
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</li>
+</ul>
+</details>
+<hr />
 <p>Im vorangegangenen Kapitel haben wir gelernt, wie wir Grafische Nutzeroberflächen (GUI) erstellen können. Nun wollen wir uns anschauen, wie auf <em>Ereignisse</em> reagiert werden kann, die die Nutzerin auf dieser Grafischen Oberfläche auslöst. Wenn wir beispielsweise in unserem <a href="../aufgaben/#aufgabe-8-gui">Taschenrechner</a> auf einen Button klicken, dann soll entweder die Ziffer in dem Textfeld oben erscheinen oder es soll die Operation ausgeführt werden, auf die wir geklickt haben. In grafischen Nutzeroberflächen gibt es nicht nur Buttons, auf deren Klick-Ereignisse wir reagieren wollen, es gibt auch Eingaben über die Tastatur, das Fenster kann mit der Maus bewegt, vergrößert oder verkleinert werden, es können Kontextdialoge durch das Drücken der rechten Maustaste geöffnet werden usw. Wir lernen hier, welche unterschiedlichen Ereignisse es gibt und wie wir diese <em>behandeln</em> können, d.h. wie wir die Reaktion auf diese Ereignisse implementieren. </p>
 <p>Zunächst überlegen wir uns, wie es überhaupt möglich sein kann, dass <em>Ereignisse</em> (also Aktionen der Nutzerin) auf unserer grafischen Oberfläche erkannt werden und auf diese Ereignisse entsprechend reagiert werden kann. Man könnte (in einer Schleife) permanent bei der Maus oder der Tastatur anfragen, ob eine Taste gedrückt oder ob die Maus bewegt wurde. Das ist aber viel zu imperformant und würde das Programm blockieren. Diese Aufgabe wird nämlich von der Laufzeitumgebung automatisch übernommen. Im Hintergrund geschieht genau so etwas, aber wir müssen uns gar nicht darum kümmern. Wenn z.B. eine Maustaste gedrückt wird, dann wird im Hintergrund durch die Laufzeitumgebung eine bestimmte Methode aufgerufen (<code>mouseClicked()</code>). Woher wissen wir, wie diese Methode heißt? Die Antwort sind natürlich: <strong>Interfaces</strong>!</p>
 <h2 id="interfaces-fur-ereignisse-listener">Interfaces für Ereignisse - Listener<a class="headerlink" href="#interfaces-fur-ereignisse-listener" title="Permanent link">&para;</a></h2>
@@ -1295,6 +1463,39 @@ Button gedrueckt!
 </code></pre></div>
 </td></tr></table>
 <p>Nun haben wir für die beiden Buttons eine unterschiedliche Ereignisbehandlung realisiert. </p>
+<hr />
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><strong><em>bis hier Selbstudium</em></strong> </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr />
 <h4 id="actioncommand">ActionCommand<a class="headerlink" href="#actioncommand" title="Permanent link">&para;</a></h4>
 <p>Die Abfrage des Textes auf den Buttons zur Unterscheidung der Buttons ist nicht <em>clean code</em>. Das hat mehrere Gründe:</p>
 <ol>
