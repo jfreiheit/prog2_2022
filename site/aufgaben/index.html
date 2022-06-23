@@ -421,6 +421,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../uebungen/" class="md-nav__link">
         Übungen
       </a>
@@ -524,6 +569,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#aufgabe-9-zeichnen" class="md-nav__link">
+    Aufgabe 9 (Zeichnen)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -609,6 +661,13 @@
         <li class="md-nav__item">
   <a href="#aufgabe-8-ereignisbehandlung" class="md-nav__link">
     Aufgabe 8 (Ereignisbehandlung)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aufgabe-9-zeichnen" class="md-nav__link">
+    Aufgabe 9 (Zeichnen)
   </a>
   
 </li>
@@ -2984,6 +3043,24 @@ D received Breaking News <span class="m">4</span>
 <li>Minimumanforderung ist, dass durch die Eingabe von Ziffern Zahlen entstehen und dass die Buttons <code>+</code>, <code>-</code>, <code>/</code>, <code>+</code> und <code>=</code> insofern funktionieren, dass dadurch tatsächlich gerechnet wird, auch wenn die Regel "Punktrechnung geht vor Strichrechnung" nicht eingehalten wird. </li>
 <li>Eine erste Verbesserung (ist schon <strong>Zusatz</strong>) wäre, dass die Regel "Punktrechnung geht vor Strichrechnung" eingehalten wird.</li>
 <li>Ab dann ist alles <strong>Zusatz</strong> und bedarf in vielen Fällen der Erweiterung der GUI: Verwendung und Beachten von Klammern (ist aber sehr schwer!), Speichern von Zwischenergebnissen, komplexere Operationen durch zuätzliche Tasten (Wurzel, Potenzieren, ...). Alles, was Sie möchten - Viel Spaß!</li>
+</ol>
+</details>
+<h5 id="aufgabe-9-zeichnen">Aufgabe 9 (Zeichnen)<a class="headerlink" href="#aufgabe-9-zeichnen" title="Permanent link">&para;</a></h5>
+<details><summary>Aufgabe 9</summary><ol>
+<li>
+<p>Wir berechnen PI mithilfe der <a href="https://groups.uni-paderborn.de/reiss/AnalyseBuch/Grundlagen/Geometrie/pi/area.html">Monte-Carlo-Methode</a>. Dazu zeichnen wir ein Quadrat und darin einen Kreisbogen (einen Viertelkreis), dessen Radius der Seitenlänge des Quadrats entspricht:</p>
+<p><img alt="aufgabe10" src="../files/85_aufgabe10.png" /></p>
+</li>
+<li>
+<p>Nun zeichnen wir in dieses Quadrat viele kleine ausgefüllte Kreise (Durchmesser z.B. <code>2</code> Pixel). Die Positionen dieser Kreise werden zufällig ermittelt. Wenn die zufällig ermittelte Position für diesen Kreis <strong>im Kreisbogen</strong> liegt, dann sind die kleinen Kreise rot, wenn die Position außerhalb liegt, dann sind die Kreise blau. Es entsteht bei ganz vielen (z.B. <code>50000</code>) Punkten so ein Bild:</p>
+<p><img alt="aufgabe10" src="../files/86_aufgabe10.png" /></p>
+</li>
+<li>
+<p><strong>Tipp:</strong> Ob ein Punkt mit den Koordinaten <code>(x,y)</code> in einem (Viertel-)Kreis liegt, ermitteln Sie mithilfe der <a href="https://studyflix.de/mathematik/kreisgleichung-1867">Kreisgleichung</a>. Sei <code>(xm, ym)</code> der Mittelpunkt und <code>r</code> der Radius des Kreises, dann gilt <code>(x-xm)^2 + (y-ym)^2 = r^2</code> für alle Punkte auf dem Kreis (für Punkte im Kreis gilt &lt;= und für Punkte außerhalb des Kreises &gt;).</p>
+</li>
+<li>
+<p>Der Quotient aus der Anzahl der roten Punkte und der Gesamtanzahl der Punkte ist eine Näherung von PI/4. Geben Sie Ihre Annäherung von PI auf der Konsole aus.</p>
+</li>
 </ol>
 </details>
                 

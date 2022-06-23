@@ -2698,6 +2698,286 @@
 		}
 		```
 
+??? question "mögliche Lösung für Übung 7"
+	
+	=== "Stadt.java"
+		```java linenums="1"
+		package uebungen.uebung7;
+
+		import java.util.*;
+
+		//import
+
+		//1. Erstellen Sie eine Klasse Stadt mit folgenden Objektvariablen:
+		public class Stadt implements Comparable
+		//Der Teil mit "implements" wird nicht von Anfang an benötigt, es kann also auch erstmal mit "public class Stadt" begonnen werden. 
+		//Während es bei primitiven Datentypen meist eindeutig ist, ob ein Wert größer, kleiner oder gleich groß ist wie ein anderer Wert, ist die Ordnung bei Objekten nicht so klar.
+		//Daher muss Stadt Klasse ein bestimmtes Interface implementieren, um festzulegen, was verglichen werden soll. 
+		{
+		  String name;
+		  List<Integer> bevoelkerung;
+		  float flaeche;
+
+		  //2. Erstellen Sie für die Klasse Stadt einen parametrisierten Konstruktor 
+		  //public Stadt(String name, List<Integer> bevoelkerung, float flaeche), 
+		  //der die Objektvariablen initialisiert.
+		  public Stadt(String name, List<Integer> bevoelkerung, float flaeche)
+		  {
+		      //Da es sich um einen Konstruktor einer Kindklasse handelt, sollte zuerst explizit der Konstruktor der Elternklasse aufrufen werden
+		      //kann aber wie implements erst später ergänzt werden
+
+		      //Objektvariablen initialisieren
+		      this.name = name;
+		      this.bevoelkerung = bevoelkerung;
+		      this.flaeche = flaeche;
+		  }
+
+		  //3. Erstellen Sie für die Klasse Stadt eine print()-Methode, 
+		  //so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.): 
+		  //Berlin     891,68 km2    3.382.169   3.460.725   3.574.830
+		  void print()
+		  {
+		      //Namen der Stadt, ihre Fläche und "km2" ausgeben
+
+		      //mithilfe einer Schleife oder Iterator Einträge der Bevölkerungs-Liste ausgeben
+		      //Beispiel für Schleife: 
+		      //https://freiheit.f4.htw-berlin.de/prog2/collections/#die-for-each-schleife
+		      //Beispiel für Iterator:
+		      //https://freiheit.f4.htw-berlin.de/prog2/collections/#listen
+			  System.out.printf("%-15s %9.2f km2 ", this.name, this.flaeche);
+			  for(Integer el : this.bevoelkerung)
+			  {
+				  System.out.printf("%,10d", el);
+			  }
+			  System.out.println();
+
+		  }
+
+		  //Teil 2
+		  //1. Implementieren Sie in der Klasse Stadt die equals(Object)- und die hashCode()-Methode.
+		  //Führen Sie danach die StadtTest-Klasse erneut aus. Was hat sich an der Menge geändert?
+		  //Kommentieren Sie hashCode() wieder aus und führen StadtTest erneut aus. Was ändert sich?
+		  //Kommentieren Sie equals() wieder aus und führen StadtTest erneut aus. Was ändert sich?
+
+		  @Override
+		  public boolean equals(Object o)
+		  {
+		      //Es soll getestet werden, ob der Name des übergebenen Stadt-Objekts o gleich dem Namen des aktuellen Stadt-Objekts ist
+		      //Vorher müssen erst ein paar Fälle abgeklärt werden:       
+		      // wenn übergebenes Objekt o null ist, gib false zurück
+		      // wenn übergebenes Objekt o gleich dem aktuellen Objekt der Klasse ist, gib true zurück
+		      // wenn die Laufzeitklasse des übergebenen Objekts o nicht gleich der Laufzeitklasse des aktuellen Objekts ist,
+		      // gib false zurück
+			  if(o==null) return false;
+			  if(this==o) return true;
+			  if(this.getClass()!=o.getClass()) return false;
+
+		      //Wenn diese drei Fälle nicht eingetreten sind:
+		      //Stadt-Objekt anlegen vom übergebenen Objekt o     
+		      //testen ob der Name des übergebenen Stadt-Objekts gleich dem Namen des aktuellen Stadt-Objekts ist
+		      //Ergebnis zurückgeben 
+			  Stadt stadt = (Stadt)o;
+			  return this.name.equals(stadt.name);
+		  }
+		  
+		  @Override
+		  public int hashCode()
+		  {
+		      //Hashcode des Stadtnamens zurückgeben
+			  return this.name.hashCode();
+		  }
+
+		  //Festlegen, dass der Name des übergebenen Stadt-Objekts o mit dem Namen des aktuellen Stadt-Objekts verglichen werden soll
+
+			@Override
+			public int compareTo(Object o) {
+				Stadt stadt = (Stadt)o;
+				return this.name.compareTo(stadt.name);
+			}
+		}
+		```
+	
+	=== "StadtTest.java"
+		```java linenums="1"
+		package uebungen.uebung7;
+		//import 
+
+		import java.util.*;
+
+		//4. Erstellen Sie eine Klasse StadtTest mit main()-Methode. 
+		//Kopieren Sie in die Klasse die Methode public static Stadt[] staedte() hinein: 
+		public class StadtTest
+		{
+		  public static Stadt[] staedte()
+		  {
+		      Stadt[] staedte = new Stadt[6];
+		      List<Integer> berlinBevoelkerung = new ArrayList<>();
+		      berlinBevoelkerung.add(3382169);    
+		      berlinBevoelkerung.add(3460725);    
+		      berlinBevoelkerung.add(3574830);
+		      staedte[0] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+
+		      List<Integer> hamburgBevoelkerung = new ArrayList<>();
+		      hamburgBevoelkerung.add(1715392);   
+		      hamburgBevoelkerung.add(1786448);   
+		      hamburgBevoelkerung.add(1810438);   
+		      staedte[1] = new Stadt("Hamburg", hamburgBevoelkerung, 755.22f);
+
+		      List<Integer> muenchenBevoelkerung = new ArrayList<>();
+		      muenchenBevoelkerung.add(1210223);  
+		      muenchenBevoelkerung.add(1353186);  
+		      muenchenBevoelkerung.add(1464301);
+		      staedte[2] = new Stadt("Muenchen", muenchenBevoelkerung, 310.70f);
+
+		      List<Integer> koelnBevoelkerung = new ArrayList<>();
+		      koelnBevoelkerung.add(962884);  
+		      koelnBevoelkerung.add(1007119); 
+		      koelnBevoelkerung.add(1075935); 
+		      staedte[3] = new Stadt("Koeln", koelnBevoelkerung, 405.02f);
+
+		      List<Integer> frankfurtBevoelkerung = new ArrayList<>();
+		      frankfurtBevoelkerung.add(648550);  
+		      frankfurtBevoelkerung.add(679664);  
+		      frankfurtBevoelkerung.add(736414);
+		      staedte[4] = new Stadt("Frankfurt/Main", frankfurtBevoelkerung, 248.31f);
+
+		      berlinBevoelkerung = new ArrayList<>();
+		      berlinBevoelkerung.add(3382169);    
+		      berlinBevoelkerung.add(3460725);    
+		      berlinBevoelkerung.add(3574830);
+		      staedte[5] = new Stadt("Berlin", berlinBevoelkerung, 891.68f);
+
+		      return staedte;
+		  }
+
+		  public static void main(String[] args)
+		  {   
+		      System.out.printf("%n%n------------------------- Liste -------------------------%n%n");
+
+		      //1. Erstellen Sie in der main()-Methode eine List<Stadt> staedteListe = new ArrayList<>();. 
+		      //Fügen Sie der staedteListe alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.
+		      List<Stadt> staedteListe = new ArrayList<>();
+
+		      //durch staedte iterieren und die Städte zur staedteListe hinzufügen
+		      Stadt[] staedte = staedte();
+		      for(Stadt stadt : staedte)
+		      {
+		    	  staedteListe.add(stadt);
+		      }
+
+		      //2. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung 
+		      //der print()-Methode aus der Klasse Stadt aus.
+		      for(Stadt stadt : staedteListe)
+		      {
+		    	  stadt.print();
+		      }
+		      
+
+		      //durch staedteListe iterieren und für jeden Eintrag die print()-Methode aufrufen
+
+		      System.out.printf("%n%n------------------------- Menge -------------------------%n%n");
+
+		      //1. Erstellen Sie in der main()-Methode eine Set<Stadt> staedteMenge = new HashSet<>();. 
+		      Set<Stadt> staedteMenge1 = new HashSet<>();
+
+		      //Fügen Sie der staedteMenge alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.
+		      for(Stadt stadt : staedte())
+		      {
+		    	  staedteMenge1.add(stadt);
+		      }
+		      //analog zur gleichen Aufgabe mit der Liste oben
+
+		          //Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der 
+		          //print()-Methode aus der Klasse Stadt aus.
+		          //analog zur gleichen Aufgabe mit der Liste oben
+		      for(Stadt stadt : staedteMenge1)
+		      {
+		    	  stadt.print();
+		      }
+
+		      //Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?
+		      //Notieren Sie sich die Reihenfolge, in der Städte ausgegeben werden.
+		      //Ändern Sie den Konstruktor von HashSet<>() in TreeSet<>(). Was passiert und warum?        
+		      Set<Stadt> staedteMenge2 = new TreeSet<>();
+		      //analog zu oben
+
+
+		      System.out.printf("%n%n------------------------- Maps -------------------------%n%n");
+
+		       //1. Erstellen Sie in der main()-Methode eine Map<Integer, Stadt> staedteMap = new HashMap<>();. 
+		      Map<Integer, Stadt> staedteMap = new HashMap<>();
+		      Integer number = 1;
+		      for(Stadt stadt : staedte())
+		      {
+		    	  staedteMap.put(number, stadt);
+		    	  number++;
+		      }
+
+		      // Stadt berlin = staedte[0];
+		      // staedteMap.put(2, berlin);
+		      
+		      //Fügen Sie der staedteMap einen fortlaufenden, eindeutigen Integer-Wert beginnend mit 1 als Key 
+		      //sowie alle alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array als Value hinzu.
+
+		          //Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der print()-Methode aus der Klasse Stadt aus. 
+		          //Beginnen Sie die Zeile jeweils mit der Ausgabe des Keys.
+		      
+		      for(Map.Entry<Integer, Stadt>  eintrag : staedteMap.entrySet())
+		      {
+		    	  System.out.printf("%-3d", eintrag.getKey());
+		    	  Stadt stadt = eintrag.getValue();
+		    	  stadt.print();
+		      }
+
+		      //Beispiel, wie man eine Map durchgeht: https://freiheit.f4.htw-berlin.de/prog2/maps/#durch-eine-map-laufen
+		      //erst den key ausgeben
+		      //dann die Werte
+		      
+		      System.out.printf("%n%n------------------------- Test compareTo -------------------------%n%n");
+
+		      System.out.println("Berlin".compareTo("Anton"));
+		      System.out.println("Anton".compareTo("Berlin"));
+		      System.out.println("Berlin".compareTo("Berlin"));
+		      System.out.println("Anton".compareTo("Zeppelin"));
+		      
+		  }
+
+		}		
+		```
+	
+	=== "MyInteger.java"
+		```java linenums="1"
+		package uebungen.uebung8;
+
+		public class MyInteger implements Comparable<MyInteger>
+		{
+			private int value;
+			
+			public MyInteger(int value)
+			{
+				this.value = value;
+			}
+			
+			public int intValue()
+			{
+				return this.value;
+			}
+			
+			public static MyInteger valueOf(int value)
+			{
+				return new MyInteger(value);
+			}
+
+			@Override
+			public int compareTo(MyInteger o) {
+				return -(this.value - o.value);
+			}
+		}
+		```
+
+
+
+
 ##### Übung 8 (Interfaces)
 
 ??? "Übung 8 (7.6. - 9.6.)"
@@ -3334,7 +3614,7 @@
 
 ##### Übung 9 (GUI)
 
-??? "Übung 9"
+??? "Übung 9 (21.6. - 23.6.)"
 
 	1. Erstellen Sie folgende GUI:
 
@@ -3384,10 +3664,90 @@
 		}
 		```
 
+??? question "mögliche Lösung für Übung 8"
+	
+	=== "Uebung8.java"
+		```java linenums="1"
+		package uebungen.uebung8;
+
+		import java.awt.*;
+		import javax.swing.*;
+		import javax.swing.border.Border;
+
+		public class Uebung8 extends JFrame
+		{
+
+			public Uebung8()
+			{
+				super();
+				this.setTitle("GUI Übung");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+
+				JPanel content = this.initContent();
+				this.getContentPane().add(content);
+
+				this.setSize(400, 300);
+				this.setLocation(300,200);
+				this.setVisible(true);
+			}
+
+			private JPanel initContent()
+			{
+				JPanel mainPanel = new JPanel();
+				mainPanel.setLayout(new BorderLayout());
+
+				Border redline = BorderFactory.createLineBorder(Color.RED);
+				JPanel oben = new JPanel();
+				oben.setLayout(new FlowLayout());
+				JLabel text1 = new JLabel("Text");
+				text1.setForeground(Color.WHITE); 
+				oben.add(text1);		
+				oben.setBackground(Color.BLUE);
+				oben.setBorder(redline);
+				
+				JPanel links = new JPanel();
+				links.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 50));
+				JLabel text2 = new JLabel("Weiterer Text");
+				links.add(text2);
+				JTextField input = new JTextField("Feld",10);
+				links.add(input);		
+				links.setBackground(Color.LIGHT_GRAY);
+				
+
+				JPanel rechts = new JPanel();
+				rechts.setLayout(new GridLayout(2,1,20,20));
+				rechts.add(new JButton("Button 1"));
+				rechts.add(new JButton("Button 2"));
+				rechts.setBackground(Color.LIGHT_GRAY);
+
+				mainPanel.add(oben, BorderLayout.NORTH);
+				mainPanel.add(links, BorderLayout.CENTER);
+				mainPanel.add(rechts, BorderLayout.EAST);
+
+				return mainPanel;
+			}
+
+			public static void main(String[] args) 
+			{
+				new Uebung8();
+			}
+
+		}
+		```
+
+??? question "sehr hilfreiche Grafiken zur Übung von Frau Busjahn"
+	
+	1. Unterscheidung zwischen Containern und Steuerelementen:
+		![uebung](./files/69_uebung8.png)
+
+
+	2. Visualisierung der Panels (Container) in der GUI der Übung
+		![uebung](./files/70_uebung8.png)
+
 
 ##### Übung 10 (JUnit)
 
-??? "Übung 10"
+??? "Übung 10 (15.6.)"
 	- Probieren Sie sich mit `JUnit` aus! Schreiben Sie Unit-Tests für Ihre `MyInteger`-Klasse aus [Aufgabe 2](../aufgaben/#aufgabe-2-myinteger).  
 
 
@@ -3762,7 +4122,7 @@
 
 ##### Übung 11 (Ereignisbehandlung - ActionListener)
 
-??? "Übung 11"
+??? "Übung 11 (28.6. - 30.6.)"
 
 	1. Erstellen Sie ein Fenster mit einem Textfeld und zwei Buttons `add` und `remove`. Sowohl das Textfeld als auch die beiden Buttons sollen Objektvariablen (und somit zugreifbar von allen Methoden der Klasse) sein.
 	2. Unterteilen Sie das `main`-`JPanel` zunächst in zwei `JPanel`s `unten` und `oben`. Dem `JPanel oben` werden das Textfeld und die beiden Buttons hinzugefügt. Setzen Sie die Hintergrundfarbe des JPanels `oben` auf `YELLOW`.  Setzen Sie die Hintergrundfarbe des JPanels `unten` auf `CYAN`. Das JPanel `unten` soll ebenfalls eine Objektvariable sein.
@@ -3873,3 +4233,248 @@
 		}
 		```
 
+
+
+##### Übung 12 (Zeichnen)
+
+??? "Übung 12 (5.7. - 7.7.)"
+
+	1. Zeichnen Sie ein Quadrat. Passen Sie dieses Quadrat möglichst passend in das Fenster. Da es sich um ein Quadrat handelt, kann es sich nur der Höhe oder der Breite des Fensters anpassen, je nachdem, was kleiner ist. Wenn die Höhe kleiner ist, als die Breite, dann soll das Quadrat ausgefüllt sein. Wenn die Breite kleiner als die Höhe ist, dann soll das Quadrat nicht ausgefüllt sein, aber die Linienstärke auf `5.0f` gesetzt werden. 
+	2. Die Zeichenfarbe soll zufällig erzeugt werden - jedes Mal, wenn die `paintComponent()`-Methode aufgerufen wird.
+
+		![uebung10](./files/84_uebung10.png)
+
+	3. Beobachten Sie anhand des Farbwechsels, wie oft die `paintComponent()`-Methode aufgerufen wird. 
+
+
+
+##### Übung 13 (Mausereignisse)
+
+??? "Übung 13 (selbständiges Üben)"
+
+	1. Zeichnen Sie mithilfe der Maus farbige Rechtecke. Das Zeichnen soll folgendermaßen funktionieren:
+		- dort, wo sie mit der Maus in die Zeichenfläche klicken, ist ein Eckpunkt des Rechtecks
+		- mit gedrückter Maustaste ziehen Sie das Rechteck groß (währenddessen soll das Rechteck dargestellt werden)
+		- durch Loslassen der Maustaste legen Sie die endgültige Größe des Rechtecks fest und speichern das Rechteck
+		- durch wiederholtes Zeichnen werden mehrere Rechtecke gezeichnet. Die zuvor gezeichneten Rechtecke bleiben dargestellt
+		- jedes Rechteck hat eine zufällig erzeugte Farbe 
+		- beachten Sie, dass das Zeichnen eines Rechtecks nicht nur von links oben nach rechts unten, sondern in alle Richtungen möglich sein soll
+		
+	2. **Tipps:** 
+		- studieren Sie dieses [Beispiel](../mausereignisse/#beispiel-2-linien-zeichnen)
+		- behandeln Sie die Mausereignisse in den Methoden `mousePressed()`, `mouseReleased()` (`MouseListener`) sowie aus dem `MouseMotionListener` `mouseDragged()`
+		- erstellen Sie sich zunächst eine Klasse, die Rechtecke repräsentiert (Objektvariablen `x`, `y`, `width`, `height`, jweils `int`)
+		- speichern Sie die Rechtecke zusammen mit ihrer Farbe in einer `Map` (untersuchen Sie den Unterschied zwischen `HashMap` und `LinkedHashMap`)
+		- zeichnen Sie in `paintComponent()` alle Rechtecke aus der `Map` und das aktuelle Rechteck (das Sie gerade zeichnen)
+
+		![uebung11](./files/89_uebung11.png)
+
+
+
+??? question "vorkommentierte Klassen"
+	
+	=== "RechteckeZeichnen.java"
+		```java linenums="1"
+		import java.awt.Color;
+		import java.awt.Graphics;
+		import java.awt.Graphics2D;
+		import java.awt.Point;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.awt.event.MouseMotionListener;
+		import java.util.HashMap;
+		import java.util.Map;
+		import java.util.Random;
+
+		import javax.swing.JFrame;
+		import javax.swing.JPanel;
+
+		public class RechteckeZeichnen extends ... implements ... {	
+		    //	Objektvariablen 
+		    
+		    public RechteckeZeichnen()
+		    {
+		        super();
+		        this.setTitle(...);
+		        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+			
+			//Collection für die Rechtecke anlegen
+
+			//Leinwand anlegen und die Listener für Mausereignisse hinzufügen
+		        
+		        this.setSize(400, 300);
+		        this.setLocation(300,200);
+		        this.setVisible(true);
+		    }
+
+		    private class Canvas extends JPanel
+		    {    	
+		        @Override
+		        protected void paintComponent(Graphics g)
+		        {
+		            super.paintComponent(g);        
+		            Graphics2D g2 = (Graphics2D)g;  
+		            
+		            //aktuelles Rechteck zeichnen (falls es aktuell eins gibt)            
+		            
+		            //gespecherte Rechtecke aus der Collection zeichnen
+		            
+		        }
+		    }
+
+		    public static void main(String[] args) 
+		    {
+		        new RechteckeZeichnen();
+		    }
+
+		    
+			@Override
+			public void mousePressed(MouseEvent e) {
+			
+				//neues Rechteck erzeugen		
+				
+				//zufällige Farbe erzeugen - hatten wir letzte Woche
+				
+			}
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+			
+				//Höhe und Breite des aktuellen Rechtecks setzen
+				//je nachdem ob die Maus gerade nach rechts, links, oben oder unten gezogen wird		
+				
+				//Leinwand neu zeichnen
+			}
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				//aktuelles Rechteck speichern
+				
+			}
+			
+			@Override public void mouseClicked(MouseEvent e) {}
+			@Override public void mouseEntered(MouseEvent e) {}
+			@Override public void mouseExited(MouseEvent e) {}
+			@Override public void mouseMoved(MouseEvent e) {}
+		}
+		```
+	
+	=== "Rechteck.java"
+		```java linenums="1"
+				
+		public class Rechteck {
+			//private Objektvariablen für x, y, Höhe und Breite 	
+			
+			public Rechteck(int x, int y, int width, int height) 
+			{
+				//Koordinaten und Größe des Rechtecks
+				
+			}
+
+			// Getter und Setter für x, y, Höhe und Breite	
+				
+		}
+		```
+
+
+
+
+##### Klausurvorbereitung (Klicks zählen)
+
+??? "Klausurvorbereitung (Klicks zählen)"
+
+	1. Erstellen Sie eine solche GUI:
+		
+		![uebung12](./files/105_uebung12.png)
+
+		- Es handelt sich im Prinzip um ein Gitter aus `JPanel`s (siehe auch **Tipps** unten). Beachten Sie: Dem Konstruktor für das Fenster wird eine `hoehe` (int) und eine `breite` (int) übergeben. Aus der `hoehe` und der `breite` ergibt sich die Anzahl der JPanels. In der Abbildung ist also `hoehe=4` und `breite=3`. 
+
+		- Jedes `JPanel` soll ein `JLabel` enthalten, das der Anzahl der (Maus-)Klicks auf dieses `JPanel` entspricht. Am Anfang sind die Anzahl der Klicks für alle JPanels 0.
+
+		- Implementieren Sie den `MouseListener` so, dass bei Klick auf ein `JPanel` automatisch die Anzahl der Klicks um 1 erhöht und die neue Anzahl im `JLabel` dargestellt wird.
+
+		- Außerdem soll das (oder die) JPanel(s) mit den meisten Klicks rot dargestellt werden.
+
+		![uebung12](./files/107_uebung12.png)
+
+		- Die Abbildung zeigt das Fenster nach einigen Mausklicks auf die einzelnen Panels. Es gibt drei Panels mit den meisten Klicks.
+
+		![uebung12](./files/108_uebung12.png)
+
+		- Nach einem weiteren Klick gibt es nur noch ein Panel mit dem meisten Klicks. 
+
+
+	2. Wird auf den `reset`-Button geklickt, ist alles wieder auf `0` (und grau) gestellt.
+
+	3. **Tipps:** 
+		- Für die "JPanels" eigenen sich tatsächlich `JPanels`, da diese ja eine Hintergrundfarbe haben, einen Rand (`Border`) haben können, ein `JLabel` aufnehmen können usw. Es wäre ja aber auch sinnvoll, dass jedes `JPanel` z.B. auch eine Eigenschaft `anzahlKlicks` o.ä. hat. Insofern wäre der Vorschlag, eine eigene Klasse `MyPanel` zu erstellen, die von `JPanel` erbt, somit alle Eigenschaften eines `JPanel` hat und aber auch noch zusätzliche Eigenschaften haben kann. 
+
+		- Als Datenstruktur für das *Model* bietet sich sicherlich ein zweidimensionales Array an. 
+
+		- Wenn Sie jedes `MyPanel` an den `MouseListener` anmelden, dann müssen Sie gar nicht die Koordinaten des Mausklicks betrachten, sondern nur abfragen, welches der `MyPanel` das Mausereignis ausgelöst hat (oder Sie verwenden sogar für jedes dieser `MyPanel` eine anonyme Klasse des `MouseListener`). Probieren Sie mal ein wenig herum, es gibt sehr viele verschiedene Lösungsmöglichkeiten hier.  
+
+
+
+##### Klausurvorbereitung (Graphen)
+
+??? "Klausurvorbereitung (Graphen)"
+
+	1. Erstellen Sie ein Fenster zum Zeichnen. Implementieren Sie den Mauslistener so, dass für jeden Mausklick an der Stelle des Mausklicks ein schwarzer ausgefüllter Kreis mit dem `DURCHMESSER = 30` angezeigt wird:
+
+		![uebung13](./files/125_uebung13.png)
+
+		- Für das *Model* genügt es, sich die Punkte in einer Collection zu merken (am einfachsten ist wohl eine `ArrayList`). 
+
+		- Für den *Controller* hätten wir hier die Wahl zwischen `mouseClicked()` und `mousePressed()`. Wegen der späteren Erweiterung (Bewegen der Punkte), sollten wir hier `mouseClicked()` wählen. 
+
+	2. Passen Sie die *View* nun so an, dass die Punkte durch Linien der Strichstärke `2.0f` miteinander verbunden werden. 
+
+		![uebung13](./files/126_uebung13.png)
+
+		- Sie können auch gleich (oder später) den ersten und letzten Punkt mit einer Linie verbinden (so wie in der Abbildung).
+
+	3. Implementieren sie den `MouseMotionListener` so, dass wenn Sie mit der Maus **auf** einen Punkt (Kreis) klicken (oder knapp daneben) und bei gedrückter Maustaste die Maus bewegen, sich auch der Punkt mitbewegt. 
+
+		- Zur Erinnerung: die Methode `mouseClicked()` wird aufgerufen, nachdem `mousePressed()` und `mouseReleased()` aufgerufen wurden. Ändert sich die Mausposition zwischen den Aufrufen von `mousePressed()` und `mouseReleased()`, wird `mouseClicked()` gar nicht aufgerufen. 
+
+		- Es empfiehlt sich also, in `mousePressed()` zu bestimmen, ob durch den Mausklick ein Kreis getroffen wurde. Das muss natürlich kein genauer "Treffer" sein, bauen Sie ruhig eine Toleranz von z.B. `20` ein. Den Punkt, den Sie "getroffen" haben, sollten Sie sich merken, denn seine Koordinaten werden ja durch die Mausbewegung verändert. 
+
+		- Wenn Sie in `mousePressed()` einen Punkt "getroffen" haben, dann sollten Sie das Verschieben des Punktes in `mouseDragged()` behandeln. Beachten Sie, dass `mouseDragged()` (bei gedrückter Maustaste) permanent aufgerufen wird. Wir können Sie die Änderung der Mausposition zwischen zwei Aufrufen von `mouseDragged()` ermitteln?
+
+
+##### Klausurvorbereitung (Quadrat)
+
+??? "Klausurvorbereitung (Quadrat)"
+
+	1. Erstellen Sie ein Fenster zum Zeichnen. Passen Sie zunächst ein Quadrat mit Strichstärke `3.0f` in das Fenster ein und zwar so, dass es 1/3 von entweder der Breite der `canvas` oder der Höhe der `canvas` groß ist, je nachdem, was **kleiner** ist. Es muss aber nicht mittig sein:
+
+		![uebung13](./files/132_uebung14.png)
+
+		- In der folgenden Abbildung ist die Höhe kleiner als die Breite. Also ist die Höhe korrekt gedrittelt, aber die gleiche Länge wurde für `x` verwendet, also für den Abstand vom linken Rand zum Quadrat. Deshalb ist der Abstand vom Quadrat zum rechten Rand größer. Sie können aber das Quadrat auch gerne komplett in die Mitte setzen.  
+
+		![uebung13](./files/133_uebung14.png)
+
+	2. Wenn der `create square`-Button gedrückt wird, erscheint ein farbiges Quadrat, das genau so groß ist, wie das zuvor gezeichnete nichtausgefüllte schwarze Quadrat. 
+
+		![uebung13](./files/134_uebung14.png)
+
+		- Die Position des Quadrates wird zufällig bestimmt. Es passt aber auf jeden Fall vollständig in die Canvas!
+
+		- Auch die Farbe des Quadrates wird zufällig bestimmt. Es behält die ganze Zeit über seine Farbe. 
+
+	3. Das farbige Quadrat kann nun durch Bewegen der Maus bei gedrückter Maustaste bewegt werden. Wenn das Quadrat (fast) vollständig in dem schwarzen Quadrat ist, dann bleibt es genau dort und kann nicht weiter bewegt werden.   
+
+		![uebung13](./files/135_uebung14.png)
+
+
+## Zusatz
+
+
+##### Test-driven development
+
+??? "parseDouble(String)"
+
+	1. In der [Aufgabe 2](../aufgaben/#aufgabe-2-myinteger) sollen Sie für die Klasse `MyInteger` eine Methode `parseInt(String s)` schreiben, die einen String `s` in eine `int`-Zahl umwandelt, wenn dies möglich ist. 
+	2. In dieser Übung wollen wir eine solche (statische) Methode `parseDouble(String s)` für eine Klasse `MyDouble` testgetrieben entwickeln. Überlegen Sie sich dazu einige Strings, die Sie umwandeln wollen und die dazugehörigen erwarteten Ergebnisse. Es muss nicht vollständig implementiert werden. Es geht ums Prinzip. Mithilfe von `assertThrows()` können Sie übrigens prüfen, ob eine Exception geworfen wird (wenn `s` keiner Zahl entspricht) - siehe dazu z.B. [hier](https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions) oder [hier](https://mkyong.com/junit5/junit-5-expected-exception/).
+
+	**Viel Spaß!**

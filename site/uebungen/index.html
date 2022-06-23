@@ -419,6 +419,51 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -527,6 +572,61 @@
   <a href="#ubung-11-ereignisbehandlung-actionlistener" class="md-nav__link">
     Übung 11 (Ereignisbehandlung - ActionListener)
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-12-zeichnen" class="md-nav__link">
+    Übung 12 (Zeichnen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-13-mausereignisse" class="md-nav__link">
+    Übung 13 (Mausereignisse)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-klicks-zahlen" class="md-nav__link">
+    Klausurvorbereitung (Klicks zählen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-graphen" class="md-nav__link">
+    Klausurvorbereitung (Graphen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-quadrat" class="md-nav__link">
+    Klausurvorbereitung (Quadrat)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusatz" class="md-nav__link">
+    Zusatz
+  </a>
+  
+    <nav class="md-nav" aria-label="Zusatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    Test-driven development
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -652,6 +752,61 @@
   <a href="#ubung-11-ereignisbehandlung-actionlistener" class="md-nav__link">
     Übung 11 (Ereignisbehandlung - ActionListener)
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-12-zeichnen" class="md-nav__link">
+    Übung 12 (Zeichnen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubung-13-mausereignisse" class="md-nav__link">
+    Übung 13 (Mausereignisse)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-klicks-zahlen" class="md-nav__link">
+    Klausurvorbereitung (Klicks zählen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-graphen" class="md-nav__link">
+    Klausurvorbereitung (Graphen)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klausurvorbereitung-quadrat" class="md-nav__link">
+    Klausurvorbereitung (Quadrat)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusatz" class="md-nav__link">
+    Zusatz
+  </a>
+  
+    <nav class="md-nav" aria-label="Zusatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    Test-driven development
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4029,11 +4184,548 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 </div>
 </div>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 7</summary><div class="tabbed-set" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Stadt.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung7</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="c1">//import</span>
+
+<span class="c1">//1. Erstellen Sie eine Klasse Stadt mit folgenden Objektvariablen:</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span> <span class="kd">implements</span> <span class="n">Comparable</span>
+<span class="c1">//Der Teil mit &quot;implements&quot; wird nicht von Anfang an benötigt, es kann also auch erstmal mit &quot;public class Stadt&quot; begonnen werden. </span>
+<span class="c1">//Während es bei primitiven Datentypen meist eindeutig ist, ob ein Wert größer, kleiner oder gleich groß ist wie ein anderer Wert, ist die Ordnung bei Objekten nicht so klar.</span>
+<span class="c1">//Daher muss Stadt Klasse ein bestimmtes Interface implementieren, um festzulegen, was verglichen werden soll. </span>
+<span class="p">{</span>
+  <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">flaeche</span><span class="p">;</span>
+
+  <span class="c1">//2. Erstellen Sie für die Klasse Stadt einen parametrisierten Konstruktor </span>
+  <span class="c1">//public Stadt(String name, List&lt;Integer&gt; bevoelkerung, float flaeche), </span>
+  <span class="c1">//der die Objektvariablen initialisiert.</span>
+  <span class="kd">public</span> <span class="nf">Stadt</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">bevoelkerung</span><span class="p">,</span> <span class="kt">float</span> <span class="n">flaeche</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">//Da es sich um einen Konstruktor einer Kindklasse handelt, sollte zuerst explizit der Konstruktor der Elternklasse aufrufen werden</span>
+      <span class="c1">//kann aber wie implements erst später ergänzt werden</span>
+
+      <span class="c1">//Objektvariablen initialisieren</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">bevoelkerung</span> <span class="o">=</span> <span class="n">bevoelkerung</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">flaeche</span> <span class="o">=</span> <span class="n">flaeche</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">//3. Erstellen Sie für die Klasse Stadt eine print()-Methode, </span>
+  <span class="c1">//so dass eine Ausgabe auf der Konsole in folgender Form erscheint (Bsp.): </span>
+  <span class="c1">//Berlin     891,68 km2    3.382.169   3.460.725   3.574.830</span>
+  <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="c1">//Namen der Stadt, ihre Fläche und &quot;km2&quot; ausgeben</span>
+
+      <span class="c1">//mithilfe einer Schleife oder Iterator Einträge der Bevölkerungs-Liste ausgeben</span>
+      <span class="c1">//Beispiel für Schleife: </span>
+      <span class="c1">//https://freiheit.f4.htw-berlin.de/prog2/collections/#die-for-each-schleife</span>
+      <span class="c1">//Beispiel für Iterator:</span>
+      <span class="c1">//https://freiheit.f4.htw-berlin.de/prog2/collections/#listen</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-15s %9.2f km2 &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">flaeche</span><span class="p">);</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Integer</span> <span class="n">el</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">bevoelkerung</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%,10d&quot;</span><span class="p">,</span> <span class="n">el</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+
+  <span class="p">}</span>
+
+  <span class="c1">//Teil 2</span>
+  <span class="c1">//1. Implementieren Sie in der Klasse Stadt die equals(Object)- und die hashCode()-Methode.</span>
+  <span class="c1">//Führen Sie danach die StadtTest-Klasse erneut aus. Was hat sich an der Menge geändert?</span>
+  <span class="c1">//Kommentieren Sie hashCode() wieder aus und führen StadtTest erneut aus. Was ändert sich?</span>
+  <span class="c1">//Kommentieren Sie equals() wieder aus und führen StadtTest erneut aus. Was ändert sich?</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="c1">//Es soll getestet werden, ob der Name des übergebenen Stadt-Objekts o gleich dem Namen des aktuellen Stadt-Objekts ist</span>
+      <span class="c1">//Vorher müssen erst ein paar Fälle abgeklärt werden:       </span>
+      <span class="c1">// wenn übergebenes Objekt o null ist, gib false zurück</span>
+      <span class="c1">// wenn übergebenes Objekt o gleich dem aktuellen Objekt der Klasse ist, gib true zurück</span>
+      <span class="c1">// wenn die Laufzeitklasse des übergebenen Objekts o nicht gleich der Laufzeitklasse des aktuellen Objekts ist,</span>
+      <span class="c1">// gib false zurück</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">o</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="o">==</span><span class="n">o</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span><span class="o">!=</span><span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+      <span class="c1">//Wenn diese drei Fälle nicht eingetreten sind:</span>
+      <span class="c1">//Stadt-Objekt anlegen vom übergebenen Objekt o     </span>
+      <span class="c1">//testen ob der Name des übergebenen Stadt-Objekts gleich dem Namen des aktuellen Stadt-Objekts ist</span>
+      <span class="c1">//Ergebnis zurückgeben </span>
+      <span class="n">Stadt</span> <span class="n">stadt</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stadt</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">stadt</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="c1">//Hashcode des Stadtnamens zurückgeben</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">hashCode</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">//Festlegen, dass der Name des übergebenen Stadt-Objekts o mit dem Namen des aktuellen Stadt-Objekts verglichen werden soll</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Stadt</span> <span class="n">stadt</span> <span class="o">=</span> <span class="p">(</span><span class="n">Stadt</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">stadt</span><span class="p">.</span><span class="na">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">StadtTest.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung7</span><span class="p">;</span>
+<span class="c1">//import </span>
+
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="c1">//4. Erstellen Sie eine Klasse StadtTest mit main()-Methode. </span>
+<span class="c1">//Kopieren Sie in die Klasse die Methode public static Stadt[] staedte() hinein: </span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
+<span class="p">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">hamburgBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1715392</span><span class="p">);</span>   
+      <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1786448</span><span class="p">);</span>   
+      <span class="n">hamburgBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1810438</span><span class="p">);</span>   
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Hamburg&quot;</span><span class="p">,</span> <span class="n">hamburgBevoelkerung</span><span class="p">,</span> <span class="mf">755.22f</span><span class="p">);</span>
+
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">muenchenBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1210223</span><span class="p">);</span>  
+      <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1353186</span><span class="p">);</span>  
+      <span class="n">muenchenBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1464301</span><span class="p">);</span>
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Muenchen&quot;</span><span class="p">,</span> <span class="n">muenchenBevoelkerung</span><span class="p">,</span> <span class="mf">310.70f</span><span class="p">);</span>
+
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">koelnBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">962884</span><span class="p">);</span>  
+      <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1007119</span><span class="p">);</span> 
+      <span class="n">koelnBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1075935</span><span class="p">);</span> 
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Koeln&quot;</span><span class="p">,</span> <span class="n">koelnBevoelkerung</span><span class="p">,</span> <span class="mf">405.02f</span><span class="p">);</span>
+
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">frankfurtBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">648550</span><span class="p">);</span>  
+      <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">679664</span><span class="p">);</span>  
+      <span class="n">frankfurtBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">736414</span><span class="p">);</span>
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Frankfurt/Main&quot;</span><span class="p">,</span> <span class="n">frankfurtBevoelkerung</span><span class="p">,</span> <span class="mf">248.31f</span><span class="p">);</span>
+
+      <span class="n">berlinBevoelkerung</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3382169</span><span class="p">);</span>    
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3460725</span><span class="p">);</span>    
+      <span class="n">berlinBevoelkerung</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3574830</span><span class="p">);</span>
+      <span class="n">staedte</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stadt</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">berlinBevoelkerung</span><span class="p">,</span> <span class="mf">891.68f</span><span class="p">);</span>
+
+      <span class="k">return</span> <span class="n">staedte</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>   
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Liste -------------------------%n%n&quot;</span><span class="p">);</span>
+
+      <span class="c1">//1. Erstellen Sie in der main()-Methode eine List&lt;Stadt&gt; staedteListe = new ArrayList&lt;&gt;();. </span>
+      <span class="c1">//Fügen Sie der staedteListe alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.</span>
+      <span class="n">List</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteListe</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+      <span class="c1">//durch staedte iterieren und die Städte zur staedteListe hinzufügen</span>
+      <span class="n">Stadt</span><span class="o">[]</span> <span class="n">staedte</span> <span class="o">=</span> <span class="n">staedte</span><span class="p">();</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">stadt</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">staedteListe</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">stadt</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="c1">//2. Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung </span>
+      <span class="c1">//der print()-Methode aus der Klasse Stadt aus.</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">stadt</span> <span class="p">:</span> <span class="n">staedteListe</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">stadt</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+      <span class="p">}</span>
+
+
+      <span class="c1">//durch staedteListe iterieren und für jeden Eintrag die print()-Methode aufrufen</span>
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Menge -------------------------%n%n&quot;</span><span class="p">);</span>
+
+      <span class="c1">//1. Erstellen Sie in der main()-Methode eine Set&lt;Stadt&gt; staedteMenge = new HashSet&lt;&gt;();. </span>
+      <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+      <span class="c1">//Fügen Sie der staedteMenge alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array zu.</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">stadt</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+      <span class="p">{</span>
+          <span class="n">staedteMenge1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">stadt</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="c1">//analog zur gleichen Aufgabe mit der Liste oben</span>
+
+          <span class="c1">//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der </span>
+          <span class="c1">//print()-Methode aus der Klasse Stadt aus.</span>
+          <span class="c1">//analog zur gleichen Aufgabe mit der Liste oben</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">stadt</span> <span class="p">:</span> <span class="n">staedteMenge1</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">stadt</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="c1">//Berlin erscheint doppelt, obwohl eine Menge keine doppelten Elemente enthalten darf. Warum?</span>
+      <span class="c1">//Notieren Sie sich die Reihenfolge, in der Städte ausgegeben werden.</span>
+      <span class="c1">//Ändern Sie den Konstruktor von HashSet&lt;&gt;() in TreeSet&lt;&gt;(). Was passiert und warum?        </span>
+      <span class="n">Set</span><span class="o">&lt;</span><span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMenge2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="c1">//analog zu oben</span>
+
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Maps -------------------------%n%n&quot;</span><span class="p">);</span>
+
+       <span class="c1">//1. Erstellen Sie in der main()-Methode eine Map&lt;Integer, Stadt&gt; staedteMap = new HashMap&lt;&gt;();. </span>
+      <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span> <span class="n">staedteMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+      <span class="n">Integer</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">for</span><span class="p">(</span><span class="n">Stadt</span> <span class="n">stadt</span> <span class="p">:</span> <span class="n">staedte</span><span class="p">())</span>
+      <span class="p">{</span>
+          <span class="n">staedteMap</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">stadt</span><span class="p">);</span>
+          <span class="n">number</span><span class="o">++</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Stadt berlin = staedte[0];</span>
+      <span class="c1">// staedteMap.put(2, berlin);</span>
+
+      <span class="c1">//Fügen Sie der staedteMap einen fortlaufenden, eindeutigen Integer-Wert beginnend mit 1 als Key </span>
+      <span class="c1">//sowie alle alle Städte aus dem durch Aufruf der staedte()-Methode erzeugtem Array als Value hinzu.</span>
+
+          <span class="c1">//Geben Sie alle Informationen über alle Städte aus der Liste unter Verwendung der print()-Methode aus der Klasse Stadt aus. </span>
+          <span class="c1">//Beginnen Sie die Zeile jeweils mit der Ausgabe des Keys.</span>
+
+      <span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">Stadt</span><span class="o">&gt;</span>  <span class="n">eintrag</span> <span class="p">:</span> <span class="n">staedteMap</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+      <span class="p">{</span>
+          <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%-3d&quot;</span><span class="p">,</span> <span class="n">eintrag</span><span class="p">.</span><span class="na">getKey</span><span class="p">());</span>
+          <span class="n">Stadt</span> <span class="n">stadt</span> <span class="o">=</span> <span class="n">eintrag</span><span class="p">.</span><span class="na">getValue</span><span class="p">();</span>
+          <span class="n">stadt</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="c1">//Beispiel, wie man eine Map durchgeht: https://freiheit.f4.htw-berlin.de/prog2/maps/#durch-eine-map-laufen</span>
+      <span class="c1">//erst den key ausgeben</span>
+      <span class="c1">//dann die Werte</span>
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- Test compareTo -------------------------%n%n&quot;</span><span class="p">);</span>
+
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;Anton&quot;</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Anton&quot;</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;Berlin&quot;</span><span class="p">));</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Anton&quot;</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="s">&quot;Zeppelin&quot;</span><span class="p">));</span>
+
+  <span class="p">}</span>
+
+<span class="p">}</span>       
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><label for="__tabbed_5_3">MyInteger.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung8</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">MyInteger</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyInteger</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyInteger</span> <span class="nf">valueOf</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">MyInteger</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">MyInteger</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">value</span> <span class="o">-</span> <span class="n">o</span><span class="p">.</span><span class="na">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
 <h5 id="ubung-8-interfaces">Übung 8 (Interfaces)<a class="headerlink" href="#ubung-8-interfaces" title="Permanent link">&para;</a></h5>
 <details><summary>Übung 8 (7.6. - 9.6.)</summary><ol>
 <li>
 <p>Wir beschäftigen uns nochmal mit der Übung 7, d.h. mit <code>Stadt</code> und <code>StadtTest</code>. Dieses Mal geht es uns aber mehr um die Verwendung des Interfaces <code>Comparable</code>. Zunächst sind die beiden Klassen <code>Stadt</code> und <code>StadtTest</code> wie folgt gegeben (das haben wir so in Übung 7 erarbeitet - es gibt eine Änderung in <code>StadtTest</code>, dort benutzen wir jetzt ): </p>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Stadt.java</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Stadt.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stadt</span>
@@ -4080,7 +4772,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">StadtTest.java</label><div class="tabbed-content">
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">StadtTest.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
 <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Stadt</span><span class="o">[]</span> <span class="nf">staedte</span><span class="p">()</span>
@@ -4159,7 +4851,7 @@ Hamburg            <span class="m">755</span>,22 km2    <span class="m">1</span>
 </li>
 <li>
 <p>Für die Schlüssel in der <code>Map</code> benutzen wir die selbstgeschriebne Klasse <code>MyInteger</code>:</p>
-<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">MyInteger.java</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">MyInteger.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> 
 <span class="p">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
@@ -4247,7 +4939,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 <li>
 <p><strong>Vorkommentierte Klassen</strong>:</p>
-<div class="tabbed-set" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Stadt.java</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Stadt.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="c1">//3. Implementieren Sie für Stadt das Interface Comparable&lt;Stadt&gt; so, </span>
@@ -4319,7 +5011,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">StadtTest.java</label><div class="tabbed-content">
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">StadtTest.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">StadtTest</span>
@@ -4427,7 +5119,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><label for="__tabbed_7_3">MyInteger.java</label><div class="tabbed-content">
+<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">MyInteger.java</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="c1">//6. Implementieren Sie für MyInteger das Interface Comparable&lt;MyInteger&gt; so, </span>
 <span class="c1">//dass nach den Größen der Werte sortiert wird. </span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyInteger</span> <span class="kd">implements</span><span class="o">?/</span><span class="kd">extends</span><span class="o">?</span> <span class="o">???&lt;???&gt;</span>
@@ -4468,7 +5160,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 </ol>
 </details>
-<details class="question"><summary>mögliche Lösung für Übung 8</summary><div class="tabbed-set" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Stadt.java</label><div class="tabbed-content">
+<details class="question"><summary>mögliche Lösung für Übung 8</summary><div class="tabbed-set" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">Stadt.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4581,7 +5273,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">StadtTest.java</label><div class="tabbed-content">
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">StadtTest.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4768,7 +5460,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">MyInteger.java</label><div class="tabbed-content">
+<input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><label for="__tabbed_9_3">MyInteger.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4826,14 +5518,14 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </div>
 </details>
 <h5 id="ubung-9-gui">Übung 9 (GUI)<a class="headerlink" href="#ubung-9-gui" title="Permanent link">&para;</a></h5>
-<details><summary>Übung 9</summary><ol>
+<details><summary>Übung 9 (21.6. - 23.6.)</summary><ol>
 <li>
 <p>Erstellen Sie folgende GUI:</p>
 <p><img alt="uebung8" src="../files/62_uebung8.png" /></p>
 </li>
 </ol>
 </details>
-<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">GUIUebung.java</label><div class="tabbed-content">
+<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">GUIUebung.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4912,12 +5604,158 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </div>
 </div>
 </details>
+<details class="question"><summary>mögliche Lösung für Übung 8</summary><div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">Uebung8.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung8</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.border.Border</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Uebung8</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">Uebung8</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;GUI Übung&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>        
+
+        <span class="n">JPanel</span> <span class="n">content</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">initContent</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">Border</span> <span class="n">redline</span> <span class="o">=</span> <span class="n">BorderFactory</span><span class="p">.</span><span class="na">createLineBorder</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">RED</span><span class="p">);</span>
+        <span class="n">JPanel</span> <span class="n">oben</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">());</span>
+        <span class="n">JLabel</span> <span class="n">text1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Text&quot;</span><span class="p">);</span>
+        <span class="n">text1</span><span class="p">.</span><span class="na">setForeground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span> 
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">text1</span><span class="p">);</span>        
+        <span class="n">oben</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">BLUE</span><span class="p">);</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">setBorder</span><span class="p">(</span><span class="n">redline</span><span class="p">);</span>
+
+        <span class="n">JPanel</span> <span class="n">links</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">links</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">(</span><span class="n">FlowLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">));</span>
+        <span class="n">JLabel</span> <span class="n">text2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Weiterer Text&quot;</span><span class="p">);</span>
+        <span class="n">links</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">text2</span><span class="p">);</span>
+        <span class="n">JTextField</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="s">&quot;Feld&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">links</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>       
+        <span class="n">links</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHT_GRAY</span><span class="p">);</span>
+
+
+        <span class="n">JPanel</span> <span class="n">rechts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">rechts</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">));</span>
+        <span class="n">rechts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 1&quot;</span><span class="p">));</span>
+        <span class="n">rechts</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 2&quot;</span><span class="p">));</span>
+        <span class="n">rechts</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHT_GRAY</span><span class="p">);</span>
+
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">oben</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">rechts</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">EAST</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Uebung8</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
+<details class="question"><summary>sehr hilfreiche Grafiken zur Übung von Frau Busjahn</summary><ol>
+<li>
+<p>Unterscheidung zwischen Containern und Steuerelementen:
+    <img alt="uebung" src="../files/69_uebung8.png" /></p>
+</li>
+<li>
+<p>Visualisierung der Panels (Container) in der GUI der Übung
+    <img alt="uebung" src="../files/70_uebung8.png" /></p>
+</li>
+</ol>
+</details>
 <h5 id="ubung-10-junit">Übung 10 (JUnit)<a class="headerlink" href="#ubung-10-junit" title="Permanent link">&para;</a></h5>
-<details><summary>Übung 10</summary><ul>
+<details><summary>Übung 10 (15.6.)</summary><ul>
 <li>Probieren Sie sich mit <code>JUnit</code> aus! Schreiben Sie Unit-Tests für Ihre <code>MyInteger</code>-Klasse aus <a href="../aufgaben/#aufgabe-2-myinteger">Aufgabe 2</a>.  </li>
 </ul>
 </details>
-<details class="question"><summary>mögliche Lösung für Übung 10 - Testklasse nicht vollständig, aber einige Testfälle</summary><div class="tabbed-set" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">MyInteger.java</label><div class="tabbed-content">
+<details class="question"><summary>mögliche Lösung für Übung 10 - Testklasse nicht vollständig, aber einige Testfälle</summary><div class="tabbed-set" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><label for="__tabbed_12_1">MyInteger.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -5170,7 +6008,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </code></pre></div>
 </td></tr></table>
 </div>
-<input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><label for="__tabbed_10_2">MyIntegerTest.java</label><div class="tabbed-content">
+<input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><label for="__tabbed_12_2">MyIntegerTest.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -5640,7 +6478,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </div>
 </details>
 <h5 id="ubung-11-ereignisbehandlung-actionlistener">Übung 11 (Ereignisbehandlung - ActionListener)<a class="headerlink" href="#ubung-11-ereignisbehandlung-actionlistener" title="Permanent link">&para;</a></h5>
-<details><summary>Übung 11</summary><ol>
+<details><summary>Übung 11 (28.6. - 30.6.)</summary><ol>
 <li>Erstellen Sie ein Fenster mit einem Textfeld und zwei Buttons <code>add</code> und <code>remove</code>. Sowohl das Textfeld als auch die beiden Buttons sollen Objektvariablen (und somit zugreifbar von allen Methoden der Klasse) sein.</li>
 <li>Unterteilen Sie das <code>main</code>-<code>JPanel</code> zunächst in zwei <code>JPanel</code>s <code>unten</code> und <code>oben</code>. Dem <code>JPanel oben</code> werden das Textfeld und die beiden Buttons hinzugefügt. Setzen Sie die Hintergrundfarbe des JPanels <code>oben</code> auf <code>YELLOW</code>.  Setzen Sie die Hintergrundfarbe des JPanels <code>unten</code> auf <code>CYAN</code>. Das JPanel <code>unten</code> soll ebenfalls eine Objektvariable sein.</li>
 <li>
@@ -5683,7 +6521,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </li>
 </ol>
 </details>
-<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="11:1"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><label for="__tabbed_11_1">Uebung11.java</label><div class="tabbed-content">
+<details class="question"><summary>vorkommentierte Klasse</summary><div class="tabbed-set" data-tabs="13:1"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><label for="__tabbed_13_1">Uebung11.java</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -5838,6 +6676,360 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 </div>
 </div>
 </details>
+<h5 id="ubung-12-zeichnen">Übung 12 (Zeichnen)<a class="headerlink" href="#ubung-12-zeichnen" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 12 (5.7. - 7.7.)</summary><ol>
+<li>Zeichnen Sie ein Quadrat. Passen Sie dieses Quadrat möglichst passend in das Fenster. Da es sich um ein Quadrat handelt, kann es sich nur der Höhe oder der Breite des Fensters anpassen, je nachdem, was kleiner ist. Wenn die Höhe kleiner ist, als die Breite, dann soll das Quadrat ausgefüllt sein. Wenn die Breite kleiner als die Höhe ist, dann soll das Quadrat nicht ausgefüllt sein, aber die Linienstärke auf <code>5.0f</code> gesetzt werden. </li>
+<li>
+<p>Die Zeichenfarbe soll zufällig erzeugt werden - jedes Mal, wenn die <code>paintComponent()</code>-Methode aufgerufen wird.</p>
+<p><img alt="uebung10" src="../files/84_uebung10.png" /></p>
+</li>
+<li>
+<p>Beobachten Sie anhand des Farbwechsels, wie oft die <code>paintComponent()</code>-Methode aufgerufen wird. </p>
+</li>
+</ol>
+</details>
+<h5 id="ubung-13-mausereignisse">Übung 13 (Mausereignisse)<a class="headerlink" href="#ubung-13-mausereignisse" title="Permanent link">&para;</a></h5>
+<details><summary>Übung 13 (selbständiges Üben)</summary><ol>
+<li>
+<p>Zeichnen Sie mithilfe der Maus farbige Rechtecke. Das Zeichnen soll folgendermaßen funktionieren:</p>
+<ul>
+<li>dort, wo sie mit der Maus in die Zeichenfläche klicken, ist ein Eckpunkt des Rechtecks</li>
+<li>mit gedrückter Maustaste ziehen Sie das Rechteck groß (währenddessen soll das Rechteck dargestellt werden)</li>
+<li>durch Loslassen der Maustaste legen Sie die endgültige Größe des Rechtecks fest und speichern das Rechteck</li>
+<li>durch wiederholtes Zeichnen werden mehrere Rechtecke gezeichnet. Die zuvor gezeichneten Rechtecke bleiben dargestellt</li>
+<li>jedes Rechteck hat eine zufällig erzeugte Farbe </li>
+<li>beachten Sie, dass das Zeichnen eines Rechtecks nicht nur von links oben nach rechts unten, sondern in alle Richtungen möglich sein soll</li>
+</ul>
+</li>
+<li>
+<p><strong>Tipps:</strong> </p>
+<ul>
+<li>studieren Sie dieses <a href="../mausereignisse/#beispiel-2-linien-zeichnen">Beispiel</a></li>
+<li>behandeln Sie die Mausereignisse in den Methoden <code>mousePressed()</code>, <code>mouseReleased()</code> (<code>MouseListener</code>) sowie aus dem <code>MouseMotionListener</code> <code>mouseDragged()</code></li>
+<li>erstellen Sie sich zunächst eine Klasse, die Rechtecke repräsentiert (Objektvariablen <code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>, jweils <code>int</code>)</li>
+<li>speichern Sie die Rechtecke zusammen mit ihrer Farbe in einer <code>Map</code> (untersuchen Sie den Unterschied zwischen <code>HashMap</code> und <code>LinkedHashMap</code>)</li>
+<li>zeichnen Sie in <code>paintComponent()</code> alle Rechtecke aus der <code>Map</code> und das aktuelle Rechteck (das Sie gerade zeichnen)</li>
+</ul>
+<p><img alt="uebung11" src="../files/89_uebung11.png" /></p>
+</li>
+</ol>
+</details>
+<details class="question"><summary>vorkommentierte Klassen</summary><div class="tabbed-set" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><label for="__tabbed_14_1">RechteckeZeichnen.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseMotionListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RechteckeZeichnen</span> <span class="kd">extends</span> <span class="p">...</span> <span class="kd">implements</span> <span class="p">...</span> <span class="p">{</span> 
+    <span class="c1">//  Objektvariablen </span>
+
+    <span class="kd">public</span> <span class="nf">RechteckeZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(...);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+    <span class="c1">//Collection für die Rechtecke anlegen</span>
+
+    <span class="c1">//Leinwand anlegen und die Listener für Mausereignisse hinzufügen</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>       
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+
+            <span class="c1">//aktuelles Rechteck zeichnen (falls es aktuell eins gibt)            </span>
+
+            <span class="c1">//gespecherte Rechtecke aus der Collection zeichnen</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">RechteckeZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">//neues Rechteck erzeugen       </span>
+
+        <span class="c1">//zufällige Farbe erzeugen - hatten wir letzte Woche</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">//Höhe und Breite des aktuellen Rechtecks setzen</span>
+        <span class="c1">//je nachdem ob die Maus gerade nach rechts, links, oben oder unten gezogen wird        </span>
+
+        <span class="c1">//Leinwand neu zeichnen</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//aktuelles Rechteck speichern</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><label for="__tabbed_14_2">Rechteck.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rechteck</span> <span class="p">{</span>
+    <span class="c1">//private Objektvariablen für x, y, Höhe und Breite     </span>
+
+    <span class="kd">public</span> <span class="nf">Rechteck</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="c1">//Koordinaten und Größe des Rechtecks</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">// Getter und Setter für x, y, Höhe und Breite  </span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</details>
+<h5 id="klausurvorbereitung-klicks-zahlen">Klausurvorbereitung (Klicks zählen)<a class="headerlink" href="#klausurvorbereitung-klicks-zahlen" title="Permanent link">&para;</a></h5>
+<details><summary>Klausurvorbereitung (Klicks zählen)</summary><ol>
+<li>
+<p>Erstellen Sie eine solche GUI:</p>
+<p><img alt="uebung12" src="../files/105_uebung12.png" /></p>
+<ul>
+<li>
+<p>Es handelt sich im Prinzip um ein Gitter aus <code>JPanel</code>s (siehe auch <strong>Tipps</strong> unten). Beachten Sie: Dem Konstruktor für das Fenster wird eine <code>hoehe</code> (int) und eine <code>breite</code> (int) übergeben. Aus der <code>hoehe</code> und der <code>breite</code> ergibt sich die Anzahl der JPanels. In der Abbildung ist also <code>hoehe=4</code> und <code>breite=3</code>. </p>
+</li>
+<li>
+<p>Jedes <code>JPanel</code> soll ein <code>JLabel</code> enthalten, das der Anzahl der (Maus-)Klicks auf dieses <code>JPanel</code> entspricht. Am Anfang sind die Anzahl der Klicks für alle JPanels 0.</p>
+</li>
+<li>
+<p>Implementieren Sie den <code>MouseListener</code> so, dass bei Klick auf ein <code>JPanel</code> automatisch die Anzahl der Klicks um 1 erhöht und die neue Anzahl im <code>JLabel</code> dargestellt wird.</p>
+</li>
+<li>
+<p>Außerdem soll das (oder die) JPanel(s) mit den meisten Klicks rot dargestellt werden.</p>
+</li>
+</ul>
+<p><img alt="uebung12" src="../files/107_uebung12.png" /></p>
+<ul>
+<li>Die Abbildung zeigt das Fenster nach einigen Mausklicks auf die einzelnen Panels. Es gibt drei Panels mit den meisten Klicks.</li>
+</ul>
+<p><img alt="uebung12" src="../files/108_uebung12.png" /></p>
+<ul>
+<li>Nach einem weiteren Klick gibt es nur noch ein Panel mit dem meisten Klicks. </li>
+</ul>
+</li>
+<li>
+<p>Wird auf den <code>reset</code>-Button geklickt, ist alles wieder auf <code>0</code> (und grau) gestellt.</p>
+</li>
+<li>
+<p><strong>Tipps:</strong> </p>
+<ul>
+<li>
+<p>Für die "JPanels" eigenen sich tatsächlich <code>JPanels</code>, da diese ja eine Hintergrundfarbe haben, einen Rand (<code>Border</code>) haben können, ein <code>JLabel</code> aufnehmen können usw. Es wäre ja aber auch sinnvoll, dass jedes <code>JPanel</code> z.B. auch eine Eigenschaft <code>anzahlKlicks</code> o.ä. hat. Insofern wäre der Vorschlag, eine eigene Klasse <code>MyPanel</code> zu erstellen, die von <code>JPanel</code> erbt, somit alle Eigenschaften eines <code>JPanel</code> hat und aber auch noch zusätzliche Eigenschaften haben kann. </p>
+</li>
+<li>
+<p>Als Datenstruktur für das <em>Model</em> bietet sich sicherlich ein zweidimensionales Array an. </p>
+</li>
+<li>
+<p>Wenn Sie jedes <code>MyPanel</code> an den <code>MouseListener</code> anmelden, dann müssen Sie gar nicht die Koordinaten des Mausklicks betrachten, sondern nur abfragen, welches der <code>MyPanel</code> das Mausereignis ausgelöst hat (oder Sie verwenden sogar für jedes dieser <code>MyPanel</code> eine anonyme Klasse des <code>MouseListener</code>). Probieren Sie mal ein wenig herum, es gibt sehr viele verschiedene Lösungsmöglichkeiten hier.  </p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
+<h5 id="klausurvorbereitung-graphen">Klausurvorbereitung (Graphen)<a class="headerlink" href="#klausurvorbereitung-graphen" title="Permanent link">&para;</a></h5>
+<details><summary>Klausurvorbereitung (Graphen)</summary><ol>
+<li>
+<p>Erstellen Sie ein Fenster zum Zeichnen. Implementieren Sie den Mauslistener so, dass für jeden Mausklick an der Stelle des Mausklicks ein schwarzer ausgefüllter Kreis mit dem <code>DURCHMESSER = 30</code> angezeigt wird:</p>
+<p><img alt="uebung13" src="../files/125_uebung13.png" /></p>
+<ul>
+<li>
+<p>Für das <em>Model</em> genügt es, sich die Punkte in einer Collection zu merken (am einfachsten ist wohl eine <code>ArrayList</code>). </p>
+</li>
+<li>
+<p>Für den <em>Controller</em> hätten wir hier die Wahl zwischen <code>mouseClicked()</code> und <code>mousePressed()</code>. Wegen der späteren Erweiterung (Bewegen der Punkte), sollten wir hier <code>mouseClicked()</code> wählen. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Passen Sie die <em>View</em> nun so an, dass die Punkte durch Linien der Strichstärke <code>2.0f</code> miteinander verbunden werden. </p>
+<p><img alt="uebung13" src="../files/126_uebung13.png" /></p>
+<ul>
+<li>Sie können auch gleich (oder später) den ersten und letzten Punkt mit einer Linie verbinden (so wie in der Abbildung).</li>
+</ul>
+</li>
+<li>
+<p>Implementieren sie den <code>MouseMotionListener</code> so, dass wenn Sie mit der Maus <strong>auf</strong> einen Punkt (Kreis) klicken (oder knapp daneben) und bei gedrückter Maustaste die Maus bewegen, sich auch der Punkt mitbewegt. </p>
+<ul>
+<li>
+<p>Zur Erinnerung: die Methode <code>mouseClicked()</code> wird aufgerufen, nachdem <code>mousePressed()</code> und <code>mouseReleased()</code> aufgerufen wurden. Ändert sich die Mausposition zwischen den Aufrufen von <code>mousePressed()</code> und <code>mouseReleased()</code>, wird <code>mouseClicked()</code> gar nicht aufgerufen. </p>
+</li>
+<li>
+<p>Es empfiehlt sich also, in <code>mousePressed()</code> zu bestimmen, ob durch den Mausklick ein Kreis getroffen wurde. Das muss natürlich kein genauer "Treffer" sein, bauen Sie ruhig eine Toleranz von z.B. <code>20</code> ein. Den Punkt, den Sie "getroffen" haben, sollten Sie sich merken, denn seine Koordinaten werden ja durch die Mausbewegung verändert. </p>
+</li>
+<li>
+<p>Wenn Sie in <code>mousePressed()</code> einen Punkt "getroffen" haben, dann sollten Sie das Verschieben des Punktes in <code>mouseDragged()</code> behandeln. Beachten Sie, dass <code>mouseDragged()</code> (bei gedrückter Maustaste) permanent aufgerufen wird. Wir können Sie die Änderung der Mausposition zwischen zwei Aufrufen von <code>mouseDragged()</code> ermitteln?</p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
+<h5 id="klausurvorbereitung-quadrat">Klausurvorbereitung (Quadrat)<a class="headerlink" href="#klausurvorbereitung-quadrat" title="Permanent link">&para;</a></h5>
+<details><summary>Klausurvorbereitung (Quadrat)</summary><ol>
+<li>
+<p>Erstellen Sie ein Fenster zum Zeichnen. Passen Sie zunächst ein Quadrat mit Strichstärke <code>3.0f</code> in das Fenster ein und zwar so, dass es &#8531; von entweder der Breite der <code>canvas</code> oder der Höhe der <code>canvas</code> groß ist, je nachdem, was <strong>kleiner</strong> ist. Es muss aber nicht mittig sein:</p>
+<p><img alt="uebung13" src="../files/132_uebung14.png" /></p>
+<ul>
+<li>In der folgenden Abbildung ist die Höhe kleiner als die Breite. Also ist die Höhe korrekt gedrittelt, aber die gleiche Länge wurde für <code>x</code> verwendet, also für den Abstand vom linken Rand zum Quadrat. Deshalb ist der Abstand vom Quadrat zum rechten Rand größer. Sie können aber das Quadrat auch gerne komplett in die Mitte setzen.  </li>
+</ul>
+<p><img alt="uebung13" src="../files/133_uebung14.png" /></p>
+</li>
+<li>
+<p>Wenn der <code>create square</code>-Button gedrückt wird, erscheint ein farbiges Quadrat, das genau so groß ist, wie das zuvor gezeichnete nichtausgefüllte schwarze Quadrat. </p>
+<p><img alt="uebung13" src="../files/134_uebung14.png" /></p>
+<ul>
+<li>
+<p>Die Position des Quadrates wird zufällig bestimmt. Es passt aber auf jeden Fall vollständig in die Canvas!</p>
+</li>
+<li>
+<p>Auch die Farbe des Quadrates wird zufällig bestimmt. Es behält die ganze Zeit über seine Farbe. </p>
+</li>
+</ul>
+</li>
+<li>
+<p>Das farbige Quadrat kann nun durch Bewegen der Maus bei gedrückter Maustaste bewegt werden. Wenn das Quadrat (fast) vollständig in dem schwarzen Quadrat ist, dann bleibt es genau dort und kann nicht weiter bewegt werden.   </p>
+<p><img alt="uebung13" src="../files/135_uebung14.png" /></p>
+</li>
+</ol>
+</details>
+<h2 id="zusatz">Zusatz<a class="headerlink" href="#zusatz" title="Permanent link">&para;</a></h2>
+<h5 id="test-driven-development">Test-driven development<a class="headerlink" href="#test-driven-development" title="Permanent link">&para;</a></h5>
+<details><summary>parseDouble(String)</summary><ol>
+<li>In der <a href="../aufgaben/#aufgabe-2-myinteger">Aufgabe 2</a> sollen Sie für die Klasse <code>MyInteger</code> eine Methode <code>parseInt(String s)</code> schreiben, die einen String <code>s</code> in eine <code>int</code>-Zahl umwandelt, wenn dies möglich ist. </li>
+<li>In dieser Übung wollen wir eine solche (statische) Methode <code>parseDouble(String s)</code> für eine Klasse <code>MyDouble</code> testgetrieben entwickeln. Überlegen Sie sich dazu einige Strings, die Sie umwandeln wollen und die dazugehörigen erwarteten Ergebnisse. Es muss nicht vollständig implementiert werden. Es geht ums Prinzip. Mithilfe von <code>assertThrows()</code> können Sie übrigens prüfen, ob eine Exception geworfen wird (wenn <code>s</code> keiner Zahl entspricht) - siehe dazu z.B. <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions">hier</a> oder <a href="https://mkyong.com/junit5/junit-5-expected-exception/">hier</a>.</li>
+</ol>
+<p><strong>Viel Spaß!</strong></p>
+</details>
                 
               
               
@@ -5857,7 +7049,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../ereignisse/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: GUI Ereignisse" rel="prev">
+        <a href="../klausurvorbereitung/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Klausurvorbereitung" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5866,7 +7058,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
               <span class="md-footer__direction">
                 Zurück
               </span>
-              GUI Ereignisse
+              Klausurvorbereitung
             </div>
           </div>
         </a>

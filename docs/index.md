@@ -50,12 +50,13 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 7. | 23.-27.05.2022 | [Abstrakte Klassen](./abstrakt/#abstrakte-klassen) | [Übung 7](./uebungen/#ubung-7-maps) |[Aufgabe 6](./aufgaben/#aufgabe-6-interfaces) | 06.06.2022 | 
 | 8. | 30.-03.06.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 8](./uebungen/#ubung-8-interfaces) |- | 20.06.2022 | 
 | 9. | 06.-10.06.2022 | [GUI Einführung](./gui/#graphical-user-interfaces)  | - |[Aufgabe 7](./aufgaben/#aufgabe-7-gui) | 27.06.2022 | 
-| 10. | 13.-17.06.2022 | [JUnit](./junit/#junit-tests) und [Layout-Manager](./gui/#layout-manager) | [Übung 10](./uebungen/#ubung-10-junit) |[Aufgabe 8](./aufgaben/#aufgabe-8-ereignisbehandlung) | 04.07.2022 | 
-| 12. | 20.-24.06.2022 | [GUI Ereignisse](./ereignisse/#ereignisse) | [Übung 9](./uebungen/#ubung-9-gui) |Aufgabe 9 | 11.07.2022 |
-| 13. | 27.-01.07.2022 | Mausereignisse | Übung 12 | - | - |
-| 14. | 04.-08.07.2022 | Graphics | Übung 13 | - | - |
-| 15. | 11.-15.07.2022 | Klausurvorbereitung | - | - | - | 
-
+| 10. | 13.-17.06.2022 | [JUnit](./junit/#junit-tests) und <br/>[Layout-Manager](./gui/#layout-manager) | [Übung 10](./uebungen/#ubung-10-junit) [Übung 9](./uebungen/#ubung-9-gui)|[Aufgabe 8](./aufgaben/#aufgabe-8-ereignisbehandlung) | 04.07.2022 | 
+| 12. | 20.-24.06.2022 | [GUI Ereignisse](./ereignisse/#ereignisse) | [Übung 11](./uebungen/#ubung-11-ereignisbehandlung-actionlistener) |[Aufgabe 9](./aufgaben/#aufgabe-9-zeichnen) | 11.07.2022 |
+| 13. | 27.-01.07.2022 | [Graphics](./graphics/#graphics) | [Übung 12](./uebungen/#ubung-12-zeichnen) | - | - |
+| 14. | 04.-08.07.2022 | [Mausereignisse](./mausereignisse/#mausereignisse) | [Übung 13](./uebungen/#ubung-13-mausereignisse) | - | - |
+| 15. | 11.-15.07.2022 | [Klausurvorbereitung](./klausurvorbereitung/#klausurvorbereitung) | [1](./uebungen/#klausurvorbereitung-klicks-zahlen) [2](./uebungen/#klausurvorbereitung-graphen)  [3](./uebungen/#klausurvorbereitung-quadrat)| - | - | 
+|  | 20.07.2022 14:00 Uhr| Klausur 1.PZ | Labore 6. Etage C-Gebäude| - | - |
+|  | 26.09.2022 14:00 Uhr| Klausur 2.PZ | Labore 6. Etage C-Gebäude| - | - |
 
 ### Inhalte
 
@@ -1316,6 +1317,95 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 		}
 		```
 
+
+??? question "20.-24.06.2022 - GUI Ereignisse"
+	- siehe [**GUI Ereignisse**](./ereignisse/#ereignisse)
+	- siehe [**Übung 11**](./uebungen/#ubung-11-ereignisbehandlung-actionlistener) 
+	- siehe [**Aufgabe 8**](./aufgaben/#aufgabe-8-ereignisbehandlung) 
+	- siehe Video zu [**GUI Ereignisse**](./ereignisse/#ereignisse) - Vorlesung aus dem Vorjahr
+		<iframe src="https://mediathek.htw-berlin.de/media/embed?key=4f5d2b458b8f53ee9d453b9e6f3a5eef&width=720&height=389&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="389" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+	- Quellcode aus dem Video
+
+		=== "Ereignisbehandlung.java"
+
+			```java linenums="1"
+			import java.awt.BorderLayout;
+			import java.awt.Font;
+			import java.awt.event.ActionEvent;
+			import java.awt.event.ActionListener;
+
+			import javax.swing.*;
+
+			public class Ereignisbehandlung extends JFrame implements ActionListener
+			{
+				Integer anzKlicks = 0;
+				JLabel unten;
+				
+				public Ereignisbehandlung(){
+					super();
+					this.setTitle("Ereignisbehandlung");
+					this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					
+					JPanel content = this.initContent();
+					this.getContentPane().add(content);
+					
+					this.setSize(200, 150);
+					this.setLocation(200, 100);
+					this.setVisible(true);
+				}
+				
+				public JPanel initContent() {
+					JPanel mainPanel = new JPanel();
+					mainPanel.setLayout(new BorderLayout());
+					
+					JPanel oben = new JPanel();
+					
+					JButton minus = new JButton("-");
+					JButton plus = new JButton("+");
+					
+					oben.add(minus);
+					oben.add(plus);
+					
+					plus.addActionListener(this);
+					minus.addActionListener(this);
+					
+					this.unten = new JLabel(this.anzKlicks.toString());
+					this.unten.setFont(new Font("Verdana", Font.BOLD, 48));
+					this.unten.setHorizontalAlignment(JLabel.CENTER);
+					
+					mainPanel.add(oben, BorderLayout.NORTH);
+					mainPanel.add(unten, BorderLayout.CENTER);
+					
+					return mainPanel;
+				}
+				
+				public static void main(String[] args) {
+					new Ereignisbehandlung();
+				}
+
+				@Override
+				public void actionPerformed(ActionEvent e) 
+				{	
+					Object quelle = e.getSource(); 	// hat ActionEvent ausgeloest
+					if(quelle instanceof JButton)
+					{
+						JButton button = (JButton)quelle;
+						if(button.getText().equals("-"))
+						{
+							this.anzKlicks--;
+							System.out.println("Minus-Button geklickt ... " + this.anzKlicks);
+						}
+						else if(button.getText().equals("+"))
+						{
+							this.anzKlicks++;
+							System.out.println("Plus-Button geklickt ... " + this.anzKlicks);
+						}
+						this.unten.setText(this.anzKlicks.toString());
+					}
+				}
+
+			}		
+			```
 
 
 
