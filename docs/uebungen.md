@@ -3664,20 +3664,20 @@
 		}
 		```
 
-??? question "mögliche Lösung für Übung 8"
+??? question "mögliche Lösung für Übung 9"
 	
-	=== "Uebung8.java"
+	=== "Uebung9.java"
 		```java linenums="1"
-		package uebungen.uebung8;
+		package uebungen.uebung9;
 
 		import java.awt.*;
 		import javax.swing.*;
 		import javax.swing.border.Border;
 
-		public class Uebung8 extends JFrame
+		public class Uebung9 extends JFrame
 		{
 
-			public Uebung8()
+			public Uebung9()
 			{
 				super();
 				this.setTitle("GUI Übung");
@@ -3729,7 +3729,7 @@
 
 			public static void main(String[] args) 
 			{
-				new Uebung8();
+				new Uebung9();
 			}
 
 		}
@@ -4233,11 +4233,489 @@
 		}
 		```
 
+??? question "mögliche Lösung für Übung 11"
+	
+	=== "Uebung11.java"
+		```java linenums="1"
+		import java.awt.BorderLayout;
+		import java.awt.Color;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+		import java.util.ArrayList;
+		import java.util.Iterator;
+		import java.util.List;
+
+		import javax.swing.JButton;
+		import javax.swing.JFrame;
+		import javax.swing.JLabel;
+		import javax.swing.JPanel;
+		import javax.swing.JTextField;
+
+		public class Uebung11 extends JFrame implements ActionListener
+		{
+			JPanel unten;
+			JTextField input;
+			List<JLabel> labels;
+			JButton addBtn;
+			JButton removeBtn;
+
+			public Uebung11()
+			{
+				super("Elemente hinzufuegen");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				this.setSize(400,100);
+				this.setLocation(500,500);
+
+				JPanel oben = this.createOben();
+				this.getContentPane().add(oben, BorderLayout.NORTH);
+
+				this.unten = new JPanel();
+				this.unten.setBackground(Color.CYAN);
+				this.getContentPane().add(unten, BorderLayout.CENTER);
+
+				this.setVisible(true);
+
+				this.labels = new ArrayList<>();
+			}
+
+			private JPanel createOben()
+			{
+				JPanel panel = new JPanel();
+				panel.setBackground(Color.YELLOW);
+				this.input = new JTextField(10);		
+				this.addBtn = new JButton("add");
+				this.addBtn.addActionListener(this);
+				this.removeBtn = new JButton("remove");
+				this.removeBtn.addActionListener(this);
+
+				panel.add(this.input);
+				panel.add(this.addBtn);
+				panel.add(this.removeBtn);
+
+				return panel;
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent e){		
+				Object src = e.getSource();
+
+				if(src instanceof JButton){
+					JButton srcBtn = (JButton)src;			
+					if(srcBtn == this.addBtn) { 	// geht wegen Objektvariable und gleiches Objekt
+						String inputText = this.input.getText();
+						JLabel newLabel = new JLabel(inputText);
+						newLabel.setOpaque(true);
+						newLabel.setBackground(Color.RED);
+						this.labels.add(newLabel);
+						this.unten.add(newLabel);
+					}
+					else if(srcBtn == this.removeBtn) {
+						String inputText = this.input.getText();
+						Iterator<JLabel> it = this.labels.iterator();
+						while(it.hasNext())	{
+							JLabel aktLabel = it.next();
+							if(aktLabel.getText().equals(inputText)){
+								it.remove();
+								this.unten.remove(aktLabel);
+							}
+						}
+					}
+					this.input.setText("");
+					this.input.requestFocus();
+					this.unten.revalidate();
+					this.unten.repaint();			
+				}		
+			}
+
+			public static void main(String[] args) 
+			{
+				new Uebung11();
+			}
+		}		
+		```
 
 
-##### Übung 12 (Zeichnen)
+
+##### Übung 12 (TicTacToe)
 
 ??? "Übung 12 (5.7. - 7.7.)"
+
+	Gegeben sind die folgenden Klassen:
+
+	=== "Model.java"
+		```java linenums="1"
+		package uebungen.uebung12;
+
+		import java.util.Random;
+
+		/*
+		 * Implementierung von TicTacToe
+		 *
+		 */
+		public class Model
+		{
+			private Player[][] field;
+			public enum Player {RED, BLACK, EMPTY};
+			private Player player;
+			private int size;
+			
+			public Model(int size)
+			{
+				this.size = size;
+				this.field = new Player[this.size][this.size];
+				for(int row = 0; row < this.size; row++)
+				{
+					for(int col = 0; col < this.size; col++)
+					{
+						this.field[row][col] = Player.EMPTY;
+					}
+				}
+				this.player = Player.BLACK;		// BLACK faengt an
+			}
+			
+			public void restart() {
+				this.field = new Player[this.size][this.size];
+				for(int row = 0; row < this.size; row++)
+				{
+					for(int col = 0; col < this.size; col++)
+					{
+						this.field[row][col] = Player.EMPTY;
+					}
+				}
+				this.player = Player.BLACK;		
+			}
+			
+			public int getSize() {
+				return this.size;
+			}
+			
+			public Player[][] getField() {
+				Player[][] copy = new Player[this.size][this.size];
+				for(int row = 0; row < this.size; row++)
+				{
+					for(int col = 0; col < this.size; col++)
+					{
+						copy[row][col] = this.field[row][col];
+					}
+				}
+				return copy;
+			}
+			
+			public void printField()
+			{
+				for(int row = 0; row < this.size; row++)
+				{
+					for(int col = 0; col < this.size; col++)
+					{
+						if(this.field[row][col] == Player.EMPTY)
+						{
+							System.out.print("- ");
+						}
+						else if(this.field[row][col] == Player.BLACK)
+						{
+							System.out.print("x ");
+						}
+						else if(this.field[row][col] == Player.RED)
+						{
+							System.out.print("o ");
+						}
+					}
+					// Ende der Zeile
+					System.out.println();
+				}
+				// nach Ausgabe des Feldes
+				System.out.println();
+			}
+			
+			public void switchPlayer()
+			{
+				this.player = (this.player == Player.BLACK) ? Player.RED : Player.BLACK;
+			}
+			
+			public void move(int row, int col)
+			{
+				
+				if(this.movePossible(row, col))
+				{
+					this.field[row][col] = this.player;
+					this.switchPlayer();
+				}
+			}
+			
+			public Player curPlayer() {
+				return this.player;
+			}
+			
+			public boolean movePossible(int row, int col)
+			{
+				boolean movePossible = false;
+				// row und col jeweils koorekter Index ???
+				if(row >= 0 && row < this.size && col >= 0 && col < this.size)
+				{
+					// ist das Feld ueberhaupt leer (0) ???
+					if(this.field[row][col] == Player.EMPTY)
+					{
+						movePossible = true;
+					}
+				}
+				return movePossible;
+			}
+			
+			public boolean won()
+			{
+				boolean won = false;
+				// 3 nebeneinander ???
+				for(int row = 0; row < this.size && !won; row++)
+				{
+					if( this.field[row][0] == this.player && 
+						this.field[row][1] == this.player &&
+						this.field[row][2] == this.player) 
+					{
+						won = true;
+					}
+				}
+				// 3 untereinander ???
+				for(int col = 0; col < this.size && !won; col++)
+				{
+					if( this.field[0][col] == this.player && 
+						this.field[1][col] == this.player &&
+						this.field[2][col] == this.player) 
+					{
+						won = true;
+					}
+				}
+				// von links oben nach rechts unten - Diagonale
+				if( !won && this.field[0][0] == this.player && 
+					this.field[1][1] == this.player &&
+					this.field[2][2] == this.player) 
+				{
+					won = true;
+				}
+				// von rechts oben nach links unten - Diagonale
+				if( !won && this.field[0][2] == this.player && 
+					this.field[1][1] == this.player &&
+					this.field[2][0] == this.player) 
+				{
+					won = true;
+				}
+				return won;
+			}
+
+			
+			public void printWon()
+			{
+				if(this.player == Player.BLACK)
+				{
+					System.out.println("Spielerin x hat gewonnen !!!" );
+				}
+				else
+				{
+					System.out.println("Spielerin o hat gewonnen !!!" );
+				}
+			}
+			
+			public boolean fieldFilled()
+			{
+				for(int row = 0; row < this.size; row++)
+				{
+					for(int col = 0; col < this.size; col++)
+					{
+						if(this.field[row][col] == Player.EMPTY)
+						{
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+			
+			public boolean draw()
+			{
+				return this.fieldFilled() && !this.won();
+			}
+			
+			public boolean finished()
+			{
+				return this.draw() || this.won();
+			}
+			
+			public void automaticMove()
+			{
+				Random r = new Random();
+				int row = r.nextInt(this.size);
+				int col = r.nextInt(this.size);
+				while(!this.movePossible(row, col))
+				{
+					row = r.nextInt(this.size);
+					col = r.nextInt(this.size);
+				}
+				this.move(row, col);
+			}
+			
+			public void automaticMoveAndCheck()
+			{
+				this.automaticMove();
+				this.printField();
+				if(this.finished())
+				{
+					if(this.won())
+					{
+						this.printWon();
+					}
+					else	// draw
+					{
+						System.out.println("Unentschieden !!!");
+					}
+				}
+				else
+				{
+					this.switchPlayer();
+				}
+			}
+			
+			public void playGame()
+			{
+				while(!this.finished())
+				{
+					this.automaticMoveAndCheck();
+				}
+			}
+			
+			
+		}
+		```
+
+	=== "View.java"
+		```java linenums="1"
+		package uebungen.uebung12;
+
+		import java.awt.BorderLayout;
+		import java.awt.Font;
+		import java.awt.GridLayout;
+
+
+		import javax.swing.*;
+
+		public class View extends JFrame
+		{
+			JButton[] buttons; 
+			JLabel labelStatus;
+			JButton btnStart;
+			Model model;
+
+			View(Model model)
+			{
+				super();
+				this.model = model;
+				setTitle("TicTacToe");
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				// center panel
+				JPanel hauptPanel = init();
+				this.getContentPane().add(hauptPanel, BorderLayout.CENTER);
+				
+				// label panel
+				JPanel labelPanel = new JPanel();
+				this.labelStatus = new JLabel();
+				this.labelStatus.setFont(new Font("Verdana", Font.BOLD, 24));
+				this.labelStatus.setText(" ");
+				labelPanel.add(this.labelStatus);
+				this.getContentPane().add(labelPanel, BorderLayout.NORTH);
+				
+				// button panel
+				this.btnStart = new JButton("Start");
+				this.getContentPane().add(this.btnStart, BorderLayout.SOUTH);
+				
+				setSize(400,400);
+				setVisible(true);
+			}
+
+			private JPanel init()
+			{
+				JPanel panel = new JPanel();
+				panel.setLayout(new GridLayout(3,3,10,10));
+
+				this.buttons = new JButton[9];
+				for (int i=0; i<this.buttons.length; i++)
+				{
+					this.buttons[i]=new JButton();	
+					this.buttons[i].setFont(new Font("Verdana", Font.BOLD, 48));
+					this.buttons[i].setActionCommand(Integer.toString(i));
+					panel.add(buttons[i]);
+				}
+				return panel;
+			}
+			
+			public void restart() {
+				for (int i=0; i<this.buttons.length; i++)
+				{
+					this.buttons[i].setText("");
+					this.revalidate();
+					this.repaint();
+				}
+			}
+			
+			
+
+		}
+		```
+
+	=== "Controller.java"
+		```java linenums="1"
+		package uebungen.uebung12;
+
+		import java.awt.Color;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+
+		import javax.swing.JButton;
+
+		public class Controller implements ActionListener
+		{
+			Model model;
+			View view;
+
+			Controller(Model model, View view) {
+				this.model = model;
+				this.model.restart();
+				this.view = view;
+				for(int i = 0; i < this.view.buttons.length; i++) {
+					this.view.buttons[i].addActionListener(this);
+				}
+				this.view.btnStart.addActionListener(this);
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				// TODO
+
+			}
+		}
+		```
+
+	=== "Programclass.java"
+		```java linenums="1"
+		package uebungen.uebung12;
+
+		public class Programclass 
+		{
+
+			public static void main(String[] args) 
+			{
+				Model model = new Model(3);	
+				View view = new View(model);
+				Controller controller = new Controller(model, view);
+			}
+
+		}
+		```
+
+	**Aufgabe:** Implementieren Sie die `actionPerformed()`-Methode in der `Controller`-Klasse.
+
+
+##### Übung 13 (Zeichnen)
+
+??? "Übung 13 (selbständiges Üben)"
 
 	1. Zeichnen Sie ein Quadrat. Passen Sie dieses Quadrat möglichst passend in das Fenster. Da es sich um ein Quadrat handelt, kann es sich nur der Höhe oder der Breite des Fensters anpassen, je nachdem, was kleiner ist. Wenn die Höhe kleiner ist, als die Breite, dann soll das Quadrat ausgefüllt sein. Wenn die Breite kleiner als die Höhe ist, dann soll das Quadrat nicht ausgefüllt sein, aber die Linienstärke auf `5.0f` gesetzt werden. 
 	2. Die Zeichenfarbe soll zufällig erzeugt werden - jedes Mal, wenn die `paintComponent()`-Methode aufgerufen wird.
@@ -4248,9 +4726,9 @@
 
 
 
-##### Übung 13 (Mausereignisse)
+##### Übung 14 (Mausereignisse)
 
-??? "Übung 13 (selbständiges Üben)"
+??? "Übung 14 (selbständiges Üben)"
 
 	1. Zeichnen Sie mithilfe der Maus farbige Rechtecke. Das Zeichnen soll folgendermaßen funktionieren:
 		- dort, wo sie mit der Maus in die Zeichenfläche klicken, ist ein Eckpunkt des Rechtecks
@@ -4442,6 +4920,186 @@
 		- Wenn Sie in `mousePressed()` einen Punkt "getroffen" haben, dann sollten Sie das Verschieben des Punktes in `mouseDragged()` behandeln. Beachten Sie, dass `mouseDragged()` (bei gedrückter Maustaste) permanent aufgerufen wird. Wir können Sie die Änderung der Mausposition zwischen zwei Aufrufen von `mouseDragged()` ermitteln?
 
 
+??? question "eine mögliche Lösung für Klausurvorbereitung (Graphen)"
+	
+	=== "GraphenZeichnen.java"
+		```java linenums="1"
+		package uebungen.uebung13;
+		
+		import java.awt.BorderLayout;
+		import java.awt.Graphics;
+		import java.awt.Graphics2D;
+		import java.awt.Point;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.awt.event.MouseMotionListener;
+		import java.util.ArrayList;
+		import java.util.List;
+		import javax.swing.JFrame;
+		import javax.swing.JPanel;
+
+		public class GraphenZeichnen extends JFrame implements MouseListener, MouseMotionListener{
+		    Canvas canvas;
+		    List<Point> points; //für uns = Java.util!
+		    Point movepoint;
+		    Point remember;
+
+		    public GraphenZeichnen()
+		    {
+		        super();
+		        this.setTitle("Uebung13");
+		        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        this.canvas = new Canvas();
+		        this.getContentPane().add(this.canvas, BorderLayout.CENTER);
+		        this.canvas.addMouseListener(this);//MOUSELISTENER ANMELDEN NICHT VERGESSEN!!!!
+		        this.canvas.addMouseMotionListener(this);//MOUSEMOTIONLISTENER ANMELDEN NICHT VERGESSEN!!!!
+		        this.setSize(400, 300);
+		        this.setLocation(300,200);
+		        this.setVisible(true);
+		        this.points = new ArrayList<>();
+		    }
+
+		    private class Canvas extends JPanel
+		    {
+		    	final static int DURCHM = 30;
+		    	final static int RADIUS = DURCHM / 2;
+
+		        @Override
+		        protected void paintComponent(Graphics g)
+		        {
+		            super.paintComponent(g);        	// Implementierung von JPanel aufrufen
+		            Graphics2D g2 = (Graphics2D)g;  	// Methoden von Graphics2D nutzbar
+
+		            // hier zeichnen wir die Punkte:
+		            for(Point p : Uebung13.this.points) // anstatt "points" = Uebung13.this.points
+		            {
+		            	int x = p.x;
+		            	int y = p.y;
+		            	g2.fillOval(x, y, DURCHM, DURCHM);	
+		            }
+
+		            for (int i = 0; i < Uebung13.this.points.size()-1; i++)  //.size wegen Liste
+		            {
+						Point p1 = Uebung13.this.points.get(i);
+						Point p2 = Uebung13.this.points.get(i+1); 	// "i+1" => Nachbarpunkt von p1
+						
+						g2.drawLine(p1.x + RADIUS, p1.y+ RADIUS, p2.x+ RADIUS, p2.y+ RADIUS); // "+ Radius" -> damit die Linien ab der Mitte des Punktes beginnen
+						if(i == Uebung13.this.points.size()-2)		// vorletzte Position=> HIER verbinden wir den ersten und letzten Punkt
+						{
+							Point p = Uebung13.this.points.get(0);
+							g2.drawLine(p2.x + RADIUS, p2.y + RADIUS, p.x + RADIUS, p.y + RADIUS);
+						}
+					}
+		        }
+		    }
+
+		    public static void main(String[] args)
+		    {
+		        new GraphenZeichnen();
+		    }
+
+			@Override
+			public void mouseClicked(MouseEvent e) //wir klicken -> Kreis wird gezeichnet -> Liste wird befüllt
+			{
+				Point p = e.getPoint();		// speichern den Punkt beim Ort des Klickens
+				this.points.add(p); 		// in der Liste speichern
+				this.canvas.repaint();		// canvas wird nochmal gezeichnet-- wichtig!!
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) //ermitteln, ob wir punkt getroffen haben
+			{
+				int x = e.getX();
+				int y = e.getY();
+				final int ABSTAND = 20; //Abstand festlegen
+				for(Point p : this.points)
+				{
+					if(Math.abs(x-p.x)< ABSTAND && Math.abs(y-p.y)< ABSTAND) // Abstand von Punkt ermitteln 
+																			 // MINUS den Punkt, den wir betrachten
+					{
+						this.movepoint=p;
+						this.remember=e.getPoint(); 	// Speichern die Koordinate des Mausklicks
+					}
+				}
+				
+			}
+
+			@Override public void mouseReleased(MouseEvent e) {}
+			@Override public void mouseEntered(MouseEvent e) {}
+			@Override public void mouseExited(MouseEvent e)	{}
+			
+			@Override
+			public void mouseDragged(MouseEvent e) //Kreise bewegen:
+			{
+				int x = e.getX();
+				int y = e.getY();
+				int x1 = this.remember.x;
+				int y1 = this.remember.y;
+				int xDif = x-x1; //Wohin und um wie viel haben wir uns bewegt?
+				int yDif = y-y1;
+				this.movepoint.x = this.movepoint.x+xDif; 	// wir verschieben den Punkt um die Differenz, 
+				this.movepoint.y = this.movepoint.y+yDif;	// die wir ermittelt haben
+				this.canvas.repaint();//WICHTIG
+				this.remember = e.getPoint(); 				// rememberPunkt wird gespeichert		
+			}
+		}
+		```
+
+
+??? question "sehr hilfreiche Erläuterungen zu this von Frau Busjahn"
+	
+	```java linenums="1"
+	//Achtung, dieser Code dient nur dazu, zu zeigen, wie man an 
+	//verschiedenen Stellen auf die Methoden und Variablen zugreifen 
+	//kann und ist nicht unbedingt der beste Stil
+	public class A {
+		int variableInA;
+		B bInA;
+			
+		A(int wertA) {
+			this.variableInA = wertA;
+			this.bInA = new B(wertA+10);
+			this.printA("Konstruktor A"); 
+			this.bInA.printB("Konstruktor A");
+		}
+		
+		void printA(String aufrufIn) {
+			System.out.println("printA - " + aufrufIn + " - Variable der Klasse A: " + this.variableInA);
+			System.out.println("printA - " + aufrufIn + " - Variable der Klasse B: " + this.bInA.variableInB);		
+		}
+		
+		class B 
+		{		
+			int variableInB; 
+			
+			B(int wertB) {
+				this.variableInB = wertB;				
+				this.printB("Konstruktor B");
+			}
+			
+			void printB(String aufrufIn) {
+				System.out.println("printB - " + aufrufIn + " - Variable der Klasse A: " + A.this.variableInA);
+				System.out.println("printB - " + aufrufIn + " - Variable der Klasse B: " + this.variableInB);			
+			}
+		}	
+		
+		
+		public static void main(String[] args) {
+			A a1 = new A(2);		
+			a1.variableInA = 6;
+			a1.printA("main");
+			a1.bInA.variableInB = 16;
+			a1.bInA.printB("main");		
+		}
+	}
+	```
+	
+	![uebung13](./files/this1.png)
+	
+	![uebung13](./files/this2.png)
+
+
 ##### Klausurvorbereitung (Quadrat)
 
 ??? "Klausurvorbereitung (Quadrat)"
@@ -4464,7 +5122,1103 @@
 
 	3. Das farbige Quadrat kann nun durch Bewegen der Maus bei gedrückter Maustaste bewegt werden. Wenn das Quadrat (fast) vollständig in dem schwarzen Quadrat ist, dann bleibt es genau dort und kann nicht weiter bewegt werden.   
 
-		![uebung13](./files/135_uebung14.png)
+		![uebung13](./files/132_uebung14.png)
+
+
+??? question "eine mögliche Lösung zu Klausurvorbereitung (Quadrat)"
+
+	=== "QuadratZeichnen.java"
+		```java linenums="1"
+		import java.awt.BasicStroke;
+		import java.awt.BorderLayout;
+		import java.awt.Color;
+		import java.awt.Graphics;
+		import java.awt.Graphics2D;
+		import java.awt.Point;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.awt.event.MouseMotionListener;
+		import java.util.Random;
+
+		import javax.swing.JButton;
+		import javax.swing.JFrame;
+		import javax.swing.JPanel;
+
+		public class QuadratZeichnen  extends JFrame implements MouseListener, MouseMotionListener
+		{
+			Canvas canvas;
+			Point posSquare;
+			Color colorSquare;
+			boolean move = false;
+			Point remember;
+			boolean fixiert = false;
+			
+		    public QuadratZeichnen()
+		    {
+		        super();
+		        this.setTitle("Quadrat");
+		        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+
+		        this.canvas = new Canvas();
+		        this.canvas.addMouseListener(this);
+		        this.canvas.addMouseMotionListener(this);
+		        this.getContentPane().add(this.canvas, BorderLayout.CENTER);
+		        
+		        // von den folgenden vier Zeilen werden eventuell eine oder mehrere oder alle auskommentiert
+		        this.getContentPane().add(this.initSouth(), BorderLayout.SOUTH);
+
+		        this.setSize(400, 300);
+		        this.setLocation(300,200);
+		        this.setVisible(true);
+		    }
+
+		    // start inner class
+		    private class Canvas extends JPanel
+		    {
+		    	
+		        @Override
+		        protected void paintComponent(Graphics g)
+		        {
+		            super.paintComponent(g);        // Implementierung von JPanel aufrufen
+		            Graphics2D g2 = (Graphics2D)g;  // Methoden von Graphics2D nutzbar
+		            
+		            int width = this.getWidth();
+		            int height = this.getHeight();
+		            
+		            // int smaller = (width < height) ? width : height;
+		            int smaller = 0;
+		            int length = 0;
+		            int x = 0;
+		            int y = 0;
+		            if(width < height) {
+		            	smaller = width;
+		            	length = smaller/3;
+		            	x = smaller/3;
+		            	y = (height - length)/2;
+		            } else {
+		            	smaller = height;
+		            	length = smaller/3;
+		            	y = smaller/3;
+		            	x = (width - length)/2;
+		            }
+		            
+		            g2.setStroke(new BasicStroke(3.0f));
+		            g2.drawRect(x, y, length, length);
+		            
+		            if(Uebung14.this.posSquare != null  && Uebung14.this.colorSquare != null) 
+		            {
+			            int xSquare = Uebung14.this.posSquare.x;
+			            int ySquare = Uebung14.this.posSquare.y;
+			            
+			            Color cSquare = Uebung14.this.colorSquare;
+			            
+			            g2.setColor(cSquare);
+			            g2.fillRect(xSquare, ySquare, length, length);
+		            }
+		        }
+		    }
+		    // ende innere Klasse
+		    
+		      
+		    private JPanel initSouth() 
+		    {
+		    	JPanel south = new JPanel();
+		    	JButton btnCreate = new JButton("create square");
+		    	
+		    	btnCreate.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Random r = new Random();
+						int widthCanvas = Uebung14.this.canvas.getWidth();
+						int heightCanvas = Uebung14.this.canvas.getHeight();
+						int lengthSquare = (widthCanvas < heightCanvas) ? widthCanvas/3 : heightCanvas/3;
+						
+						int x = r.nextInt(widthCanvas - lengthSquare);
+						int y = r.nextInt(heightCanvas - lengthSquare);
+						Uebung14.this.posSquare = new Point(x,y);
+						
+						int rot = r.nextInt(256);
+						int gruen = r.nextInt(256);
+						int blau = r.nextInt(256);
+						Uebung14.this.colorSquare = new Color(rot, gruen, blau);
+						
+						Uebung14.this.canvas.repaint();			
+					}
+		    		
+		    	});
+		    	
+		    	south.add(btnCreate);
+		    	return south;
+		    }
+		    
+
+		    public static void main(String[] args) 
+		    {
+		        new QuadratZeichnen();
+		    }
+
+
+			@Override
+			public void mouseDragged(MouseEvent e) 
+			{
+				if(move)
+				{
+					int xMouse = e.getX();
+					int yMouse = e.getY();
+					
+					int xLast = this.remember.x;
+					int yLast = this.remember.y;
+					
+					int xDiff = xMouse - xLast;
+					int yDiff = yMouse - yLast;
+					
+					this.posSquare.x = this.posSquare.x + xDiff;
+					this.posSquare.y = this.posSquare.y + yDiff;
+					
+					
+					// ab hier: im schwarzen Quadrat?
+					int widthCanvas = this.canvas.getWidth();
+					int heightCanvas = this.canvas.getHeight();
+					int xBlack, yBlack; 
+					if(widthCanvas < heightCanvas)
+					{
+						int lengthSquare = widthCanvas/3;
+						xBlack = widthCanvas/3;
+						yBlack = (heightCanvas - lengthSquare)/2;
+					}
+					else
+					{
+						int lengthSquare = heightCanvas/3;
+						yBlack = heightCanvas/3;
+						xBlack = (widthCanvas - lengthSquare)/2;
+					}
+					
+					int xSquare = this.posSquare.x;
+					int ySquare = this.posSquare.y;
+					
+					final int ABSTAND = 20;
+					
+					if(Math.abs(xSquare-xBlack) < ABSTAND && Math.abs(ySquare-yBlack) < ABSTAND)
+					{
+						// farbiges Quadrat genau im schwarzen
+						System.out.println("im schwarzen");
+						this.move = false;
+						this.posSquare.x = xBlack;
+						this.posSquare.y = yBlack;
+					}
+					
+					this.canvas.repaint();
+					this.remember = e.getPoint();
+				}	
+			}
+
+
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				int xMouse = e.getX();
+				int yMouse = e.getY();
+				
+				if(!this.fixiert && this.posSquare != null)
+				{
+					int xSquare = this.posSquare.x;
+					int ySquare = this.posSquare.y;
+					
+					int widthCanvas = this.canvas.getWidth();
+					int heightCanvas = this.canvas.getHeight();
+					
+					int lengthSquare = (widthCanvas < heightCanvas) ? widthCanvas/3 : heightCanvas/3;
+					
+					if(xMouse >= xSquare && xMouse <= (xSquare + lengthSquare) && 
+							yMouse >= ySquare && yMouse <= (ySquare + lengthSquare))
+					{
+						this.move = true;
+						this.remember = e.getPoint();
+						System.out.println("im Quadrat");
+					}
+				}
+				
+			}
+
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				this.move = false;
+				
+			}
+
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		}
+
+		```
+
+#### Klausurvorbereitung (Quadrat und Kreis)
+
+??? "Klausurvorbereitung (Quadrat und Kreis)"
+
+	1. Erstellen Sie folgendes Fenster zum Zeichnen:
+
+		![uebung13](./files/148_quadrat.png)
+
+		Dabei sind folgende Dinge zu beachten:
+
+		- Oben im Fenster ist ein `JPanel` dessen Hintergrundfarbe `LIGHT_GRAY` ist und das ein `JLabel` enthält. Die Beschriftung des `JLabels` sollten Sie in der `paintComponent()`-Methode vornehmen, denn das `JLabel` zeigt an, ob die Zeichenfläche (Canvas) breiter als hoch ist (`breiter`) oder umgedreht (`hoeher`) und die Breite der Canvas sowie die Höhe (`breite, hoehe`). Es gibt also diese beiden Möglichkeiten:
+
+			![uebung13](./files/149_quadrat.png)
+
+			Achten Sie auch darauf, dass der Text des `JLabels` angepasst wird, wenn Sie die Größe des Fensters ändern (ergibt sich aber automatisch, wenn Sie den Text des `JLabels` in der `paintComponent()`-Methode setzen).
+
+		- In der Mitte des Fensters ist die Zeichenfläche (Canvas).
+
+			* Es wird eine Linie dargestellt. 
+
+			* Diese Linie ist in Strichstärke `2.0f`.
+
+			* Wenn die Canvas breiter als hoch ist, dann verläuft die Linie in der Mitte der Breite vertikal. 
+
+			* Wenn die Canvas höher als breit ist, dann verläuft die Linie in der Mitte der Höhe horizontal. 
+
+			* Der Fall Höhe==Breite muss nicht extra behandelt werden.
+
+			Es gibt also diese beiden Möglichkeiten:
+
+			![uebung13](./files/150_quadrat.png)
+
+		- Unten im Fenster ist ein `JPanel`, 
+
+			* dessen Hintergrundfarbe `LIGHT_GRAY` ist und
+
+			* das ein `JButton` mit dem Text `new` enthält.
+
+	2. Implementieren Sie eine Klasse `Figure` mit drei `privaten` Objektvariablen 
+
+		- `int x`
+
+		- `int y`
+
+		- `int length`
+
+		- Schreiben Sie einen parametrisierten Konstruktor `Figure(int x, int y, int length)`, der die Objektvariablen mit den Parameterwerten initialisiert. Schreiben Sie für alle drei Objektvariablen jeweils `Getter` und `Setter`.
+
+		- Implementieren Sie für den Button den `ActionListener` so, dass durch den Klick auf den Button 
+
+			- in die eine Hälfte der Canvas ein gelbes Quadrat (Farbe ist `YELLOW`) und
+
+			- in die andere Hälfte der Canvas ein grüner Kreis (Farbe ist `GREEN`) gezeichnet wird.
+
+			- Beide Objekte sind vom Typ `Figure`.
+
+			- `length` des Quadrates entspricht der Seitenlänge, `length` des Kreises entspricht dem Durchmesser.
+
+			- `x` und `y` sind jeweils die Koordinaten der linken oberen „Ecke“.
+
+			Beachten Sie, dass `length` bei Kreis und Quadrat gleich sind und dass sich die Länge möglichst gut (ca. 90%) in die Hälfte der Canvas einpasst, d.h. Sie müssen schauen, dass das Quadrat und der Kreis stets vollständig in ihre Hälfte passen, aber bestmöglich. 
+
+			Außerdem sollen die beiden Figuren möglichst mittig in ihrer jeweiligen Hälfte angeordnet sein.
+
+			![uebung13](./files/151_quadrat.png)
+
+			Wenn Sie die Größe des Fensters ändern, dann müssen sich Quadrat und Kreis nicht mitändern! Wenn Sie dann aber wieder auf den `new`-Button klicken, dann werden die beiden Figuren wieder an die neuen Canvas-Dimensionen angepasst.
+
+	3. Implementieren Sie `MouseListener` und `MouseMotionListener` so, dass Sie entweder den Kreis oder das Quadrat bei gedrückter Maustaste bewegen können, je nachdem, ob Sie auf das Quadrat oder auf den Kreis mit der Maus geklickt haben. 
+
+		Wenn Sie weder das Quadrat noch den Kreis durch den Mausklick getroffen haben, dann soll sich auch nichts bewegen. Bei Kreis betrachten Sie das Tangentenquadrat um den Kreis, um zu prüfen, ob Sie den Kreis getroffen haben (also genauso, wie beim Quadrat).
+
+		Sie können Kreis und Quadrat jeweils auch mehrmals hintereinander bewegen und/oder abwechselnd. Sie können nur nie beide Figuren zugleich bewegen (selbst wenn sie übereinander sind). In der folgenden Abbildung wurde sowohl der Kreis als auch das Quadrat bereits (evtl. mehrfach) bewegt:
+
+		![uebung13](./files/152_quadrat.png)		
+
+	4. Wenn Sie den Kreis fast vollständig über das Quadrat bewegt haben oder das Quadrat fast vollständig über den Kreis, dann wird das erkannt und der Kreis wird exakt in das Quadrat fixiert. Das bedeutet, es entsteht z.B. folgendes Bild:
+
+		![uebung13](./files/153_quadrat.png)		
+
+		- **Fast** vollständig bedeutet, dass sich die `x`- und `y`-Koordinaten der beiden Figuren um jeweils höchsten `30` Punkte unterscheiden.
+
+		- Sind die Figuren innerhalb dieses Abstandes, dann werden Sie automatisch exakt übereinandergelegt.
+
+		- Sind die beiden Figuren exakt übereinander, kann keine der beiden Figuren mehr bewegt werden. 
+
+		- Es kann nur noch der Button `new` geklickt werden, um die Ausgangssituation wieder herzustellen.
+
+		- Im Label oben erscheint `fixiert`. Der Text ist fettgedruckt (bold).
+
+
+??? question "eine mögliche Lösung zu Klausurvorbereitung (Quadrat und Kreis)"
+
+	=== "Figure.java"
+		```java linenums="1"
+		public class Figure {
+			private int x;
+			private int y;
+			private int length;
+			
+			public Figure(int x, int y, int length) 
+			{
+				this.x = x;
+				this.y = y;
+				this.length = length;
+			}
+
+			public int getX() {
+				return this.x;
+			}
+
+			public void setX(int x) {
+				this.x = x;
+			}
+
+			public int getY() {
+				return this.y;
+			}
+
+			public void setY(int y) {
+				this.y = y;
+			}
+
+			public int getLength() {
+				return this.length;
+			}
+
+			public void setLength(int length) {
+				this.length = length;
+			}
+
+		}
+		```
+
+	=== "QuadratUndKreis.java"
+		```java linenums="1"
+		import java.awt.BasicStroke;
+		import java.awt.BorderLayout;
+		import java.awt.Color;
+		import java.awt.Font;
+		import java.awt.Graphics;
+		import java.awt.Graphics2D;
+		import java.awt.Point;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.awt.event.MouseMotionListener;
+
+		import javax.swing.*;
+
+		public class QuadratUndKreis  extends JFrame implements MouseListener, MouseMotionListener
+		{
+			Canvas canvas;
+			JLabel lOben;
+			Figure circle;
+			Figure square;
+			boolean circleMoved = false;
+			boolean squareMoved = false;
+			Point rememberLastPoint;
+			boolean fixed = false;
+
+
+			public QuadratUndKreis()
+			{
+				super();
+				this.setTitle("Klausur");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+
+				this.canvas = new Canvas();
+				this.canvas.addMouseListener(this);
+				this.canvas.addMouseMotionListener(this);
+				this.getContentPane().add(this.canvas, BorderLayout.CENTER);
+
+				// von den folgenden vier Zeilen werden eventuell eine oder mehrere oder alle auskommentiert
+				this.getContentPane().add(this.initNorth(), BorderLayout.NORTH);
+				this.getContentPane().add(this.initSouth(), BorderLayout.SOUTH);
+
+				this.setSize(400, 300);
+				this.setLocation(300,200);
+				this.setVisible(true);
+			}
+
+			// start inner class
+			private class Canvas extends JPanel
+			{
+
+				@Override
+				protected void paintComponent(Graphics g)
+				{
+					super.paintComponent(g);        // Implementierung von JPanel aufrufen
+					Graphics2D g2 = (Graphics2D)g;  // Methoden von Graphics2D nutzbar
+					int width = this.getWidth();
+					int height = this.getHeight();
+					g2.setStroke(new BasicStroke(2.0f));
+					if(width < height)
+					{
+						int mitteY = height/2;
+						g2.drawLine(0, mitteY, width, mitteY);
+					}
+					else
+					{
+						int mitteX = width/2;
+						g2.drawLine(mitteX, 0, mitteX, height);
+					}
+
+					String message = (width < height) ? "hoeher : " : "breiter : ";
+					message = message + "( " + width + ", " + height + " )";
+					if(QuadratUndKreis.this.fixed)
+					{
+						message = "fixiert";
+						QuadratUndKreis.this.lOben.setFont(new Font("Verdana", Font.BOLD, 14));
+					}
+					QuadratUndKreis.this.lOben.setText(message);
+
+					if(QuadratUndKreis.this.square != null)
+					{
+						g2.setColor(Color.YELLOW);
+						int x = QuadratUndKreis.this.square.getX();
+						int y = QuadratUndKreis.this.square.getY();
+						int length = QuadratUndKreis.this.square.getLength();
+						g2.fillRect(x,y,length,length);
+					}
+					if(QuadratUndKreis.this.circle != null)
+					{
+						g2.setColor(Color.GREEN);
+						int x = QuadratUndKreis.this.circle.getX();
+						int y = QuadratUndKreis.this.circle.getY();
+						int length = QuadratUndKreis.this.circle.getLength();
+						g2.fillOval(x,y,length,length);
+					}
+				}
+			}
+			// ende innere Klasse
+
+			private JPanel initNorth() 
+			{
+				JPanel north = new JPanel();
+				north.setBackground(Color.LIGHT_GRAY);
+				this.lOben = new JLabel();
+				north.add(this.lOben);
+				return north;
+			}
+
+			private JPanel initSouth() 
+			{
+				JPanel south = new JPanel();
+				south.setBackground(Color.LIGHT_GRAY);
+				JButton btnNew = new JButton("new");
+				btnNew.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int width = QuadratUndKreis.this.canvas.getWidth();
+						int height = QuadratUndKreis.this.canvas.getHeight();
+						if(width < height) // hoeher --> untereinander
+						{
+							int height2 = height/2;
+							int smallest = (height2 < width) ? height2 : width;
+							int length = (int)(smallest * 0.9);
+							int oben = (height2-length)/2;
+							int links = (width-length)/2;
+
+							QuadratUndKreis.this.square = new Figure(links, oben, length);
+							QuadratUndKreis.this.circle = new Figure(links, height2 + oben, length);
+						}
+						else // breiter --> nebeneinander
+						{
+							int width2 = width/2;
+							int smallest = (width2 < height) ? width2 : height;
+							int length = (int)(smallest * 0.9);
+							int links = (width2-length)/2;
+							int oben = (height-length)/2;
+							QuadratUndKreis.this.square = new Figure(links, oben, length);
+							QuadratUndKreis.this.circle = new Figure(width2 + links, oben, length);	        		
+						}
+						QuadratUndKreis.this.canvas.repaint();
+						
+						QuadratUndKreis.this.squareMoved = false;
+						QuadratUndKreis.this.circleMoved = false;
+						QuadratUndKreis.this.fixed = false;
+						QuadratUndKreis.this.rememberLastPoint = null;
+					}
+
+				});
+
+				south.add(btnNew);
+
+				return south;
+			}
+
+			public static void main(String[] args) 
+			{
+				new QuadratUndKreis();
+			}
+
+			@Override
+			public void mouseDragged(MouseEvent e) 
+			{
+				if((QuadratUndKreis.this.circleMoved || QuadratUndKreis.this.squareMoved) && !QuadratUndKreis.this.fixed)
+				{
+					int x = e.getX();
+					int y = e.getY();
+
+					int x1 = QuadratUndKreis.this.rememberLastPoint.x;
+					int y1 = QuadratUndKreis.this.rememberLastPoint.y;
+
+					int xDiff = x - x1;
+					int yDiff = y - y1;
+
+					if(QuadratUndKreis.this.circleMoved)
+					{
+						int newX = QuadratUndKreis.this.circle.getX() + xDiff;
+						int newY = QuadratUndKreis.this.circle.getY() + yDiff;
+
+						QuadratUndKreis.this.circle.setX(newX);
+						QuadratUndKreis.this.circle.setY(newY);
+					}
+					else if(QuadratUndKreis.this.squareMoved)
+					{
+						int newX = QuadratUndKreis.this.square.getX() + xDiff;
+						int newY = QuadratUndKreis.this.square.getY() + yDiff;
+
+						QuadratUndKreis.this.square.setX(newX);
+						QuadratUndKreis.this.square.setY(newY);
+					}
+
+					// ab hier erkennen, ob uebereinander
+
+					final int ABSTAND = 30;
+
+					int xAbstand = Math.abs(QuadratUndKreis.this.square.getX() - QuadratUndKreis.this.circle.getX());
+					int yAbstand = Math.abs(QuadratUndKreis.this.square.getY() - QuadratUndKreis.this.circle.getY());
+
+					if(xAbstand <= ABSTAND && yAbstand <= ABSTAND)
+					{
+						if(QuadratUndKreis.this.circleMoved)
+						{
+							int newX = QuadratUndKreis.this.square.getX();
+							int newY = QuadratUndKreis.this.square.getY();
+
+							QuadratUndKreis.this.circle.setX(newX);
+							QuadratUndKreis.this.circle.setY(newY);
+						}
+						else if(QuadratUndKreis.this.squareMoved)
+						{
+							int newX = QuadratUndKreis.this.circle.getX();
+							int newY = QuadratUndKreis.this.circle.getY();
+
+							QuadratUndKreis.this.square.setX(newX);
+							QuadratUndKreis.this.square.setY(newY);
+						}
+						QuadratUndKreis.this.fixed = true;
+					}
+
+					QuadratUndKreis.this.canvas.repaint();
+					QuadratUndKreis.this.rememberLastPoint = e.getPoint();
+				}
+
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				if(!QuadratUndKreis.this.fixed)
+				{
+					int x = e.getX();
+					int y = e.getY();
+
+					int xC = QuadratUndKreis.this.circle.getX();
+					int yC = QuadratUndKreis.this.circle.getY();
+
+					int xS = QuadratUndKreis.this.square.getX();
+					int yS = QuadratUndKreis.this.square.getY();	
+
+					int length = QuadratUndKreis.this.square.getLength();
+
+					if(x >= xC && x <= xC+length && y >= yC && y <= yC+length)
+					{
+						QuadratUndKreis.this.circleMoved = true;
+						QuadratUndKreis.this.rememberLastPoint = e.getPoint();
+					}
+					else if(x >= xS && x <= xS+length && y >= yS && y <= yS+length)
+					{
+						QuadratUndKreis.this.squareMoved = true;
+						QuadratUndKreis.this.rememberLastPoint = e.getPoint();
+					}
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) 
+			{
+				QuadratUndKreis.this.squareMoved = false;
+				QuadratUndKreis.this.circleMoved = false;
+				QuadratUndKreis.this.rememberLastPoint = null;
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		}
+		```
+
+
+
+#### Klausurvorbereitung (Figure)
+
+??? "Klausurvorbereitung (Figure)"
+
+	1. Erstellen Sie folgendes Fenster zum Zeichnen:
+
+		![uebung13](./files/136_ellipse.png)
+
+		Dabei ist zu beachten, dass es sich bei `Ellipse`, `-`, `+`, `Löschen` und `Farbe aendern` um Buttons handelt. Wählen Sie die Layoutmanager der jeweiligen JPanels so, dass das gleiche Aussehen entsteht, also z.B. der Button `Ellipse` über die gesamte Breite des Fensters geht und die Buttons `–` und `+` jeweils die angezeigte Höhe ausfüllen.  Abstände zwischen den Buttons müssen nicht beachtet werden. In der Mitte des Fensters ist die Zeichenfläche (Canvas). 
+
+	2. Implementieren Sie eine Klasse `Figure mit folgenden 5 Objektvariablen (müssen hier nicht `private` sein – Paketsichtbarkeit ist gut; wenn Sie sie `private` machen, benötigen Sie noch `Getter`!!!)
+		- `Shape shape`
+		- `Color color`
+		- `Point start`
+		- `int width`
+		- `int height`
+
+		`Shape` ist dabei ein `enum`, das sie gleich in der Klasse erstellen können (oder separat). Dieses `enum` hat folgende Werte: `OVAL` und `RECTANGLE`.
+
+		Die Idee der Objektvariablen ist in der folgenden Abbildung dargestellt (`color` ist nicht gezeigt, damit soll die `Figure` ausgefüllt werden):
+
+		![uebung13](./files/137_ellipse.png)
+
+		- Implementieren Sie eine Objektmethode `public void changeColor()`, in der der Wert von `color` zufällig (mithilfe von `Random`) auf einen neuen Wert gesetzt wird. 
+
+		- Implementieren Sie eine Objektmethode `public void setStartPoint(Point point)`, in der der Wert der Objektvariablen `point` auf den Parameterwert gesetzt wird. 
+
+		- Implementieren Sie eine Objektmethode `public void changeShape()`, in der der Wert der Objektvariablen `shape` auf den jeweils anderen Wert aus dem `Shape`-`enum` gesetzt wird (d.h. wenn der Wert `OVAL` war, dann soll er auf `RECTANGLE` gesetzt werden und andersherum). 
+
+		- Implementieren Sie eine Objektmethode `public void addSideLength(int xDiff, int yDiff)`. Die Werte von `xDiff` und `yDiff` geben an, um wieviel sich die Seitenlängen ändern. 
+
+		**Erklärung:** Diese Methode wird später aufgerufen, wenn Sie die `Figure` mit der Maus zeichnen (bei gedrückter Maustaste). Entweder Sie ziehen nach rechts unten (dann sind `xDiff` und `yDiff` postiv) oder Sie ziehen nach links und/oder nach oben (dann sind `xDiff` und/oder `yDiff` entsprechend negativ).
+
+		**Beachten Sie(!):**
+
+		- Wenn `xDiff` und `yDiff` postiv sind, dann verhält sich die Sache relativ einfach, denn dann werden die Werte einfach auf die jeweiligen Seitenlängen addiert (siehe folgende Abbildung):
+
+			![uebung13](./files/138_ellipse.png)
+
+		- Wenn `xDiff` und/oder `yDiff` negativ sind/ist, dann ist es komplizierter, denn dann ändern sich nicht nur die Seitenlängen, sondern es verschiebt sich auch der Startpunkt der `Figure` (siehe folgende Abbildung für den Fall, dass `xDiff` und `yDiff` negativ sind):
+
+			![uebung13](./files/139_ellipse.png)
+
+		- Implementieren Sie eine Objektmethode `public void bigger()`, in der die `Figure` größer skaliert werden soll (ca 10% abhängig von der aktuellen Breite und Länge nach allen Seiten):
+
+			![uebung13](./files/140_ellipse.png)
+
+ 		- Implementieren Sie eine Objektmethode `public void smaller()`, in der die `Figure` kleiner skaliert werden soll (ca 10% abhängig von der aktuellen Breite und Länge nach allen Seiten):
+
+			![uebung13](./files/141_ellipse.png)
+
+	3. Implementieren Sie `MouseListener` und `MouseMotionListener` so, dass Sie bei gedrückter Maustaste ein Objekt der Klasse `Figure` zeichnen können, d.h. bei Mausklick in die Canvas wird der `start`-Punkt der `Figure` erzeugt und bei gedrückter Maustaste vergrößern Sie die `Figure`. 
+
+		In der folgenden Abbildung steht der Pfeil für die gedrückte Maus:
+
+		![uebung13](./files/142_ellipse.png)
+
+		Wenn Sie die Maustaste loslassen, ist die `Figure fertig gezeichnet. Am Anfang handelt es sich bei der `Figure` um ein `RECTANGLE`.
+
+	4. Implementieren Sie das Klick-Ereignis des Buttons `Ellipse` so, dass aus dem Rechteck eine Ellipse wird. Die Farbe der `Figure` bleibt gleich. Nutzen Sie dazu die Methode `changeShape()` aus der `Figure`-Klasse. 
+
+		Die Beschriftung des Buttons wechselt auf `Rechteck`. Wenn Sie den Button erneut drücken, erscheint wieder das Rechteck und auf dem Button erscheint `Ellipse`. 
+
+		![uebung13](./files/143_ellipse.png)
+
+		- Implementieren Sie das Klick-Ereignis des Buttons `+` so, dass sich die `Figure` vergrößert. Nutzen Sie dazu die Methode `bigger()` aus der `Figure`-Klasse. 
+
+			![uebung13](./files/144_ellipse.png)
+
+		- Implementieren Sie das Klick-Ereignis des Buttons `-` so, dass sich die `Figure` verkleinert. Nutzen Sie dazu die Methode `smaller()` aus der `Figure`-Klasse. 
+
+			![uebung13](./files/145_ellipse.png)
+
+		- Implementieren Sie das Klick-Ereignis des Buttons `Farbe aendern` so, dass sich die Farbe der `Figure` ändert. Nutzen Sie dazu die Methode `changeColor()` aus der `Figure`-Klasse. 
+
+			![uebung13](./files/146_ellipse.png)
+
+		- Implementieren Sie das Klick-Ereignis des Buttons `Loeschen` so, dass keine `Figure` mehr existiert und angezeigt wird.  
+
+			![uebung13](./files/147_ellipse.png)
+
+
+??? question "eine mögliche Lösung zu Klausurvorbereitung (Figure)"
+
+	=== "Figure.java"
+		```java linenums="1"
+		import java.awt.Color;
+		import java.awt.Point;
+		import java.util.Random;
+
+		public class Figure {
+			
+			enum Shape {
+				OVAL, RECTANGLE
+			}
+			Shape shape;
+			Color color;
+			Point start;
+			int width;
+			int height;
+			
+			public Figure(Shape shape, Point start) {
+				this.shape = shape;
+				this.start = start;
+				this.width = 0;
+				this.height = 0;
+				Random r = new Random();
+				int gelb = r.nextInt(256);
+				int rot = r.nextInt(256);
+				int blau = r.nextInt(256);
+				this.color = new Color(rot, gelb, blau);
+			}
+			
+			public void changeColor() {
+				Random r = new Random();
+				int gelb = r.nextInt(256);
+				int rot = r.nextInt(256);
+				int blau = r.nextInt(256);
+				this.color = new Color(rot, gelb, blau);
+			}
+			
+			public void addSideLengths(int xDiff, int yDiff)
+			{
+				if(xDiff<0 && yDiff<0) {
+					Point start = this.start;
+					start.x += xDiff;
+					start.y += yDiff;
+					this.width -= xDiff;
+					this.height -= yDiff;
+					this.setStartPoint(start);
+				}
+				else if(xDiff<0 && yDiff>=0) {
+					Point start = this.start;
+					start.x += xDiff;
+					this.width -= xDiff;
+					this.height += yDiff;
+					this.setStartPoint(start);
+				}
+				else if(xDiff>=0 && yDiff<0) {
+					Point start = this.start;
+					start.y += yDiff;
+					this.width += xDiff;
+					this.height -= yDiff;
+					this.setStartPoint(start);
+				}
+				else {
+					this.width += xDiff;
+					this.height += yDiff;
+				}
+			}
+			
+			public void setStartPoint(Point start) {
+				this.start = start;
+			}
+			
+			public void bigger() {
+				int xScale = (int)(this.width * 0.1);
+				int yScale = (int)(this.height * 0.1);
+				Point start = this.start;
+				start.x -= xScale;
+				start.y -= yScale;
+				this.width += 2*xScale;
+				this.height += 2*yScale;
+				this.setStartPoint(start);
+			}
+			
+			public void smaller() {
+				int xScale = (int)(this.width * 0.1);
+				int yScale = (int)(this.height * 0.1);
+				Point start = this.start;
+				start.x += xScale;
+				start.y += yScale;
+				this.width -= 2*xScale;
+				this.height -= 2*yScale;
+				this.setStartPoint(start);
+			}
+			
+			public void changeShape() {
+				if(this.shape == Shape.OVAL) this.shape = Shape.RECTANGLE;
+				else this.shape = Shape.OVAL;
+			}
+
+		}
+		```
+
+	=== "FigureZeichnen.java"
+		```java linenums="1"
+		import java.awt.BorderLayout;
+		import java.awt.Color;
+		import java.awt.Graphics;
+		import java.awt.Graphics2D;
+		import java.awt.GridLayout;
+		import java.awt.Point;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.awt.event.MouseMotionListener;
+
+		import javax.swing.*;
+
+		public class FigureZeichnen  extends JFrame 
+		{
+			Canvas canvas;
+
+
+			public FigureZeichnen()
+			{
+				super();
+				this.setTitle("Klausur");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+
+				this.canvas = new Canvas();
+				this.canvas.addMouseListener(this.canvas);
+				this.canvas.addMouseMotionListener(this.canvas);
+				this.getContentPane().add(this.canvas, BorderLayout.CENTER);
+
+				// von den folgenden vier Zeilen werden eventuell eine oder mehrere oder alle auskommentiert
+				this.getContentPane().add(this.initNorth(), BorderLayout.NORTH);
+				this.getContentPane().add(this.initSouth(), BorderLayout.SOUTH);
+				this.getContentPane().add(this.initWest(), BorderLayout.WEST);
+				this.getContentPane().add(this.initEast(), BorderLayout.EAST);
+
+				this.setSize(800, 600);
+				this.setLocation(300,200);
+				this.setVisible(true);
+			}
+
+			// start inner class
+			private class Canvas extends JPanel implements MouseListener, MouseMotionListener
+			{
+				Figure figure;
+				Point remember;
+				boolean finishedCreating = false;
+				
+				@Override
+				protected void paintComponent(Graphics g)
+				{
+					super.paintComponent(g);        // Implementierung von JPanel aufrufen
+					Graphics2D g2 = (Graphics2D)g;  // Methoden von Graphics2D nutzbar
+					
+					if(this.figure != null)
+					{
+						g2.setColor(this.figure.color);
+						Point start = this.figure.start;
+						int width = this.figure.width;
+						int height = this.figure.height;
+						if(this.figure.shape == Figure.Shape.RECTANGLE) {
+							g2.fillRect(start.x, start.y, width, height);
+						}
+						else if(this.figure.shape == Figure.Shape.OVAL) {
+							g2.fillOval(start.x, start.y, width, height);
+						}
+						
+					}
+				}
+
+				@Override
+				public void mouseDragged(MouseEvent e) {
+					if(this.figure != null && !this.finishedCreating) {
+						Point here = e.getPoint();
+						int xDiff = here.x - this.remember.x;
+						int yDiff = here.y - this.remember.y;
+						this.figure.addSideLengths(xDiff, yDiff);
+						this.remember = here;
+					}
+					System.out.println(this.figure.width + ", " + this.figure.height);
+					this.repaint();
+					
+				}
+
+				@Override
+				public void mouseMoved(MouseEvent e) {
+
+					
+				}
+
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mousePressed(MouseEvent e) {
+					Point here = e.getPoint();
+					if(this.figure == null) {
+						this.figure = new Figure(Figure.Shape.RECTANGLE, here);
+						this.remember = here;
+					}
+					this.repaint();
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					if(!this.finishedCreating) this.finishedCreating = true;
+					
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+			}
+			// ende innere Klasse
+
+			private JPanel initNorth() 
+			{
+				JPanel north = new JPanel();
+				north.setLayout(new GridLayout(1,1));
+				JButton circle = new JButton("Ellipse");
+				circle.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Klausur2PZ.this.canvas.figure.changeShape();
+						JButton circle = (JButton)e.getSource();
+						if(circle.getActionCommand().equals("Ellipse")) circle.setText("Rechteck");
+						else circle.setText("Ellipse");
+						Klausur2PZ.this.canvas.repaint();
+					}
+					
+				});
+				north.add(circle);
+				return north;
+			}
+
+			private JPanel initSouth() 
+			{
+				JPanel south = new JPanel();
+				south.setLayout(new GridLayout(1,2,10,10));
+				JButton delete = new JButton("Löschen");
+				delete.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Klausur2PZ.this.canvas.figure = null;
+						Klausur2PZ.this.canvas.finishedCreating = false;
+						Klausur2PZ.this.canvas.remember = null;
+						Klausur2PZ.this.canvas.repaint();
+					}
+					
+				});
+				south.add(delete);
+				JButton farbe = new JButton("Farbe aendern");
+				farbe.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Klausur2PZ.this.canvas.figure.changeColor();;
+						Klausur2PZ.this.canvas.repaint();
+					}
+					
+				});
+				south.add(farbe);
+				return south;
+			}
+			
+			private JPanel initWest() 
+			{
+				JPanel west = new JPanel();
+				west.setLayout(new GridLayout(1,1));
+				JButton minus = new JButton("-");
+				minus.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Klausur2PZ.this.canvas.figure.smaller();
+						Klausur2PZ.this.canvas.repaint();
+					}
+					
+				});
+				west.add(minus);
+				return west;
+			}
+			
+			private JPanel initEast() 
+			{
+				JPanel east = new JPanel();
+				east.setLayout(new GridLayout(1,1));
+				JButton plus = new JButton("+");
+				plus.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Klausur2PZ.this.canvas.figure.bigger();
+						Klausur2PZ.this.canvas.repaint();
+					}
+					
+				});
+				east.add(plus);
+				return east;
+			}
+
+			public static void main(String[] args) 
+			{
+				new Klausur2PZ();
+			}
+		}
+		```
+
+
+
+
+
 
 
 ## Zusatz
