@@ -4344,7 +4344,7 @@
 
 	=== "Model.java"
 		```java linenums="1"
-		package uebungen.uebung12;
+		package uebungen.uebung12.loesung;
 
 		import java.util.Random;
 
@@ -4354,234 +4354,327 @@
 		 */
 		public class Model
 		{
-			private Player[][] field;
-			public enum Player {RED, BLACK, EMPTY};
-			private Player player;
-			private int size;
-			
-			public Model(int size)
-			{
-				this.size = size;
-				this.field = new Player[this.size][this.size];
-				for(int row = 0; row < this.size; row++)
-				{
-					for(int col = 0; col < this.size; col++)
-					{
-						this.field[row][col] = Player.EMPTY;
-					}
-				}
-				this.player = Player.BLACK;		// BLACK faengt an
-			}
-			
-			public void restart() {
-				this.field = new Player[this.size][this.size];
-				for(int row = 0; row < this.size; row++)
-				{
-					for(int col = 0; col < this.size; col++)
-					{
-						this.field[row][col] = Player.EMPTY;
-					}
-				}
-				this.player = Player.BLACK;		
-			}
-			
-			public int getSize() {
-				return this.size;
-			}
-			
-			public Player[][] getField() {
-				Player[][] copy = new Player[this.size][this.size];
-				for(int row = 0; row < this.size; row++)
-				{
-					for(int col = 0; col < this.size; col++)
-					{
-						copy[row][col] = this.field[row][col];
-					}
-				}
-				return copy;
-			}
-			
-			public void printField()
-			{
-				for(int row = 0; row < this.size; row++)
-				{
-					for(int col = 0; col < this.size; col++)
-					{
-						if(this.field[row][col] == Player.EMPTY)
-						{
-							System.out.print("- ");
-						}
-						else if(this.field[row][col] == Player.BLACK)
-						{
-							System.out.print("x ");
-						}
-						else if(this.field[row][col] == Player.RED)
-						{
-							System.out.print("o ");
-						}
-					}
-					// Ende der Zeile
-					System.out.println();
-				}
-				// nach Ausgabe des Feldes
-				System.out.println();
-			}
-			
-			public void switchPlayer()
-			{
-				this.player = (this.player == Player.BLACK) ? Player.RED : Player.BLACK;
-			}
-			
-			public void move(int row, int col)
-			{
-				
-				if(this.movePossible(row, col))
-				{
-					this.field[row][col] = this.player;
-					this.switchPlayer();
-				}
-			}
-			
-			public Player curPlayer() {
-				return this.player;
-			}
-			
-			public boolean movePossible(int row, int col)
-			{
-				boolean movePossible = false;
-				// row und col jeweils koorekter Index ???
-				if(row >= 0 && row < this.size && col >= 0 && col < this.size)
-				{
-					// ist das Feld ueberhaupt leer (0) ???
-					if(this.field[row][col] == Player.EMPTY)
-					{
-						movePossible = true;
-					}
-				}
-				return movePossible;
-			}
-			
-			public boolean won()
-			{
-				boolean won = false;
-				// 3 nebeneinander ???
-				for(int row = 0; row < this.size && !won; row++)
-				{
-					if( this.field[row][0] == this.player && 
-						this.field[row][1] == this.player &&
-						this.field[row][2] == this.player) 
-					{
-						won = true;
-					}
-				}
-				// 3 untereinander ???
-				for(int col = 0; col < this.size && !won; col++)
-				{
-					if( this.field[0][col] == this.player && 
-						this.field[1][col] == this.player &&
-						this.field[2][col] == this.player) 
-					{
-						won = true;
-					}
-				}
-				// von links oben nach rechts unten - Diagonale
-				if( !won && this.field[0][0] == this.player && 
-					this.field[1][1] == this.player &&
-					this.field[2][2] == this.player) 
-				{
-					won = true;
-				}
-				// von rechts oben nach links unten - Diagonale
-				if( !won && this.field[0][2] == this.player && 
-					this.field[1][1] == this.player &&
-					this.field[2][0] == this.player) 
-				{
-					won = true;
-				}
-				return won;
-			}
+		    private Player[][] field;
+		    public enum Player {RED, BLACK, EMPTY};
+		    private Player player;
+		    private int size;
 
-			
-			public void printWon()
-			{
-				if(this.player == Player.BLACK)
-				{
-					System.out.println("Spielerin x hat gewonnen !!!" );
-				}
-				else
-				{
-					System.out.println("Spielerin o hat gewonnen !!!" );
-				}
-			}
-			
-			public boolean fieldFilled()
-			{
-				for(int row = 0; row < this.size; row++)
-				{
-					for(int col = 0; col < this.size; col++)
-					{
-						if(this.field[row][col] == Player.EMPTY)
-						{
-							return false;
-						}
-					}
-				}
-				return true;
-			}
-			
-			public boolean draw()
-			{
-				return this.fieldFilled() && !this.won();
-			}
-			
-			public boolean finished()
-			{
-				return this.draw() || this.won();
-			}
-			
-			public void automaticMove()
-			{
-				Random r = new Random();
-				int row = r.nextInt(this.size);
-				int col = r.nextInt(this.size);
-				while(!this.movePossible(row, col))
-				{
-					row = r.nextInt(this.size);
-					col = r.nextInt(this.size);
-				}
-				this.move(row, col);
-			}
-			
-			public void automaticMoveAndCheck()
-			{
-				this.automaticMove();
-				this.printField();
-				if(this.finished())
-				{
-					if(this.won())
-					{
-						this.printWon();
-					}
-					else	// draw
-					{
-						System.out.println("Unentschieden !!!");
-					}
-				}
-				else
-				{
-					this.switchPlayer();
-				}
-			}
-			
-			public void playGame()
-			{
-				while(!this.finished())
-				{
-					this.automaticMoveAndCheck();
-				}
-			}
-			
-			
+		    /*
+		     * erzeugt Objekt vom Model 
+		     * 	Parameter size fuer field: size x size 
+		     * 	alle Felder in field am Anfang leer (EMPTY)
+		     * 	player BLACK beginnt
+		     */
+		    public Model(int size)
+		    {
+		        this.size = size;
+		        this.field = new Player[this.size][this.size];
+		        for(int row = 0; row < this.size; row++)
+		        {
+		            for(int col = 0; col < this.size; col++)
+		            {
+		                this.field[row][col] = Player.EMPTY;
+		            }
+		        }
+		        this.player = Player.BLACK;     // BLACK faengt an
+		    }
+
+		    /*
+		     * field wieder alle Felder EMPTY
+		     * player ist BLACK
+		     */
+		    public void restart() 
+		    {
+
+		        for(int row = 0; row < this.size; row++)
+		        {
+		            for(int col = 0; col < this.size; col++)
+		            {
+		                this.field[row][col] = Player.EMPTY;
+		            }
+		        }
+		        this.player = Player.BLACK;     
+		    }
+
+		    /*
+		     * Rueckgabe von size
+		     * 	z.B. 3 bei 3 x 3 field
+		     */
+		    public int getSize() 
+		    {
+		        return this.size;
+		    }
+
+		    /*
+		     *  Rueckgabe deep copy von field
+		     */
+		    public Player[][] getField() {
+		        Player[][] copy = new Player[this.size][this.size];
+		        for(int row = 0; row < this.size; row++)
+		        {
+		            for(int col = 0; col < this.size; col++)
+		            {
+		                copy[row][col] = this.field[row][col];
+		            }
+		        }
+		        return copy;
+		    }
+
+		    /*
+		     * Ausgabe von field auf Konsole
+		     */
+		    public void printField()
+		    {
+		        for(int row = 0; row < this.size; row++)
+		        {
+		            for(int col = 0; col < this.size; col++)
+		            {
+		                if(this.field[row][col] == Player.EMPTY)
+		                {
+		                    System.out.print("- ");
+		                }
+		                else if(this.field[row][col] == Player.BLACK)
+		                {
+		                    System.out.print("x ");
+		                }
+		                else if(this.field[row][col] == Player.RED)
+		                {
+		                    System.out.print("o ");
+		                }
+		            }
+		            System.out.println();	// Ende der Zeile
+		        }
+		        System.out.println();		// nach Ausgabe des Feldes
+		    }
+
+		    /*
+		     * Spielerinnenwechsel 
+		     * von BLACK zu RED oder
+		     * von RED zu BLACK
+		     * 
+		     */
+		    public void switchPlayer()
+		    {
+		        this.player = (this.player == Player.BLACK) ? Player.RED : Player.BLACK;
+		    }
+
+		    /*
+		     * setzt player in field, wenn moeglich
+		     * gibt true zurueck, wenn Zug moeglich war
+		     * false, wenn Zug nicht moeglich war (z.B. falsche row oder col 
+		     * oder field[row][col] bereits besetzt)
+		     */
+		    public boolean move(int row, int col)
+		    {
+		    	boolean movePossible = this.movePossible(row, col);
+		        if(movePossible)
+		        {
+		            this.field[row][col] = this.player;
+		        }
+		        return movePossible;
+		    }
+
+		    /*
+		     * Rueckgabe aktueller player
+		     */
+		    public Player curPlayer() 
+		    {
+		        return this.player;
+		    }
+
+		    /* 
+		     * Hilfsmethode, um zu ermitteln, ob Zug moeglich
+		     * gibt true zurueck, wenn Zug moeglich war
+		     * false, wenn Zug nicht moeglich war (z.B. falsche row oder col 
+		     * oder field[row][col] bereits besetzt)
+		     */
+		    public boolean movePossible(int row, int col)
+		    {
+		        boolean movePossible = false;
+		        // row und col jeweils koorekter Index ?
+		        if(row >= 0 && row < this.size && col >= 0 && col < this.size)
+		        {
+		            // ist das Feld ueberhaupt leer ?
+		            if(this.field[row][col] == Player.EMPTY)
+		            {
+		                movePossible = true;
+		            }
+		        }
+		        return movePossible;
+		    }
+
+		    /*
+		     * true, wenn gewonnen
+		     * false, wenn nicht
+		     */
+		    public boolean won()
+		    {
+		    	return this.won(Player.BLACK) || this.won(Player.RED);
+		    }
+		    
+		    /*
+		     * Hilfsmethode fuer won(), um zu ueberpruefen,
+		     * ob BLACK oder RED gewonnen hat
+		     */
+		    private boolean won(Player player)
+		    {
+		        boolean won = false;
+		        if(player == Player.BLACK || player == Player.RED)
+		        {
+			        // 3 nebeneinander ???
+			        for(int row = 0; row < this.size && !won; row++)
+			        {
+			            if( this.field[row][0] == player && 
+			                this.field[row][1] == player &&
+			                this.field[row][2] == player) 
+			            {
+			                won = true;
+			            }
+			        }
+			        // 3 untereinander ???
+			        for(int col = 0; col < this.size && !won; col++)
+			        {
+			            if( this.field[0][col] == player && 
+			                this.field[1][col] == player &&
+			                this.field[2][col] == player) 
+			            {
+			                won = true;
+			            }
+			        }
+			        // von links oben nach rechts unten - Diagonale
+			        if( !won && 
+			        	this.field[0][0] == player && 
+			            this.field[1][1] == player &&
+			            this.field[2][2] == player) 
+			        {
+			            won = true;
+			        }
+			        // von rechts oben nach links unten - Diagonale
+			        if( !won && 
+			        	this.field[0][2] == player && 
+			            this.field[1][1] == player &&
+			            this.field[2][0] == player) 
+			        {
+			            won = true;
+			        }
+		        }
+		        return won;
+		    }
+
+		    /*
+		     * Ausgabe auf die Konsole 
+		     * player, die gewonnen hat
+		     */
+		    public void printWon()
+		    {
+		        if(this.player == Player.BLACK)
+		        {
+		            System.out.println("Spielerin x hat gewonnen !!!" );
+		        }
+		        else
+		        {
+		            System.out.println("Spielerin o hat gewonnen !!!" );
+		        }
+		    }
+
+		    /*
+		     * Hilfsmethode, um zu uberpruefen, ob alle Felder besetzt
+		     * wird fuer draw() benoetigt
+		     */
+		    private boolean fieldFilled()
+		    {
+		        for(int row = 0; row < this.size; row++)
+		        {
+		            for(int col = 0; col < this.size; col++)
+		            {
+		                if(this.field[row][col] == Player.EMPTY)
+		                {
+		                    return false;
+		                }
+		            }
+		        }
+		        return true;
+		    }
+
+		    /*
+		     * true, wenn unentschieden
+		     * false, wenn nicht
+		     * unentschieden ist, wenn field voll ist (fieldFilled()),
+		     * aber niemand gewonnen hat
+		     */
+		    public boolean draw()
+		    {
+		        return this.fieldFilled() && !this.won();
+		    }
+
+		    /*
+		     * true, wenn Spiel zu Ende
+		     * entweder unentschieden oder gewonnen
+		     */
+		    public boolean finished()
+		    {
+		        return this.draw() || this.won();
+		    }
+
+		    /*
+		     * zufaelliger Zug
+		     * wird ausgefuehrt, aber keine Pruefung, ob
+		     * gewonnen oder unentschieden
+		     * nach dem Zug switschPlayer()
+		     */
+		    public void automaticMove()
+		    {
+		        Random r = new Random();
+		        int row = r.nextInt(this.size);
+		        int col = r.nextInt(this.size);
+		        while(!this.movePossible(row, col))
+		        {
+		            row = r.nextInt(this.size);
+		            col = r.nextInt(this.size);
+		        }
+		        this.move(row, col);
+		    }
+
+		    /*
+		     * automatischer (zufaelliger) Zug mit
+		     * anschliessender Pruefung, ob gewonnen 
+		     * oder nicht
+		     * neuer Stand von field Ausgabe auf die Konsole
+		     * bei Gewinn oder Unentschieden Ausgabe auf die Konsole
+		     */
+		    public void automaticMoveAndCheck()
+		    {
+		        this.automaticMove();
+		        this.printField();
+		        if(this.finished())
+		        {
+		            if(this.won())
+		            {
+		                this.printWon();
+		            }
+		            else    // draw
+		            {
+		                System.out.println("Unentschieden !!!");
+		            }
+		        }
+		        else
+		        {
+		            this.switchPlayer();
+		        }
+		    }
+
+		    /*
+		     * so lange automatisch ziehen bis Spiel zu Ende
+		     * inkl. Ausgabe auf die Konsole
+		     */
+		    public void playGame()
+		    {
+		        while(!this.finished())
+		        {
+		            this.automaticMoveAndCheck();
+		        }
+		    }
+
 		}
 		```
 
@@ -4617,7 +4710,7 @@
 				JPanel labelPanel = new JPanel();
 				this.labelStatus = new JLabel();
 				this.labelStatus.setFont(new Font("Verdana", Font.BOLD, 24));
-				this.labelStatus.setText(" ");
+				this.labelStatus.setText("X beginnt");
 				labelPanel.add(this.labelStatus);
 				this.getContentPane().add(labelPanel, BorderLayout.NORTH);
 				
@@ -4702,9 +4795,10 @@
 
 			public static void main(String[] args) 
 			{
-				Model model = new Model(3);	
-				View view = new View(model);
-				Controller controller = new Controller(model, view);
+		        Model model = new Model(3); 
+		        model.playGame();	// einmal ein Spiel auf Konsole ausgeben
+		        View view = new View(model);
+		        Controller controller = new Controller(model, view);
 			}
 
 		}

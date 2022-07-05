@@ -7154,7 +7154,100 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 <span class="normal">236</span>
 <span class="normal">237</span>
 <span class="normal">238</span>
-<span class="normal">239</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung12</span><span class="p">;</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung12.loesung</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
 
@@ -7169,6 +7262,12 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
     <span class="kd">private</span> <span class="n">Player</span> <span class="n">player</span><span class="p">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * erzeugt Objekt vom Model </span>
+<span class="cm">     *  Parameter size fuer field: size x size </span>
+<span class="cm">     *  alle Felder in field am Anfang leer (EMPTY)</span>
+<span class="cm">     *  player BLACK beginnt</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="nf">Model</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
@@ -7183,8 +7282,13 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">;</span>     <span class="c1">// BLACK faengt an</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">restart</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Player</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="o">][</span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="o">]</span><span class="p">;</span>
+    <span class="cm">/*</span>
+<span class="cm">     * field wieder alle Felder EMPTY</span>
+<span class="cm">     * player ist BLACK</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">restart</span><span class="p">()</span> 
+    <span class="p">{</span>
+
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
@@ -7195,10 +7299,18 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">;</span>     
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Rueckgabe von size</span>
+<span class="cm">     *  z.B. 3 bei 3 x 3 field</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSize</span><span class="p">()</span> 
+    <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     *  Rueckgabe deep copy von field</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="n">Player</span><span class="o">[][]</span> <span class="nf">getField</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">Player</span><span class="o">[][]</span> <span class="n">copy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Player</span><span class="o">[</span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="o">][</span><span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="o">]</span><span class="p">;</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
@@ -7211,6 +7323,9 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">return</span> <span class="n">copy</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * Ausgabe von field auf Konsole</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printField</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
@@ -7230,39 +7345,59 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
                     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;o &quot;</span><span class="p">);</span>
                 <span class="p">}</span>
             <span class="p">}</span>
-            <span class="c1">// Ende der Zeile</span>
-            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>   <span class="c1">// Ende der Zeile</span>
         <span class="p">}</span>
-        <span class="c1">// nach Ausgabe des Feldes</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>       <span class="c1">// nach Ausgabe des Feldes</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * Spielerinnenwechsel </span>
+<span class="cm">     * von BLACK zu RED oder</span>
+<span class="cm">     * von RED zu BLACK</span>
+<span class="cm">     * </span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">switchPlayer</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">==</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">)</span> <span class="o">?</span> <span class="n">Player</span><span class="p">.</span><span class="na">RED</span> <span class="p">:</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
+    <span class="cm">/*</span>
+<span class="cm">     * setzt player in field, wenn moeglich</span>
+<span class="cm">     * gibt true zurueck, wenn Zug moeglich war</span>
+<span class="cm">     * false, wenn Zug nicht moeglich war (z.B. falsche row oder col </span>
+<span class="cm">     * oder field[row][col] bereits besetzt)</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">move</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
     <span class="p">{</span>
-
-        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">movePossible</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">))</span>
+        <span class="kt">boolean</span> <span class="n">movePossible</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">movePossible</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">movePossible</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">;</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">switchPlayer</span><span class="p">();</span>
         <span class="p">}</span>
+        <span class="k">return</span> <span class="n">movePossible</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="n">Player</span> <span class="nf">curPlayer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Rueckgabe aktueller player</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">Player</span> <span class="nf">curPlayer</span><span class="p">()</span> 
+    <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="cm">/* </span>
+<span class="cm">     * Hilfsmethode, um zu ermitteln, ob Zug moeglich</span>
+<span class="cm">     * gibt true zurueck, wenn Zug moeglich war</span>
+<span class="cm">     * false, wenn Zug nicht moeglich war (z.B. falsche row oder col </span>
+<span class="cm">     * oder field[row][col] bereits besetzt)</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">movePossible</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="kt">boolean</span> <span class="n">movePossible</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="c1">// row und col jeweils koorekter Index ???</span>
+        <span class="c1">// row und col jeweils koorekter Index ?</span>
         <span class="k">if</span><span class="p">(</span><span class="n">row</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">&amp;&amp;</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="c1">// ist das Feld ueberhaupt leer (0) ???</span>
+            <span class="c1">// ist das Feld ueberhaupt leer ?</span>
             <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">Player</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="n">movePossible</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -7271,47 +7406,68 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">return</span> <span class="n">movePossible</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * true, wenn gewonnen</span>
+<span class="cm">     * false, wenn nicht</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">won</span><span class="p">()</span>
     <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">won</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">)</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="na">won</span><span class="p">(</span><span class="n">Player</span><span class="p">.</span><span class="na">RED</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * Hilfsmethode fuer won(), um zu ueberpruefen,</span>
+<span class="cm">     * ob BLACK oder RED gewonnen hat</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">won</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
         <span class="kt">boolean</span> <span class="n">won</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="c1">// 3 nebeneinander ???</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">won</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">player</span> <span class="o">==</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span> <span class="o">||</span> <span class="n">player</span> <span class="o">==</span> <span class="n">Player</span><span class="p">.</span><span class="na">RED</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span> 
-                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span>
-                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">)</span> 
+            <span class="c1">// 3 nebeneinander ???</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">won</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> 
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span> 
+                <span class="p">{</span>
+                    <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// 3 untereinander ???</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">won</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> 
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span>
+                    <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span> 
+                <span class="p">{</span>
+                    <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// von links oben nach rechts unten - Diagonale</span>
+            <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">won</span> <span class="o">&amp;&amp;</span> 
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> 
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span> 
             <span class="p">{</span>
                 <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="c1">// 3 untereinander ???</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">won</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span> 
-                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span>
-                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">)</span> 
+            <span class="c1">// von rechts oben nach links unten - Diagonale</span>
+            <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">won</span> <span class="o">&amp;&amp;</span> 
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span> 
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span> <span class="o">&amp;&amp;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">player</span><span class="p">)</span> 
             <span class="p">{</span>
                 <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="c1">// von links oben nach rechts unten - Diagonale</span>
-        <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">won</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span> 
-            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="c1">// von rechts oben nach links unten - Diagonale</span>
-        <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="n">won</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span> 
-            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">&amp;&amp;</span>
-            <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="na">player</span><span class="p">)</span> 
-        <span class="p">{</span>
-            <span class="n">won</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">won</span><span class="p">;</span>
     <span class="p">}</span>
 
-
+    <span class="cm">/*</span>
+<span class="cm">     * Ausgabe auf die Konsole </span>
+<span class="cm">     * player, die gewonnen hat</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printWon</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">player</span> <span class="o">==</span> <span class="n">Player</span><span class="p">.</span><span class="na">BLACK</span><span class="p">)</span>
@@ -7324,7 +7480,11 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">fieldFilled</span><span class="p">()</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Hilfsmethode, um zu uberpruefen, ob alle Felder besetzt</span>
+<span class="cm">     * wird fuer draw() benoetigt</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">fieldFilled</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
@@ -7339,16 +7499,32 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * true, wenn unentschieden</span>
+<span class="cm">     * false, wenn nicht</span>
+<span class="cm">     * unentschieden ist, wenn field voll ist (fieldFilled()),</span>
+<span class="cm">     * aber niemand gewonnen hat</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">draw</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">fieldFilled</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">won</span><span class="p">();</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * true, wenn Spiel zu Ende</span>
+<span class="cm">     * entweder unentschieden oder gewonnen</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">finished</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">draw</span><span class="p">()</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="na">won</span><span class="p">();</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * zufaelliger Zug</span>
+<span class="cm">     * wird ausgefuehrt, aber keine Pruefung, ob</span>
+<span class="cm">     * gewonnen oder unentschieden</span>
+<span class="cm">     * nach dem Zug switschPlayer()</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">automaticMove</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="n">Random</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
@@ -7362,6 +7538,13 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="k">this</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * automatischer (zufaelliger) Zug mit</span>
+<span class="cm">     * anschliessender Pruefung, ob gewonnen </span>
+<span class="cm">     * oder nicht</span>
+<span class="cm">     * neuer Stand von field Ausgabe auf die Konsole</span>
+<span class="cm">     * bei Gewinn oder Unentschieden Ausgabe auf die Konsole</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">automaticMoveAndCheck</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">automaticMove</span><span class="p">();</span>
@@ -7383,6 +7566,10 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="p">}</span>
     <span class="p">}</span>
 
+    <span class="cm">/*</span>
+<span class="cm">     * so lange automatisch ziehen bis Spiel zu Ende</span>
+<span class="cm">     * inkl. Ausgabe auf die Konsole</span>
+<span class="cm">     */</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">playGame</span><span class="p">()</span>
     <span class="p">{</span>
         <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="na">finished</span><span class="p">())</span>
@@ -7390,7 +7577,6 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
             <span class="k">this</span><span class="p">.</span><span class="na">automaticMoveAndCheck</span><span class="p">();</span>
         <span class="p">}</span>
     <span class="p">}</span>
-
 
 <span class="p">}</span>
 </code></pre></div>
@@ -7496,7 +7682,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
         <span class="n">JPanel</span> <span class="n">labelPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="na">labelStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="na">labelStatus</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
-        <span class="k">this</span><span class="p">.</span><span class="na">labelStatus</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">labelStatus</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;X beginnt&quot;</span><span class="p">);</span>
         <span class="n">labelPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">labelStatus</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">labelPanel</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
 
@@ -7615,7 +7801,8 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung12</span><span class="p">;</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">uebungen.uebung12</span><span class="p">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Programclass</span> 
 <span class="p">{</span>
@@ -7623,6 +7810,7 @@ Frankfurt/Main     <span class="m">248</span>,31 km2      <span class="m">648</s
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
     <span class="p">{</span>
         <span class="n">Model</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Model</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> 
+        <span class="n">model</span><span class="p">.</span><span class="na">playGame</span><span class="p">();</span>   <span class="c1">// einmal ein Spiel auf Konsole ausgeben</span>
         <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="k">new</span> <span class="n">View</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
         <span class="n">Controller</span> <span class="n">controller</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Controller</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">view</span><span class="p">);</span>
     <span class="p">}</span>
