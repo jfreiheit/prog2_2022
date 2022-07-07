@@ -1547,6 +1547,178 @@
 	- Schauen Sie sich auch im Skript [Mengenoperationen](./collections/#mengenoperationen) an. 
 
 
+??? question "eine mögliche Lösung für Aufgabe 4"
+	
+	=== "SetOperations.java"
+		```java linenums="1"
+		package aufgaben.aufgabe4;
+
+		import java.util.*;
+
+		public class SetOperations {
+		    Set<Integer> numbers1;
+		    Set<Integer> numbers2;
+		    Set<Integer> both;
+		    final static int UPPER_BOUND = 100;
+
+		    public SetOperations()
+		    {
+		        this.numbers1 = new TreeSet<>();
+		        this.numbers2 = new TreeSet<>();
+		        this.both = new TreeSet<>();
+		    }
+
+		    public void fill()
+		    {
+		        Random r = new Random();
+		        int nextIntNr = 0;
+		        Integer nextIntegerNr = Integer.valueOf(nextIntNr);
+		        // fill numbers1
+		        for(int i=0; i<UPPER_BOUND; i++)
+		        {
+		            nextIntNr = r.nextInt(UPPER_BOUND);
+		            nextIntegerNr = Integer.valueOf(nextIntNr);
+		            this.numbers1.add(nextIntegerNr);
+		        }
+		        // fill numbers2
+		        for(int i=0; i<UPPER_BOUND; i++)
+		        {
+		            nextIntNr = r.nextInt(UPPER_BOUND);
+		            nextIntegerNr = Integer.valueOf(nextIntNr);
+		            this.numbers2.add(nextIntegerNr);
+		        } 
+		    }
+
+		    public void fillBothUnion()
+		    {
+		        System.out.println();
+		        System.out.println("----------------------------------------------------------------------------");
+		        System.out.println("         A                           B                        A "+'\u222a'+" B ");
+		        System.out.println("----------------------------------------------------------------------------");
+		        this.both.addAll(numbers1);
+		        this.both.addAll(numbers2);
+		    }
+
+		    public void fillBothIntersection()
+		    {
+		        System.out.println();
+		        System.out.println("----------------------------------------------------------------------------");
+		        System.out.println("         A                           B                        A "+'\u2229'+" B ");
+		        System.out.println("----------------------------------------------------------------------------");
+		        this.both.clear();
+		        this.both.addAll(numbers1);
+		        this.both.retainAll(numbers2);
+		    }
+
+		    public void fillBothDifference()
+		    {
+		        System.out.println();
+		        System.out.println("----------------------------------------------------------------------------");
+		        System.out.println("         A                           B                          A-B ");
+		        System.out.println("----------------------------------------------------------------------------");
+		        this.both.clear();
+		        this.both.addAll(numbers1);
+		        this.both.removeAll(numbers2);
+		    }
+
+		    public Integer printOneLine(Iterator<Integer> it, Integer next, int curRow)
+		    {
+		        int curNr = 0; // row*10+col
+		        for(int col=0; col<10; col++)
+		        {
+		            curNr = curRow*10+col;
+		            if(next!=null && next.intValue()==curNr) 
+		            {
+		                System.out.print('\u25cf'+" ");
+		                if(it.hasNext())
+		                {
+		                    next = it.next();
+		                }
+		            }
+		            else
+		            {
+		                //System.out.print('\u25cc'+" ");
+		                System.out.print('\u2009'+" ");
+		            }
+		        }
+		        return next;
+		    }
+
+		    private void printSpaces(int nrOfSpaces)
+		    {
+		        for(int spaces=0; spaces<nrOfSpaces; spaces++) System.out.print(" ");
+		    }
+
+		    private void justTestPrint()
+		    { 
+		        System.out.print(numbers1.size() + " : [ ");
+		        for(Integer i : numbers1) System.out.print(i.intValue() + " ");
+		        System.out.println("]");
+		        System.out.println();
+		        System.out.print(numbers2.size() + " : [ ");
+		        for(Integer i : numbers2) System.out.print(i.intValue() + " ");
+		        System.out.println("]");
+		        System.out.println();
+		        System.out.print(both.size() + " : [ ");
+		        for(Integer i : both) System.out.print(i.intValue() + " ");
+		        System.out.println("]");
+		        System.out.println();
+		    }
+
+		    public void print()
+		    {
+		        justTestPrint();
+		        System.out.println();
+
+		        Iterator<Integer> it1 = numbers1.iterator();
+		        Integer next1 = (it1.hasNext()) ? it1.next() : null;
+
+		        Iterator<Integer> it2 = numbers2.iterator();
+		        Integer next2 = (it2.hasNext()) ? it2.next() : null;
+
+		        Iterator<Integer> itb = both.iterator();
+		        Integer nextB = (itb.hasNext()) ? itb.next() : null;
+
+		        for(int row=0; row<10; row++)
+		        {
+		            next1 = this.printOneLine(it1, next1, row);
+		            printSpaces(8);
+		            next2 = this.printOneLine(it2, next2, row);
+		            printSpaces(8);
+		            nextB = this.printOneLine(itb, nextB, row);
+		            System.out.println();
+		        }
+		        System.out.println();
+
+
+		    }
+		}		
+		```
+	
+	=== "Testklasse.java"
+		```java linenums="1"
+		package aufgaben.aufgabe4;
+
+		public class Testklasse {
+
+			public static void main(String[] args) {
+		        SetOperations so = new SetOperations();
+		        so.fill();
+
+		        so.fillBothUnion();
+		        so.print();
+
+		        so.fillBothIntersection();
+		        so.print();
+
+		        so.fillBothDifference();
+		        so.print();
+			}
+
+		}
+		```
+
+
 
 ##### Aufgabe 5 (Maps)
 
@@ -1624,6 +1796,119 @@
 	9. Legen Sie ein zweites Menü an und kopieren Sie alle Einträge aus dem ersten Menü hinein. Löschen Sie im zweiten Menü die Pizza `Hawaii` und geben Sie die Namen aller noch verfügbaren Pizzen aus.
 
 	10. Finden Sie in Ihrem Code ein Beispiel für Auto-Boxing und schreiben Sie einen entsprechenden Kommentar.
+
+
+??? question "eine mögliche Lösung für Aufgabe 5"
+	
+	=== "PizzaMenue.java"
+		```java linenums="1"
+		package aufgaben.aufgabe5;
+
+		import java.util.ArrayList;
+		import java.util.HashMap;
+		import java.util.Map;
+		import java.util.Set;
+		import java.util.List;
+
+
+		public class PizzaMenu {    
+
+		    //3. 
+		    public static boolean existingPizza(Map<String,Double> menu, String pizza) {
+		        if(menu.containsKey(pizza)){            
+		            return true;
+		        }       
+		        return false;
+		    }
+
+		    //4.
+		    public static void printPrice(Map<String,Double> menu, String pizza) {
+		        if(existingPizza(menu, pizza)){
+		            System.out.println(pizza + ": " + menu.get(pizza));
+		        }else {
+		            System.out.println(pizza + ": " + "Diese Pizza gibt es nicht.");
+		        }
+		    }
+
+		    //5.
+		    public static void printMenu(Map<String,Double> menu) {
+		        System.out.println();
+		        System.out.println("##############");
+		        System.out.println("Das Menu enthält " + menu.size() + " Pizzen.");
+
+		        if (!menu.isEmpty()) {
+		            for(Map.Entry<String, Double> entry : menu.entrySet()) 
+		            {
+		                System.out.println("Pizza : " + entry.getKey() + " - " + entry.getValue());
+		            }
+		        }
+
+		        System.out.println("##############");       
+		    }
+
+		    //7.
+		    public static void affordablePizza(Map<String,Double> menu, double maxPrice) {
+		        List<String> pizzen = new ArrayList<>();
+
+		        System.out.println("Eingegebener Betrag: " + maxPrice + " Euro"); 
+		        for(Map.Entry<String, Double> eintrag : menu.entrySet())
+		        {
+		            if (eintrag.getValue() <= maxPrice) { //Auto-Boxing von double zu Double
+		                pizzen.add(eintrag.getKey());
+		            }
+		        }
+		        if (pizzen.size() == 0) {
+		            System.out.println("Leider gibt es zu diesem Preis keine Pizza.");
+		        }else {         
+		            System.out.println("Mögliche Pizzen: " + pizzen);
+		        }   
+		    }       
+
+
+		    public static void main(String[] args) {
+
+		        //2.
+		        Map<String,Double> menu1 = new HashMap<>();
+		        menu1.put("Margherita", 7.0); //Auto-Boxing von double zu Double
+		        menu1.put("Veggie", 7.5); //Auto-Boxing von double zu Double
+		        menu1.put("Salami", 8.5); //Auto-Boxing von double zu Double
+		        menu1.put("Schinken", 8.5); //Auto-Boxing von double zu Double
+
+		        //4.        
+		        printPrice(menu1, "Salami");
+		        printPrice(menu1, "Hawaii");
+
+		        //5.
+		        printMenu(menu1);
+
+		        //6. 
+		        menu1.put("Schinken", 8.20); //Auto-Boxing von double zu Double
+
+		        //7.
+		        affordablePizza(menu1, 4.0);
+		        affordablePizza(menu1, 8.0);
+
+		        //8. 
+		        menu1.clear();
+		        printMenu(menu1);
+
+		        menu1.put("Verde", 7.0); //Auto-Boxing von double zu Double
+		        menu1.put("Hawaii", 8.2); //Auto-Boxing von double zu Double
+		        menu1.put("Tradizionale", 8.5); //Auto-Boxing von double zu Double
+
+		        printMenu(menu1);
+
+		        //9.
+		        Map<String,Double> menu2 = new HashMap<>();
+		        menu2.putAll(menu1);
+		        menu2.remove("Hawaii");
+		        Set<String> pizzaNames = menu2.keySet();
+		        System.out.println();
+		        System.out.println("Es gibt folgende Pizzen: " + pizzaNames);
+		    }
+		}		
+		```
+
 
 
 ##### Aufgabe 6 (Interfaces)
@@ -1758,6 +2043,204 @@
 		```
 
 
+??? question "eine mögliche Lösung für Aufgabe 6"
+	
+	=== "Listener.java"
+		```java linenums="1"
+		package aufgaben.aufgabe6;
+
+		public interface Listener {
+			
+			//method to update the listener, used by publisher
+			public void update();
+			
+			//attach with publisher to observe
+			public void setPublisher(Publisher publisher);
+			
+			//attach with publisher to observe
+			public void removePublisher(Publisher publisher);
+		}
+		```
+	
+	=== "Publisher.java"
+		```java linenums="1"
+		package aufgaben.aufgabe6;
+
+		public interface Publisher 
+		{
+			//methods to register and unregister listeners (observers)
+			public boolean register(Listener listener);
+			public boolean unregister(Listener listener);
+			
+			//method to notify listeners of change
+			public void notifyListeners();
+			
+			//method to get updates from publisher (subject)
+			public String getUpdate(Listener listener);
+		}
+		```
+	
+	=== "Slack.java"
+		```java linenums="1"
+		package aufgaben.aufgabe6;
+
+		import java.util.*;
+
+		public class Slack implements Publisher
+		{
+			private Set<Listener> listeners;
+			private int nrOfMessages;
+			
+			public Slack()
+			{
+				this.listeners = new HashSet<>();
+				this.nrOfMessages = 0;
+			}
+			
+			@Override
+			public boolean register(Listener listener) 
+			{
+				return listeners.add(listener);
+			}
+
+			@Override
+			public boolean unregister(Listener listener) 
+			{
+				return listeners.remove(listener);		
+			}
+
+			@Override
+			public void notifyListeners() 
+			{
+				for(Listener listener : listeners)
+				{
+					listener.update();
+				}	
+			}
+
+			@Override
+			public String getUpdate(Listener obj) 
+			{
+				return "Breaking News " + this.nrOfMessages;
+			}
+			
+			public void publishNews()
+			{
+				this.nrOfMessages++;
+				this.notifyListeners();
+			}
+
+		}
+		```
+
+	
+	=== "Student.java"
+		```java linenums="1"
+		package aufgaben.aufgabe6;
+
+		public class Student implements Listener
+		{
+			private String name;
+			private Publisher publisher;
+			
+			public Student(String name)
+			{
+				this.name = name;
+			}
+			
+			@Override
+			public void update() 
+			{
+				String msg = this.publisher.getUpdate(this);
+				System.out.println(this.name + " received " + msg);	
+			}
+
+			@Override
+			public void setPublisher(Publisher publisher) 
+			{
+				this.publisher = publisher;
+				if(this.publisher.register(this))
+				{
+					System.out.println(this.name + " registered!");
+				}
+			}
+
+			@Override
+			public void removePublisher(Publisher publisher) 
+			{
+				if(this.publisher.unregister(this)) 
+				{
+					System.out.println(this.name + " deregistered!");
+					this.publisher = null;
+				}	
+			}
+			
+			@Override
+			public boolean equals(Object o)
+			{
+				if(o==null) return false;
+				if(this==o) return true;
+				if(this.getClass()!=o.getClass()) return false;
+				
+				Student so = (Student)o;
+				return this.name.equals(so.name);
+			}
+			
+			@Override
+			public int hashCode()
+			{
+				return this.name.hashCode();
+			}
+		}
+		```
+
+	
+	=== "Testklasse.java"
+		```java linenums="1"
+		package aufgaben.aufgabe6;
+
+		public class Testklasse {
+
+			public static void main(String[] args) 
+			{		
+				final int NR_OF_STUDENTS = 5;
+				Slack slack = new Slack();
+				
+				Student[] students = new Student[NR_OF_STUDENTS];
+				Character c = 'A';
+				for(int index=0; index < students.length; index++)
+				{
+					students[index] = new Student(c.toString());
+					c++;
+					students[index].setPublisher(slack);
+				}
+				slack.publishNews();
+				
+				System.out.println();
+				students[1].removePublisher(slack);
+				students[3].removePublisher(slack);
+				System.out.println();
+				slack.publishNews();
+				
+				System.out.println();
+				students[1].setPublisher(slack);
+				students[2].removePublisher(slack);
+				students[4].removePublisher(slack);	
+				System.out.println();
+				slack.publishNews();
+				
+				System.out.println();
+				students[0].removePublisher(slack);
+				students[1].removePublisher(slack);
+				students[3].setPublisher(slack);
+				System.out.println();
+				slack.publishNews();
+			}
+
+		}
+		```
+
+
 ##### Aufgabe 7 (GUI)
 
 ??? "Aufgabe 7"
@@ -1769,6 +2252,99 @@
 		Kann auch schicker sein :-) Viel Spaß!
 
 
+??? question "eine mögliche Lösung für Aufgabe 7"
+	
+	=== "Taschenrechner.java"
+		```java linenums="1"
+		package aufgaben.aufgabe7;
+
+		import java.awt.*;
+
+		import javax.swing.*;
+
+		public class Taschenrechner extends JFrame 
+		{
+
+			public Taschenrechner()
+			{
+				super();
+				setTitle("Taschenrechner");
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				JPanel mainPanel = init();
+
+				this.add(mainPanel, BorderLayout.CENTER);
+				setSize(250,350);
+				setVisible(true);
+			}
+
+			private JPanel init()
+			{
+				JPanel panel = new JPanel();
+				panel.setLayout(new BorderLayout());
+				
+				JPanel oben = new JPanel();
+				oben.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+				JTextField tf = new JTextField(8);
+				tf.setFont(new Font("Verdana", Font.BOLD, 24));
+				tf.setHorizontalAlignment(JTextField.RIGHT);
+				oben.add(tf);
+				
+				JPanel unten = new JPanel();
+				unten.setLayout(new GridLayout(6,3,10,10));
+				
+				JButton b0 = new JButton("0");
+				JButton b1 = new JButton("1");
+				JButton b2 = new JButton("2");
+				JButton b3 = new JButton("3");
+				JButton b4 = new JButton("4");
+				JButton b5 = new JButton("5");
+				JButton b6 = new JButton("6");
+				JButton b7 = new JButton("7");
+				JButton b8 = new JButton("8");
+				JButton b9 = new JButton("9");
+				JButton bMal = new JButton("*");
+				JButton bDurch = new JButton("/");
+				JButton bPlus = new JButton("+");
+				JButton bMinus = new JButton("-");
+				JButton bKlauf = new JButton("(");
+				JButton bKlzu = new JButton(")");
+				JButton bKomma = new JButton(".");
+				JButton bC = new JButton("C");
+				JButton bCE = new JButton("CE");
+				JButton bErg = new JButton("=");
+
+				unten.add(b1);
+				unten.add(b2);
+				unten.add(b3);
+				unten.add(b4);
+				unten.add(b5);
+				unten.add(b6);
+				unten.add(b7);
+				unten.add(b8);
+				unten.add(b9);
+				unten.add(bKlauf);		
+				unten.add(b0);
+				unten.add(bKlzu);		
+				unten.add(bMal);
+				unten.add(bDurch);
+				unten.add(bPlus);
+				unten.add(bMinus);
+				unten.add(bKomma);
+				unten.add(bErg);
+				
+				panel.add(oben, BorderLayout.NORTH);
+				panel.add(unten, BorderLayout.CENTER);
+				
+				return panel;
+			}
+
+			public static void main(String[] args) {
+				new Taschenrechner();
+			}
+
+		}
+		```
+
 ##### Aufgabe 8 (Ereignisbehandlung)
 
 ??? "Aufgabe 8"
@@ -1779,8 +2355,410 @@
 	4. Ab dann ist alles **Zusatz** und bedarf in vielen Fällen der Erweiterung der GUI: Verwendung und Beachten von Klammern (ist aber sehr schwer!), Speichern von Zwischenergebnissen, komplexere Operationen durch zuätzliche Tasten (Wurzel, Potenzieren, ...). Alles, was Sie möchten - Viel Spaß!
 
 
+??? question "eine mögliche Lösung für Aufgabe 9"
+	
+	=== "Taschenrechner.java"
+		```java linenums="1"
+		package aufgaben.aufgabe9;
 
-##### Aufgabe 9 (Zeichnen)
+		import java.awt.*;
+		import java.awt.event.*;
+
+		import javax.swing.*;
+
+		//Klammern werden ignoriert
+		public class Taschenrechner extends JFrame implements ActionListener{
+			JPanel hauptPanel;
+			JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, bMal, bPlus, bMinus, bDurch, bErg, bKlauf, bKlzu, bKomma, bC, bCE;
+			JTextField tf;
+			double zahl1, zahl2, zahl3;
+			boolean zahl1Gesetzt=false; 
+			boolean zahl2Gesetzt=false;
+			boolean zahl3Gesetzt=false;
+			boolean letztesZeichenZiffer=false;
+			String eingabe="", aktEingabe="0";
+			String op1="", op2="";
+			int anzKlammern=0;
+
+			Taschenrechner()
+			{
+				super();
+				setTitle("Taschenrechner");
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				hauptPanel = init();
+				tf = new JTextField();
+				tf.setFont(new Font("Verdana", Font.BOLD, 24));
+				tf.setHorizontalAlignment(JTextField.RIGHT);
+				this.add(tf, BorderLayout.NORTH);
+				this.add(hauptPanel, BorderLayout.CENTER);
+				setSize(250,350);
+				setVisible(true);
+			}
+
+			private JPanel init()
+			{
+				JPanel panel = new JPanel();
+				panel.setLayout(new GridLayout(6,3,10,10));
+
+				b0 = new JButton("0");
+				b1 = new JButton("1");
+				b2 = new JButton("2");
+				b3 = new JButton("3");
+				b4 = new JButton("4");
+				b5 = new JButton("5");
+				b6 = new JButton("6");
+				b7 = new JButton("7");
+				b8 = new JButton("8");
+				b9 = new JButton("9");
+				bMal = new JButton("*");
+				bDurch = new JButton("/");
+				bPlus = new JButton("+");
+				bMinus = new JButton("-");
+				bKlauf = new JButton("(");
+				bKlzu = new JButton(")");
+				bKomma = new JButton(".");
+				bC = new JButton("C");
+				bCE = new JButton("CE");
+				bErg = new JButton("=");
+
+				b0.addActionListener(this);
+				b1.addActionListener(this);
+				b2.addActionListener(this);
+				b3.addActionListener(this);
+				b4.addActionListener(this);
+				b5.addActionListener(this);
+				b6.addActionListener(this);
+				b7.addActionListener(this);
+				b8.addActionListener(this);
+				b9.addActionListener(this);
+				bMal.addActionListener(this);
+				bDurch.addActionListener(this);
+				bPlus.addActionListener(this);
+				bMinus.addActionListener(this);
+				bErg.addActionListener(this);
+				bKlauf.addActionListener(this);
+				bKlzu.addActionListener(this);
+				bC.addActionListener(this);
+				bCE.addActionListener(this);
+				bKomma.addActionListener(this);
+
+
+				panel.add(b1);
+				panel.add(b2);
+				panel.add(b3);
+				panel.add(b4);
+				panel.add(b5);
+				panel.add(b6);
+				panel.add(b7);
+				panel.add(b8);
+				panel.add(b9);
+				panel.add(bKlauf);		
+				panel.add(b0);
+				panel.add(bKlzu);		
+				panel.add(bMal);
+				panel.add(bDurch);
+				panel.add(bPlus);
+				panel.add(bMinus);
+				panel.add(bKomma);
+				panel.add(bErg);
+				return panel;
+			}
+
+			public static void main(String[] args) {
+				new Taschenrechner();
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				Object quelle = event.getSource();
+
+				if(quelle instanceof JButton)
+				{
+					
+					switch(((JButton)quelle).getActionCommand())
+					{
+					case "0": eingabeZiffer(0); tf.setText(aktEingabe); break;
+					case "1": eingabeZiffer(1); tf.setText(aktEingabe); break;
+					case "2": eingabeZiffer(2); tf.setText(aktEingabe); break;
+					case "3": eingabeZiffer(3); tf.setText(aktEingabe); break;
+					case "4": eingabeZiffer(4); tf.setText(aktEingabe); break;
+					case "5": eingabeZiffer(5); tf.setText(aktEingabe); break;
+					case "6": eingabeZiffer(6); tf.setText(aktEingabe); break;
+					case "7": eingabeZiffer(7); tf.setText(aktEingabe); break;
+					case "8": eingabeZiffer(8); tf.setText(aktEingabe); break;
+					case "9": eingabeZiffer(9); tf.setText(aktEingabe); break;
+					case "*": eingabePunktOperator("*"); tf.setText(eingabe); break;
+					case "/": eingabePunktOperator("/"); tf.setText(eingabe); break;
+					case "+": eingabeStrichOperator("+"); tf.setText(eingabe); break;
+					case "-": eingabeStrichOperator("-"); tf.setText(eingabe); break;
+					case "=": eingabeGleich(); tf.setText(eingabe); break;
+					case ".": eingabeKomma(); tf.setText(aktEingabe); break;
+					case "(": eingabeOeffnendeKlammer(); tf.setText(eingabe); break;
+					case ")": eingabeSchliessendeKlammer(); tf.setText(aktEingabe); break;
+					case "C": tf.setText(""); break;
+
+					}
+				}
+			}
+
+			void eingabeOeffnendeKlammer()
+			{
+				if(!letztesZeichenZiffer)
+				{
+					anzKlammern++;
+
+				}
+			}
+
+
+			void eingabeSchliessendeKlammer()
+			{
+				if(letztesZeichenZiffer)
+				{
+					anzKlammern--;
+					letztesZeichenZiffer=false;
+				}
+			}
+
+			void eingabeZiffer(int ziffer)
+			{
+				if(letztesZeichenZiffer)
+				{
+					aktEingabe+=(new Integer(ziffer)).toString();
+				}
+				else
+				{
+					aktEingabe=(new Integer(ziffer)).toString();
+					letztesZeichenZiffer=true;
+				}
+			}
+
+			void eingabeKomma()
+			{
+				if(aktEingabeIstIntZahl()) aktEingabe+=".";
+				letztesZeichenZiffer=true;
+				if(aktEingabeIstDoubleZahl()) System.out.println("ok");
+				else System.out.println("kein double");
+			}
+
+			void eingabeGleich()
+			{	
+				letztesZeichenZiffer=false;
+				if (aktEingabeIstDoubleZahl())
+				{
+					// in aktEingabe steht Zahl1 
+					// Op1 wurde eingegeben
+					if(!zahl1Gesetzt){
+						zahl1Gesetzt=false;
+						zahl1=Double.parseDouble(aktEingabe);
+						eingabe=(new Double(zahl1)).toString();
+						aktEingabe="0";
+						op1=""; op2="";
+					}
+					// in aktEingabe steht zahl2; zahl1 bereits gespeichert 
+					// op2 wurde eingegeben; mit op1 wird gerechnet		
+					else if(!zahl2Gesetzt){
+						zahl1Gesetzt=false;
+						zahl2=Double.parseDouble(aktEingabe);
+						switch(op1)
+						{
+						case "+": zahl1=zahl1+zahl2; break;
+						case "-": zahl1=zahl1-zahl2; break;
+						case "*": zahl1=zahl1*zahl2; break;
+						case "/": zahl1=zahl1/zahl2; break;
+						}
+						eingabe=(new Double(zahl1)).toString();
+						aktEingabe="0";
+						op1=""; op2="";
+					}
+					// in aktEingabe steht zahl3; zahl1 und zahl2 bereits gespeichert 
+					// op3 wurde eingegeben; mit op1 und op2 (* od. /) wird gerechnet		
+					else if(!zahl3Gesetzt){
+						zahl1Gesetzt=false;
+						zahl2Gesetzt=false;
+						zahl3=Double.parseDouble(aktEingabe);
+						if(op2.equals("*"))
+						{
+							switch(op1)
+							{
+							case "+": zahl1=zahl1+zahl2*zahl3; break;
+							case "-": zahl1=zahl1-zahl2*zahl3; break;
+							case "*": zahl1=zahl1*zahl2*zahl3; break;
+							case "/": zahl1=zahl1/zahl2*zahl3; break;
+							}
+						}
+						else if(op2.equals("/"))
+						{
+							switch(op1)
+							{
+							case "+": zahl1=zahl1+zahl2/zahl3; break;
+							case "-": zahl1=zahl1-zahl2/zahl3; break;
+							case "*": zahl1=zahl1*zahl2/zahl3; break;
+							case "/": zahl1=zahl1/zahl2/zahl3; break;
+							}
+						} 
+						eingabe=(new Double(zahl1)).toString();
+						aktEingabe="0";
+						op1=""; op2="";
+					}
+				}
+			}
+
+			void eingabeStrichOperator(String operator)
+			{	
+				letztesZeichenZiffer=false;
+				if (aktEingabeIstDoubleZahl())
+				{
+					// in aktEingabe steht Zahl1 
+					// Op1 wurde eingegeben
+					if(!zahl1Gesetzt){
+						zahl1Gesetzt=true;
+						zahl1=Double.parseDouble(aktEingabe);
+						eingabe=aktEingabe+operator;
+						aktEingabe="0";
+						op1=operator;
+					}
+					// in aktEingabe steht zahl2; zahl1 bereits gespeichert 
+					// op2 wurde eingegeben; mit op1 wird gerechnet		
+					else if(!zahl2Gesetzt){
+						zahl1Gesetzt=true;
+						zahl2=Double.parseDouble(aktEingabe);
+						switch(op1)
+						{
+						case "+": zahl1=zahl1+zahl2; break;
+						case "-": zahl1=zahl1-zahl2; break;
+						case "*": zahl1=zahl1*zahl2; break;
+						case "/": zahl1=zahl1/zahl2; break;
+						}
+						eingabe=(new Double(zahl1)).toString()+operator;
+						aktEingabe="0";
+						op1=operator;
+					}
+					// in aktEingabe steht zahl3; zahl1 und zahl2 bereits gespeichert 
+					// op3 wurde eingegeben; mit op1 und op2 (* od. /) wird gerechnet		
+					else if(!zahl3Gesetzt){
+						zahl1Gesetzt=true;
+						zahl2Gesetzt=false;
+						zahl3=Double.parseDouble(aktEingabe);
+						if(op2.equals("*"))
+						{
+							switch(op1)
+							{
+							case "+": zahl1=zahl1+zahl2*zahl3; break;
+							case "-": zahl1=zahl1-zahl2*zahl3; break;
+							case "*": zahl1=zahl1*zahl2*zahl3; break;
+							case "/": zahl1=zahl1/zahl2*zahl3; break;
+							}
+						}
+						else if(op2.equals("/"))
+						{
+							switch(op1)
+							{
+							case "+": zahl1=zahl1+zahl2/zahl3; break;
+							case "-": zahl1=zahl1-zahl2/zahl3; break;
+							case "*": zahl1=zahl1*zahl2/zahl3; break;
+							case "/": zahl1=zahl1/zahl2/zahl3; break;
+							}
+						} 
+						eingabe=(new Double(zahl1)).toString()+operator;
+						aktEingabe="0";
+						op1=operator;
+					}
+				}
+			}
+
+			void eingabePunktOperator(String operator)
+			{
+				letztesZeichenZiffer=false;
+				if (aktEingabeIstDoubleZahl())
+				{
+					// in aktEingabe steht Zahl1 
+					// Op1 wurde eingegeben
+					if(!zahl1Gesetzt){
+						zahl1Gesetzt=true;
+						zahl1=Double.parseDouble(aktEingabe);
+						eingabe=aktEingabe+operator;
+						aktEingabe="0";
+						op1=operator;
+					}
+					// in aktEingabe steht zahl2; zahl1 bereits gespeichert 
+					// op2 wurde eingegeben; mit op1 wird gerechnet		
+					else if(!zahl2Gesetzt){
+						zahl1Gesetzt=true;
+						zahl2=Double.parseDouble(aktEingabe);
+						if(op1.equals("*") || op1.equals("/"))
+						{
+							switch(op1)
+							{
+							case "*": zahl1=zahl1*zahl2; break;
+							case "/": zahl1=zahl1/zahl2; break;
+							}
+							eingabe=(new Double(zahl1)).toString();
+							aktEingabe="0";
+							op1=operator;
+						}
+						else
+						{
+							op2=operator;
+							eingabe=eingabe+aktEingabe+operator;
+							aktEingabe="0";
+							zahl2Gesetzt=true;
+						}
+					}
+					// in aktEingabe steht zahl3; zahl1 und zahl2 bereits gespeichert 
+					// op3 wurde eingegeben; mit op1 und op2 (* od. /) wird gerechnet		
+					else if(!zahl3Gesetzt){
+						zahl1Gesetzt=true;
+						zahl2Gesetzt=true;
+						zahl3=Double.parseDouble(aktEingabe);
+						if(op2.equals("*"))
+						{
+							zahl2=zahl2*zahl3;
+						}
+						else if(op2.equals("/"))
+						{
+							zahl2=zahl2/zahl3;
+						} 
+						eingabe=(new Double(zahl1)).toString()+op1+(new Double(zahl2)).toString()+op2;
+						aktEingabe="0";
+						op2=operator;
+					}
+				}
+			}
+
+			boolean aktEingabeIstIntZahl()
+			{
+				try
+				{
+					Integer.parseInt(aktEingabe);
+				}
+				catch(NumberFormatException e)
+				{
+					return false;
+				}
+				return true;
+			}
+
+
+			boolean aktEingabeIstDoubleZahl()
+			{
+				try
+				{
+					Double.parseDouble(aktEingabe);
+				}
+				catch(NumberFormatException e)
+				{
+					return false;
+				}
+				return true;
+			}
+
+		}
+
+		```
+
+
+##### Aufgabe 9 (Zeichnen - **entfällt**)
 
 ??? "Aufgabe 9"
 
@@ -1795,6 +2773,91 @@
 	3. **Tipp:** Ob ein Punkt mit den Koordinaten `(x,y)` in einem (Viertel-)Kreis liegt, ermitteln Sie mithilfe der [Kreisgleichung](https://studyflix.de/mathematik/kreisgleichung-1867). Sei `(xm, ym)` der Mittelpunkt und `r` der Radius des Kreises, dann gilt `(x-xm)^2 + (y-ym)^2 = r^2` für alle Punkte auf dem Kreis (für Punkte im Kreis gilt <= und für Punkte außerhalb des Kreises >).
 
 	4. Der Quotient aus der Anzahl der roten Punkte und der Gesamtanzahl der Punkte ist eine Näherung von PI/4. Geben Sie Ihre Annäherung von PI auf der Konsole aus.
+
+
+??? question "eine mögliche Lösung für Aufgabe 9"
+	
+	=== "ComputePI.java"
+		```java linenums="1"
+		package aufgaben.aufgabe9;
+		
+		import java.awt.*;
+		import java.util.Random;
+
+		import javax.swing.*;
+
+		public class ComputePI extends JFrame{
+
+			ComputePI(){
+				super("Berechne PI");
+				this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				this.add(new Canvas(), BorderLayout.CENTER);
+
+				this.setSize(500,500);
+				this.setVisible(true);	
+			}
+
+			class Canvas extends JPanel{
+				
+				private Random r = new Random();
+				private int anzahlPunkte = 50000;
+				private int rotePunkte = 0;
+
+				@Override
+				protected void paintComponent(Graphics g)
+				{
+					super.paintComponent(g);
+					int x0=20;
+					int y0=20;
+					int quadLength = 440;
+					Graphics2D g2 = (Graphics2D) g;
+
+					g2.setStroke(new BasicStroke(3));
+					// Quadrat
+					g2.setColor(Color.WHITE);
+					g2.fillRect(x0, y0, quadLength, quadLength);
+					g2.setColor(Color.BLACK);
+					g2.drawRect(x0, y0, quadLength, quadLength);
+					//Kreisbogen
+					g2.drawArc(x0, y0, 2*quadLength, 2*quadLength, 90, 90);
+
+					g2.setStroke(new BasicStroke(1));
+					g2.setColor(Color.RED);
+
+					int x, y;
+					int xM = x0 + quadLength;
+					int yM = y0 + quadLength;
+
+					//counting variables for keeping track of red/blue dots
+					rotePunkte = 0;
+					//draws all the points
+					for (int i=0; i<anzahlPunkte; i++){
+						//random coordinates f the dot
+						x = r.nextInt(quadLength)+x0;
+						y = r.nextInt(quadLength)+y0;
+						//set the color of the dot
+						if(((x-xM)*(x-xM)+(y-yM)*(y-yM)) <= (quadLength*quadLength)){
+							g2.setColor(Color.RED);
+							rotePunkte++;
+						}else{
+							g2.setColor(Color.BLUE);
+						}
+						//draw the dot
+						g2.fillOval(x,y,2,2);
+						
+						double pi = (double)rotePunkte/(double)anzahlPunkte * 4.0;
+						System.out.println("PI ist " + pi);
+					}
+				}
+			}
+			
+			public static void main(String[] args) {
+				ComputePI pi = new ComputePI();
+				//pi.canvas.repaint();
+			}
+
+		}
+		```
 
 
 

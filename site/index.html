@@ -481,22 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="graphics/" class="md-nav__link">
-        Graphics
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="mausereignisse/" class="md-nav__link">
+      <a href="mausereignisse2022/" class="md-nav__link">
         Mausereignisse
       </a>
     </li>
@@ -511,7 +496,22 @@
   
   
     <li class="md-nav__item">
-      <a href="klausurvorbereitung/" class="md-nav__link">
+      <a href="graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="klausurvorbereitung2022/" class="md-nav__link">
         Klausurvorbereitung
       </a>
     </li>
@@ -751,13 +751,13 @@
 <td>20.-24.06.2022</td>
 <td><a href="./ereignisse/#ereignisse">GUI Ereignisse</a></td>
 <td><a href="./uebungen/#ubung-11-ereignisbehandlung-actionlistener">Übung 11</a></td>
-<td><a href="./aufgaben/#aufgabe-9-zeichnen">Aufgabe 9</a></td>
-<td>11.07.2022</td>
+<td><a href="./aufgaben/#aufgabe-9-zeichnen"><del>Aufgabe 9</del></a></td>
+<td>entfällt</td>
 </tr>
 <tr>
 <td>13.</td>
 <td>27.-01.07.2022</td>
-<td><a href="./graphics/#graphics">Graphics</a></td>
+<td><a href="./ereignisse/#ereignisse">ActionListener</a></td>
 <td><a href="./uebungen/#ubung-12-zeichnen">Übung 12</a></td>
 <td> -</td>
 <td>-</td>
@@ -773,7 +773,7 @@
 <tr>
 <td>15.</td>
 <td>11.-15.07.2022</td>
-<td><a href="./klausurvorbereitung/#klausurvorbereitung">Klausurvorbereitung</a></td>
+<td><a href="./klausurvorbereitung/#klausurvorbereitung">Klausurvorbereitung <br/>keine Veranstaltungen!!</a></td>
 <td><a href="./uebungen/#klausurvorbereitung-klicks-zahlen">1</a> <a href="./uebungen/#klausurvorbereitung-graphen">2</a>  <a href="./uebungen/#klausurvorbereitung-quadrat">3</a></td>
 <td> -</td>
 <td>-</td>
@@ -2164,6 +2164,564 @@
     <span class="p">}</span>
 
 <span class="p">}</span>       
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</li>
+</ul>
+</details>
+<details class="question"><summary>27.-01.07.2022 - ActionListener</summary><ul>
+<li>siehe <a href="./ereignisse/#ereignisse"><strong>GUI Ereignisse</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-11-ereignisbehandlung-actionlistener"><strong>Übung 11</strong></a> </li>
+<li>siehe <a href="./aufgaben/#aufgabe-8-ereignisbehandlung"><strong>Aufgabe 8</strong></a> </li>
+<li>
+<p>Quellcode aus Vorlesung</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Ereignisbehandlung.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Font</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ereignisbehandlung</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+    <span class="n">JLabel</span> <span class="n">unten</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">anzKlicks</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Ereignisbehandlung</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="n">setTitle</span><span class="p">(</span><span class="s">&quot;Ereignisbehandlung&quot;</span><span class="p">);</span>
+        <span class="n">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="n">init</span><span class="p">();</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">mainPanel</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+        <span class="n">setSize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">);</span>
+        <span class="n">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">init</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">panel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">JPanel</span> <span class="n">oben</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">JButton</span> <span class="n">minus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">);</span>
+        <span class="n">minus</span><span class="p">.</span><span class="na">setActionCommand</span><span class="p">(</span><span class="s">&quot;minus&quot;</span><span class="p">);</span>
+        <span class="n">JButton</span> <span class="n">plus</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;+&quot;</span><span class="p">);</span>
+        <span class="n">plus</span><span class="p">.</span><span class="na">setActionCommand</span><span class="p">(</span><span class="s">&quot;plus&quot;</span><span class="p">);</span>
+
+
+        <span class="n">minus</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ActionListener</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+            <span class="p">}</span>
+
+        <span class="p">});</span>
+        <span class="n">plus</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ActionListener</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+            <span class="p">}</span>
+
+        <span class="p">});</span>
+
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">minus</span><span class="p">);</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">plus</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">unten</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">JLabel</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">oben</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">unten</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">panel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="kd">class</span> <span class="nc">ActionHandler</span> <span class="kd">implements</span> <span class="n">ActionListener</span> <span class="p">{</span>
+
+        <span class="n">Integer</span> <span class="n">anzKlicks</span><span class="p">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Object</span> <span class="n">quelle</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">quelle</span> <span class="k">instanceof</span> <span class="n">JButton</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="p">(</span><span class="n">JButton</span><span class="p">)</span> <span class="n">quelle</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;plus&quot;</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="na">getActionCommand</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;minus&quot;</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">anzKlicks</span><span class="o">--</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">Ereignisbehandlung</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">unten</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">anzKlicks</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Ereignisbehandlung</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</li>
+</ul>
+</details>
+<details class="question"><summary>04.-08.07.2022 - MouseListener</summary><ul>
+<li>siehe <a href="./mausereignisse/#mausereignisse"><strong>Mausereignisse</strong></a></li>
+<li>siehe <a href="./uebungen/#ubung-12-tictactoe"><strong>Übung 12</strong></a> </li>
+<li>siehe <a href="./aufgaben/#aufgabe-8-ereignisbehandlung"><strong>Aufgabe 8</strong></a> </li>
+<li>
+<p>Quellcode aus Vorlesung</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Mausereignisse.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorlesungen.vorlesung0706</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Font</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.GridLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JLabel</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mausereignisse</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">JPanel</span><span class="o">[][]</span> <span class="n">panels</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="n">panel</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Mausereignisse</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mausereignisse&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="n">initContent</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">mainPanel</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">Color</span> <span class="nf">randomColor</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">Random</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">red</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">green</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+
+        <span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">panel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">panel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">));</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">panel</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">panels</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="o">[</span><span class="n">size</span><span class="o">][</span><span class="n">size</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">panels</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">panels</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span> 
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+                <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">col</span><span class="p">);</span>
+                <span class="n">label</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">JLabel</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+                <span class="n">label</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
+                <span class="n">label</span><span class="p">.</span><span class="na">setForeground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">randomColor</span><span class="p">());</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">new</span> <span class="n">MouseListener</span><span class="p">()</span> <span class="p">{</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;einzelnes clicked&quot;</span><span class="p">);</span>
+                        <span class="n">Object</span> <span class="n">src</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getSource</span><span class="p">();</span>
+                        <span class="k">if</span><span class="p">(</span><span class="n">src</span> <span class="k">instanceof</span> <span class="n">JPanel</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="n">JPanel</span> <span class="n">here</span> <span class="o">=</span> <span class="p">(</span><span class="n">JPanel</span><span class="p">)</span><span class="n">src</span><span class="p">;</span>
+                            <span class="n">here</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Mausereignisse</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">randomColor</span><span class="p">());</span> 
+                        <span class="p">}</span>
+
+                    <span class="p">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// TODO Auto-generated method stub</span>
+
+                    <span class="p">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// TODO Auto-generated method stub</span>
+
+                    <span class="p">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// TODO Auto-generated method stub</span>
+
+                    <span class="p">}</span>
+
+                    <span class="nd">@Override</span>
+                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// TODO Auto-generated method stub</span>
+
+                    <span class="p">}</span>
+
+                <span class="p">});</span>
+                <span class="n">panel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">panel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Mausereignisse</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">panel</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">panel</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">panelWidth</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">panelHeight</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="na">size</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="n">panelHeight</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">panelWidth</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouse clicked [x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;, y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;width : &quot;</span> <span class="o">+</span> <span class="n">width</span> <span class="o">+</span> <span class="s">&quot;, height : &quot;</span> <span class="o">+</span> <span class="n">height</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;row : &quot;</span> <span class="o">+</span> <span class="n">row</span> <span class="o">+</span> <span class="s">&quot; , col : &quot;</span> <span class="o">+</span> <span class="n">col</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">randomColor</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouse pressed&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouse released&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouse entered&quot;</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="n">panels</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">row</span><span class="o">++</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="n">panels</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">col</span><span class="o">++</span><span class="p">)</span> 
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">randomColor</span><span class="p">());</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouse exited&quot;</span><span class="p">);</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 </div>

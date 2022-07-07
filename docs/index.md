@@ -51,10 +51,10 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 | 8. | 30.-03.06.2022 | [Interfaces](./interfaces/#interfaces) | [Übung 8](./uebungen/#ubung-8-interfaces) |- | 20.06.2022 | 
 | 9. | 06.-10.06.2022 | [GUI Einführung](./gui/#graphical-user-interfaces)  | - |[Aufgabe 7](./aufgaben/#aufgabe-7-gui) | 27.06.2022 | 
 | 10. | 13.-17.06.2022 | [JUnit](./junit/#junit-tests) und <br/>[Layout-Manager](./gui/#layout-manager) | [Übung 10](./uebungen/#ubung-10-junit) [Übung 9](./uebungen/#ubung-9-gui)|[Aufgabe 8](./aufgaben/#aufgabe-8-ereignisbehandlung) | 04.07.2022 | 
-| 12. | 20.-24.06.2022 | [GUI Ereignisse](./ereignisse/#ereignisse) | [Übung 11](./uebungen/#ubung-11-ereignisbehandlung-actionlistener) |[Aufgabe 9](./aufgaben/#aufgabe-9-zeichnen) | 11.07.2022 |
-| 13. | 27.-01.07.2022 | [Graphics](./graphics/#graphics) | [Übung 12](./uebungen/#ubung-12-zeichnen) | - | - |
+| 12. | 20.-24.06.2022 | [GUI Ereignisse](./ereignisse/#ereignisse) | [Übung 11](./uebungen/#ubung-11-ereignisbehandlung-actionlistener) |[~~Aufgabe 9~~](./aufgaben/#aufgabe-9-zeichnen) | entfällt |
+| 13. | 27.-01.07.2022 | [ActionListener](./ereignisse/#ereignisse) | [Übung 12](./uebungen/#ubung-12-zeichnen) | - | - |
 | 14. | 04.-08.07.2022 | [Mausereignisse](./mausereignisse/#mausereignisse) | [Übung 13](./uebungen/#ubung-13-mausereignisse) | - | - |
-| 15. | 11.-15.07.2022 | [Klausurvorbereitung](./klausurvorbereitung/#klausurvorbereitung) | [1](./uebungen/#klausurvorbereitung-klicks-zahlen) [2](./uebungen/#klausurvorbereitung-graphen)  [3](./uebungen/#klausurvorbereitung-quadrat)| - | - | 
+| 15. | 11.-15.07.2022 | [Klausurvorbereitung <br/>keine Veranstaltungen!!](./klausurvorbereitung/#klausurvorbereitung) | [1](./uebungen/#klausurvorbereitung-klicks-zahlen) [2](./uebungen/#klausurvorbereitung-graphen)  [3](./uebungen/#klausurvorbereitung-quadrat)| - | - | 
 |  | 20.07.2022 14:00 Uhr| Klausur 1.PZ | Labore 6. Etage C-Gebäude| - | - |
 |  | 26.09.2022 14:00 Uhr| Klausur 2.PZ | Labore 6. Etage C-Gebäude| - | - |
 
@@ -1408,9 +1408,294 @@ Nachfolgend der vorläufige Wochenplan (wird eventuell angepasst).
 			```
 
 
+??? question "27.-01.07.2022 - ActionListener"
+	- siehe [**GUI Ereignisse**](./ereignisse/#ereignisse)
+	- siehe [**Übung 11**](./uebungen/#ubung-11-ereignisbehandlung-actionlistener) 
+	- siehe [**Aufgabe 8**](./aufgaben/#aufgabe-8-ereignisbehandlung) 
+	- Quellcode aus Vorlesung
+
+		=== "Ereignisbehandlung.java"
+
+			```java linenums="1"
+			import java.awt.BorderLayout;
+			import java.awt.Font;
+			import java.awt.event.ActionEvent;
+			import java.awt.event.ActionListener;
+
+			import javax.swing.*;
+
+			public class Ereignisbehandlung extends JFrame
+			{
+			    JLabel unten;
+			    Integer anzKlicks = 0;
+
+			    public Ereignisbehandlung()
+			    {
+			        super();
+			        setTitle("Ereignisbehandlung");
+			        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			        JPanel mainPanel = init();
+
+			        this.getContentPane().add(mainPanel, BorderLayout.CENTER);
+			        setSize(200,150);
+			        setVisible(true);
+			    }
+
+			    private JPanel init()
+			    {
+			        JPanel panel = new JPanel();
+			        panel.setLayout(new BorderLayout());
+
+			        JPanel oben = new JPanel();
+			        JButton minus = new JButton("-");
+			        minus.setActionCommand("minus");
+			        JButton plus = new JButton("+");
+			        plus.setActionCommand("plus");
+			        
+			        
+			        minus.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							Ereignisbehandlung.this.anzKlicks--;
+							Ereignisbehandlung.this.unten.setText(Ereignisbehandlung.this.anzKlicks.toString());
+						}
+			        	
+			        });
+			        plus.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							Ereignisbehandlung.this.anzKlicks++;
+							Ereignisbehandlung.this.unten.setText(Ereignisbehandlung.this.anzKlicks.toString());
+							
+						}
+			        	
+			        });
+			        
+			        oben.add(minus);
+			        oben.add(plus);
+
+			        this.unten = new JLabel(this.anzKlicks.toString());
+			        unten.setFont(new Font("Verdana", Font.BOLD, 24));
+			        unten.setHorizontalAlignment(JLabel.CENTER);
+
+			        panel.add(oben, BorderLayout.NORTH);
+			        panel.add(unten, BorderLayout.CENTER);
+
+			        return panel;
+			    }
+			    
+			    
+			    class ActionHandler implements ActionListener {
+			    	
+			    	Integer anzKlicks;
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+				        Object quelle = e.getSource();
+				        if(quelle instanceof JButton)
+				        {
+				            JButton button = (JButton) quelle;
+				            if(button.getActionCommand().equals("plus"))
+				            {
+				                Ereignisbehandlung.this.anzKlicks++;
+				            }
+				            else if(button.getActionCommand().equals("minus"))
+				            {
+				                Ereignisbehandlung.this.anzKlicks--;
+				            }
+				        }
+				        Ereignisbehandlung.this.unten.setText(anzKlicks.toString());
+						
+					}
+			    	
+			    }
+			    
+
+			    public static void main(String[] args) 
+			    {
+			        new Ereignisbehandlung();
+			    }
+			}
+			```
 
 
+??? question "04.-08.07.2022 - MouseListener"
+	- siehe [**Mausereignisse**](./mausereignisse/#mausereignisse)
+	- siehe [**Übung 12**](./uebungen/#ubung-12-tictactoe) 
+	- siehe [**Aufgabe 8**](./aufgaben/#aufgabe-8-ereignisbehandlung) 
+	- Quellcode aus Vorlesung
 
+		=== "Mausereignisse.java"
+
+			```java linenums="1" 
+			package vorlesungen.vorlesung0706;
+
+			import java.awt.BorderLayout;
+			import java.awt.Color;
+			import java.awt.Font;
+			import java.awt.GridLayout;
+			import java.awt.event.MouseEvent;
+			import java.awt.event.MouseListener;
+			import java.util.Random;
+
+			import javax.swing.JFrame;
+			import javax.swing.JLabel;
+			import javax.swing.JPanel;
+
+			public class Mausereignisse extends JFrame implements MouseListener
+			{
+				private int size;
+				private JPanel[][] panels;
+				private JPanel panel;
+				
+				public Mausereignisse(int size)
+				{
+					super();
+					this.size = size;
+			        this.setTitle("Mausereignisse");
+			        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			        
+			        JPanel mainPanel = initContent(size);
+
+			        this.getContentPane().add(mainPanel, BorderLayout.CENTER);
+
+			        this.setSize(400,400);
+			        this.setVisible(true);
+				}
+				
+				private Color randomColor() 
+				{
+					Random r = new Random();
+					int red = r.nextInt(256);
+					int blue = r.nextInt(256);
+					int green = r.nextInt(256);
+					
+					Color c = new Color(red, blue, green);
+					return c;
+				}
+				
+				private JPanel initContent(int size)
+			    {
+			        this.panel = new JPanel();
+			        this.panel.setLayout(new GridLayout(size, size));
+			        this.panel.addMouseListener(this);
+			        
+			        this.panels = new JPanel[size][size];
+			        for (int row = 0; row < panels.length; row++) 
+			        {
+			            for (int col = 0; col < panels[row].length; col++) 
+			            {
+			    			this.panels[row][col] = new JPanel();
+			    			this.panels[row][col].setLayout(new BorderLayout());
+			    			JLabel label = new JLabel(row + " " + col);
+			    			label.setHorizontalAlignment(JLabel.CENTER);
+			    			label.setFont(new Font("Verdana", Font.BOLD, 24));
+			    			label.setForeground(Color.WHITE);
+			    			this.panels[row][col].add(label);
+			    			this.panels[row][col].setBackground(randomColor());
+			    			this.panels[row][col].addMouseListener(new MouseListener() {
+
+								@Override
+								public void mouseClicked(MouseEvent e) {
+									System.out.println("einzelnes clicked");
+									Object src = e.getSource();
+									if(src instanceof JPanel) {
+										JPanel here = (JPanel)src;
+										here.setBackground(Mausereignisse.this.randomColor()); 
+									}
+									
+								}
+
+								@Override
+								public void mousePressed(MouseEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+
+								@Override
+								public void mouseReleased(MouseEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+
+								@Override
+								public void mouseEntered(MouseEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+
+								@Override
+								public void mouseExited(MouseEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+			    				
+			    			});
+			    			panel.add(this.panels[row][col]);
+			    		}
+					}
+			        return this.panel;
+			    }
+				
+				public static void main(String[] args) 
+				{
+					new Mausereignisse(4);
+
+				}
+
+				@Override
+				public void mouseClicked(MouseEvent e) {
+
+					int x = e.getX();
+					int y = e.getY();
+					int width = this.panel.getWidth();
+					int height = this.panel.getHeight();
+					int panelWidth = width / this.size;
+					int panelHeight = height / this.size;
+					
+					int row = y / panelHeight;
+					int col = x / panelWidth;
+					
+					System.out.println("mouse clicked [x=" + x + ", y=" + y + "]");
+					System.out.println("width : " + width + ", height : " + height);
+					System.out.println("row : " + row + " , col : " + col);
+					this.panels[row][col].setBackground(randomColor());
+				}
+
+				@Override
+				public void mousePressed(MouseEvent e) {
+					System.out.println("mouse pressed");
+					
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					System.out.println("mouse released");
+					
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					System.out.println("mouse entered");
+			        for (int row = 0; row < panels.length; row++) 
+			        {
+			            for (int col = 0; col < panels[row].length; col++) 
+			            {
+			    			this.panels[row][col].setBackground(randomColor());
+			    		}
+					}
+					
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					System.out.println("mouse exited");
+					
+				}
+			}
+			```
 
 
 

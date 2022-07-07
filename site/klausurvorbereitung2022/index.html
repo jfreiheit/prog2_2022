@@ -1,0 +1,1439 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/klausurvorbereitung2022/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Klausurvorbereitung - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#klausurvorbereitung" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Klausurvorbereitung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Klausurvorbereitung
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Klausurvorbereitung
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mogliches-grundgerust" class="md-nav__link">
+    Mögliches Grundgerüst
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schiebepuzzle" class="md-nav__link">
+    Schiebepuzzle
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mogliches-grundgerust" class="md-nav__link">
+    Mögliches Grundgerüst
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schiebepuzzle" class="md-nav__link">
+    Schiebepuzzle
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/klausurvorbereitung2022.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="klausurvorbereitung">Klausurvorbereitung<a class="headerlink" href="#klausurvorbereitung" title="Permanent link">&para;</a></h1>
+<p>Wir beginnen mit allgemeinen Betrachtungen zum Grundgerüst. </p>
+<h3 id="mogliches-grundgerust">Mögliches Grundgerüst<a class="headerlink" href="#mogliches-grundgerust" title="Permanent link">&para;</a></h3>
+<p>Wie Sie wissen, ist das Fenster (<code>JFrame</code>) im <a href="../gui/#borderlayout">BorderLayout</a>. Das bedeutet, dass das Fenster in fünf Bereiche (<code>Container</code>) unterteilt ist. Sie müssen sich bei der Konfiguration überlegen, welche der fünf Bereiche Sie benötigen. </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Grundgerüst</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GrundgeruestOhneCanvas</span> <span class="kd">extends</span> <span class="n">JFrame</span><span class="p">{</span>
+    <span class="n">JPanel</span> <span class="n">content</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">GrundgeruestOhneCanvas</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;GrundgeruestMitCanvas&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">content</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">initCenter</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">content</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="c1">// von den folgenden vier Zeilen werden eventuell eine oder mehrere oder alle auskommentiert</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">initNorth</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">initSouth</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">initEast</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">EAST</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">initWest</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">WEST</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initCenter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">center</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier das JPanel fuer CENTER befuellen</span>
+        <span class="k">return</span> <span class="n">center</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initNorth</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">north</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier das JPanel fuer NORTH befuellen</span>
+        <span class="k">return</span> <span class="n">north</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initSouth</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">south</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier das JPanel fuer SOUTH befuellen</span>
+        <span class="k">return</span> <span class="n">south</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initEast</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">east</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier das JPanel fuer EAST befuellen</span>
+        <span class="k">return</span> <span class="n">east</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initWest</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">west</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier das JPanel fuer WEST befuellen</span>
+        <span class="k">return</span> <span class="n">west</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">GrundgeruestOhneCanvas</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In diesem Grundgerüst werden alle fünf Bereiche des Fensters mit <code>JPanel</code> befüllt. Sollten Sie z.B. kein Panel im <code>EAST</code>- und im <code>WEST</code>-Bereich des Fensters benötigen, dann löschen Sie einfach die Zeilen <code>21</code> und <code>22</code> sowie die beiden Methoden <code>initEast()</code> und <code>initWest()</code>. </p>
+<p>Beachten Sie, dass <code>JPanel</code> ohne Angabe eines LayoutManagers im <a href="../gui/#flowlayout">FlowLayout</a> sind. Das können Sie <a href="../gui/#layout-manager">ändern</a> und die einzelnen <code>JPanel</code> auch noch <a href="../gui/#verschachteln-von-layout-managern">weiter verschachteln</a>.</p>
+<h3 id="schiebepuzzle">Schiebepuzzle<a class="headerlink" href="#schiebepuzzle" title="Permanent link">&para;</a></h3>
+<details><summary>Aufgabe Schiebepuzzle</summary><ol>
+<li>
+<p>Implementieren Sie folgendes Puzzle: </p>
+<p><img alt="schachbrett" src="../files/115_puzzle.png" /></p>
+<ul>
+<li>obige Abbildung zeigt den Anfangszustand des Puzzles (<code>2</code> über <code>1</code> links)</li>
+</ul>
+<p><img alt="schachbrett" src="../files/116_puzzle.png" /></p>
+<ul>
+<li>
+<p>obige Abbildung zeigt den Endzustand des Puzzles (<code>1</code> über <code>2</code> links)</p>
+</li>
+<li>
+<p>Das Puzzle besteht aus 5 „Kacheln“, 3 gelben und 2 roten. Die roten Kacheln sind mit einer <code>1</code> und einer <code>2</code> nummeriert. Am Anfang steht die rote Kachel mit der <code>2</code> über der roten Kachel mit der <code>1</code>. (siehe erste Abb.) Ziel des Puzzles ist es, die beiden roten Kacheln zu vertauschen. Wenn links die <code>1</code> über der <code>2</code> steht, ist das Puzzle beendet. Wo die gelben Kacheln im Endzustand sind, ist egal (siehe zweite Abb.). Ein Feld ist stets frei (grau dargestellt). In dieses Feld kann eine benachbarte Kachel geschoben werden.</p>
+</li>
+<li>
+<p>Zeigen Sie oben die Anzahl der Züge an. Wenn der Endzustand erreicht ist, kann nicht mehr gezogen werden! Der Button <code>Neustart</code> setzt alles wieder auf Anfang. </p>
+</li>
+<li>
+<p>Die Programmierung bleibt ganz Ihnen überlassen. Zum Schieben einer Kachel auf das leere Feld, klickt man auf die Kachel selbst. Diese „bewegt“ sich dann auf das leere (graue) Feld und hinterlässt ein leeres (graues) Feld (siehe folgende Abb.)</p>
+</li>
+</ul>
+<p><img alt="schachbrett" src="../files/117_puzzle.png" /></p>
+</li>
+<li>
+<p><strong>Tipps:</strong>   </p>
+<ul>
+<li>
+<p>Am einfachsten bekommt man ein Label in die Mitte eines Panels gesetzt, wenn das Panel im <code>GridLayout(1,1)</code> (oder sogar parameterlos) ist und Sie für das Label <code>label.setHorizontalAlignment(JLabel.CENTER);</code> definieren</p>
+</li>
+<li>
+<p>die (Schrift-)Farbe eines Labels setzt man mit <code>label.setForeground(Color);</code></p>
+</li>
+<li>
+<p>die (Hintergrund-Farbe eines Panels setzt man mit <code>panel.setBackground(Color);</code></p>
+</li>
+<li>
+<p>für das Identifizieren des entsprechenden Panels, auf das man geklickt hat, könnte es hilfreich sein, sich dafür eine eigene Klasse zu schreiben (die von JPanel erbt). Muss aber nicht. Sie können auch die Quelle des <code>MouseEvent</code> identifizieren. </p>
+</li>
+<li>
+<p>wahrscheinlich ist es am einfachsten, ein zweidimensionales Array 2x3 als Datenstruktur für Ihr Puzzle zu verwenden</p>
+</li>
+</ul>
+</li>
+</ol>
+</details>
+<details class="question"><summary>Lösung Schiebepuzzle</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Font</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.GridLayout</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Puzzle</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+    <span class="n">JLabel</span> <span class="n">infoLabel</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">anzMoves</span><span class="p">;</span>
+    <span class="kd">enum</span> <span class="n">State</span> <span class="p">{</span><span class="n">EINS</span><span class="p">,</span> <span class="n">ZWEI</span><span class="p">,</span> <span class="n">LEER</span><span class="p">,</span> <span class="n">GELB</span><span class="p">}</span>
+    <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+    <span class="n">MyPanel</span><span class="o">[][]</span> <span class="n">panels</span><span class="p">;</span>
+    <span class="n">JPanel</span> <span class="n">mainPanel</span><span class="p">;</span>
+
+    <span class="n">Puzzle</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Puzzle&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">infoLabelPanel</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mainPanelStart</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">buttonPanel</span><span class="p">(),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/****************************************</span>
+<span class="cm">     * erstmal alles fuer das Model</span>
+<span class="cm">     * initiale Belegung von field</span>
+<span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">initialisiereField</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">State</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">ZWEI</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">GELB</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">EINS</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">GELB</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">GELB</span><span class="p">;</span>  
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Hilfsmethode, um zu wissen, in welcher Zeile sich das leere Feld befindet</span>
+<span class="cm">     * damit ist makeMove() etwas kuerzer</span>
+<span class="cm">     * @return zeile von LEER</span>
+<span class="cm">     */</span>
+    <span class="kt">int</span> <span class="nf">getLeerZeile</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">zeile</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">zeile</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">spalte</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">spalte</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">spalte</span><span class="o">++</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">)</span> <span class="k">return</span> <span class="n">zeile</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// fehlerfall - kommt aber nicht vor</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Hilfsmethode, um zu wissen, in welcher Zeile sich das leere Feld befindet</span>
+<span class="cm">     * damit ist makeMove() etwas kuerzer</span>
+<span class="cm">     * @return spalte von LEER</span>
+<span class="cm">     */</span>
+    <span class="kt">int</span> <span class="nf">getLeerSpalte</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">zeile</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">zeile</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">spalte</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">spalte</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">spalte</span><span class="o">++</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">)</span> <span class="k">return</span> <span class="n">spalte</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// fehlerfall - kommt aber nicht vor</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * von field[fromZeile][fromSpalte] aus wird gezogen</span>
+<span class="cm">     * es wird geprueft, ob die leere Kachel entweder in der gleichen zeile </span>
+<span class="cm">     * ist --&gt; dann muss die spalte von LEER entweder links oder rechts sein (+/+ 1)</span>
+<span class="cm">     * oder in der gleichen spalte --&gt; dann muss die zeile von LEER entweder</span>
+<span class="cm">     * darueber oder darunter sein (+/+ 1)</span>
+<span class="cm">     * @param fromZeile</span>
+<span class="cm">     * @param fromSpalte</span>
+<span class="cm">     * @return ob zug ausgefuehrt wurde oder nicht</span>
+<span class="cm">     */</span>
+    <span class="kt">boolean</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">fromZeile</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fromSpalte</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromZeile</span><span class="o">][</span><span class="n">fromSpalte</span><span class="o">]!=</span><span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">zeileLeer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getLeerZeile</span><span class="p">();</span>
+            <span class="kt">int</span> <span class="n">spalteLeer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getLeerSpalte</span><span class="p">();</span>
+            <span class="k">if</span><span class="p">((</span><span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">zeileLeer</span><span class="o">-</span><span class="n">fromZeile</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">spalteLeer</span><span class="o">-</span><span class="n">fromSpalte</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">zeileLeer</span><span class="o">-</span><span class="n">fromZeile</span><span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span>  <span class="n">Math</span><span class="p">.</span><span class="na">abs</span><span class="p">(</span><span class="n">spalteLeer</span><span class="o">-</span><span class="n">fromSpalte</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeileLeer</span><span class="o">][</span><span class="n">spalteLeer</span><span class="o">]=</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromZeile</span><span class="o">][</span><span class="n">fromSpalte</span><span class="o">]</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">fromZeile</span><span class="o">][</span><span class="n">fromSpalte</span><span class="o">]=</span><span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">;</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">printField</span><span class="p">();</span>  <span class="c1">// nur zum debuggen</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">anzMoves</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * definition des endzustands (links oben EINS, links unten ZWEI)</span>
+<span class="cm">     * @return ob endzustand erreicht oder nicht</span>
+<span class="cm">     */</span>
+    <span class="kt">boolean</span> <span class="nf">ende</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">EINS</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">0</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">ZWEI</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*********************************************</span>
+<span class="cm">     * jetzt alles fuer die View - ganz zu Anfang</span>
+<span class="cm">     */</span>
+
+    <span class="n">JPanel</span> <span class="nf">initialiserePanels</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">panels</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyPanel</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">zeile</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">zeile</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">spalte</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">spalte</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">spalte</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyPanel</span><span class="p">(</span><span class="n">zeile</span><span class="p">,</span> <span class="n">spalte</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span><span class="p">.</span><span class="na">view</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span><span class="p">);</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">JPanel</span> <span class="nf">mainPanelStart</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">initialisiereField</span><span class="p">();</span>      <span class="c1">// model</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">initialiserePanels</span><span class="p">();</span>      <span class="c1">// view</span>
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">JPanel</span> <span class="nf">infoLabelPanel</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">infoPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Anzahl Zuege : &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">anzMoves</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
+        <span class="n">infoPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">infoPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">JPanel</span> <span class="nf">buttonPanel</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">buttonPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">JButton</span> <span class="n">neuStart</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Neustart&quot;</span><span class="p">);</span>
+        <span class="n">neuStart</span><span class="p">.</span><span class="na">addActionListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ActionListener</span><span class="p">()</span> <span class="p">{</span>
+
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="p">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Puzzle</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">restart</span><span class="p">();</span>          
+            <span class="p">}</span>
+
+        <span class="p">});</span>
+        <span class="n">buttonPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">neuStart</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">buttonPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * jetzt für Restart und Update</span>
+<span class="cm">     * Restart: nach Druecken des Buttons &quot;Neustart&quot;</span>
+<span class="cm">     * Update: nach jedem Zug</span>
+<span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">restart</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">anzMoves</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">ITALIC</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">initialisiereField</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">updatePanels</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">updateLabel</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">ende</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">ende</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">ITALIC</span><span class="o">|</span><span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span> 
+            <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Ende! Anzahl Zuege : &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">anzMoves</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">infoLabel</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;Anzahl Zuege : &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">anzMoves</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">updatePanels</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">zeile</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">zeile</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">spalte</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">spalte</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">spalte</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="na">panels</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span><span class="p">.</span><span class="na">view</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">updateLabel</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">ende</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * das ist nur zum &quot;Debuggen&quot; - aber ganz nuetzlich</span>
+<span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">printField</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">zeile</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">zeile</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">spalte</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">spalte</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">spalte</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">LEER</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; -&quot;</span><span class="p">);</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">EINS</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; 1&quot;</span><span class="p">);</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">ZWEI</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; 2&quot;</span><span class="p">);</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="o">[</span><span class="n">zeile</span><span class="o">][</span><span class="n">spalte</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">GELB</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot; o&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * die Klasse für die &quot;Kacheln&quot;</span>
+<span class="cm">     * die &quot;Kacheln&quot; sind JPanels (mit allen JPanel-Methoden)</span>
+<span class="cm">     * ausserdem noch nuetzliche Objekteigenschaften: zeile, spalte und das Label, </span>
+<span class="cm">     * das auf der Kachel ist (für GELB und LEER ist das Label leer)</span>
+<span class="cm">     */</span>
+    <span class="kd">class</span> <span class="nc">MyPanel</span> <span class="kd">extends</span> <span class="n">JPanel</span> <span class="kd">implements</span> <span class="n">MouseListener</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">zeile</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">spalte</span><span class="p">;</span>
+        <span class="n">JLabel</span> <span class="n">label</span><span class="p">;</span>
+
+        <span class="n">MyPanel</span><span class="p">(</span><span class="kt">int</span> <span class="n">zeile</span><span class="p">,</span> <span class="kt">int</span> <span class="n">spalte</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">zeile</span> <span class="o">=</span> <span class="n">zeile</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">spalte</span> <span class="o">=</span> <span class="n">spalte</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">());</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">JLabel</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setForeground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;Verdana&quot;</span><span class="p">,</span> <span class="n">Font</span><span class="p">.</span><span class="na">BOLD</span><span class="p">,</span> <span class="mi">48</span><span class="p">));</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="nf">view</span><span class="p">(</span><span class="n">State</span> <span class="n">state</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">switch</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>   <span class="c1">// geht natuerlich auch mit if(state==State.EINS) usw.</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="n">EINS</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">RED</span><span class="p">);</span>
+                            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">);</span>        <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">ZWEI</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">RED</span><span class="p">);</span>
+                            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">);</span>        <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">LEER</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHT_GRAY</span><span class="p">);</span>
+                            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>         <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">GELB</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">YELLOW</span><span class="p">);</span>
+                            <span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>         <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">Puzzle</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">ende</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">Puzzle</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">makeMove</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">zeile</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">spalte</span><span class="p">))</span> <span class="n">Puzzle</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">updatePanels</span><span class="p">();</span>        
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+        <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Puzzle</span><span class="p">();</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>   
+</code></pre></div>
+</td></tr></table>
+</details>
+<p>Zur Klausurvorbereitung eignet sich auch die Übung <a href="../uebungen/#klausurvorbereitung-klicks-zahlen">Klicks zählen</a>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../graphics/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Graphics (entfällt)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Graphics (entfällt)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../uebungen/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Übungen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Übungen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
