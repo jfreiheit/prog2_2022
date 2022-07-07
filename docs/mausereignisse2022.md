@@ -261,7 +261,7 @@ Wir implementieren nun die `mouseClicked()`-Methode, um die Farbe des JPanels zu
 - In den Zeilen `84` und `85` berechnen wir mit den obigen Informationen den Zeilen- und Spalten-Index des angeklickten `JPanels` im `panels`-Array.
 - Nach Ausgabe aller Informationen auf die Konsole (Zeilen `87-89`) wird für dieses angeklickte `JPanel` die Hintergrundfarbe neu gesetzt (Zeile `90`).
 
-### Jedes JPanel einzeln anmelden
+## Jedes JPanel einzeln anmelden
 
 Wir haben den `MouseListener` an das `panel`-Objekt angemeldet, das alle `JPanels` enthält. Wir ändern dies nun und melden stattdessen jedes einzelne `JPanel` aus dem `panels`-Array an den `MouseListener` an. Dies erledigen wir mithilfe einer [anonymen Klasse](../ereignisse/#ereignisbehandlung-mit-anonymer-klasse), die den `MouseListener` implementiert. 
 

@@ -4807,6 +4807,72 @@
 	**Aufgabe:** Implementieren Sie die `actionPerformed()`-Methode in der `Controller`-Klasse.
 
 
+??? question "mögliche Lösung für Übung 12"
+	
+	=== "actionPerformed() aus Controller.java"
+		```java linenums="1"
+	    @Override
+	    public void actionPerformed(ActionEvent e) 
+	    {
+	    	Object src = e.getSource();
+	    	if(src instanceof JButton) {
+	    		JButton buttonPressed = (JButton)src;
+	    		if(buttonPressed.getActionCommand().equals("Start")) 
+	    		{
+	    			System.out.println("Start-Button");
+	    			this.model.restart();
+	    			this.view.restart();
+	    		}
+	    		else
+	    		{
+	    			String command = buttonPressed.getActionCommand();
+	    			int index = Integer.valueOf(command).intValue();
+	    			System.out.println("Button " + index + " geklickt");
+	    			
+	    			int row = index / this.model.getSize();
+	    			int col = index % this.model.getSize();
+	    			
+	    			if(!this.model.finished() && this.model.movePossible(row, col))
+	    			{
+		    			if(this.model.curPlayer() == Model.Player.BLACK) {
+		    				buttonPressed.setForeground(Color.BLACK);
+		    				buttonPressed.setText("X");
+		    				this.view.labelStatus.setForeground(Color.RED);
+    						this.view.labelStatus.setText("O ist dran");
+		    			} else if(this.model.curPlayer() == Model.Player.RED) {
+		    				buttonPressed.setForeground(Color.RED);
+		    				buttonPressed.setText("O");
+		    				this.view.labelStatus.setForeground(Color.BLACK);
+    						this.view.labelStatus.setText("X ist dran");
+		    			}	
+		
+		    			this.model.move(row, col);
+		    			
+		    			if(this.model.won()) {
+		    				if(this.model.curPlayer() == Model.Player.BLACK) {
+		    					this.view.labelStatus.setForeground(Color.BLACK);
+		    					this.view.labelStatus.setText("X hat gewonnen!");
+		    				}
+		    				else {
+		    					this.view.labelStatus.setForeground(Color.RED);
+		    					this.view.labelStatus.setText("O hat gewonnen!");
+		    				}
+		    				
+		    			} 
+		    			else if(this.model.draw()) {
+		    				this.view.labelStatus.setForeground(Color.GRAY);
+		    				this.view.labelStatus.setText("Unentschieden!");
+		    			}
+		    			
+		    			if(!this.model.won()) this.model.switchPlayer();
+	    			}
+	    			
+	    		}
+	    	}
+	    }
+		```
+
+
 
 ##### Klausurvorbereitung (Klicks zählen)
 
@@ -4950,6 +5016,8 @@
 		}
 		```	
 
+
+##### [Klausurvorbereitung (Schiebepuzzle)](../klausurvorbereitung2022/#schiebepuzzle)
 
 ---
 
