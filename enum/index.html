@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/enum/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Aufzählungstypen - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aufzahlungstypen-enum" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aufzählungstypen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Aufzählungstypen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Aufzählungstypen
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+    <nav class="md-nav" aria-label="Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erster-verbesserungsversuch-konstanten" class="md-nav__link">
+    Erster Verbesserungsversuch: Konstanten
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#der-aufzahlungstyp-enum" class="md-nav__link">
+    Der Aufzählungstyp enum
+  </a>
+  
+    <nav class="md-nav" aria-label="Der Aufzählungstyp enum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weiteres" class="md-nav__link">
+    Weiteres:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutzliche-links-fur-enums" class="md-nav__link">
+    Nützliche Links für enums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+    <nav class="md-nav" aria-label="Motivation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erster-verbesserungsversuch-konstanten" class="md-nav__link">
+    Erster Verbesserungsversuch: Konstanten
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#der-aufzahlungstyp-enum" class="md-nav__link">
+    Der Aufzählungstyp enum
+  </a>
+  
+    <nav class="md-nav" aria-label="Der Aufzählungstyp enum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weiteres" class="md-nav__link">
+    Weiteres:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nutzliche-links-fur-enums" class="md-nav__link">
+    Nützliche Links für enums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/enum.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="aufzahlungstypen-enum">Aufzählungstypen (enum)<a class="headerlink" href="#aufzahlungstypen-enum" title="Permanent link">&para;</a></h1>
+<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
+<p>Angenommen, Sie wollen mithilfe einer Variablen eine festgelegte Menge an Zuständen beschreiben, z.B.</p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;MONTAG&quot;</span>   <span class="c1">// kann auch Werte &quot;Dienstag&quot; usw. annehmen</span>
+<span class="kt">int</span> <span class="n">tag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>            <span class="c1">// Magic Number für &quot;Montag&quot;</span>
+</code></pre></div>
+<p>Das Problem: 
+- die Variablen können auch beliebige andere Werte (aus dem jeweiligen Wertebereich) annehmen, z.B. <code>Tag = "hallo"</code> oder <code>Tag=4711</code>,
+- Magic Numbers sollen vermieden werden &rarr; meistens schlechte Lesbarkeit</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Beispiel TicTacToe</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
+<span class="p">{</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+
+    <span class="n">TicTacToe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="kt">int</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="o">==</span><span class="mi">1</span> <span class="o">||</span> <span class="n">player</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span>    
+            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<ul>
+<li>Zustände <code>EMPTY</code> (<code>0</code>), <code>RED</code> (<code>1</code>), <code>BLACK</code> (<code>2</code>) verschlüsselt &rarr; magic numbers</li>
+<li><code>field[i][j]</code> könnte auch beliebige andere <code>int</code>-Werte annehmen</li>
+<li>Code nahezu unlesbar</li>
+</ul>
+<h3 id="erster-verbesserungsversuch-konstanten">Erster Verbesserungsversuch: Konstanten<a class="headerlink" href="#erster-verbesserungsversuch-konstanten" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Beispiel TicTacToe mit Konstanten</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
+<span class="p">{</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">EMPTY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// Feld ist leer</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>       <span class="c1">// auf das Feld hat rot gesetzt</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">BLACK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>     <span class="c1">// auf das Feld hat schwarz gesetzt</span>
+
+    <span class="n">TicTacToe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">EMPTY</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="kt">int</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">EMPTY</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="o">==</span><span class="n">RED</span> <span class="o">||</span> <span class="n">player</span><span class="o">==</span><span class="n">BLACK</span><span class="p">)</span>  
+            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>     <span class="c1">// hier wird auf das Feld rot oder schwarz gesetzt</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<ul>
+<li>etwas besser, aber immer noch beliebige Werte für <code>field[i][j]</code> möglich</li>
+</ul>
+<h2 id="der-aufzahlungstyp-enum">Der Aufzählungstyp <code>enum</code><a class="headerlink" href="#der-aufzahlungstyp-enum" title="Permanent link">&para;</a></h2>
+<p>Anforderungen:</p>
+<ul>
+<li>eigener Datentyp</li>
+<li>endliche Anzahl an Zuständen bzw. Werten</li>
+<li>leserliche Bezeichnung der Werte</li>
+</ul>
+<p>Lösung:
+- <em>Enumerations</em> (sog. Aufzählungstypen)
+- Schlüsselwort <code>enum</code></p>
+<p>Syntax:
+<div class="highlight"><pre><span></span><code>    <span class="kd">enum</span> <span class="n">TypName</span> <span class="p">{</span><span class="n">WERT1</span><span class="p">,</span> <span class="n">WERT2</span><span class="p">,</span> <span class="n">WERT3</span><span class="p">};</span>
+</code></pre></div></p>
+<p>Verwendung:
+- <code>TypName</code> nun als Datentyp verwendbar, z.B. <code>TypName[][]</code>
+- Zugriff auf Werte über statische Punktschreibweise, z.B. <code>TypName.WERT1</code></p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Beispiel TicTacToe mit enum</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TicTacToe</span> 
+<span class="p">{</span>
+<span class="hll">    <span class="kd">enum</span> <span class="n">State</span> <span class="p">{</span><span class="n">EMPTY</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">};</span>
+</span><span class="hll">    <span class="n">State</span><span class="o">[][]</span> <span class="n">field</span><span class="p">;</span>
+</span>
+    <span class="n">TicTacToe</span><span class="p">()</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="n">field</span> <span class="o">=</span> <span class="k">new</span> <span class="n">State</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
+</span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">field</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="hll">                <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">makeMove</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="n">State</span> <span class="n">player</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]==</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="o">!=</span><span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">)</span>     
+<span class="hll">            <span class="n">field</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]=</span><span class="n">player</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<ul>
+<li>typsicher</li>
+<li>rot und schwarz über <code>State.RED</code> und <code>State.BLACK</code> erreichbar</li>
+<li>andere Zustände nicht möglich</li>
+</ul>
+<h4 id="details">Details:<a class="headerlink" href="#details" title="Permanent link">&para;</a></h4>
+<ul>
+<li>alle <code>enum</code> erben implizit von <code>java.lang.Enum</code></li>
+<li><code>enum</code> sind Referenztypen</li>
+<li>die Konstanten (Werte) in <code>enum</code> sind automatisch <code>static</code> und <code>final</code></li>
+<li><code>==</code> kann verwendet werden (auch <code>switch()</code>); <code>equals()</code> gibt es aber auch</li>
+</ul>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Beispiel enum</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">State</span> <span class="n">s</span> <span class="o">=</span> <span class="n">State</span><span class="p">.</span><span class="na">EMPTY</span><span class="p">;</span>  <span class="c1">// s = 0 oder s = &quot;rot&quot; oder so geht nicht </span>
+                        <span class="c1">//-&gt; typsicher</span>
+<span class="k">switch</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="n">EMPTY</span><span class="p">:</span>     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;leeres Feld&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">RED</span><span class="p">:</span>   <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;roter Stein&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">BLACK</span><span class="p">:</span>     <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;schwarzer Stein Feld&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h4 id="weiteres">Weiteres:<a class="headerlink" href="#weiteres" title="Permanent link">&para;</a></h4>
+<ul>
+<li>auch Definition von Methoden möglich</li>
+<li><code>toString()</code>, <code>equals()</code> usw. aus <code>Object</code> können überschrieben werden</li>
+<li>Konstanten können mit Attributen versehen werden (dann noch privater Konstruktor notwendig)</li>
+<li>Zugriff auf das Array von Konstanten mithilfe von <code>values()</code></li>
+</ul>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Beispiel für Werte mit Attributen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="n">Farben</span> <span class="p">{</span>
+    <span class="n">KREUZ</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">PIK</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">HERZ</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">KARO</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">farbwert</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="nf">Farben</span><span class="p">(</span><span class="kt">int</span> <span class="n">wert</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">farbwert</span><span class="o">=</span><span class="n">wert</span><span class="p">;</span>
+    <span class="p">}</span>   
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+        <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="n">KREUZ</span>  <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2663&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">PIK</span>    <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2664&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">HERZ</span>   <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2665&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">KARO</span>   <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2666&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">noch ein Beispiel für Werte mit Attributen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="n">Karten</span> <span class="p">{</span>
+    <span class="n">AS</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">ZEHN</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">NEUN</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">ACHT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">SIEBEN</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">K</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">D</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">kartenwert</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="nf">Karten</span><span class="p">(</span><span class="kt">int</span> <span class="n">wert</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">kartenwert</span><span class="o">=</span><span class="n">wert</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+        <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="n">AS</span>     <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ZEHN</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;10&quot;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">NEUN</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;9&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ACHT</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;8&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">SIEBEN</span> <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;7&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">K</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;K&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">D</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;D&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">B</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;B&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<details><summary>Ausführliches Beispiel - Skat.java</summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">vorbereitungen.enums</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Skat</span> <span class="p">{</span>
+    <span class="n">Karte</span><span class="o">[]</span> <span class="n">p1</span><span class="p">;</span>
+    <span class="n">Karte</span><span class="o">[]</span> <span class="n">p2</span><span class="p">;</span>
+    <span class="n">Karte</span><span class="o">[]</span> <span class="n">p3</span><span class="p">;</span>
+    <span class="n">Karte</span><span class="o">[]</span> <span class="n">skat</span><span class="p">;</span>
+
+    <span class="kd">enum</span> <span class="n">Karten</span> <span class="p">{</span>
+        <span class="n">AS</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">ZEHN</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">NEUN</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">ACHT</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">SIEBEN</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">K</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">D</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">B</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">kartenwert</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="nf">Karten</span><span class="p">(</span><span class="kt">int</span> <span class="n">wert</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">kartenwert</span><span class="o">=</span><span class="n">wert</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="n">AS</span>     <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;A&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">ZEHN</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;10&quot;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">NEUN</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;9&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">ACHT</span>   <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;8&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">SIEBEN</span> <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;7&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">K</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;K&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">D</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;D&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">B</span>      <span class="p">:</span> <span class="n">s</span> <span class="o">=</span><span class="s">&quot;B&quot;</span><span class="p">;</span>   <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">enum</span> <span class="n">Farben</span> <span class="p">{</span>
+        <span class="n">KREUZ</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">PIK</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span> <span class="n">HERZ</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">KARO</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+        <span class="kd">private</span> <span class="kt">int</span> <span class="n">farbwert</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="nf">Farben</span><span class="p">(</span><span class="kt">int</span> <span class="n">wert</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">farbwert</span><span class="o">=</span><span class="n">wert</span><span class="p">;</span>
+        <span class="p">}</span>   
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+            <span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="n">KREUZ</span>  <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2663&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">PIK</span>    <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2664&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">HERZ</span>   <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2665&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="n">KARO</span>   <span class="p">:</span> <span class="n">c</span> <span class="o">=</span><span class="sc">&#39;\u2666&#39;</span><span class="p">;</span>  <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">class</span> <span class="nc">Karte</span> <span class="p">{</span>
+        <span class="n">Karten</span> <span class="n">k</span><span class="p">;</span>
+        <span class="n">Farben</span> <span class="n">f</span><span class="p">;</span>
+
+        <span class="n">Karte</span><span class="p">(</span><span class="n">Karten</span> <span class="n">k</span><span class="p">,</span> <span class="n">Farben</span> <span class="n">f</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">k</span><span class="o">=</span><span class="n">k</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">f</span><span class="o">=</span><span class="n">f</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Karte</span> <span class="nf">clone</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">Karte</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">k</span><span class="p">,</span><span class="k">this</span><span class="p">.</span><span class="na">f</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="n">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">class</span> <span class="nc">Deck</span> <span class="p">{</span>
+        <span class="n">Karte</span><span class="o">[]</span> <span class="n">deck</span><span class="p">;</span>
+
+        <span class="n">Deck</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">deck</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="o">[</span><span class="mi">32</span><span class="o">]</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="n">Farben</span> <span class="n">f</span><span class="p">:</span> <span class="n">Farben</span><span class="p">.</span><span class="na">values</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">Karten</span> <span class="n">k</span><span class="p">:</span><span class="n">Karten</span><span class="p">.</span><span class="na">values</span><span class="p">())</span>
+                <span class="p">{</span>
+                    <span class="n">deck</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">f</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">deck</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">s</span> <span class="o">+=</span> <span class="n">deck</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">f</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span> <span class="n">deck</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span> <span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">7</span> <span class="o">||</span> <span class="n">i</span><span class="o">==</span><span class="mi">15</span> <span class="o">||</span> <span class="n">i</span><span class="o">==</span><span class="mi">23</span> <span class="o">||</span> <span class="n">i</span><span class="o">==</span><span class="mi">31</span><span class="p">)</span> <span class="n">s</span><span class="o">+=</span><span class="s">&quot;\n&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="n">Skat</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">skat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Karte</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>    
+    <span class="p">}</span>
+
+    <span class="kt">boolean</span> <span class="nf">existsFalse</span><span class="p">(</span><span class="kt">boolean</span><span class="o">[]</span> <span class="n">b</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">b</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">geben</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Deck</span> <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Deck</span><span class="p">();</span>
+        <span class="n">Random</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>    
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="mi">32</span><span class="o">]</span><span class="p">;</span> 
+        <span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">indexP1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">indexP2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">indexP3</span> <span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">indexSkat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">zz</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">existsFalse</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">while</span><span class="p">(</span><span class="n">b</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">zz</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">b</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">indexP1</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">p1</span><span class="o">[</span><span class="n">indexP1</span><span class="o">++]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">deck</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">indexP2</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">p2</span><span class="o">[</span><span class="n">indexP2</span><span class="o">++]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">deck</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">indexP3</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">p3</span><span class="o">[</span><span class="n">indexP3</span><span class="o">++]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">deck</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">indexSkat</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">skat</span><span class="o">[</span><span class="n">indexSkat</span><span class="o">++]</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="na">deck</span><span class="o">[</span><span class="n">zz</span><span class="o">]</span><span class="p">.</span><span class="na">clone</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sortieren</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Spieler 1 : &quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Karte</span> <span class="n">k</span> <span class="p">:</span> <span class="n">p1</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Spieler 2 : &quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Karte</span> <span class="n">k</span> <span class="p">:</span> <span class="n">p2</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Spieler 3 : &quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Karte</span> <span class="n">k</span> <span class="p">:</span> <span class="n">p3</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Skat      : &quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Karte</span> <span class="n">k</span> <span class="p">:</span> <span class="n">skat</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">k</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Skat</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Skat</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">geben</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</details>
+<h3 id="nutzliche-links-fur-enums">Nützliche Links für enums<a class="headerlink" href="#nutzliche-links-fur-enums" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html">Oracle Docs</a></li>
+<li><a href="https://www.w3schools.com/java/java_enums.asp">W3Schools</a></li>
+<li><a href="https://www.heise.de/tipps-tricks/Java-enums-so-geht-s-4055338.html">Java enums - so geht's</a></li>
+<li><a href="https://www.torsten-horn.de/techdocs/java-enums.htm">Enums</a></li>
+<li><a href="https://www.youtube.com/watch?v=NIUGbgLU5Uk">Java Tutorial - Enums (youtube)</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../exceptions/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Exceptions" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Exceptions
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../mdarrays/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Mehrdimensionale Arrays" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Mehrdimensionale Arrays
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

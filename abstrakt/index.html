@@ -1,0 +1,1174 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/abstrakt/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Abstrakte Klassen - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#abstrakte-klassen" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Abstrakte Klassen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Abstrakte Klassen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Abstrakte Klassen
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#klassen-allgemein" class="md-nav__link">
+    Klassen - allgemein
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klassen-abstrakt" class="md-nav__link">
+    Klassen - abstrakt
+  </a>
+  
+    <nav class="md-nav" aria-label="Klassen - abstrakt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstrakte-methoden" class="md-nav__link">
+    Abstrakte Methoden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verwendung-abstrakter-klassen" class="md-nav__link">
+    Verwendung abstrakter Klassen
+  </a>
+  
+    <nav class="md-nav" aria-label="Verwendung abstrakter Klassen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ein-beispiel-die-abstrakte-klasse-shape" class="md-nav__link">
+    Ein Beispiel - die abstrakte Klasse Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rectangle-erbt-von-shape" class="md-nav__link">
+    Rectangle erbt von Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circle-erbt-von-shape" class="md-nav__link">
+    Circle erbt von Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testen-der-klassen" class="md-nav__link">
+    Testen der Klassen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiele-aus-den-java-paketen" class="md-nav__link">
+    Beispiele aus den Java-Paketen
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiele aus den Java-Paketen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-abstrakte-klasse-number" class="md-nav__link">
+    Die abstrakte Klasse Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakte-klassen-fur-collections" class="md-nav__link">
+    Abstrakte Klassen für Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#klassen-allgemein" class="md-nav__link">
+    Klassen - allgemein
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klassen-abstrakt" class="md-nav__link">
+    Klassen - abstrakt
+  </a>
+  
+    <nav class="md-nav" aria-label="Klassen - abstrakt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstrakte-methoden" class="md-nav__link">
+    Abstrakte Methoden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verwendung-abstrakter-klassen" class="md-nav__link">
+    Verwendung abstrakter Klassen
+  </a>
+  
+    <nav class="md-nav" aria-label="Verwendung abstrakter Klassen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ein-beispiel-die-abstrakte-klasse-shape" class="md-nav__link">
+    Ein Beispiel - die abstrakte Klasse Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rectangle-erbt-von-shape" class="md-nav__link">
+    Rectangle erbt von Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circle-erbt-von-shape" class="md-nav__link">
+    Circle erbt von Shape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testen-der-klassen" class="md-nav__link">
+    Testen der Klassen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiele-aus-den-java-paketen" class="md-nav__link">
+    Beispiele aus den Java-Paketen
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiele aus den Java-Paketen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-abstrakte-klasse-number" class="md-nav__link">
+    Die abstrakte Klasse Number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstrakte-klassen-fur-collections" class="md-nav__link">
+    Abstrakte Klassen für Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/abstrakt.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="abstrakte-klassen">Abstrakte Klassen<a class="headerlink" href="#abstrakte-klassen" title="Permanent link">&para;</a></h1>
+<p><em>Abstrakte Klassen</em>  haben wir bereits verwendet, ohne bis her zu wissen, worum es sich dabei handelt. Wenn wir uns nochmal die "Vererbungshierarchie" von <code>Collection</code> anschauen, dann finden wir darin</p>
+<ul>
+<li><em>Interfaces</em>: die Klassen <code>Collection</code>, <code>List</code>, <code>Set</code>, <code>SortedSet</code> und <code>NavigableSet</code> sind solche <em>Interfaces</em> (dazu kommen wir in der nächsten Lektion) und</li>
+<li><em>Abtrakte Klassen</em>: die Klassen <code>AbstractCollection</code>, <code>AbstractList</code> und <code>AbstractSet</code> sind solche <em>abstrakten Klassen</em> (die schauen wir uns jetzt an)</li>
+</ul>
+<p><img alt="collection" src="../files/37_collection.png" /></p>
+<h2 id="klassen-allgemein">Klassen - allgemein<a class="headerlink" href="#klassen-allgemein" title="Permanent link">&para;</a></h2>
+<p>Wir haben uns bis jetzt Klassen erstellt, um </p>
+<ol>
+<li>sie als einen neuen <em>(Referenz-)Typ</em> zu verwenden, um</li>
+<li>von diesen Klassen zu <em>erben</em> und somit alle Eigenschaften (Variablen und Methoden) dieser Klasse <em>wiederzuverwenden</em> und um</li>
+<li>daraus <em>Objekte</em> zu erzeugen. Diese Objekte weisen alle die gleichen Eigenschaften (Variablen und Methoden) auf. Diese Eigenschaften sind entweder in der Klasse definiert, von der wir Objekte erzeugen oder sie wurden in dieser Klasse von einer anderen Klasse geerbt.  </li>
+</ol>
+<p>Angenommen, in der Klasse wurde eine Methode implementiert</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">eineImplementierteMethode</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Anweisungen</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>, dann konnten alle Objekte, die wir von dieser Klasse erzeugt haben, diese Methode aufrufen und ausführen <code>refVariable.eineImplementierteMethode();</code>. </p>
+<h2 id="klassen-abstrakt">Klassen - abstrakt<a class="headerlink" href="#klassen-abstrakt" title="Permanent link">&para;</a></h2>
+<p><em>Abstrakte Klassen</em> sind etwas anders. Von ihnen können wir <em>keine Objekte erzeugen</em>. Das heißt, für <em>abstrakte Klassen</em> gelten nur die beiden ersten Punkte der oberen Aufzählung. <em>Abstrakte Klassen</em> werden erstellt, um </p>
+<ol>
+<li>sie als einen neuen <em>(Referenz-)Typ</em> zu verwenden, um</li>
+<li>von diesen Klassen alle Eigenschaften <em>erben</em> zu lassen. </li>
+</ol>
+<p>Der dritte obere Punkt gilt <strong>nicht</strong>! Wir können von <em>abstrakten Klassen</em> <strong>keine Objekte erzeugen</strong>. </p>
+<blockquote>
+<p>Eine abstrakte Klasse enthält eine oder mehrere abstrakte Methoden. Oder besser andersherum: Eine Klasse, die eine oder mehrere abstrakte Methoden enthält, ist eine abstrakte Klasse.</p>
+</blockquote>
+<h3 id="abstrakte-methoden">Abstrakte Methoden<a class="headerlink" href="#abstrakte-methoden" title="Permanent link">&para;</a></h3>
+<p><em>Abstrakte Methoden</em> sind Methoden, die nicht implementiert sind, d.h. sie haben keinen Methodenrumpf. Eine <em>abstrakte Methode</em> besteht nur aus einem Methodenkopf (gefolgt von einem Semikolon):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">eineAbstrakteMethode</span><span class="p">();</span>
+</code></pre></div>
+<p>Das Schlüsselwort <code>abstract</code> gibt an, dass die Methode nicht implementiert wird, sondern nur abstrakt beschreibt, </p>
+<ul>
+<li>wie der Name der Methode lautet,</li>
+<li>welche Parameter die Methode erwartet,</li>
+<li>wie der Rückgabetyp der Methode ist und</li>
+<li>wie der Sichtbarkeitsmodifizierer dieser Methode ist.</li>
+</ul>
+<p>Prinzipiell ist für abstrakte Methoden zu beachten, dass sie das Schlüsselwort <code>abstract</code> im Methodenkopf deklarieren und dass abstrakte Methode keinen Methodenrumpf haben, also keine <code>{ }</code>. Die Deklaration einer abstrakten Methode endet aber mit einem Semikolon!</p>
+<h3 id="verwendung-abstrakter-klassen">Verwendung abstrakter Klassen<a class="headerlink" href="#verwendung-abstrakter-klassen" title="Permanent link">&para;</a></h3>
+<p>Eine Klasse, die eine oder mehrere abstrakte Methoden enthält, ist eine abstrakte Klasse. Abtrakte Klassen dienen </p>
+<ol>
+<li>als Typ und </li>
+<li>als Basisklasse, d.h. von abstrakten Klassen wird geerbt.</li>
+</ol>
+<p>Von abstrakten Klassen abgeleitete Klassen (also Klassen, die von einer abstrakten Klasse erben), <strong>müssen</strong> die geerbten Methoden implementieren (ansonsten wären sie selbst wieder abstrakt)!</p>
+<h4 id="ein-beispiel-die-abstrakte-klasse-shape">Ein Beispiel - die abstrakte Klasse <code>Shape</code><a class="headerlink" href="#ein-beispiel-die-abstrakte-klasse-shape" title="Permanent link">&para;</a></h4>
+<p>Wir erstellen uns eine abstrakte Klasse <code>Shape</code>, welche zwei abstrakte Methoden enthält, <code>perimeter()</code> und <code>area()</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> 
+<span class="p">{</span>   
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Beachten Sie, dass eine Klasse selbst als <code>abstract</code> deklariert werden muss, wenn sie abstrakte Methoden enthält. Deshalb enthält die Klassendeklaration in Zeile <code>1</code> ebanfalls das Schlüsselwort <code>abstract</code>. Sie ließe sich auch sonst gar nicht compilieren. </p>
+<h4 id="rectangle-erbt-von-shape"><code>Rectangle</code> erbt von <code>Shape</code><a class="headerlink" href="#rectangle-erbt-von-shape" title="Permanent link">&para;</a></h4>
+<p><code>Shape</code> kann nun bereits als Typ verwendet werden. Es lassen sich aber keine Objekte von der Klasse <code>Shape</code> erzeugen. Vielmehr ist die Klasse <code>Shape</code> auch dazu da, um von ihr zu erben. Wir erzeugen uns deshalb eine Klasse <code>Rectangle</code>, die von <code>Shape</code> erbt. </p>
+<p>Wenn wir nun schreiben:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>dann ist <code>Rectangle</code> rot unterstrichen und Eclipse bietet uns zwei <code>QuickFixes</code> an:</p>
+<ol>
+<li><code>Add unimplemnted methods</code> oder</li>
+<li><code>Make type Rectangle abstract</code></li>
+</ol>
+<p>Durch das Erben von <code>Shape</code> haben wir auch die beiden abstrakten Methoden <code>perimeter()</code> und <code>area()</code> geerbt. Wir haben nun entweder die Möglichkeit, diese Methoden zu implementieren oder die Klasse <code>Rectangle</code> ist selbst eine abstrakte Klasse. Wir wählen <code>QuickFix 1</code> und lassen die Methoden hinzufügen: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Eclipse fügt die zu implementierenden Methoden genau so ein, wie wir sie geerbt haben (also als <code>public</code> und mit Rückgabetyp <code>double</code> sowie den in <code>Shape</code> definierten Namen). Nun sind die beiden Methoden aber jeweils implementiert (aber noch nicht richtig - <code>TODO</code>). Da beide Methoden nun einen Methodenrumpf enthalten (Zeilen <code>6-9</code> und <code>13-16</code>), sind sie nicht mehr abstrakt und somit ist auch die Klasse <code>Rectangle</code> keine abstrakte Klasse. </p>
+<p>Eine sinnvolle Implementierung der Klasse <code>Rectangle</code> sieht z.B. so aus, dass wir zwei Objektvariablen definieren, die die Breite und Höhe eines Rechtecks beschreiben, dass wir einen parametrisierten Konstruktor hinzufügen und dass wir unter Verwendung der Werte der Objektvariablen die Methoden <code>perimeter()</code> und <code>area()</code> sinnvoll implementieren: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Natürlich könnte (und sollte) die Klasse auch noch geeignete Implementierungen für mindestens die von <code>Object</code> geerbten Methoden <code>equals()</code> und <code>toString()</code> enthalten. </p>
+<h4 id="circle-erbt-von-shape"><code>Circle</code> erbt von <code>Shape</code><a class="headerlink" href="#circle-erbt-von-shape" title="Permanent link">&para;</a></h4>
+<p>Wir können beliebig oft von der Klasse <code>Shape</code> erben, d.h. wir können nun beliebig viele Klasse erstellen, die von der Klasse <code>Shape</code> erben. Für jede dieser Klassen gilt nun:</p>
+<ul>
+<li>ein Objekt dieser Klasse (z.B. ein Objekt der Klasse <code>Rectangle</code>) "besitzt" die Methoden <code>perimeter()</code> und <code>area()</code>,</li>
+<li>ein Objekt dieser Klasse ist auch vom (Laufzeit-)Typ <code>Shape</code>. </li>
+</ul>
+<p>Wir erzeugen uns eine weitere Klasse, um diese Tatsachen näher zu betrachten: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="testen-der-klassen">Testen der Klassen<a class="headerlink" href="#testen-der-klassen" title="Permanent link">&para;</a></h4>
+<p>Beispielsweise könnte nun in einer beliebigen Klasse eine Methode implementiert werden, in der ein <code>Shape</code> als Parameter verwendet wird und die für dieses <code>Shape</code> die Methode <code>perimeter()</code> oder <code>area()</code> aufruft. Es ist ja sicher, dass jedes Objekt vom Typ <code>Shape</code> diese Methoden als Eigenschaft "besitzt". Betrachten wir folgende <code>TestklasseShape</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestklasseShape</span> 
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printPerimeter</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;perimeter : %.2f cm%n&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="na">perimeter</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printArea</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;area      : %.2f cm%n&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="na">area</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">sumPerimeters</span><span class="p">(</span><span class="n">Shape</span><span class="o">[]</span> <span class="n">shapes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span> <span class="p">:</span> <span class="n">shapes</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="p">.</span><span class="na">perimeter</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">sumAreas</span><span class="p">(</span><span class="n">Shape</span><span class="o">[]</span> <span class="n">shapes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Shape</span> <span class="n">s</span> <span class="p">:</span> <span class="n">shapes</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">s</span><span class="p">.</span><span class="na">area</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Shape</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+        <span class="n">Shape</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">6.0</span><span class="p">);</span>
+        <span class="n">printPerimeter</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+        <span class="n">printPerimeter</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+        <span class="n">printArea</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+        <span class="n">printArea</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+
+        <span class="n">Shape</span><span class="o">[]</span> <span class="n">shapes</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Shape</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">s2</span><span class="p">;</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span>
+        <span class="n">shapes</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">10.0</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;sum of perimeters : %.2f cm%n&quot;</span><span class="p">,</span> <span class="n">sumPerimeters</span><span class="p">(</span><span class="n">shapes</span><span class="p">));</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;sum of areas      : %.2f cm%n&quot;</span><span class="p">,</span> <span class="n">sumAreas</span><span class="p">(</span><span class="n">shapes</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>In dieser Testklasse sind vier Methoden implementiert, die als Parameter entweder Objekte vom Typ <code>Shape</code> oder vom Typ <code>Shape[]</code> erwarten. Von Objekten, die vom (Laufzeit-)Typ <code>Shape</code> sind, wissen wir, dass sie die Methoden <code>perimeter()</code> bzw. <code>area()</code> als Eigenschaften besitzen. Deshalb können wir diese Methoden auch in den jeweiligen Methoden für die <code>Shape</code>-Objekte aufrufen. </p>
+<p>Abstrakte Klassen fungieren also ein Muster für Klassen, die von den abstrakten Klassen erben, denn die abgeleiteten Klassen <strong>müssen</strong> genau diese Methoden implementieren, die von den abstrakten Klassen vorgegeben sind. Ohne jetzt wirklich zu wissen, welche <em>konkreten</em> Klassen von dieser abstrakten Klasse erben und auch, ohne wirklich zu wissen, von welcher <em>konkreten</em> Klasse die Objekte erzeugt wurden (z.B. <code>Rectangle</code> oder <code>Circle</code>), so wissen wir doch, dass diese Objekte zumindest über die Methoden <code>perimeter()</code> und <code>area()</code> verfügen. </p>
+<h2 id="beispiele-aus-den-java-paketen">Beispiele aus den Java-Paketen<a class="headerlink" href="#beispiele-aus-den-java-paketen" title="Permanent link">&para;</a></h2>
+<p>In Java finden sich sehr viele abstrakte Klassen. Wir betrachten im Folgenden einige, zu denen wir bereits einen Bezug haben. </p>
+<h3 id="die-abstrakte-klasse-number">Die abstrakte Klasse <code>Number</code><a class="headerlink" href="#die-abstrakte-klasse-number" title="Permanent link">&para;</a></h3>
+<p>Die Klasse <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Number.html">Number</a> aus dem <code>java.lang</code>-Paket ist eine abstrakte Klasse. In dieser Klasse sind folgende abstrakte Methoden definiert: </p>
+<ul>
+<li><code>abstract double doubleValue()</code></li>
+<li><code>abstract float  floatValue()</code></li>
+<li><code>abstract int    intValue()</code></li>
+<li><code>abstract long   longValue()</code></li>
+</ul>
+<p>Alle numerischen Wrapper-Klassen erben von <code>Number</code>, d.h. die Klassen <code>Byte</code>, <code>Double</code>, <code>Float</code>, <code>Integer</code>, <code>Long</code> und <code>Short</code> sind von <code>Number</code> abgeleitet. Das bedeutet, dass alle Objekte dieser <em>konkreten</em> Wrapper-Klassen auch vom Typ <code>Number</code> sind und somit die Methoden <code>doubleValue()</code>, <code>floatValue()</code>, <code>intValue()</code> und <code>longValue()</code> als Eigenschaften besitzen. Wir können also für alle solche Objekte diese Methoden aufrufen. </p>
+<h3 id="abstrakte-klassen-fur-collections">Abstrakte Klassen für Collections<a class="headerlink" href="#abstrakte-klassen-fur-collections" title="Permanent link">&para;</a></h3>
+<p>Beispiele für abstrakte Klassen finden wir auch im <code>java.util</code>-Paket für die Collections. Beispielsweise definiert die abstrakte Klasse <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/AbstractCollection.html">AbstractCollection</a> eine Reihe uns bereits bekannter Methoden, wie z.B. <code>add()</code>, <code>addAll()</code>, <code>clear()</code>, <code>contains()</code>, <code>isEmpty()</code>, <code>iterator()</code>, <code>remove()</code> usw. Alle Klassen, die von dieser Klasse erben, wie z.B. <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/AbstractList.html">AbstractList</a> und <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/AbstractSet.html">AbstractSet</a> verfügen also ebenfalls über diese Methoden. Beachten Sie, dass diese beiden Klassen <code>AbstractList</code> und <code>AbstractSet</code> ebenfalls abstrakt sind! Von <code>AbstractSet</code> erben z.B. die Klassen <code>HashSet</code>, <code>TreeSet</code> und <code>EnumSet</code>. Erst von diesen <em>konkreten</em> Klassen können tatsächlich Objekte erzeugt werden. Alle diese Objekte besitzen aber (natürlich) die bereits in <code>AbstractCollection</code> definierten Methoden. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir kennen jetzt abstrakte Klassen. Abstrakte Klassen sind Klassen, die abstrakte Methoden enthalten. Abstrakte Methoden sind Methoden, die nicht implementiert sind. Von abstrakten Klassen können wir keine Objekte erzeugen. Abstrakte Klassen dienen uns als Typen und wir können von abstrakten Klassen erben. Eine Klasse, die von einer abstrakten Klasse erbt, muss die geerbten abstrakten Methoden implementieren (oder sie ist selbst wieder abstrakt). Alle Klassen, die von einer abstrakten Klasse erben, implementieren also die Methoden genau so, wie sie von der abstrakten Klasse vorgegeben wurden, also mit der Methodensignatur (Name der Methode, Parameter, Rückgabetyp und Sichtbarkeitsmodifizierer). Jedes Objekt einer Klasse, welche von der abstrakten Klasse geerbt hat, ist auch vom Typ der abstrakten Klasse.</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../maps/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Maps" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Maps
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../interfaces/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Interfaces" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Interfaces
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

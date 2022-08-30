@@ -1,0 +1,1786 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/interfaces/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Interfaces - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interfaces" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Interfaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Interfaces
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#das-interface-comparable" class="md-nav__link">
+    Das Interface Comparable
+  </a>
+  
+    <nav class="md-nav" aria-label="Das Interface Comparable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laufzeittypen-eines-rectangle-objektes" class="md-nav__link">
+    Laufzeittypen eines Rectangle-Objektes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zwischenfazit" class="md-nav__link">
+    Zwischenfazit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-bessere-implementierung" class="md-nav__link">
+    Eine bessere Implementierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-noch-bessere-implementierung" class="md-nav__link">
+    Eine noch bessere Implementierung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#das-interface-comparable" class="md-nav__link">
+    Das Interface Comparable
+  </a>
+  
+    <nav class="md-nav" aria-label="Das Interface Comparable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laufzeittypen-eines-rectangle-objektes" class="md-nav__link">
+    Laufzeittypen eines Rectangle-Objektes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zwischenfazit" class="md-nav__link">
+    Zwischenfazit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-bessere-implementierung" class="md-nav__link">
+    Eine bessere Implementierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-noch-bessere-implementierung" class="md-nav__link">
+    Eine noch bessere Implementierung
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/interfaces.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h1>
+<p><em>Interfaces</em> sind auch abstrakte Klassen. Interfaces enthalten ausschließlich abstrakte Methoden (keine Methode darf implementiert sein). Interfaces beschreiben <strong>Schnittstellen</strong>. Für Interfaces wird nicht das Schlüsselwort <code>class</code>, sondern <code>interface</code> verwendet. Klassen erben nicht von Interfaces, sondern <strong>implementieren</strong> sie. Deshalb wird auch nicht das Schlüsselwort <code>extends</code>, sondern das Schlüsselwort <code>implements</code> verwendet. Während in Java nur von genau einer Klasse geerbt werden kann (also auch nur von genau einer abstrakten Klasse), kann eine Klasse beliebig viele Interfaces implementieren. </p>
+<p>Interfaces sind automatisch <code>abstract</code>, d.h. das Schlüsselwort <code>abstract</code> muss nicht angegeben werden. Auch die Methoden in Interfaces müssen nicht als abstrakt gekennzeichnet werden. Interfaces können, wie abstrakte Klassen auch, als Typen verwendet werden. </p>
+<table>
+<thead>
+<tr>
+<th> Abtrakte Klasse</th>
+<th> Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>können abstrakte und nicht-abstrakte (also implementierte) Methoden haben</td>
+<td>können nur abstrakte Methoden beinhalten</td>
+</tr>
+<tr>
+<td>es kann nur von einer (abstrakten) Klasse geerbt werden (Schlüsselwort <code>extends</code>)</td>
+<td>es können beliebig viele Interfaces implementiert werden (Schlüsselwort <code>implements</code>), mehrere Interfaces durch Komma getrennt</td>
+</tr>
+<tr>
+<td>abstrakte Klassen können selbst Interfaces implementieren</td>
+<td>Interfaces können keine abstrakten Klassen implementieren (alle Methoden müssen ja abstrakt sein)</td>
+</tr>
+<tr>
+<td>das Schlüsselwort <code>abstract</code> deklariert eine abstrakte Klasse (und eine abstrakte Methode)</td>
+<td>das Schlüsselwort <code>interface</code> deklariert ein Interface</td>
+</tr>
+<tr>
+<td>eine abstrakte Klasse kann von einer anderen abstrakten Klasse erben und mehrere Interfaces implementieren</td>
+<td>ein Interface kann nur von <em>einem</em> anderen Interface erben</td>
+</tr>
+<tr>
+<td>abtrakte Klassen können <code>final</code> Variablen (Konstanten), nicht-finale Variablen, statische und nicht-statische Variablen als Eigenschaften beinhalten</td>
+<td>Interfaces können nur statische Konstanten (<code>static final</code>) als Eigenschaften beinhalten</td>
+</tr>
+<tr>
+<td>die Eigenschaften einer abstrakten Klasse können <code>private</code>, <code>protected</code>, <em>default</em> und <code>public</code> sein</td>
+<td>in Interfaces sind alle Eigenschaften <code>public</code></td>
+</tr>
+<tr>
+<td>Bsp.: <code>public abstract class Shape{ public abstract void draw(); }</code></td>
+<td>Bsp.: <code>public interface Drawable{ void draw(); }</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="das-interface-comparable">Das Interface <code>Comparable</code><a class="headerlink" href="#das-interface-comparable" title="Permanent link">&para;</a></h2>
+<p>Ehe wir uns ein eigenes Interface schreiben, schauen wir uns zunächst die Verwendung eines bereits existierenden Interfaces an. Es handelt sich um das Interface <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html">Comparable</a> aus dem <code>java.lang</code>-Paket. Wenn Sie sich die Java-Dokumentation dieses Interfaces einmal anschauen, dann sehen Sie, dass es von sehr vielen Klassen implementiert wird. Dieses Interface enthält genau eine (natürlich abstrakte) Methode <code>compareTo()</code>. Diese Methode kennen wir auch schon, denn wir haben sie betrachtet, als wir <a href="https://freiheit.f4.htw-berlin.de/prog1/hilfsklassen/#die-klasse-string">in Prog1 Strings</a> kennengelernt haben. </p>
+<p>Die Methode <code>this.compareTo(Object obj)</code> wird verwendet, um zu vergleichen, ob <code>this</code> größer, kleiner oder gleich <code>obj</code> ist. Das bedeutet, dass wir <code>compareTo()</code> in unserer Klasse implementieren sollten, wenn wir die Objekte unserer Klasse der Größe nach ordnen wollen, wenn wir also ermöglichen wollen, dass die Objekte der Klasse sortiert werden können. </p>
+<p>Die Methode <code>this.compareTo(Object obj)</code> gibt ein <code>int</code> zurück, für dessen Wert Folgendes gelten soll:</p>
+<ul>
+<li>ist der zurückgegebene <code>int</code>-Wert positiv (<code>&gt; 0</code>), dann ist <code>this</code> <strong>größer</strong> als <code>obj</code>,</li>
+<li>ist der zurückgegebene <code>int</code>-Wert negativ (<code>&lt; 0</code>), dann ist <code>this</code> <strong>kleiner</strong> als <code>obj</code>,</li>
+<li>ist der zurückgegebene <code>int</code>-Wert <code>0</code>, dann ist <code>this</code> <strong>gleich</strong> <code>obj</code>.</li>
+</ul>
+<p>Angenommen, wir wollen für die folgende Klasse <code>Rectangle</code> (aus dem Abschnitt <a href="../abstrakt/#rectangle-erbt-von-shape">Abstrakte Klassen</a>) festlegen, dass die Rechtecke der Größe nach geordnet werden können. Gegeben ist also zunächst folgende Klasse (wir verwenden hier auch <code>Shape</code> aus <a href="../abstrakt/#ein-beispiel-die-abstrakte-klasse-shape">Abstrakte Klassen</a>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Klasse <code>Rectangle</code> erbt also von der abstrakten Klasse <code>Shape</code> und <strong>muss</strong> deshalb die Methoden <code>perimeter()</code> und <code>area()</code> implementieren. Nun geben wir an, dass <code>Rectangle</code> auch das Interface <code>Comparable</code> implementieren soll. Dazu ergänzen wir die erste Zeile um <code>implements Comparable</code>, d.h. die Klassendeklaration sieht jetzt so aus:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span>
+<span class="p">{</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wenn Sie das hinzufügen, stellen wir fest, dass ein <strong>Fehler</strong> erzeugt wird (die Klasse lässt sich nicht compilieren). Die Fehlerausgabe besagt: <code>The type Rectangle must implement the inherited abstract method Comparable.compareTo(Object)</code>. Es werden zwei <code>QuickFixes</code> angeboten, </p>
+<ul>
+<li>entweder <code>Add unimplemented methods</code> </li>
+<li>oder <code>Make type Rectangle abstract</code>. </li>
+</ul>
+<p>Letzteres wollen wir aber nicht (<code>Rectangle</code> soll nicht zu einer abstrakten Klasse gemacht werden). Also wählen wir <code>Add unimplemented methods</code>. Eclipse fügt uns die <code>compareTo()</code>-Methode in den Code ein:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// TODO Auto-generated method stub</span>
+</span><span class="hll">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Jetzt lässt sich der Code bereits compilieren, wir erhalten aber noch eine Warnung:</p>
+<div class="highlight"><pre><span></span><code>Comparable is a raw type. References to generic <span class="nb">type</span> Comparable&lt;T&gt; should be parameterized
+</code></pre></div>
+<p>Diese Warnung besagt, dass wir, wie wir das von Collections bereits kennen, auch das Interface <code>Comparable</code> <strong>typisieren</strong> sollen. Das wollen wir auch tun, denn wir implementieren dieses Interface hier für unsere Klasse <code>Rectangle</code>. Wir typisieren deshalb <code>Comparable</code> mit <code>Rectangle</code>: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span>
+</span><span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Interssanterweise ist nun zwar unsere Warnung weg, aber dafür erhalten wir erneut einen Fehler:</p>
+<div class="highlight"><pre><span></span><code>The <span class="nb">type</span> Rectangle must implement the inherited abstract method Comparable&lt;Rectangle&gt;.compareTo<span class="o">(</span>Rectangle<span class="o">)</span>
+</code></pre></div>
+<p>Dadurch, dass wir <code>Comparable</code> mit <code>Rectangle</code> typisieren (was korrekt ist), wird nun verlangt, dass wir nicht mehr die Methode </p>
+<div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>implementieren, sondern die Methode </p>
+<div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>Der Typ des Parameters hat sich durch unsere Typisierung also geändert. Das ist gut, denn dann müssen wir nicht mehr, wie z.B. bei <code>equals(Object o)</code>, prüfen, ob es sich bei dem übergebenen Objekt tatsächlich um ein <code>Rectangle</code> handelt. Wir ändern also den Parametertyp in <code>compareTo()</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+<span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+</span>        <span class="c1">// TODO Auto-generated method stub</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>In Zukunft typisieren wir das <code>Comparable</code>-Interface noch, bevor wir <code>Add unimplemented methods</code> wählen. Wir typisieren es stets mit der Klasse, in der wir das Interface implementieren. </p>
+<p>Für die Implementierung müssen wir uns nun überlegen, wann ein <code>Rectangle</code>-Objekt größer (kleiner/gleich) sein soll, als ein anderes. Da <code>compareTo()</code> ein <code>int</code> zurückgibt, könnten wir z.B. die Summen von <code>height</code> und <code>width</code> verwenden:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">o</span><span class="p">.</span><span class="na">height</span><span class="o">+</span><span class="n">o</span><span class="p">.</span><span class="na">width</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">diff</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wenn die Summe von <code>height</code> und <code>width</code> von <code>this</code> größer ist, als von <code>o</code>, dann geben wir eine positive <code>int</code>-Zahl zurück, wenn sie kleiner ist, dann eine negative <code>int</code>-Zahl und wenn sie gleich sind, dann <code>0</code>. Damit entsprechen wir den Vorgaben von <code>compareTo()</code>. </p>
+<h3 id="laufzeittypen-eines-rectangle-objektes">Laufzeittypen eines <code>Rectangle</code>-Objektes<a class="headerlink" href="#laufzeittypen-eines-rectangle-objektes" title="Permanent link">&para;</a></h3>
+<p>Ein <code>Rectangle</code>-Objekt ist nicht nur vom Laufzeittyp <code>Rectangle</code>, sondern auch</p>
+<ul>
+<li>von Laufzeittyp <code>Shape</code>, wegen <code>public class Rectangle extends Shape</code>, </li>
+<li>vom Laufzeittyp <code>Comparable</code>, wegen <code>public class Rectangle implements Comparable</code> und</li>
+<li>vom Laufzeittyp <code>Object</code>, weil das <strong>immer</strong> so ist, weil jede Klasse implizit von <code>Object</code> erbt. </li>
+</ul>
+<p>Wir könnten nun also in jeder beliebigen Klasse eine Sortiermethode haben, z.B.: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sortieren</span><span class="p">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">unsorted</span><span class="p">)</span>
+    <span class="p">{</span>   
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">bubble</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">bubble</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">bubble</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="o">-</span><span class="n">bubble</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+                <span class="p">{</span>
+                    <span class="n">Comparable</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>            
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die Methode implementiert Bubble-Sort. In Zeile <code>7</code> verwenden wir die <code>compareTo()</code>-Methode. Das geht genau deshalb, weil klar ist, dass ein Objekt, das (auch) vom Typ <code>Comparable</code> ist, diese Methode auf jeden Fall als Eigenschaft besitzt. Wenn wir nun in der Klasse, in der die Methode <code>sortieren()</code> implementiert ist, folgende <code>main()</code>-Methode haben:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Rectangle</span><span class="o">[]</span> <span class="n">rectArr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------ unsortiert --------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">r</span> <span class="p">:</span> <span class="n">rectArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- sortiert ---------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="n">sortieren</span><span class="p">(</span><span class="n">rectArr</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">r</span> <span class="p">:</span> <span class="n">rectArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>dann erhalten wir folgende Ausgabe:</p>
+<div class="highlight"><pre><span></span><code>------------------------ unsortiert --------------------------
+
+<span class="o">[</span>  <span class="m">9</span> x <span class="nv">13</span> <span class="o">=</span> <span class="m">117</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">4</span> x <span class="nv">17</span> <span class="o">=</span>  <span class="m">68</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">12</span> x  <span class="nv">5</span> <span class="o">=</span>  <span class="m">60</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">8</span> x  <span class="nv">9</span> <span class="o">=</span>  <span class="m">72</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">10</span> x <span class="nv">11</span> <span class="o">=</span> <span class="m">110</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">5</span> x <span class="nv">15</span> <span class="o">=</span>  <span class="m">75</span>,00 <span class="o">]</span> 
+
+
+------------------------- sortiert ---------------------------
+
+<span class="o">[</span> <span class="m">12</span> x  <span class="nv">5</span> <span class="o">=</span>  <span class="m">60</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">8</span> x  <span class="nv">9</span> <span class="o">=</span>  <span class="m">72</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">5</span> x <span class="nv">15</span> <span class="o">=</span>  <span class="m">75</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">4</span> x <span class="nv">17</span> <span class="o">=</span>  <span class="m">68</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">10</span> x <span class="nv">11</span> <span class="o">=</span> <span class="m">110</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">9</span> x <span class="nv">13</span> <span class="o">=</span> <span class="m">117</span>,00 <span class="o">]</span> 
+</code></pre></div>
+<p>für den Fall, dass wir in unserer Klasse <code>Rectangle</code> auch die <code>toString()</code>-Methode wie folgt implementiert haben:</p>
+<div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;[ %2d x %2d = %6.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben für unsere Klasse <code>Rectangle</code> das Interface <code>Comparable</code> implementiert. Das bedeutet, dass wir in <code>Rectangle</code> die Methode <code>compareTo()</code> so implementiert haben, dass <code>Rectangle</code>-Objekte der Größe nach sortiert werden können. Wir haben also eine <em>Ordnung</em> über <code>Rectangle</code>-Objekte definiert. Nach "außen" ist sichtbar, dass wir eine solche Ordnung implementiert haben, dass <code>Rectangle</code>-Objekte also <em>sortierbar</em> sind, weil sie (auch) vom Typ <code>Comparable</code> sind. Für alle Objekte, die in Java existieren, wissen wir, dass sie <em>sortierbar</em> sind, sobald sie auch vom Typ <code>Comparable</code> sind. <code>Comparable</code> stellt also eine <em>Schnittstelle</em> zur Sortierbarkeit dar. Wenn wir eine eigene Klasse schreiben und wir eine <em>Ordnung</em> über die Objekte dieser Klasse definieren können, sollten wir das Interface <code>Comparable</code> implementieren, denn dadurch geben wir nach "außen" an, dass sich die Objekte der Klasse <em>sortieren</em> (<em>ordnen</em>) lassen.</p>
+</div>
+<h3 id="zwischenfazit">Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Permanent link">&para;</a></h3>
+<p>Wir haben nun schon mehrere Methoden kennengelernt, die wir für eigene Klassen implementieren sollten.</p>
+<ul>
+<li>Die <code>toString()</code>-Methode erben wir von <code>Objects</code>. Wir sollten <code>toString()</code> für "unsere" Klassen überschreiben, damit wir eine textuelle Repräsentation unserer Objekte haben. <code>toString()</code>wird implizit angewendet, sobald eine <code>String</code>-Repräsentation erforderlich ist, z.B. ist <code>System.out.println(refVariable);</code>das Gleiche wie <code>System.out.println(refVariable.toString());</code>. </li>
+<li>Die <code>equals()</code>-Methode erben wir ebenfalls von <code>Objects</code>. Wir sollten <code>equals()</code> für "unsere" Klassen implementieren, um zu definieren, wann Objekte "unserer" Klasse <em>gleich</em> sind. Hierbei ist wichtig, zu beachten, dass <code>refVar1 == refVar2</code> ein reiner <em>Referenzvergleich</em> ist, der nichts darüber aussagt, ob die Objekte <em>gleich</em>  sind, sondern nur ein <code>true</code> ergibt, wenn beide Variablen auf dasselbe Objekt zeigen. Die <em>Gleichheit</em> von Objekten wird mittels <code>equals()</code>-Methode definiert. </li>
+<li>Die <code>hashCode()</code>-Methode erben wir ebenfalls von <code>Objects</code>. Wir sollten <code>hashCode()</code>genau dann implementieren, wenn wir <code>equals()</code> implementieren. Wichtig ist, dass zwei Objekte den gleichen Hash-Code haben (<code>hashCode()</code> liefert den gleichen <code>int</code>-Wert zurück), wenn die beiden Objekte laut <code>equals()</code> gleich sind. Gut ist darüber hinaus (aber nicht Bedingung), dass zwei Objekte einen unterschiedlichen Hash-Code haben, wenn sie laut <code>equals()</code>-Methode nicht gleich sind (<code>equals()</code>liefert <code>false</code> zurück). Der Hash-Code wird bei Hash-basierten Datentypen, wie z.B. Collections verwendet, um diese einzusortieren. </li>
+<li>Die Methode <code>compareTo()</code> muss implementiert werden, wenn wir das Interface <code>Comparable</code> implementieren. Mithilfe von <code>compareTo()</code> legen wir eine Ordnung über die Objekte der Klasse fest, d.h. wir geben an, wann ein Objekt größer/kleiner/gleich einem anderen Objekt der gleichen Klasse ist. Dadurch, dass wir das <code>Comparable</code>-Interface implementieren, zeigen wir nach "außen", dass die Objekte unserer Klasse <em>sortierbar</em>  sind. </li>
+</ul>
+<h3 id="eine-bessere-implementierung">Eine bessere Implementierung<a class="headerlink" href="#eine-bessere-implementierung" title="Permanent link">&para;</a></h3>
+<p>Wir haben bereits bei der Implementierung der Klasse <code>Rectangle</code> gesehen, dass wir das Interface <code>Comparable</code> bei der Implementierung von <code>Rectangle</code> typisieren sollten. Das wäre für eine wirklich korrekte Implementierung der Methode <code>sortieren()</code> ebenfalls angebracht. Dann würden wir in dieser Methode <code>Comparable</code> mit <code>Rectangle</code> typisieren:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sortieren</span><span class="p">(</span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;[]</span> <span class="n">unsorted</span><span class="p">)</span>
+</span>    <span class="p">{</span>   
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">bubble</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">bubble</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">bubble</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="o">-</span><span class="n">bubble</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+<span class="hll">                <span class="k">if</span><span class="p">(</span><span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">.</span><span class="na">compareTo</span><span class="p">((</span><span class="n">Rectangle</span><span class="p">)</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+</span>                <span class="p">{</span>
+<span class="hll">                    <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Rectangle</span><span class="o">&gt;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+</span>                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>            
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wenn wir also den Typ <code>Comparable</code> verwenden, dann ergänzen wir ihn um die Typisierung <code>&lt;Rectangle&gt;</code> (Zeilen <code>1</code> und <code>9</code>). Das führt allerdings dazu, dass wir dann auch in Zeile <code>7</code> den Typ von <code>unsorted[index+1]</code> nach <code>Rectangle</code> konvertieren müssen (<code>(Rectangle) unsorted[index+1]</code>). Damit verlieren wir aber unsere <strong>allgemeine</strong> Anwendbarkeit der Methode <code>sortieren()</code> für alle Klassen, die <code>Comparable</code> implementiert haben. Insbesondere würde die Methode dann nicht mehr für z.B. die Klasse <code>Circle</code> anwendbar sein: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Circle</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">&gt;</span> <span class="n">o</span><span class="p">.</span><span class="na">radius</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">&lt;</span> <span class="n">o</span><span class="p">.</span><span class="na">radius</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// this.radius == o.radius</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;(radius: %.2f -&gt; area: %.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wenn wir nun versuchen würden, die <code>sortieren()</code>-Methode auf ein <code>Circle[]</code> anzuwenden, ließe sich das Programm gar nicht compilieren:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Circle</span><span class="o">[]</span> <span class="n">circArr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.5</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">4.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">2.5</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">7.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------ unsortiert --------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Circle</span> <span class="n">c</span> <span class="p">:</span> <span class="n">circArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- sortiert ---------------------------%n%n&quot;</span><span class="p">);</span>
+<span class="hll">        <span class="c1">// sortieren(circArr);      // Fehler</span>
+</span>        <span class="k">for</span><span class="p">(</span><span class="n">Circle</span> <span class="n">c</span> <span class="p">:</span> <span class="n">circArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Deshalb wäre es eine <strong>bessere Implementierung</strong>, wenn wir das Interface <code>Comparable</code> nicht in den konkreten Klassen <code>Rectangle</code> und <code>Circle</code> (und in jeder weiteren Klasse, die wir auf der Basis von <code>Shape</code> erstellen) implementieren, sondern gleich in der Abstrakten Klasse <code>Shape</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Da <code>Shape</code> eine abstrakte Klasse ist, <strong>muss</strong> die Methode <code>compareTo()</code> <strong>nicht</strong> in <code>Shape</code> implementiert werden. Diese Methode würde nun <code>abstract</code> an alle Klassen vererbt, die von <code>Shape</code> erben:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Rectangle.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+</span><span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+<span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Shape</span> <span class="n">o</span><span class="p">)</span> 
+</span>    <span class="p">{</span>
+<span class="hll">        <span class="n">Rectangle</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rectangle</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+</span>        <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">height</span><span class="o">+</span><span class="n">r</span><span class="p">.</span><span class="na">width</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">diff</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;[ %2d x %2d = %6.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Circle.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+</span><span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+<span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Shape</span> <span class="n">o</span><span class="p">)</span> 
+</span>    <span class="p">{</span>
+<span class="hll">        <span class="n">Circle</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">Circle</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+</span>        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">&gt;</span> <span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">.</span><span class="na">radius</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// this.radius == c.radius</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;(radius: %.2f -&gt; area: %.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Beachten Sie, dass die Klassen <code>Rectangle</code> und <code>Circle</code> jetzt <strong>nur noch</strong> von <code>Shape</code> erben, aber nicht mehr das Interface <code>Comparable</code> implementieren (jeweils Zeile <code>1</code>). Es darf nicht mehrmals von einer Klasse implementiert werden und <code>Shape</code> implementiert es ja bereits. </p>
+<p>Da <code>Shape</code> diese Interface aber <em>implementiert</em>, wird die Methode <code>compareTo()</code> als abstrakte Methode an die Klassen <code>Rectangle</code> und <code>Circle</code> vererbt. Die Methode muss also von diesen Klassen implementiert werden. Nun wird sie aber mit dem Parametertyp <code>Shape</code> vererbt (Zeile <code>24</code> in <code>Rectangle.java</code> bzw. <code>23</code> in <code>Circle.java</code>). Dieser Parameter muss deshalb zunächst innerhalb der Methode <code>compareTo()</code> konvertiert werden (Zeile <code>25</code> in <code>Circle.java</code> bzw. <code>26</code> in <code>Rectangle.java</code>). </p>
+<p>Die <strong>allgemeine</strong> Anwendung der Methode <code>sortieren()</code> in der Testklasse gelingt nun aber:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TestklasseShape.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestklasseShape</span> 
+<span class="p">{</span>
+
+<span class="hll">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sortieren</span><span class="p">(</span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;[]</span> <span class="n">unsorted</span><span class="p">)</span>
+</span>    <span class="p">{</span>   
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">bubble</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">bubble</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">bubble</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">index</span><span class="o">&lt;</span><span class="n">unsorted</span><span class="p">.</span><span class="na">length</span><span class="o">-</span><span class="n">bubble</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+<span class="hll">                <span class="k">if</span><span class="p">(</span><span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">.</span><span class="na">compareTo</span><span class="p">((</span><span class="n">Shape</span><span class="p">)</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> 
+</span>                <span class="p">{</span>
+<span class="hll">                    <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+</span>                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+                    <span class="n">unsorted</span><span class="o">[</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>            
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Rectangle</span><span class="o">[]</span> <span class="n">rectArr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">17</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+        <span class="n">rectArr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------ unsortiert --------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">r</span> <span class="p">:</span> <span class="n">rectArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- sortiert ---------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="n">sortieren</span><span class="p">(</span><span class="n">rectArr</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Rectangle</span> <span class="n">r</span> <span class="p">:</span> <span class="n">rectArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="n">Circle</span><span class="o">[]</span> <span class="n">circArr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">5.5</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">4.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">2.5</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">7.0</span><span class="p">);</span>
+        <span class="n">circArr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------ unsortiert --------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Circle</span> <span class="n">c</span> <span class="p">:</span> <span class="n">circArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n%n------------------------- sortiert ---------------------------%n%n&quot;</span><span class="p">);</span>
+        <span class="n">sortieren</span><span class="p">(</span><span class="n">circArr</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">Circle</span> <span class="n">c</span> <span class="p">:</span> <span class="n">circArr</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir können nun alle Objekte sortieren lassen, die auf der Klasse <code>Shape</code> basieren. </p>
+<div class="highlight"><pre><span></span><code>------------------------ unsortiert --------------------------
+
+<span class="o">[</span>  <span class="m">9</span> x <span class="nv">13</span> <span class="o">=</span> <span class="m">117</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">4</span> x <span class="nv">17</span> <span class="o">=</span>  <span class="m">68</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">12</span> x  <span class="nv">5</span> <span class="o">=</span>  <span class="m">60</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">8</span> x  <span class="nv">9</span> <span class="o">=</span>  <span class="m">72</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">10</span> x <span class="nv">11</span> <span class="o">=</span> <span class="m">110</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">5</span> x <span class="nv">15</span> <span class="o">=</span>  <span class="m">75</span>,00 <span class="o">]</span> 
+
+
+------------------------- sortiert ---------------------------
+
+<span class="o">[</span> <span class="m">12</span> x  <span class="nv">5</span> <span class="o">=</span>  <span class="m">60</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">8</span> x  <span class="nv">9</span> <span class="o">=</span>  <span class="m">72</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">5</span> x <span class="nv">15</span> <span class="o">=</span>  <span class="m">75</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">4</span> x <span class="nv">17</span> <span class="o">=</span>  <span class="m">68</span>,00 <span class="o">]</span> 
+<span class="o">[</span> <span class="m">10</span> x <span class="nv">11</span> <span class="o">=</span> <span class="m">110</span>,00 <span class="o">]</span> 
+<span class="o">[</span>  <span class="m">9</span> x <span class="nv">13</span> <span class="o">=</span> <span class="m">117</span>,00 <span class="o">]</span> 
+
+
+------------------------ unsortiert --------------------------
+
+<span class="o">(</span>radius: <span class="m">5</span>,00 -&gt; area:  <span class="m">78</span>,54 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">5</span>,50 -&gt; area:  <span class="m">95</span>,03 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">4</span>,00 -&gt; area:  <span class="m">50</span>,27 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">2</span>,50 -&gt; area:  <span class="m">19</span>,63 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">7</span>,00 -&gt; area: <span class="m">153</span>,94 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">1</span>,00 -&gt; area:   <span class="m">3</span>,14 <span class="o">]</span> 
+
+
+------------------------- sortiert ---------------------------
+
+<span class="o">(</span>radius: <span class="m">1</span>,00 -&gt; area:   <span class="m">3</span>,14 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">2</span>,50 -&gt; area:  <span class="m">19</span>,63 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">4</span>,00 -&gt; area:  <span class="m">50</span>,27 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">5</span>,00 -&gt; area:  <span class="m">78</span>,54 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">5</span>,50 -&gt; area:  <span class="m">95</span>,03 <span class="o">]</span> 
+<span class="o">(</span>radius: <span class="m">7</span>,00 -&gt; area: <span class="m">153</span>,94 <span class="o">]</span> 
+</code></pre></div>
+<h3 id="eine-noch-bessere-implementierung">Eine noch bessere Implementierung<a class="headerlink" href="#eine-noch-bessere-implementierung" title="Permanent link">&para;</a></h3>
+<p>Obwohl wir nun in <code>Shape</code> das Interface <code>Comparable</code> implementieren, geben wir die Verantwortung der Implementierung der Methode <code>compareTo()</code> an die konkreten Klassen <code>Rectangle</code> und <code>Circle</code> weiter. Es stellt sich die Frage, ob sich die <code>compareTo()</code>-Methode nicht bereits in <code>Shape</code> implementieren ließe. Die Antwort auf diese Frage sollte <strong>ja</strong> lauten, denn ansonsten sollten wir das Interface gar nicht bereits durch die abstrakte Klasse <code>Shape</code> implementieren lassen. Wir haben in <code>Shape</code> genügend Informationen, um die <code>compareTo()</code>-Methode zu implementieren. Wir können dafür entweder <code>perimeter()</code> oder <code>area()</code> verwenden. Wir entscheiden uns für die Verwendung von <code>area()</code>:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Shape.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Shape</span><span class="o">&gt;</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">();</span>
+
+<span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="p">(</span><span class="n">Shape</span> <span class="n">o</span><span class="p">)</span> 
+</span><span class="hll">    <span class="p">{</span>   
+</span><span class="hll">        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">()</span> <span class="o">-</span> <span class="n">o</span><span class="p">.</span><span class="na">area</span><span class="p">());</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll"><span class="p">}</span>
+</span></code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In abstrakten Klassen müssen nicht, im Gegensatz zu Interfaces, alle Methoden abstrakt sein. Es können auch Methoden bereits implementiert werden. Diese Methoden müssen dann nicht mehr in den Klassen implementiert werden, die von der abstrakten Klasse erben. Die Klassen <code>Rectangle</code> und <code>Circle</code> benötigen also keine eigene Implementierung der <code>compareTo()</code>-Methode mehr:</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Rectangle.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+</span><span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">height</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>   
+        <span class="k">return</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">width</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+<span class="hll">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+</span>    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;[ %2d x %2d = %6.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">width</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">height</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+<span class="hll">        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Circle.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Shape</span>
+</span><span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Circle</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">=</span> <span class="n">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">perimeter</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Math</span><span class="p">.</span><span class="na">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+<span class="hll">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+</span>    <span class="p">{</span>   <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;(radius: %.2f -&gt; area: %.2f ] &quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="na">area</span><span class="p">());</span> 
+<span class="hll">        <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir haben ausgenutzt, dass in der Klasse <code>Shape</code> bereits genügend Informationen vorliegen, um die Methode <code>compareTo()</code> korrekt für alle Klassen zu implementieren, die von <code>Shape</code> erben. Diese Methode muss dann von diesen konkreten Klassen nicht mehr implementiert werden. Wir vermeiden so doppelten Code. Die <code>testklasseShape</code> bleibt unverändert für alle abgeleiteten Klassen aus <code>Shape</code> anwendbar. </p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../abstrakt/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Abstrakte Klassen" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Abstrakte Klassen
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../junit/" class="md-footer__link md-footer__link--next" aria-label="Weiter: JUnit-Testen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              JUnit-Testen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

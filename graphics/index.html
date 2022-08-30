@@ -1,0 +1,1445 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/graphics/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Graphics (entfällt) - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graphics" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graphics (entfällt)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Graphics (entfällt)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Graphics (entfällt)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eigene-geometrische-objekte-zeichnen" class="md-nav__link">
+    Eigene geometrische Objekte zeichnen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erste-geometrische-objekte" class="md-nav__link">
+    Erste geometrische Objekte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linien" class="md-nav__link">
+    Linien
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#farben" class="md-nav__link">
+    Farben
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hohe-und-breite-abhangig-von-der-canvas-groe" class="md-nav__link">
+    Höhe und Breite abhängig von der Canvas-Größe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eigene-geometrische-objekte-zeichnen" class="md-nav__link">
+    Eigene geometrische Objekte zeichnen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erste-geometrische-objekte" class="md-nav__link">
+    Erste geometrische Objekte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linien" class="md-nav__link">
+    Linien
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#farben" class="md-nav__link">
+    Farben
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hohe-und-breite-abhangig-von-der-canvas-groe" class="md-nav__link">
+    Höhe und Breite abhängig von der Canvas-Größe
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/graphics.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="graphics">Graphics<a class="headerlink" href="#graphics" title="Permanent link">&para;</a></h1>
+<p>Wir werden unsere GUI nun um eine Komponente erweitern, in der wir zeichnen können. Im Prinzip wird unsere GUI <strong>immer gezeichnet</strong>. Die Steuerelemente sind nur vorformatiert und bestehen aus lauter Linien, Polygonen und Punkten, die zusammen dann so, wie z.B. ein Button aussehen. Wenn wir eine GUI haben und dieses Fenster z.B. die Größe ändert, wird es dabei jedes Mal neu gezeichnet. Diese (Neu-)Zeichnen wird dadurch angestoßen, dass für unser <code>JFrame</code> die Methode <code>paint()</code> aufgerufen wird. Diese Methode wird z.B. auch in der Methode <code>setVisible(true)</code> aufgerufen.  </p>
+<p>Jede Komponente (also jedes Steuerelement und jeder Container) hat ihre eigene Objektmethode <code>paint()</code>, in der beschrieben ist, wie diese Komponente zu zeichnen ist. Genauer gesagt, werden in <code>paint()</code> folgende drei Methoden aufgerufen:</p>
+<ul>
+<li><code>paintBorder()</code> - zeichnet den Rahmen der Komponente</li>
+<li><code>paintChildren()</code> - ruft <code>paint()</code> für alle <em>Kindkomponenten</em> auf (also z.B. alle Steurelemente in einem <code>JPanel</code>)</li>
+<li><code>paintComponent()</code> - zeichnet die Komponente (und ihre Kinder)</li>
+</ul>
+<p>Damit überhaupt Linien und Punkte dargestellt werden können, gibt es eine Klasse <code>Graphics</code>, die, etwas vereinfacht gesagt, die Schnittstelle zwischen Hardware (dem Monitor) und dem zu zeichnenden Fenster darstellt. Alle Komponenten eines Fensters teilen sich genau <strong>ein</strong> Objekt dieser Klasse <code>Graphics</code>. Bei diesem Objekt wird auch vom <em>Graphics-Context</em> (<em>Grafikkontext</em>) gesprochen. Diese Klasse stellt eine Vielzahl von Methoden zur Verfügung, um einfache geometrische Objekte zu zeichnen, z.B.</p>
+<ul>
+<li><code>drawLine()</code>, um eine Linie zu zeichnen,</li>
+<li><code>drawOval()</code>, um eine (leere) Ellipse zu zeichnen,</li>
+<li><code>drawRect()</code>, um ein (leeres) Rechteck zu zeichnen,</li>
+<li><code>drawPolygon()</code>, um ein (leeres) Polygon (also ein Vieleck) zu zeichnen,</li>
+<li><code>drawString()</code>, um ein Text zu zeichnen,</li>
+<li><code>fillOval()</code>, um eine (ausgefüllte) Ellipse zu zeichnen,</li>
+<li><code>fillRect()</code>, um ein (ausgefülltes) Rechteck zu zeichnen,</li>
+<li><code>fillPolygon()</code>, um ein (ausgefülltes) Polygon (also ein Vieleck) zu zeichnen. </li>
+</ul>
+<p>Damit nun alle <code>paintX()</code>-Methoden (also <code>paint()</code>, <code>paintBorder()</code>, <code>paintComponent</code> und <code>paintChildren()</code>) Zugriff auf diesen Grafikkontext (das Objekt von <code>Graphics</code>) bekommen, wird es diesen Methoden übergeben. Das heißt, die Methoden sind so deklariert (alle <code>void</code>):</p>
+<ul>
+<li><code>paint(Graphics g)</code></li>
+<li><code>paintBorder(Graphics g)</code> </li>
+<li><code>paintChildren(Graphics g)</code> </li>
+<li><code>paintComponent(Graphics g)</code> </li>
+</ul>
+<p>Die <code>Graphics</code>-Klasse gibt es schon seit Java 1.0. Allerdings hat man bereits sehr früh festgestellt, dass die Methoden in dieser Klasse nicht genügen, um "schöne" Grafiken zu erstellen. Deshalb hat man bereits in Java 1.1 eine neue Klasse <code>Graphics2D</code> eingeführt (hat von <code>Graphics</code> geerbt), in der hauptsächlich die Darstellung der geometrischen Objekte verbessert wurde, aber in der auch einige Methoden dazukamen, um z.B. andere Linienformen (gestrichelt, gepunktet, ...) zu definieren, andere Fonts für den Text usw. Tatsächlich handelt es sich seit JDK 1.2 bei dem Grafikkontext, also dem <code>Graphics</code>-Objekt <code>g</code> um ein Objekt der Klasse <code>Graphics2D</code>. </p>
+<h3 id="eigene-geometrische-objekte-zeichnen">Eigene geometrische Objekte zeichnen<a class="headerlink" href="#eigene-geometrische-objekte-zeichnen" title="Permanent link">&para;</a></h3>
+<p>Bevor wir eigene geometrische Objekte zeichnen können, schauen wir zunächst nochmal auf unser "Grundgerüst" für eine GUI (siehe Kapitel <a href="../gui/#erweitern-des-fensters-um-ein-jpanel">GUI Einführung</a>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">initContent</span><span class="p">());</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="c1">// hier weitere Container oder Steuerelemente hinzufuegen</span>
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Darin erzeugt die Methode <code>initContent()</code> ein <code>JPanel</code> und gibt es zurück. Dieses <code>JPanel</code> wird der <code>ContentPane</code> unseres Fensters hinzugefügt (Zeile <code>13</code>). Somit hat das <code>JFrame</code> ein <em>Kind</em>, nämlich das der <code>ContentPane</code> hinzugefügte <code>JPanel</code>. Wenn das <code>JFrame</code> nun <em>gezeichnet</em> wird, wird für dieses <code>JPanel</code> die Methode <code>paintComponent(Graphics g)</code> aufgerufen. Diese ist für ein <code>JPanel</code> so implementiert, dass ein hellgraues Rechteck ohne Rand (<code>Border</code>) gezeichnet wird. Würden wir dem <code>mainPanel</code> in der <code>initContent()</code>-Methode nun weitere Komponenten (Container oder Steuerlemente) hinzufügen, so würden diese alle so gezeichnet werden, wie für diese Komponenten die <code>paintComponent(Graphics g)</code>-Methode implementiert ist. </p>
+<p>Wir wollen nun aber <strong>selbst</strong> die <code>paintComponent(Graphics g)</code>-Methode für eine Komponente implementieren. Dazu entscheiden wir uns dafür, die <code>paintComponent()</code>-Methode von einem <code>JPanel</code> zu implementieren. <em>Aber wie kommen wir an diese Implementierung ran?</em> Indem wir von <code>JPanel</code> <strong>erben</strong>. Wenn wir eine Klasse erstellen, die von <code>JPanel</code> erbt, dann erben wir auch die Implementierung der <code>paintComponent()</code>-Methode von <code>JPanel</code> und können diese <strong>überschreiben</strong>.</p>
+<p>Wir ändern dafür unser "Grundgerüst":</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstDrawingWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstDrawingWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Wir zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Canvas</span><span class="p">());</span>
+</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="nd">@Override</span>
+</span><span class="hll">        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+</span><span class="hll">            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+</span><span class="hll">            <span class="c1">// hier koennen wir zeichnen</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstDrawingWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>An der Darstellung des Fensters ändert das zunächst gar nichts. Wenn wir das Programm ausführen, dann erscheint folgendes Fenster.</p>
+<p><img alt="graphics" src="../files/71_graphics.png" /></p>
+<p>Das der <code>ContentPane</code> hinzugefügte <code>JPanel</code> wird also "ganz normal" als hellgraues Rechteck dargestellt. Der große Unterschied ist, dass es sich nun um ein Objekt unserer <em>inneren Klasse</em> <code>Canvas</code> handelt. Diese hat von <code>JPanel</code> geerbt. Ein Objekt von <code>Canvas</code> ist somit auch ein Objekt vom Typ <code>JPanel</code>. Aber wir können in <code>Canvas</code> die Methode <code>paintComponent(Graphics g)</code> <strong>überschreiben</strong> und somit eine eigene Implementierung für das Zeichnen unserer Komponente (einem <code>Canvas</code>-Objekt) erstellen. </p>
+<p>Innerhalb unserer eigenen Implementierung der <code>paintComponent()</code>-Methode rufen wir zunächst die <code>paintComponent()</code>-Methode von <code>JPanel</code> auf. Damit wird ein hellgraues Rechteck gezeichnet. Das sollten wir <strong>immer</strong> tun, da ansonsten manchmal unschöne Nebeneffekte entstehen. </p>
+<p>Außerdem sollten wir auch <strong>immer</strong> das <code>Graphics</code>-Objekt nach <code>Graphics2D</code> konvertieren, da uns in <code>Graphics2D</code> deutlich mehr Methoden zur Verfügung stehen (siehe z.B. <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Graphics2D.html">hier</a> und <a href="https://docs.oracle.com/javase/tutorial/2d/index.html">hier</a>).</p>
+<details class="übung"><summary>Übung</summary><p>Die Methode <code>draw3DRect()</code> ist ein Beispiel für eine Methode, die in der <code>Graphics2D</code>-Klasse implementiert ist, aber in der Klasse <code>Graphics</code> nicht vorkommt. <br/>
+1. Warum funktioniert <code>Graphics2D g2 = (Graphics2D)g;</code> ? <br/>
+2. Warum funktioniert <code>g.draw3DRect()</code> nicht, aber <code>g2.draw3DRect()</code> doch (wenn jeweils Parameterliste stimmt)?</p>
+</details>
+<h3 id="erste-geometrische-objekte">Erste geometrische Objekte<a class="headerlink" href="#erste-geometrische-objekte" title="Permanent link">&para;</a></h3>
+<p>Unser Fenster ist nun soweit vorbereitet und wir überschreiben die <code>paintComponent()</code>-Methode in unserer Klasse <code>Canvas</code>. Nun können wir darin beliebige Grafiken einfügen. Dazu rufen wir Methoden von <code>Graphics2D</code> auf. </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawRect</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawOval</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Methode <code>drawRect(int x, int y, int width, int height)</code> zeichnet ein Rechteck mit der Breite <code>width</code> und der Höhe <code>height</code>. Bei uns hat beides den Wert <code>200</code> und somit wird ein Quadrat gezeichnet. Die Werte <code>x</code> und <code>y</code> stehen für die Koordinaten des <strong>linken oberen</strong> Punktes des Rechtecks innerhalb des <code>JPanel</code>s, in dem wir zeichnen (also innerhalb der <code>ContentPane</code>). Der linke obere Punkt des <code>JPanel</code> hat die Koordinaten <code>(0,0)</code>, also gehen wir in dem Beispiel um <code>40</code> Pixel nach rechts und um <code>30</code> Pixel nach unten, um mit dem Zeichnen des Quadrates zu beginnen.</p>
+<p>Die Methode <code>drawOval(int x, int y, int width, int height)</code> zeichnet eine Ellipse mit der Breite <code>width</code> und der Höhe <code>height</code>. Bei uns hat beides den Wert <code>200</code> und somit wird ein Kreis gezeichnet. Die Werte <code>x</code> und <code>y</code> stehen für die Koordinaten des <strong>linken oberen</strong> Punktes des gedachten Tangenetenvierecks um die Ellipse.</p>
+<p>Der linke obere "Startpunkt" ist hier sowohl für den Kreis, als auch für das Quadrat der gleiche. Da auch Höhe und Breite jeweils gleich sind, passen die geometrischen Objekte genau ineinander, d.h. das Quadrat beschreibt das Tangenetenviereck um den Kreis. </p>
+<p><img alt="graphics" src="../files/72_graphics.png" /></p>
+<p>Sie können nun gerne beliebig die Methoden aus <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Graphics2D.html">Graphics2D</a> ausprobieren. Es macht Spaß! Gerne auch beliebige Muster, z.B.</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">g2</span><span class="p">.</span><span class="na">drawOval</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
+        <span class="n">g2</span><span class="p">.</span><span class="na">drawOval</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">180</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p><img alt="graphics" src="../files/73_graphics.png" /></p>
+<p>Anstelle der "vorgefertigten" Methoden für das Zeichnen von Rechtecken (<code>drawRect()</code>) und Ellipsen (<code>drawOval()</code>), können Sie auch immer erst entsprechende Objekte erzeugen und diese mithilfe der <code>draw()</code>-Methode zeichnen lassen, z.B. </p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="n">Shape</span> <span class="n">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">40.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">);</span>
+    <span class="n">Shape</span> <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Ellipse2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">40.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">);</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">rectangle</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">circle</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das Interface <code>Shape</code> ist aus dem <code>java.awt</code>-Paket und die geometrischen Objekte sind aus dem <code>java.awt.geom</code>-Paket. Der Vorteil ist, dass für die geometrischen Objekte selbst viele Methoden existieren, um z.B. die Eigenschaften dieser Objekte abzufragen (z.B. Höhe oder Breite). Es gibt viele solcher Klassen - siehe dazu <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/Shape.html">Shape</a>  und darin <code>All Known Implementing Classes</code>.</p>
+<p>Ein Kreisbogen kann z.B. mithilfe der Klassen <code>Arc2D.Double</code> oder <code>Arc2D.Float</code> gezeichnet werden. Ein Kreisbogen ist ein Teil einer Ellipse. Die Konstruktoren erwarten jeweils 7 Parameter (gibt auch jeweils noch andere Konstruktoren):</p>
+<ul>
+<li><code>x</code>, x-Wert der linken oberen Ecke des Tangentenvierecks um die (gesamte) Ellipse,</li>
+<li><code>y</code>, y-Wert der linken oberen Ecke des Tangentenvierecks um die (gesamte) Ellipse,</li>
+<li><code>width</code>, Breite der (gesamten) Ellipse,</li>
+<li><code>height</code>, Höhe der (gesamten) Ellipse,</li>
+<li><code>start</code>, Startpunkt des Kreisbogens in Grad (0 ist "3 Uhr", 90 ist "12 Uhr", 180 ist "9 Uhr", 270 ist "6 Uhr"),</li>
+<li><code>extent</code>, Länge des Kreisbogens in Grad (90 ist Viertelkreis, 180 ist Halbkreis, positiver Wert "gegen die Uhr", negativer Wert "mit der Uhr"),</li>
+<li><code>type</code>, Auswahl zwischen <code>Arc2D.OPEN</code>, <code>Arc2D.PIE</code> und <code>Arc2D.CHORD</code>, siehe Abbildung.</li>
+</ul>
+<p><img alt="graphics" src="../files/74_graphics.png" /></p>
+<p>Beispiele</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="n">Shape</span> <span class="n">arc1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">,</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">OPEN</span><span class="p">);</span>
+    <span class="n">Shape</span> <span class="n">arc2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">OPEN</span><span class="p">);</span>
+    <span class="n">Shape</span> <span class="n">arc3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">50.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">PIE</span><span class="p">);</span>
+    <span class="n">Shape</span> <span class="n">arc4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">Double</span><span class="p">(</span><span class="mf">60.0</span><span class="p">,</span> <span class="mf">63.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">,</span> <span class="mf">180.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">Arc2D</span><span class="p">.</span><span class="na">PIE</span><span class="p">);</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mf">4.0f</span><span class="p">));</span>    <span class="c1">// dickere Linie</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">arc1</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">RED</span><span class="p">);</span>                 <span class="c1">// Zeichenfarbe rot</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">arc2</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">BLUE</span><span class="p">);</span>                    
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">arc3</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">GREEN</span><span class="p">);</span>                   
+    <span class="n">g2</span><span class="p">.</span><span class="na">draw</span><span class="p">(</span><span class="n">arc4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p><img alt="graphics" src="../files/75_graphics.png" /></p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Erstellen Sie folgende Zeichnung:</p>
+<p><img alt="graphics" src="../files/76_graphics.png" /></p>
+</div>
+<p>Um die geometrischen Objekte gefüllt darzustellen, verwenden Sie anstelle von <code>draw(Shape s)</code> die <code>fill(Shape s)</code>-Methode.</p>
+<h3 id="linien">Linien<a class="headerlink" href="#linien" title="Permanent link">&para;</a></h3>
+<p>Die Linienart setzen Sie mithilfe der Methode <code>g2.setStroke(Stroke s)</code>. Das Interface <code>Stroke</code> wird von der Klasse <code>BasicStroke</code> implementiert (Beides aus dem <code>java.awt</code>-Paket). Das bedeutet, der Methode <code>setStroke()</code> wird ein <code>BasicStroke</code>-Objekt übergeben.</p>
+<p>Die Klasse <code>BasicStroke</code> besitzt folgende Konstruktoren:</p>
+<ul>
+<li><code>BasicStroke()</code>   </li>
+<li><code>BasicStroke(float width)</code>    </li>
+<li><code>BasicStroke(float width, int cap, int join)</code> </li>
+<li><code>BasicStroke(float width, int cap, int join, float miterlimit)</code>   </li>
+<li><code>BasicStroke(float width, int cap, int join, float miterlimit, float[] dash, float dash_phase)</code></li>
+</ul>
+<p>Dabei gibt 
+- <code>width</code> die Linienstärke als <code>float</code> an, z.B. <code>new BasicStroke(4.0f)</code>,
+- <code>cap</code> beschreibt die Enden einer Linie. Es stehen drei vordefinierte Konstanten zur Verfügung: <code>CAP_BUTT</code>, <code>CAP_ROUND</code> und <code>CAP_SQUARE</code></p>
+<p>Beispiel:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_BUTT</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_ROUND</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_SQUARE</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/77_graphics.png" /></p>
+<ul>
+<li>Die Eigenschaft <code>join</code> von <code>BasicStroke</code> gibt an, wie sich zwei Linien an den Endpunkten verbinden. Es gibt die drei vordefinierten Konstanten <code>JOIN_BEVEL</code>, <code>JOIN_MITER</code> und <code>JOIN_ROUND</code>. Die Unterscheidung zeigt am besten die folgende Grafik:</li>
+</ul>
+<p><img alt="graphics" src="../files/78_graphics.png" /></p>
+<ul>
+<li>Mit dem <code>join</code> von Linien hat auch <code>miterlimit</code> zu tun. Es muss größer gleich <code>1.0f</code> sein und ist nur für <code>JOIN_MITER</code> von Bedeutung.</li>
+<li>Mit <code>dash</code> kann ein <code>float[]</code> für ein Muster des Strichelns der Linie angegeben werden.</li>
+<li>Mit <code>dash_phase</code> kann angegeben werden, nach welcher Verzögerung die Anwendung des <code>dash</code>-Musters erfolgt.</li>
+</ul>
+<p>Beispiel:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="kt">float</span><span class="o">[]</span> <span class="n">dash1</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">20.0f</span> <span class="p">};</span>
+    <span class="kt">float</span><span class="o">[]</span> <span class="n">dash2</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">20.0f</span><span class="p">,</span> <span class="mf">40.0f</span> <span class="p">};</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mf">20.0f</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_BUTT</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="n">dash1</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mf">20.0f</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_BUTT</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="n">dash2</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="k">new</span> <span class="n">BasicStroke</span><span class="p">(</span><span class="mf">20.0f</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">CAP_BUTT</span><span class="p">,</span> <span class="n">BasicStroke</span><span class="p">.</span><span class="na">JOIN_MITER</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="n">dash1</span><span class="p">,</span> <span class="mf">10.0f</span><span class="p">));</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/79_graphics.png" /></p>
+<h3 id="farben">Farben<a class="headerlink" href="#farben" title="Permanent link">&para;</a></h3>
+<p>Das Java-Farbmodell basiert auf dem <a href="https://wisotop.de/Farbmodelle-RGB-CMYK-HSS-HSL.php">RGB-Farbmodell</a>, wobei jede Farbe durch <code>24Bit</code> repräsentiert wird (<code>24Bit</code> <em>Farbtiefe</em>). Das bedeutet, dass für jeden Farbanteil von Rot, Grün, Blau jeweils <code>8Bit</code> zur Verfügung stehen und die einzelnen Farbanteile somit einen Wert zwischen <code>0</code> und <code>255</code> annehmen können. Einige Farben und deren Farbanteile von Rot, Grün und Blau sind in der folgenden Tabelle dargestellt:</p>
+<table>
+<thead>
+<tr>
+<th>Farbe</th>
+<th align="left">Rot-Anteil</th>
+<th align="left">Grün-Anteil</th>
+<th align="left">Blau-Anteil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weiß</td>
+<td align="left">255</td>
+<td align="left">255</td>
+<td align="left">255</td>
+</tr>
+<tr>
+<td>Schwarz</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td>Grau</td>
+<td align="left">127</td>
+<td align="left">127</td>
+<td align="left">127</td>
+</tr>
+<tr>
+<td>Rot</td>
+<td align="left">255</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td>Grün</td>
+<td align="left">0</td>
+<td align="left">255</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td>Blau</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">255</td>
+</tr>
+<tr>
+<td>Gelb</td>
+<td align="left">255</td>
+<td align="left">255</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td>Magenta</td>
+<td align="left">255</td>
+<td align="left">0</td>
+<td align="left">255</td>
+</tr>
+<tr>
+<td>Cyan</td>
+<td align="left">0</td>
+<td align="left">255</td>
+<td align="left">255</td>
+</tr>
+</tbody>
+</table>
+<p>Die Klasse <code>Color</code> aus dem <code>java.awt</code>-Paket besitzt sieben Konstruktoren. Die wichtigsten sind</p>
+<ul>
+<li><code>public Color(int r, int g, int b)</code>, mit den <code>int</code>-Werten jeweils von <code>0</code> bis <code>255</code> für die Farbanteile,</li>
+<li><code>public Color(float r, float g, float b)</code>, mit den <code>float</code>-Werten jeweils von <code>0.0f</code> bis <code>1.0f</code> für die Farbanteile,</li>
+</ul>
+<p>und die Pendants mit einem zusätzlichen <em>Alpha-Anteil</em> für die Transparenz:</p>
+<ul>
+<li><code>public Color(int r, int g, int b, int alpha)</code>, <code>0</code> bis <code>255</code> (<code>0</code> vollständig transparent, <code>255</code> deckend),</li>
+<li><code>public Color(float r, float g, float b, float alpha)</code>, <code>0.0f</code> bis <code>1.0f</code> (<code>0</code> vollständig transparent, <code>1.0</code> deckend).</li>
+</ul>
+<p>In <code>Color</code> sind darüber hinaus folgende Farben als statische Konstanten definiert:</p>
+<ul>
+<li><code>WHITE</code>, <code>BLACK</code>, <code>BLUE</code>, <code>CYAN</code>, <code>DARKGRAY</code>, <code>GRAY</code>, <code>GREEN</code>, <code>LIGHTGRAY</code>, <code>MAGENTA</code>, <code>ORANGE</code>, <code>PINK</code>, <code>RED</code>, <code>YELLOW</code></li>
+</ul>
+<p>Beispiel:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="kt">int</span> <span class="n">diffX</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">diffY</span> <span class="o">=</span> <span class="mi">130</span><span class="p">;</span>
+    <span class="n">Color</span> <span class="n">color</span><span class="p">;</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">205</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span><span class="mi">127</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">205</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">127</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">GREEN</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">127</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Color</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">setColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">BLUE</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffX</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">diffY</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/80_graphics.png" /></p>
+<p>Mit den Klassen <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/LinearGradientPaint.html">LinearGradientPaint</a> und <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/GradientPaint.html">GradientPaint</a> können Farbverläufe implementiert werden. </p>
+<p>Beispiel:</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="n">GradientPaint</span> <span class="n">gp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GradientPaint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Color</span><span class="p">.</span><span class="na">RED</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">Color</span><span class="p">.</span><span class="na">WHITE</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">setPaint</span><span class="p">(</span><span class="n">gp</span><span class="p">);</span>
+    <span class="n">g2</span><span class="p">.</span><span class="na">fillRect</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/81_graphics.png" /></p>
+<h3 id="hohe-und-breite-abhangig-von-der-canvas-groe">Höhe und Breite abhängig von der Canvas-Größe<a class="headerlink" href="#hohe-und-breite-abhangig-von-der-canvas-groe" title="Permanent link">&para;</a></h3>
+<p>Angenommen, Sie wollen eine geometrischen Figur so zeichnen, dass sich ihre Größe der Größe des Fensters anpasst. Dazu stehen Ihnen die Methoden <code>getHeight()</code> und <code>getWidth()</code> von <code>JPanel</code> (und somit von Ihrem <code>Canvas</code>-Objekt) zur Verfügung. Die linke obere Ecke des <code>JPanels</code> hat die Koordinaten <code>[x=0, y=0]</code> und die rechte untere Ecke hat die Koordinaten <code>[x=this.getWidth(), y= this.getHeight()]</code>, d.h</p>
+<ul>
+<li>für den linken Rand gilt <code>x = 0</code>,</li>
+<li>für den rechten Rand gilt <code>x = this.width()</code>,</li>
+<li>für den oberen Rand gilt <code>y = 0</code> und</li>
+<li>für den unteren Rand gilt <code>y = this.height()</code>.</li>
+</ul>
+<p>Angenommen, wir wollen ein Rechteck einpassen, das jeweils <code>30</code> Pixel von allen vier Rändern Abstand hat, dann definieren wir:</p>
+<p>Beispiel:</p>
+<div class="tabbed-set" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+    <span class="kt">int</span> <span class="n">abstand</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">links</span> <span class="o">=</span> <span class="n">abstand</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">oben</span> <span class="o">=</span> <span class="n">abstand</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rechts</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">abstand</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">unten</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">abstand</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">breite</span> <span class="o">=</span> <span class="n">rechts</span> <span class="o">-</span> <span class="n">links</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">hoehe</span> <span class="o">=</span> <span class="n">unten</span> <span class="o">-</span> <span class="n">oben</span><span class="p">;</span>
+
+    <span class="n">g2</span><span class="p">.</span><span class="na">drawRect</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">oben</span><span class="p">,</span> <span class="n">breite</span><span class="p">,</span> <span class="n">hoehe</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/82_graphics.png" /></p>
+<p>noch ein Beispiel - wir passen ein Dreieck in das Fenster ein:</p>
+<div class="tabbed-set" data-tabs="10:1"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><label for="__tabbed_10_1">paintComponent()-Methode in Canvas</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+    <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+
+        <span class="kt">int</span> <span class="n">abstand</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">links</span> <span class="o">=</span> <span class="n">abstand</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">oben</span> <span class="o">=</span> <span class="n">abstand</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">rechts</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">abstand</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">unten</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">abstand</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">breite</span> <span class="o">=</span> <span class="n">rechts</span> <span class="o">-</span> <span class="n">links</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">hoehe</span> <span class="o">=</span> <span class="n">unten</span> <span class="o">-</span> <span class="n">oben</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">mitteVertikal</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+        <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">links</span><span class="p">,</span> <span class="n">unten</span><span class="p">,</span> <span class="n">mitteVertikal</span><span class="p">,</span> <span class="n">oben</span><span class="p">);</span>
+        <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">mitteVertikal</span><span class="p">,</span> <span class="n">oben</span><span class="p">,</span> <span class="n">rechts</span><span class="p">,</span> <span class="n">unten</span><span class="p">);</span>
+        <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">rechts</span><span class="p">,</span> <span class="n">unten</span><span class="p">,</span> <span class="n">links</span><span class="p">,</span> <span class="n">unten</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>ergibt: </p>
+<p><img alt="graphics" src="../files/83_graphics.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir können eigene Grafiken erstellen. Wir erstellen dazu eine innere Klasse, die von <code>JPanel</code> erbt. Der Grund dafür ist, dass wir die Methode <code>paintComponent(Graphics g)</code> überschreiben wollen und darin mithilfe der Methoden aus der Klasse <code>Grahpcs2D</code> geometrische Objekte erstellen. Außerdem haben wir das Farbmodell von Java kennengelernt und können die Grafiken an die Fenstergröße anpassen. In der kommenden Lektion lernen wir, wie wir mithilfe der Maus zeichnen können.  </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../mausereignisse2022/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Mausereignisse" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Mausereignisse
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../klausurvorbereitung2022/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Klausurvorbereitung" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Klausurvorbereitung
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

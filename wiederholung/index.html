@@ -1,0 +1,1323 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/wiederholung/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Wiederholung - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wiederholung" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wiederholung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Wiederholung
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Wiederholung
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datentypen" class="md-nav__link">
+    Datentypen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datentypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wertetypen" class="md-nav__link">
+    Wertetypen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referenztypen" class="md-nav__link">
+    Referenztypen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenstrukturen" class="md-nav__link">
+    Datenstrukturen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datenstrukturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variablen" class="md-nav__link">
+    Variablen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#literale" class="md-nav__link">
+    Literale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausdrucke" class="md-nav__link">
+    Ausdrücke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anweisungen" class="md-nav__link">
+    Anweisungen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methoden" class="md-nav__link">
+    Methoden
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vererbung" class="md-nav__link">
+    Vererbung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konstruktoren" class="md-nav__link">
+    Konstruktoren
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-controller-zugriffsmodifizierer" class="md-nav__link">
+    Access Controller (Zugriffsmodifizierer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" class="md-nav__link">
+    "Kleinigkeiten", die wir nicht betrachtet haben
+  </a>
+  
+    <nav class="md-nav" aria-label=""Kleinigkeiten", die wir nicht betrachtet haben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#das-schlusselwort-static" class="md-nav__link">
+    Das Schlüsselwort static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-klasse-javautilarrays" class="md-nav__link">
+    Die Klasse java.util.Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datentypen" class="md-nav__link">
+    Datentypen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datentypen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wertetypen" class="md-nav__link">
+    Wertetypen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referenztypen" class="md-nav__link">
+    Referenztypen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenstrukturen" class="md-nav__link">
+    Datenstrukturen
+  </a>
+  
+    <nav class="md-nav" aria-label="Datenstrukturen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variablen" class="md-nav__link">
+    Variablen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#literale" class="md-nav__link">
+    Literale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausdrucke" class="md-nav__link">
+    Ausdrücke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anweisungen" class="md-nav__link">
+    Anweisungen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methoden" class="md-nav__link">
+    Methoden
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vererbung" class="md-nav__link">
+    Vererbung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konstruktoren" class="md-nav__link">
+    Konstruktoren
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-controller-zugriffsmodifizierer" class="md-nav__link">
+    Access Controller (Zugriffsmodifizierer)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" class="md-nav__link">
+    "Kleinigkeiten", die wir nicht betrachtet haben
+  </a>
+  
+    <nav class="md-nav" aria-label=""Kleinigkeiten", die wir nicht betrachtet haben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#das-schlusselwort-static" class="md-nav__link">
+    Das Schlüsselwort static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-klasse-javautilarrays" class="md-nav__link">
+    Die Klasse java.util.Arrays
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/wiederholung.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="wiederholung">Wiederholung<a class="headerlink" href="#wiederholung" title="Permanent link">&para;</a></h1>
+<h2 id="datentypen">Datentypen<a class="headerlink" href="#datentypen" title="Permanent link">&para;</a></h2>
+<h3 id="wertetypen">Wertetypen<a class="headerlink" href="#wertetypen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>es wird der konkrete Wert in der Variablen gespeichert</li>
+<li>belegen abhängig vom Datentyp unterschiedlich viel Arbeitsspeicher &rarr; unterschiedliche Wertebereiche</li>
+</ul>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Beispiele Wertetypen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// boolean für Wahrheitswerte true und false</span>
+<span class="kt">boolean</span> <span class="n">x</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>          <span class="c1">// mit false initialisiert</span>
+<span class="kt">boolean</span> <span class="n">wahr</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>        <span class="c1">// Schluesselwort true</span>
+<span class="kt">boolean</span> <span class="n">falsch</span> <span class="o">=</span> <span class="o">!</span><span class="n">wahr</span><span class="p">;</span>     <span class="c1">// Enthaelt den Wert false</span>
+
+<span class="c1">// byte, short, int, long für ganze Zahlen</span>
+<span class="kt">byte</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>         <span class="c1">// mit 0 initialisiert</span>
+<span class="kt">short</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">124</span><span class="p">;</span>      <span class="c1">// Zuweisung einer ganzen Zahl</span>
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>      <span class="c1">// Wertebereich immer beachten!</span>
+<span class="kt">long</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="mi">200</span><span class="p">;</span>  <span class="c1">// l nicht als Variablenname verwenden</span>
+
+<span class="c1">// char für ein einzelnes Zeichen - einfache Anfuehrungszeichen!</span>
+<span class="kt">char</span> <span class="n">zeichen</span> <span class="o">=</span> <span class="sc">&#39;c&#39;</span><span class="p">;</span>     <span class="c1">// Doppelte &quot; für Strings! </span>
+
+<span class="c1">// float und double für Fließkommazahlen</span>
+<span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>         <span class="c1">// Wird mit 0.0 initialisiert</span>
+<span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">100.25</span><span class="p">;</span>      <span class="c1">// Dezimalpunkt statt Dezimalkomma!!</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="referenztypen">Referenztypen<a class="headerlink" href="#referenztypen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>es wird eine Referenz auf ein Objekt gespeichert</li>
+<li>Objekte besitzen Eigenschaften: Methoden (Verhalten) und Variablen (Zustand)</li>
+<li>Zugriff auf Methoden und Variablen über den Punkt-Operator</li>
+</ul>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Beispiele Referenztypen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// Schluesselwort class um neue Klasse (Typ) zu definieren</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> 
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">base</span><span class="p">;</span> <span class="c1">// Objektvariablen, für jedes Objekt</span>
+    <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>  <span class="c1">// existieren Kopien im Arbeitsspeicher</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">=</span> <span class="n">exp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Objektmethode</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot;^&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// irgendwo im Hauptprogramm</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">Power</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">Power</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">p1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+    <span class="n">p2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+    <span class="kt">boolean</span> <span class="n">equal</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">);</span>     <span class="c1">// true oder false ?</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="datenstrukturen">Datenstrukturen<a class="headerlink" href="#datenstrukturen" title="Permanent link">&para;</a></h2>
+<h3 id="variablen">Variablen<a class="headerlink" href="#variablen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>einfachste Datenstruktur &rarr; speichern genau einen Wert (kann auch Referenz auf ein Objekt sein)</li>
+<li>sind von einem Datentyp (Wertetyp oder Referenztyp)</li>
+<li>haben einen Namen</li>
+<li>besitzen einen Wert<ul>
+<li>Wert kann sich bei Variablen zur Laufzeit ändern (Wertzuweisungsoperator =)</li>
+<li>Wert von Konstanten kann nicht mehr geändert werden (final)</li>
+</ul>
+</li>
+<li>besitzen einen Gültigkeitsbereich (den sogenannten Scope)<ul>
+<li>Scope einer Variable: der Anweisungsblock, in dem die Variable deklariert wurde</li>
+<li>lokale Variable: in einer Methode deklariert &rarr; dort lokal</li>
+<li>globale Variable: in einer Klasse deklariert &rarr; dort global</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Beispiele Variablen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">zahlen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">// konventionelle Variable</span>
+<span class="kd">final</span> <span class="kt">float</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14516f</span><span class="p">;</span>  <span class="c1">// Konstante</span>
+
+<span class="c1">// Erzeugen eines neuen Feldes (Arrays) und Zuweisen der Referenz</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">zahlenFeld</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span>
+
+<span class="c1">// Klassen mit Objekt- und Klassenvariablen</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> 
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">base</span><span class="p">;</span> <span class="c1">// Objektvariablen, für jedes Objekt</span>
+    <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>  <span class="c1">// existieren Kopien im Arbeitsspeicher</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">=</span> <span class="n">exp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// lokale Variable --&gt; nur in der Methode gueltig</span>
+        <span class="n">String</span> <span class="n">output</span> <span class="o">=</span>  <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot;^&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">output</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Variablen sollten mit einem Kleinbuchstaben beginnen</span>
+    <span class="c1">// Konstanten sollten nur mit Großbuchstaben benannt werden</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h3>
+<p><img alt="arrays" src="../files/15_arrays.png" /></p>
+<ul>
+<li>Arrays sind Objekte (Referenztypen)</li>
+<li>speichern eine festgelegte Anzahl von Werten eines festgelegten Datentyps (können Werte- und Referenztypen sein)</li>
+<li>besitzen Methoden (z.B. <code>sort()</code>) und Variablen (z.B. <code>length</code>)</li>
+<li>können auch mehrdimensional sein</li>
+<li>Zugriff auf Elemente mit eckigen Klammern unter Verwndung des Indexes</li>
+</ul>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Beispiele Arrays</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// Einfache Deklaration -&gt; nur Datentyp bekannt, keine Laenge</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">zahlen</span><span class="p">;</span>           <span class="c1">// Eckige Klammern für Array-Datentyp</span>
+
+<span class="c1">// Erzeugen eines neuen Feldes und Zuweisen der Referenz</span>
+<span class="n">zahlen</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span>  <span class="c1">// new-Operator, hier: Angabe der Laenge</span>
+
+<span class="c1">// Explizite Initialisierung bei der Deklaration</span>
+<span class="c1">// Bei Initialisiert mit Werten --&gt; keine Laengenangabe noetig</span>
+<span class="kt">float</span><span class="o">[]</span> <span class="n">werte</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">float</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>      <span class="c1">// Platz für 10 Werte </span>
+<span class="kt">double</span><span class="o">[]</span> <span class="n">fib</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span> <span class="p">};</span>   <span class="c1">// Werte in {}-Klammern</span>
+
+<span class="c1">// Mehrdimensionale Felder</span>
+<span class="kt">int</span><span class="o">[][]</span> <span class="n">hdBild</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">1920</span><span class="o">][</span><span class="mi">1080</span><span class="o">]</span><span class="p">;</span>
+
+<span class="c1">// Felder können für alle Datentypen verwendet werden</span>
+<span class="n">Power</span><span class="o">[]</span> <span class="n">potenzen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>    <span class="c1">// Noch keine Objekte enthalten</span>
+<span class="n">potenzen</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>      <span class="c1">// Zuweisung Objekt an Index 0</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="literale">Literale<a class="headerlink" href="#literale" title="Permanent link">&para;</a></h2>
+<ul>
+<li>sind Werte</li>
+<li>sind von einem bestimmten Datentyp (kann auch ein Referenztyp sein)</li>
+<li>keine ausführbare Einheit &rarr; kein Ausdruck &rarr; können nicht alleine stehen</li>
+<li>meistens <ul>
+<li>auf der rechten Seite einer Wertzuweisung</li>
+<li>als Parameterwert bei Aufruf einer Methode</li>
+<li>als Vergleichswert bei logischen Ausdrücken</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Beispiele Literale</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="mi">100</span>
+<span class="kc">true</span>
+<span class="sc">&#39;a&#39;</span>
+<span class="s">&quot;hallo&quot;</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span>
+<span class="mf">5.5</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="ausdrucke">Ausdrücke<a class="headerlink" href="#ausdrucke" title="Permanent link">&para;</a></h2>
+<ul>
+<li>kleinste ausführbare Einheit eines Programms</li>
+<li>
+<p>z.B.:</p>
+<ul>
+<li>Zuweisung</li>
+<li>numerische Berechnung</li>
+<li>logische Bedingung</li>
+</ul>
+</li>
+<li>
+<p>Operatoren:</p>
+<ul>
+<li>arithmetisch:     <code>+, -, *, /, %, ++, --</code></li>
+<li>relational:       <code>==, !=, &lt;, &gt;, &lt;=, &gt;=</code></li>
+<li>logisch:          <code>!, &amp;&amp;, ||</code></li>
+<li>Zuweisung:        <code>=, +=, -=, *=, /=, %=</code></li>
+<li>sonstige:         <code>a?b:c, typecast, new, instanceof, .</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="anweisungen">Anweisungen<a class="headerlink" href="#anweisungen" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Einzelanweisung       <code>;</code></li>
+<li>Block                 <code>{}</code></li>
+<li>Deklaration           <code>Typ Methode</code>, <code>Typ Variable</code></li>
+<li>Ausdruck</li>
+<li>Bedingung             <code>if() else  switch() case</code></li>
+<li>Schleifen             <code>for        while       do while</code></li>
+<li>Exceptions            <code>try catch()</code></li>
+<li>Assertions            <code>assert</code></li>
+</ul>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Beispiele Anweisungen</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// Bloecke immer zwischen geschweiften Klammern</span>
+<span class="p">{</span>
+<span class="c1">// Anweisung 1...</span>
+<span class="c1">// Anweisung 2...</span>
+<span class="p">}</span>
+
+<span class="c1">// Definition und Deklaration</span>
+<span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+
+<span class="c1">// Einfacher Ausdruck</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1010</span><span class="p">;</span> 
+
+<span class="c1">// Bedingungen</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1010</span><span class="p">)</span>          <span class="c1">// if-Zweig muss immer vorhanden sein</span>
+<span class="p">{</span>
+    <span class="c1">// Anweisungen...</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">1011</span><span class="p">)</span>     <span class="c1">// 0 - beliebig viele else-if-Zweige</span>
+<span class="p">{</span>
+    <span class="c1">// Anweisungen...</span>
+<span class="p">}</span>
+<span class="k">else</span>            <span class="c1">// 0 - 1 else-Zweig</span>
+<span class="p">{</span>
+    <span class="c1">// Anweisungen...</span>
+<span class="p">}</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>      <span class="c1">// zu pruefende Variable in Klammern</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1010</span><span class="p">:</span> <span class="p">{</span> <span class="n">b</span><span class="o">*=</span><span class="mf">2.0</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>   <span class="c1">// beliebig viele case-Zweige</span>
+    <span class="k">case</span> <span class="mi">1011</span><span class="p">:</span> <span class="p">{</span> <span class="n">b</span><span class="o">*=</span><span class="mf">3.0</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span> <span class="p">}</span>   <span class="c1">// break nicht vergessen</span>
+    <span class="k">default</span><span class="p">:</span> <span class="p">{</span> <span class="n">b</span><span class="o">=</span><span class="mf">0.0f</span><span class="p">;</span> <span class="p">}</span>            <span class="c1">// Zweig für alle anderen Werte</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="o">[]</span> <span class="n">meinFeld</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+<span class="c1">// for-Schleife</span>
+<span class="c1">// 1. Initialisierung</span>
+<span class="c1">// 2. Schleifen-Bedingung</span>
+<span class="c1">// 3. Anweisungen nach Schleifendurchlauf</span>
+<span class="c1">// Schleifen-Anweisungen als Block hinter for</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">meinFeld</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">meinFeld</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// while-Schleife</span>
+<span class="c1">// Nur Schleifen-Bedingung angeben</span>
+<span class="c1">// Auf Endlos-Schleifen achten</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">meinFeld</span><span class="p">.</span><span class="na">length</span><span class="p">)</span> 
+<span class="p">{</span> 
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">meinFeld</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">);</span>
+    <span class="n">index</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="methoden">Methoden<a class="headerlink" href="#methoden" title="Permanent link">&para;</a></h2>
+<ul>
+<li>wiederverwendbare und/oder logisch abgeschlossene Programmteile sollten in Methoden zusammengefasst werden</li>
+<li>Methoden besitzen einen Namen (im Scope eindeutig), keinen, einen oder mehrere Parameter und einen Rückgabetyp (evtl. <code>void</code>)</li>
+<li>Aufruf einer Methode durch Namen und runde Klammern, in welche Werte für die Parameter übergeben werden</li>
+<li>bei Aufruf einer Methode werden alle Anweisungen abgearbeitet, die in der Methode definiert (implementiert) wurden (bis zum <code>return</code>)</li>
+<li>werden Methoden mit Rückgabetyp (also nicht <code>void</code>) aufgerufen, entspricht ihr Aufruf einem konkreten Wert (Rückgabewert)</li>
+</ul>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Methodenstack/Call stack</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">square</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">multiply</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printSquare</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="n">squared</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="s">&quot; x &quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">squared</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printSquare</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><img alt="arrays" src="../files/16_callstack.png" /></p>
+<h2 id="vererbung">Vererbung<a class="headerlink" href="#vererbung" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Weitergabe aller Methoden und Objekte einer Elternklasse (Basisklasse) an eine Kindklasse (Subklasse)</li>
+<li>Schlüsselwort <code>extends</code></li>
+<li>jede Klasse (bis auf <code>Object</code>) besitzt genau eine Elternklasse; ist keine angegeben, ist es automatisch <code>Object</code></li>
+<li>Vererbung beschreibt „is-a“-Beziehung</li>
+<li>Methoden der Elternklasse können überschrieben werden (wenn sie nicht als <code>final</code> definiert wurden) &rarr; @Override verwenden</li>
+<li>Originalmethode kann mit Schlüsselwort <code>super</code> aufgerufen werden</li>
+</ul>
+<h2 id="konstruktoren">Konstruktoren<a class="headerlink" href="#konstruktoren" title="Permanent link">&para;</a></h2>
+<ul>
+<li>besondere Objektmethoden, die beim Erzeugen des Objektes aufgerufen werden</li>
+<li>gleicher Name wie die Klasse, keinen Rückgabetyp angeben (auch nicht <code>void</code>)</li>
+<li>wird kein Konstruktor definiert, steht automatisch (implizit) ein parameterloser Konstruktor zur Verfügung (einzige Ausnahme: in der Elternklasse existieren nur parametrisierte Konstruktoren)</li>
+<li>Aufruf von <code>this</code> und <code>super</code> möglich</li>
+<li>werden nicht vererbt</li>
+</ul>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Beispiele Konstruktoren</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">base</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// Aufruf des Konstruktors in Zeile 15</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// Aufruf des Konstruktors in Zeile 15</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span><span class="o">=</span><span class="n">base</span><span class="p">;</span>     <span class="c1">// Parameterwerte für base und int</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="o">=</span><span class="n">exp</span><span class="p">;</span>       <span class="c1">// auf Objektvariablen sichern</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Power</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">();</span>         <span class="c1">// p1.base = 1, p1.exp = 0</span>
+    <span class="n">Power</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>       <span class="c1">// p2.base = 10, p2.exp = 0</span>
+    <span class="n">Power</span> <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>     <span class="c1">// p3.base = 10, p3.exp = 5</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="access-controller-zugriffsmodifizierer">Access Controller (Zugriffsmodifizierer)<a class="headerlink" href="#access-controller-zugriffsmodifizierer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Steuerung der Lebensdauer, Sichtbarkeit und Veränderbarkeit von Klassen, Methoden und Variablen – Prinzip der Datenkapselung</li>
+<li>
+<p>Klassen</p>
+<ul>
+<li><code>public</code>      Zugriff von außerhalb des Paketes</li>
+<li>(default)     Zugriff nur innerhalb des Paketes</li>
+<li><code>final</code>       von der Klasse können keine Klassen erben</li>
+<li><code>abstract</code>    Klasse besitzt Methoden, die keinen Methodenrumpf besitzen (nicht implementiert sind)</li>
+</ul>
+</li>
+<li>
+<p>Variablen und Methoden (wenn Klasse <code>public</code>)</p>
+<ul>
+<li><code>public</code>      Zugriff von überall (bei Variablen vermeiden!)</li>
+<li><code>protected</code>   Zugriff aus Klasse und Kindklasse</li>
+<li>(default)     Zugriff aus Klasse und Paket</li>
+<li><code>private</code>         Zugriff nur aus Klasse </li>
+</ul>
+</li>
+</ul>
+<h2 id="kleinigkeiten-die-wir-nicht-betrachtet-haben">"Kleinigkeiten", die wir nicht betrachtet haben<a class="headerlink" href="#kleinigkeiten-die-wir-nicht-betrachtet-haben" title="Permanent link">&para;</a></h2>
+<h3 id="das-schlusselwort-static">Das Schlüsselwort <code>static</code><a class="headerlink" href="#das-schlusselwort-static" title="Permanent link">&para;</a></h3>
+<p>Mit dem Schlüsselwort <code>static</code> beschreiben wir eine Eigenschaft der Klasse. Das Schlüsselwort <code>static</code> kann verwendet werden für</p>
+<ul>
+<li>Die Deklaration einer (<em>Klassen-</em>)Variablen. Eine <em>Klassenvariable</em> existiert für die Klasse genau ein Mal (alle Objekte der Klasse "teilen" sich diese eine Variable). </li>
+<li>Die Deklaration einer (<em>Klassen-</em>)Methode. Eine statische Methode (<em>Klassenmethode</em>) kann aufgerufen werden, ohne ein Objekt der Klasse zu erzeugen. Wir werden häufig statische Methoden in der Programmklasse (die Klasse mit der <code>main()</code>-Methode) erstellen, um diese in der <code>main()</code>-Methode aufzurufen, ohne vorher ein Objekt der Programmklasse erzeugen zu müssen. </li>
+<li>Die Deklaration einer Klasse, wenn diese eine Klasse <strong>in</strong> einer anderen Klasse ist. Dazu kommen wir später.</li>
+</ul>
+<p>Der Zugriff auf eine statische Variable bzw. statische Methode erfolgt ebenfalls per Punktnotation, aber vor dem Punkt steht dann der Klassenname. Häufig wird der Klassenname und der Punkt aber auch weggelassen. </p>
+<h3 id="die-for-each-schleife">Die <em>for-each</em>-Schleife<a class="headerlink" href="#die-for-each-schleife" title="Permanent link">&para;</a></h3>
+<p>Wir haben ein Array stets so durchlaufen, dass wir in einer <code>for</code>-Schleife jeden möglichen Index für das Array erzeugt haben und dann über den Index auf den Wert der einzelnen Elemente zugegriffen haben, also z.B.:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">args</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wenn wir <strong>alle</strong> Elemente eines Arrays <strong>lesen</strong> wollen, können wir das aber auch so machen:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Wir bezeichnen diese Schleifensyntax auch als <em>for-each</em>-Schleife. Die allgemeine Syntax ist</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">TypElement</span> <span class="n">variablenNameElement</span> <span class="p">:</span> <span class="n">nameDesArrays</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// hier lesende Verwendung von variablenNameElement</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Beachten Sie, dass Sie mit der <em>for-each</em>-Schleife nur lesenden Zugriff auf die Elemente des Arrays haben. Wenn Sie z.B. schreiben</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>, dann ändert das nichts an den Werten im Array! Beachten Sie aber auch, dass das Element ja auch eine Referenz auf ein Objekt sein könnte, dann verhält es sich natürlich anders, wenn Sie dafür Objektmethoden aufrufen, die Änderungen am Objekt bewirken (<em>Setter</em>). </p>
+<h3 id="die-klasse-javautilarrays">Die Klasse <code>java.util.Arrays</code><a class="headerlink" href="#die-klasse-javautilarrays" title="Permanent link">&para;</a></h3>
+<p>Die Klasse <code>Arrays</code> aus dem <code>java.util</code>-Paket hat einige nützliche Methoden für Arrays. Insbesondere interessant dürfte die <code>toString()</code>-Methode sein. Wir werden diese Klasse manchmal verwenden, wenn wir uns z.B. keine eigenen <code>toString()</code>-Methoden für unsere Arrays schreiben wollen. Die Dokumentation der Klasse <code>Arrays</code> finden Sie z.B. <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html">hier</a>. Beachten Sie, dass Sie zum Verwenden der Klasse das <code>java.util</code>-Paket importieren müssen. </p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">};</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
+</code></pre></div>
+<p>Weitere interessante Methoden dieser Klasse sind <code>copyOf()</code>, <code>binarySearch()</code> und <code>sort()</code>. </p>
+<details><summary>Übung</summary><p>Ist die <code>toString()</code>-Methode der <code>Arrays</code>-Klasse statisch oder handelt es sich um eine Objektmethode?</p>
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Zurück: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../einstieg/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Einstieg" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Einstieg
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

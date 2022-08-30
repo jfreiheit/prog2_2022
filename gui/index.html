@@ -1,0 +1,1581 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/gui/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>GUI Einführung - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#graphical-user-interfaces" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GUI Einführung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GUI Einführung
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GUI Einführung
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elemente-einer-gui" class="md-nav__link">
+    Elemente einer GUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ein-erstes-fenster-mit-swing" class="md-nav__link">
+    Ein erstes Fenster mit Swing
+  </a>
+  
+    <nav class="md-nav" aria-label="Ein erstes Fenster mit Swing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setdefaultcloseoperation" class="md-nav__link">
+    setDefaultCloseOperation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kurzer-uberblick-jframe" class="md-nav__link">
+    Kurzer Überblick JFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unsere-klasse-ist-selbst-ein-fenster" class="md-nav__link">
+    Unsere Klasse ist selbst ein Fenster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-content-pane-des-fensters" class="md-nav__link">
+    Die Content Pane des Fensters
+  </a>
+  
+    <nav class="md-nav" aria-label="Die Content Pane des Fensters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-komponenten" class="md-nav__link">
+    Container-Komponenten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inhalt-der-content-pane" class="md-nav__link">
+    Inhalt der Content Pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erweitern-des-fensters-um-ein-jpanel" class="md-nav__link">
+    Erweitern des Fensters um ein JPanel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erweitern-der-initcontent-methode" class="md-nav__link">
+    Erweitern der initContent()-Methode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-manager" class="md-nav__link">
+    Layout-Manager
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout-Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flowlayout" class="md-nav__link">
+    FlowLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gridlayout" class="md-nav__link">
+    GridLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borderlayout" class="md-nav__link">
+    BorderLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verschachteln-von-layout-managern" class="md-nav__link">
+    Verschachteln von Layout-Managern
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elemente-einer-gui" class="md-nav__link">
+    Elemente einer GUI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ein-erstes-fenster-mit-swing" class="md-nav__link">
+    Ein erstes Fenster mit Swing
+  </a>
+  
+    <nav class="md-nav" aria-label="Ein erstes Fenster mit Swing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setdefaultcloseoperation" class="md-nav__link">
+    setDefaultCloseOperation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kurzer-uberblick-jframe" class="md-nav__link">
+    Kurzer Überblick JFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unsere-klasse-ist-selbst-ein-fenster" class="md-nav__link">
+    Unsere Klasse ist selbst ein Fenster
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-content-pane-des-fensters" class="md-nav__link">
+    Die Content Pane des Fensters
+  </a>
+  
+    <nav class="md-nav" aria-label="Die Content Pane des Fensters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-komponenten" class="md-nav__link">
+    Container-Komponenten
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inhalt-der-content-pane" class="md-nav__link">
+    Inhalt der Content Pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erweitern-des-fensters-um-ein-jpanel" class="md-nav__link">
+    Erweitern des Fensters um ein JPanel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erweitern-der-initcontent-methode" class="md-nav__link">
+    Erweitern der initContent()-Methode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-manager" class="md-nav__link">
+    Layout-Manager
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout-Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flowlayout" class="md-nav__link">
+    FlowLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gridlayout" class="md-nav__link">
+    GridLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#borderlayout" class="md-nav__link">
+    BorderLayout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verschachteln-von-layout-managern" class="md-nav__link">
+    Verschachteln von Layout-Managern
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/gui.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="graphical-user-interfaces">Graphical User Interfaces<a class="headerlink" href="#graphical-user-interfaces" title="Permanent link">&para;</a></h1>
+<p>Bis jetzt haben wir unsere Ein- und Ausgaben über die Konsole erledigt oder wir haben Testklassen geschrieben, um Funktionalitäten unserer Programme zu testen. Nun wollen wir grafische Nutzeroberflächen (<em>Graphical User Interfaces (GUI)</em>) erstellen, also Fenster, die Steuerelemente enthalten. Steuerelemente sind Ein- und Ausgabeelemente, Labels (also Text), Buttons, Checkboxes, Radiobuttons usw. </p>
+<p>Das Java Developement Kit (JDK) beinhaltet verschiedene Bibliotheken zum Erstellen grafischer Nutzeroberflächen:</p>
+<ul>
+<li>AWT (abstract window toolkit) <code>java.awt</code>; alt, aber noch viele Sachen, die man heute noch nutzt: Farben, Listener für Maus und Tastur, Grafiken, ...</li>
+<li>Swing <code>javax.swing</code>; das verwenden wir zum Erstellen von Fenstern, auch nicht mehr ganz neu</li>
+<li>JavaFX <code>javafx</code>; sollte eigentlich Swing ablösen, hat sich aber nicht durchgesetzt, seit Java 11 nicht mehr Bestandteil des Standard-JDK</li>
+</ul>
+<p>Swing ist, wie bereits gesagt, auch nicht mehr neu und wird häufig als veraltet bezeichnet. Allerdings gibt es auch keine Alternativen. JavaFX sollte Swing ablösen, hat sich jedoch noch nicht durchgesetzt. Wir verwenden Swing aus zwei Gründen:</p>
+<ul>
+<li>erstens ist es immer noch das am meisten verwendete Framework für die Erstellung von GUIs in nativen Desktopanwendungen (also alles, was nicht "Web" und was nicht "mobile" ist), bspw. wurde IntelliJ mit Swing aufgebaut und</li>
+<li>zweitens geht es uns um die <em>Konzepte</em>, d.h. um den hierarchischen Aufbau der Oberflächen, um Nutzereignisse und die Behandlung dieser. Wir werden uns im 3. Semester in "Webtechnologien" mit der Erstellung moderner Weboberflächen beschäftigen und dabei auf die Grundlagen aufbauen, die wir hier legen. Die Konzepte sind nämlich dieselben. </li>
+</ul>
+<h3 id="elemente-einer-gui">Elemente einer GUI<a class="headerlink" href="#elemente-einer-gui" title="Permanent link">&para;</a></h3>
+<p>Eine GUI besteht aus verschiedenen Elementen, deren Zusammenspiel erst die <em>Benutzbarkeit</em> der Oberfläche ermöglichen. Unter <em>Benutzbarkeit</em> ist dabei die einfache, intuitive und übersichtliche Ein- und Ausgabe von Daten gemeint. Im 6. Semester gibt es eine ganze Lehrveranstaltung zum Thema <em>Usability</em> in unserem Studiengang. </p>
+<p><img alt="gui" src="../files/48_gui.png" /></p>
+<p>Folgende Elemente sind in einer GUI von Bedeutung:</p>
+<ul>
+<li>Das <strong>Fenster</strong> stellt den äußeren Rahmen einer grafischen Anwendung dar. Es enthält typischerweise einen Rahmen und eine Titelleiste, in der der Name des Fensters bzw. der Anwendung (in der oberen Abbildung <code>Window</code>) und drei Buttons zum Schließen des Fensters bzw. der Anwendung (das rote Kreuz in der oberen Abbildung), zum Vollbildmodus (das Quadrat) und zum Verkleinern des Fensters in die Taskleiste (der Unterstrich) enthalten sind. Der Rahmen, genau wie die Titelleiste mit den drei Buttons, sind aber optional. Ein Fenster enthält <strong>Komponenten</strong>.</li>
+<li><strong>Komponenten</strong> sind alle Oberflächen- bzw. Steuerelemente, d.h. Buttons (siehe oben <code>&lt; Back</code> und <code>Next &gt;</code>), Labels (Texte, z.B. <code>Checkbox</code>), Checkboxes (die Quadrate, die ein Häkchen haben können oder auch nicht), Ein- und Ausgabefelder, Auswahllisten usw. <em>Steuerelemente</em> sind also alle Elemente, die direkt der Ein- und Ausgabe dienen. Darüber hinaus gibt es noch die Komponente <em>Container</em>. Ein <em>Container</em> kann selbst wieder <em>Container</em>  enhalten oder <em>Steuerelemente</em>. <em>Container</em> sind nicht direkt sichtbar, sondern sie dienen der Strukturierung einer grafischen Oberfläche. </li>
+<li><strong>Layoutmanager</strong> organisieren die Positionierung von Komponenten. Mithilfe von Layoutmanagern kann man Container unter- und/oder nebeneinander positionieren und organisiert somit die Anordnung der Steuerelemente. </li>
+<li><strong>Menüs</strong> sind einblendbare Befehlsleisten. Es gibt die Menüs, die meistens oben in der Menüleiste verankert sind und <em>Kontextmenüs</em>, die dort erscheinen, wo man, meistens mit der rechten, Maustaste hinklickt. </li>
+<li><strong>Events</strong> (<em>Ereignisse</em>) haben zunächst nichts mit der Darstellung selbst zu tun. Sie sind aber für die Benutzbarkeit sehr wichtig, denn jede Nutzeraktion löst ein Ereignis aus, welches wir im Programm behandeln können, z.B. Mausklicks, Mausbewegungen, Tastatureingaben, Bewegen, Vergrößern, Verkleinern des Fensters usw. Wir werden uns sehr ausführlich mit der <em>Behandlung von Ereignissen</em> beschäftigen.</li>
+<li><strong>Zeichenoperationen</strong> dienen der Erstellung von Punkten, Linien, Text usw. in Fenstern. Während die Steuerelemente ein festes Aussehen besitzen (anpassbar, je nach Betriebssystem und unterschiedlichen <em>Look&amp;Feel</em>-Frameworks), können mit Zeichenoperationen beliebige Elemente erstellt und dargestellt werden, z.B. Grafiken, Kurven oder Diagramme.</li>
+</ul>
+<p>Wir werden auf alle diese Elemente eingehen und starten jetzt aber mit unserem ersten Fenster. </p>
+<h3 id="ein-erstes-fenster-mit-swing">Ein erstes Fenster mit Swing<a class="headerlink" href="#ein-erstes-fenster-mit-swing" title="Permanent link">&para;</a></h3>
+<p>Wir erstellen uns eine Klasse <code>MyFirstWindow</code>. Von dieser Klasse erzeugen wir uns ein Objekt. Dazu implementieren wir den parameterlosen Konstruktor dieser Klasse. In diesem Konstruktor wird ein <code>JFrame</code> erzeugt - das ist das <strong>Fenster</strong> bei Swing. Wir haben in dieser Klasse auch eine <code>main()</code>-Methode. Das ist nicht ganz sauber, da die <code>main()</code>-Methode ja eigentlich keine Eigenschaft unserer Klasse ist, deren <em>Responsibility</em> die Erstellung eines Fensters ist, aber wir vereinfachen hier zu Anfang:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> 
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JFrame</span> <span class="n">window</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="p">();</span>
+        <span class="n">window</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="n">window</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="n">window</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="n">window</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="n">window</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wenn wir diese Klasse ausführen, erscheint folgendes Fenster:</p>
+<p><img alt="gui" src="../files/49_gui.png" /></p>
+<p>Das Aussehen ist betriebssystemabhängig. Probieren Sie die drei "Knöpfe" in der Titelleiste aus, sie funktionieren bereits, d.h. das Fenster lässt sich in die Taskleiste verkleinern, es lässt sich in den Vollbildmodus umschalten und es kann geschlossen werden (und damit das ganze Programm). Sie können es auch bereits in der Größe verändern. </p>
+<p>Wir betrachten das Programm im Detail:</p>
+<ul>
+<li>In Zeile <code>8</code> wird ein Objekt der Klasse <code>JFrame</code> erzeugt. Diese Klasse muss aus dem <code>javax.swing</code>-Paket importiert werden (Zeile <code>1</code>). Sollte der Import bei Ihnen nicht funktionieren, müssen Sie in Ihre <code>module-info.java</code> noch <code>requires java.desktop;</code> einfügen, um dieses Modul zu laden. Die Klasse <code>JFrame</code> repräsentiert ein Fenster im Swing-Paket. Das bedeutet, dass wir, wenn wir in Zukunft eine GUI mithilfe von Swing erstellen, immer damit beginnen, ein Objekt der Klasse <code>JFrame</code> zu erzeugen - nämlich ein Fenster. </li>
+<li>Die Klasse <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/javax/swing/JFrame.html">JFrame</a> stellt eine Unmenge an Objektmethoden zur Verfügung, um das Fenster zu verändern. Viele dieser Methoden sind auch aus Klassen des <code>java.awt</code>-Pakets geerbt, z.B. von <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Frame.html">Frame</a>, von <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Component.html">Component</a>, von <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Container.html">Container</a> oder von <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.desktop/java/awt/Window.html">Window</a>, aber dazu kommen wir später. Wir wenden einige dieser Methoden bereits an:</li>
+<li>In Zeile <code>9</code> setzen wir mithilfe der Objektmethode <code>setTitle()</code> einen Titel für unser Fenster, hier <code>"My first window"</code>. Um den Titel zu setzen, gibt es auch einen parametrisierten Konstruktor von <code>JFrame</code>, dem dieser Titel übergeben werden kann. </li>
+<li>In Zeile <code>10</code> definieren wir, was passieren soll, wenn wir auf den <code>Schließen</code>-Buttons des Fensters klicken (also auf das rote Kreuz oder den roten Kreis in der Titelleiste). Mit der statischen Konstanten <code>EXIT_ON_CLOSE</code> aus der Klasse <code>JFrame</code> legen wir fest, dass sowohl das Fenster geschlossen als auch das Programm beendet werden soll, wenn wir den <code>Schließen</code>-Button anklicken. Diese Option ist auch die einzig empfohlene Option für das Schließen des (Haupt-)Fensters. Leider ist sie nicht Standard, so dass wir das immer mitprogrammieren müssen. Sollten Sie diese Anweisung vergessen, so schließt sich zwar das Fenster, nicht jedoch das Programm. </li>
+<li>In Zeile <code>11</code> legen wir die Größe des Fensters in Pixeln fest. Hier wird die Breite mit <code>400</code>Pixeln und die Höhe mit <code>300</code> Pixeln festgelegt. Die Größe des Fensters ist somit abhängig von der Auflösung Ihres Monitors. Wenn Sie diese Angabe "vergessen", erscheint das Fenster genau so groß, wie es nötig ist, um alle Steuerelemente in dem Fenster darzustellen. Sie würden also nur die drei Knöpfe in der Titelleiste sehen. Diese "minimal erforderliche" Größe eines Fensters erreicht man auch mit der Objektmethode <code>pack()</code>, die das Fenster genau so groß darstellt, dass alle Steuerelemente sichtbar sind. </li>
+<li>In Zeile <code>12</code> legen wir fest, <em>wo</em> das Fenster auf unserem Monitor erscheint. Die linke obere Ecke des Monitors hat die Koordinaten <code>(0,0)</code>. Der erste Parameterwert in <code>setLocation()</code> legt fest, wie weit nach <em>rechts</em> der linke obere Punkt des Fensters auf unserem Monitor verschoben wird und der zweite Parameterwert legt fest, wie weit nach <em>unten</em> der linke obere Punkt des Fensters verschoben wird. Hier verschieben wir also das Fenster um <code>300</code> Pixel nach rechts und um <code>200</code> Pixel nach unten. Wenn Sie diese Angabe nicht treffen, erscheint das Fenster in der linken oberen Ecke des Monitors. </li>
+<li>In Zeile <code>13</code> setzen wir das Fenster auf <em>sichtbar</em>. Diese Anweisung sollten wir nicht vegessen, denn ansonsten sieht man das Fenster nicht und Sie wundern sich. </li>
+</ul>
+<h4 id="setdefaultcloseoperation">setDefaultCloseOperation()<a class="headerlink" href="#setdefaultcloseoperation" title="Permanent link">&para;</a></h4>
+<p>Mit der Objektmethode <code>setDefaultCloseOperation()</code> wird das Verhalten bei Schließen des Fensters definiert. Dafür wurden Konstanten in der Klasse <code>JFrame</code> definiert (genauer gesagt in der Klasse <code>javax.swing.WindowConstants</code>). Es wird empfohlen, dass wir für unser Hauptfenster stets <code>JFrame.EXIT_ON_CLOSE</code>) verwenden, da dann beim Schließen des Fensters auch das Programm beendet wird. Das ist aber leider nicht der Standardwert, deshalb müssen wir es immer explizit angeben. Hier eine Übersicht der vordefinierten Konstanten und ihrer Bedeutung:</p>
+<table>
+<thead>
+<tr>
+<th>Konstante</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DO_NOTHING_ON_CLOSE</td>
+<td>Es wird keine Aktion ausgeführt. Die Reaktion auf das Schließen muss vom Benutzer selbst über einen WindowListener realisiert werden. (windowClosing)</td>
+</tr>
+<tr>
+<td>HIDE_ON_CLOSE</td>
+<td>Versteckt das Fenster vor dem Benutzer. Alle Objekte und Ressourcen bleiben im Speicher erhalten und das Fenster kann jederzeit wieder sichtbar gemacht werden.</td>
+</tr>
+<tr>
+<td>DISPOSE_ON_CLOSE</td>
+<td>Das Fenster wird vom Bildschirm entfernt und alle Objekte und Ressourcen freigegeben. Wenn das letzte Fenster mit dieser Eigenschaft geschlossen wird verhält sich die Anwendung wie bei EXIT_ON_CLOSE.</td>
+</tr>
+<tr>
+<td>EXIT_ON_CLOSE</td>
+<td>Beendet die Anwendung und alle Fenster werden geschlossen und Ressourcen freigegeben. (System.exit(0))</td>
+</tr>
+</tbody>
+</table>
+<h4 id="kurzer-uberblick-jframe">Kurzer Überblick JFrame<a class="headerlink" href="#kurzer-uberblick-jframe" title="Permanent link">&para;</a></h4>
+<p>Ein <code>JFrame</code> ist der äußere Rahmen einer Swing-Anwendung. Die Klasse befindet sich im Paket <code>javax.swing</code>. Ein Fenster (<code>JFrame</code>) hat </p>
+<ul>
+<li>eine Titelleiste mit den drei bekannten Schaltflächen (<code>decorated</code>);  <code>setUndecorated(boolean v)</code></li>
+<li>einen Rahmen (<code>javax.swing.Border</code>) </li>
+<li>Sichtbarkeit; <code>setVisible(boolean v)</code></li>
+<li>Transparenz;  <code>setOpacity(float f)</code> (0 durchsichtig; 1.0 undurchsichtig)</li>
+<li>eine Größe;   <code>setSize(int b, int h)</code></li>
+<li>eine Position; <code>setLocation(int x, int y)</code></li>
+<li>eine Form; <code>setShape(Shape s)</code></li>
+</ul>
+<p>und kann </p>
+<ul>
+<li>im Vordergrund sein;  <code>toFront()</code></li>
+<li>im Hintergrund sein;  <code>toBack()</code></li>
+</ul>
+<h3 id="unsere-klasse-ist-selbst-ein-fenster">Unsere Klasse ist selbst ein Fenster<a class="headerlink" href="#unsere-klasse-ist-selbst-ein-fenster" title="Permanent link">&para;</a></h3>
+<p>Ehe wir weitere Methoden für <code>JFrame</code> ausprobieren, ändern wir die Implementierung unserer Klasse leicht. Derzeit haben wir <strong>in</strong> unserer Klasse ein Fenster erzeugt. Nun soll unsere Klasse <strong>selbst</strong> (besser gesagt: ein Objekt unserer Klasse) ein Fenster sein. Dazu lassen wir unsere Klasse von <code>JFrame</code> erben:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+
+<span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="kd">super</span><span class="p">();</span>    <span class="c1">// Konstruktor von JFrame</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die wesentlichen Änderungen sind:</p>
+<ul>
+<li>Die Klasse <code>MyFirstWindow</code> erbt von <code>JFrame</code> (Zeile <code>3</code>). Jedes Objekt der Klasse <code>MyFirstWindow</code> ist also (auch) ein Objekt der Klasse <code>JFrame</code> - und damit selbst ein Fenster. </li>
+<li>Im Konstruktor von <code>MyFirstWindow</code> rufen wir mit <code>super();</code> den Konstruktor von <code>JFrame</code> auf (Zeile <code>8</code>). Damit wird das Fenster erstellt. </li>
+<li>Die Objektmethoden von <code>JFrame</code> werden jetzt alle von der Referenz <code>this</code> aufgerufen, dem Fenster-Objekt.</li>
+</ul>
+<p>Wir werden auf diesem <em>Grundgerüst</em> für die Erstellung eines Fensters aufbauen, d.h. wir verwenden in Zukunft diese zweite Variante und ziehen sie der ersten vor. </p>
+<h3 id="die-content-pane-des-fensters">Die Content Pane des Fensters<a class="headerlink" href="#die-content-pane-des-fensters" title="Permanent link">&para;</a></h3>
+<p>Bevor wir dem Fenster nun Komponenten hinzufügen, ist es noch erwähnenswert, dass ein Fenster aus verschiedenen "Schichten" besteht, sogenannten <em>panes</em>. Die folgende Abbildung zeigt die <em>panes</em> eines JFrames. </p>
+<p><img alt="gui" src="../files/50_gui.png" /></p>
+<p>Um dies besser zu erläutern, versuchen wir, die Hintergrundfarbe des Fensters neu zu setzen. Dazu steht in der Klasse <code>JFrame</code> die Methode <code>setBackground(Color)</code> zur Verfügung. Diese Methode erwartet ein <code>Color</code>, welche im <code>java.awt</code>-Paket zur Verfügung steht. Der erste Implementierungsversuch wäre deshalb wie folgt:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+</span><span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">CYAN</span><span class="p">);</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir wollen unseren Fesnterhintergrund also mit der vorderfinierten Farbe <code>CYAN</code> einfärben. Wenn wir dieses Programm ausführen, erhalten wir folgendes Fenster:</p>
+<p><img alt="gui" src="../files/51_gui.png" /></p>
+<p>Zwar färbt sich die Titelleiste des Fensters, aber der Rest bleibt offensichtlich grau. Das liegt daran, dass die <em>Content Pane</em> des Fensters vor dem Hintergrund liegt. </p>
+<blockquote>
+<p>Alle Komponenten fügen wir der Content Pane des Fensters hinzu! Das gilt auch für Färbungen des Hintergrunds. </p>
+</blockquote>
+<p>Die <em>Content Pane</em> ist dazu da, die Komponenten hinzuzufügen und darzustellen. Wenn wir einen anderen Hintergrund für das Fenster (unterhalb der Titelleiste) wünschen, dann müssen wir den Hintergrund der <em>Content Pane</em> einfärben. </p>
+<p>Den Zugriff auf die <em>Content Pane</em> erhalten wir mithilfe der Objektmethode </p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="na">getContentPane</span><span class="p">()</span>
+</code></pre></div>
+<p>Unser Beispiel des Einfärbens des Hintergrundes sieht also korrekt so aus:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">CYAN</span><span class="p">);</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beachten Sie, dass die <em>Content Pane</em> des Fensters zwar nun <code>CYAN</code> ist, dafür aber nicht mehr die Titelleiste. Wenn wir diese auch färben sollen, dann gehen wir auch noch wie oben vor. </p>
+<p><img alt="gui" src="../files/52_gui.png" /></p>
+<h4 id="container-komponenten">Container-Komponenten<a class="headerlink" href="#container-komponenten" title="Permanent link">&para;</a></h4>
+<p>Ehe wir Steuerelemente zu unserem Fenster hinzufügen, wollen wir auf die Unterscheidung zwischen <em>Steuerelementen</em> und <em>Containern</em> eingehen. Ein Fenster enthält <em>Komponenten</em> (<code>JComponent</code>). <em>Komponenten</em> können sein:</p>
+<ul>
+<li><em>Steuerelemente</em>; das sind die sichtbaren Teile im Fenster, d.h. Buttons, Eingabefelder, Checkboxen usw. und</li>
+<li><em>Container</em>; diese sieht man nicht direkt, sie dienen der Strukturierung der GUI. </li>
+</ul>
+<p><em>Container</em> können weitere <em>Komponenten</em> (also <em>Container</em> oder <em>Steuerelemente</em>) enthalten. <em>Steuerelemente</em> enthalten aber <strong>keine</strong> weiteren <em>Komponenten</em>. Durch das Verschachteln von <em>Containern</em> in <em>Containern</em> entsteht eine "Hierarchie" (oder besser gesagt: eine "Baumstruktur") in unserer GUI:</p>
+<p><img alt="gui" src="../files/53_gui.png" /></p>
+<p>Wichtig ist: </p>
+<ul>
+<li>die Knoten des Baumes sind <em>Container</em> und</li>
+<li>die Blätter des Baumes sind <em>Steuerelemente</em> </li>
+</ul>
+<h4 id="inhalt-der-content-pane">Inhalt der Content Pane<a class="headerlink" href="#inhalt-der-content-pane" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Die <em>Content Pane</em> ist selbst ein <em>Container</em>. </li>
+<li>Zur <em>Content Pane</em> können neue <em>Komponenten</em> (<em>Container</em> oder <em>Steuerelemente</em>) hinzugefügt werden. </li>
+<li>Zum Hinzufügen neuer <em>Komponenten</em> wird die Objektmethode <code>add()</code> verwendet.</li>
+<li>Eine typische Klasse für einen <em>Container</em> ist die Klasse <code>JPanel</code>. <code>JPanels</code> können also ineinander verschachtelt werden, d.h. ein <code>JPanel</code> kann selbst wieder anderer <code>JPanels</code> entahlten (oder <em>Steuerelemente</em>).</li>
+<li>Typische <em>Steuerelemente</em> (die in der Baumstruktur die “Blätter“ bilden), sind <code>JButton</code>, <code>JLabel</code>, <code>JCheckBox</code>, <code>JRadioButton</code>, ...</li>
+</ul>
+<h4 id="erweitern-des-fensters-um-ein-jpanel">Erweitern des Fensters um ein JPanel<a class="headerlink" href="#erweitern-des-fensters-um-ein-jpanel" title="Permanent link">&para;</a></h4>
+<p>Wir fügen unserer <em>Content Pane</em> nun ein <code>JPanel</code> (einen <em>Container</em>) hinzu und werden dieses <code>JPanel</code> danach mit weiteren <em>Komponenten</em> befüllen. Unser neues <strong>Grundgerüst eines Fensters</strong> sieht nun so aus:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Color</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyFirstWindow</span> <span class="kd">extends</span> <span class="n">JFrame</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyFirstWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;My first window&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">CYAN</span><span class="p">);</span>    
+
+<span class="hll">        <span class="n">JPanel</span> <span class="n">content</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">initContent</span><span class="p">();</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+</span><span class="hll">        <span class="c1">// hier weitere Container oder Steuerelemente hinzufuegen</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">MyFirstWindow</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>In Zeile <code>15</code> deklarieren wir eine Referenzvariable namens <code>content</code> vom Typ <code>JPanel</code>. Dazu muss die Klasse <code>JPanel</code> aus dem <code>javax.swing</code>-Paket importiert werden (Zeile <code>3</code>). </li>
+<li>Dieses <code>JPanel</code> wird durch die Methode <code>initContent()</code> erzeugt, welche ein <code>JPanel</code> zurückgibt (Zeile <code>27</code>).</li>
+<li>In der Methode <code>initContent()</code> wird dieses <code>JPanel</code> erzeugt (Zeile <code>25</code>) unter Verwendung des parameterlosen Konstruktors von <code>JPanel</code>. </li>
+</ul>
+<p>Das so erzeugte Fenster sieht so aus:</p>
+<p><img alt="gui" src="../files/54_gui.png" /></p>
+<p><strong>Beachten Sie</strong>, dass der Hintergrund nun nicht mehr <code>CYAN</code> gefärbt ist! Deshalb werden wir diese Anweisung auch gleich entfernen. Der Grund dafür ist, dass zwar die <em>Content Pane</em> cyan ist, aber <strong>davor</strong> befindet sich jetzt ein <code>JPanel</code> (<code>content</code>), welches grau (Standardwert) ist. Dieses <code>JPanel</code> befüllt die gesamte <em>Content Pane</em>. Diese ist also gar nicht mehr zu sehen. </p>
+<h4 id="erweitern-der-initcontent-methode">Erweitern der initContent()-Methode<a class="headerlink" href="#erweitern-der-initcontent-methode" title="Permanent link">&para;</a></h4>
+<p>Wir werden die <code>initContent()</code>-Methode nun sukzessive erweitern, indem wir <em>Steuerelemente</em> (und später auch weitere <em>Container</em>, also <code>JPanel</code>) hinzufügen. Dabei ist das generelle Vorgehen stets gleich:</p>
+<ol>
+<li>Steuerelement-Objekt erzeugen</li>
+<li>Steuerelement-Objekt dem Container (dem <code>JPanel</code>) hinzufügen</li>
+</ol>
+<p>Wir betrachten nur die <code>initContent()</code>-Methode (die erforderlichen Klassen müssen aus dem <code>javax.swing</code>-Paket importiert werden - oder Sie wählen <code>import javax.swing.*;</code>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+
+<span class="hll">        <span class="c1">// Steuerlement-Objekte erstellen</span>
+</span><span class="hll">        <span class="n">JLabel</span> <span class="n">label</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">JTextField</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">JButton</span> <span class="n">button</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Klick mich!&quot;</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// Steuerlement-Objekte dem Container (JPanel) hinzufuegen</span>
+</span><span class="hll">        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+</span><span class="hll">        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">button</span><span class="p">);</span>
+</span>
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Das Fenster sieht nun so aus:</p>
+<p><img alt="gui" src="../files/55_gui.png" /></p>
+<p>Wir haben also ein <code>JLabel</code> (einen Text) hinzugefügt ("Name"), ein <code>JTextField</code> (ein Eingabefeld, für das die Breite <code>10</code> Zeichen definiert wurde) sowie ein <code>JButton</code> (ein Button, auf dem "Klick mich!" steht). Bei allen drei Elementen handelt es sich um <em>Steuerelemente</em>. </p>
+<p>Beachten Sie, dass die Elemente nebeneinander angeordnet sind. Das ist die Standardeinstellung für ein <code>JPanel</code>. Solche Einstellungen können später mit einem <em>Layout-Manager</em> geändert werden. Die Steuerelemente werden solange nebeneinander angeordnet, solange sie nebeneinander passen. Wenn Sie die Fensterbreite schmaler gestalten (mit der Maus zusammenschieben), schieben sich die Steuerelemente untereinander. Um aber Kontrolle über die Anordnung der Steuerelemente zu gelangen, betrachten wir nun <em>Layout-Manager</em>. </p>
+<h3 id="layout-manager">Layout-Manager<a class="headerlink" href="#layout-manager" title="Permanent link">&para;</a></h3>
+<p><em>Layout-Manager</em> dienen der Anordnung von Komponenten. Es gibt viele Layout-Manager (<code>FlowLayout</code>, <code>BorderLAyout</code>, <code>CardLayout</code>, <code>OverlayLayout</code>, <code>GridLayout</code>, <code>GridBagLayout</code>, <code>BoxLayout</code>, <code>GroupLayout</code>, ...). Wir werden aber nicht alle betrachten, da dies erstens auf Dauer langweilig ist und zweitens <a href="./#verschachteln-von-layout-managern">Layout-Manager ineinander verschachtelt</a> werden können. Vielmehr können <em>Container</em> ineinander verschachtelt werden und diesen <em>Containern</em> unterschiedliche Layout-Manager zugewiesen werden. </p>
+<p>Es wird also einem <em>Container</em> ein Layout-Manager zugewiesen und die <em>Komponenten</em> in diesem <em>Container</em> sind dann so angeordnet, wie der Layout-Manager es definiert (nebeneinander oder untereinander oder übereinander ...). Das Zuweisen 
+eines Layout-Managers zu einem <em>Container</em> erfolgt mithilfe von</p>
+<div class="highlight"><pre><span></span><code><span class="n">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">Layoutmanager</span><span class="p">())</span> <span class="c1">// Layoutmanager durch entsprechenden Namen ersetzen</span>
+</code></pre></div>
+<p>Wir betrachten im Folgenden drei Layout-Manager und diese genügen völlig für alle GUIs, die wir erstellen wollen:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/flow.html">FlowLayout</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/grid.html">GridLayout</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html">BorderLayout</a></li>
+</ul>
+<p>Alle drei LayoutManager bedinden sich im <code>java.awt</code>-Paket, also <code>java.awt.FlowLayout</code>, <code>java.awt.GridLayout</code> und <code>java.awt.BorderLayout</code>.</p>
+<h4 id="flowlayout">FlowLayout<a class="headerlink" href="#flowlayout" title="Permanent link">&para;</a></h4>
+<p><code>FlowLayout</code> ist der Standard-Layout-Manager für ein <code>JPanel</code>. Das heißt, wenn wir einem <code>JPanel</code> keinen (anderen) Layout-Manager zuweisen, ist es im <code>FlowLayout</code>. <code>FlowLayout</code> ordnet die Komponenten nebeneinander in einer Zeile an (wenn sie in eine Zeile passen – ansonsten weitere Zeile).</p>
+<p>Das Zuweisen eines <em>Containers</em> zum <code>FlowLayout</code> erfolgt mittels <code>setLayout(new FlowLayout());</code>.</p>
+<p>Für <code>FlowLayout</code> steht aber nicht nur der parameterlose Konstruktor zur Verfügung, sondern auch </p>
+<ul>
+<li>
+<p><code>FlowLayout(int align)</code>, wobei für <code>align</code> folgende vordefinierte Konstanten verwendet werden können:</p>
+<ul>
+<li><code>FlowLayout.CENTER</code> ; ordnet alle Komponenten mittig an, ist der Standard-Wert</li>
+<li><code>FlowLayout.LEFT</code> ; ordnet alle Komponenten linksbündig an</li>
+<li><code>FlowLayout.RIGHT</code> ; ordnet alle Komponenten rechtsbündig an</li>
+</ul>
+</li>
+<li>
+<p><code>FlowLayout(int align, int hgap, int vgap)</code> , wobei <code>align</code> wie oben und </p>
+<ul>
+<li><code>hgap</code> den horizontalen Abstand zwischen den Komponenten und</li>
+<li><code>vgap</code> den vertikalen Abstand zwischen den Komponenten beschreibt</li>
+</ul>
+</li>
+</ul>
+<p>Beispiele:</p>
+<p><img alt="gui" src="../files/56_gui.png" /></p>
+<p>Beim <code>FlowLayout</code> bleiben die Steuerelemente stets in ihrer Standardgröße!</p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Fügen Sie in Ihre <code>initContent()</code>-Methode 6 Buttons ein (wie in der oberen Abbildung). Lassen Sie das <code>mainPanel</code> im <code>FlowLayout</code>. Probieren Sie ruhig mal die verschiedenen <code>align</code>-Werte. Verändern Sie mit der Maus die Größe des Fensters. Beachten Sie, dass sich die Größe der Buttons <strong>nicht</strong> ändert. </p>
+</div>
+<h4 id="gridlayout">GridLayout<a class="headerlink" href="#gridlayout" title="Permanent link">&para;</a></h4>
+<p><code>GridLayout</code> ordnet Komponenten innerhalb eines rechteckigen Gitters (einem <em>grid</em>) an. Das Zuweisen eines <em>Containers</em> zum <code>GridLayout</code> erfolgt mittels <code>setLayout(new GridLayout(int rows, int columns));</code>. Dabei geben <code>rows</code> die Anzahl der Zeilen des Gitters und <code>columns</code> die Anzahl der Spalten des Gitters an. Dabei wird aber immmer zuerst versucht, <strong>ein Rechteck</strong> zur erzeugen mit der Zeilenanzahl als <strong>maßgeblichem Wert</strong>! Das verdeutlichen die folgenden Beispiele:</p>
+<p><img alt="gui" src="../files/57_gui.png" /></p>
+<p>Für <code>GridLayout</code> gibt es noch einen weiteren parametrisierten Konstruktor, nämlich <code>GridLayout(int rows, int columns, int hgap, int vgap)</code>, wobei <code>hgap</code> und <code>vgap</code> die gleiche Bedutung haben, wie beim <code>FlowLayout</code>.</p>
+<p><img alt="gui" src="../files/58_gui.png" /></p>
+<p><strong>Wichtig</strong> ist, dass sich die Größe der Komponenten der Größe des Containes anpasst, in der die Komponenten enthalten sind. das bedeutet, dass mit der Größe des Containers auch die Steuerelemente größer werden! Das bedeutet, dass im Gegensatz zum <code>FlowLayout</code> z.B. Buttons in diesem Layout-Manager keine feste Größe haben!</p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Verwenden Sie die <code>initContent()</code>-Methode aus der <code>FlowLayout</code>-Übung (mit den 6 Buttons). Weisen Sie dem <code>mainPanel</code> das <code>GridLayout</code> zu. Probieren Sie ruhig mal verschiedene <code>rows</code>, <code>columns</code>, <code>hgap</code>, <code>vgap</code>-Werte. Verändern Sie mit der Maus die Größe des Fensters. Beachten Sie, dass sich die Größe der Buttons <strong>ändert</strong>! </p>
+</div>
+<h4 id="borderlayout">BorderLayout<a class="headerlink" href="#borderlayout" title="Permanent link">&para;</a></h4>
+<p><code>BorderLayout</code> ist der Standard-Layout-Manager für ein <code>JFrame</code>. <code>BorderLayout</code> ordnet Komponenten in fünf Felder (<code>North</code>, <code>South</code>, <code>East</code>, <code>West</code>) und die Mitte (<code>Center</code>) an. <code>BorderLayout</code> besitzt</p>
+<ul>
+<li>einen parameterlosen Konstruktor <code>BoderLayout()</code> und</li>
+<li>einen parametrisierten Konstruktor <code>BorderLayout(int hgap, int vgap)</code> mit <code>hgap</code> und <code>vgap</code> wie zuvor.</li>
+</ul>
+<p>Um Komponenten zu einem Container im <code>BoderLayout</code> hinzuzufügen, gibt es nun zwei verschiedene <code>add()</code>-Methoden:</p>
+<ul>
+<li><code>add(Component comp)</code> fügt die Komponente <code>comp</code> dem <strong>Center</strong> hinzu (entspricht <code>add(comp, BorderLayout.CENTER)</code>),</li>
+<li>
+<p><code>add(Component comp, Object constraints)</code>, wobei <code>constraints</code> eine der folgenden vordefinierten Werte annehmen kann:</p>
+<ul>
+<li><code>BorderLayout.NORTH</code>; fügt <code>comp</code> dem oberen Feld hinzu, </li>
+<li><code>BorderLayout.SOUTH</code>; fügt <code>comp</code> dem unteren Feld hinzu, </li>
+<li><code>BorderLayout.EAST</code>; fügt <code>comp</code> dem linken Feld hinzu, </li>
+<li><code>BorderLayout.WEST</code>; fügt <code>comp</code> dem rechten Feld hinzu, </li>
+<li><code>BorderLayout.CENTER</code>; fügt <code>comp</code> der Mitte hinzu.</li>
+</ul>
+</li>
+</ul>
+<p>Angenommen, die <code>initContent()</code>-Methode sieht so aus:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;SOUTH&quot;</span><span class="p">),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;EAST&quot;</span><span class="p">),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">EAST</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;WEST&quot;</span><span class="p">),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">WEST</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;CENTER&quot;</span><span class="p">),</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>, dann wird folgendes Fenster erzeugt:</p>
+<p><img alt="gui" src="../files/59_gui.png" /></p>
+<p><strong>Beachten Sie:</strong></p>
+<ul>
+<li>die Nord-, Süd-Buttons behalten ihre Höhe, skalieren auf Fensterbreite</li>
+<li>die Ost-, West-Buttons behalten ihre Breite, skalieren auf Fensterhöhe (minus Höhe für Norden und Süden)</li>
+<li>der Center-Button wird eingepasst (könnte z.B. auch ganz verschwinden)</li>
+</ul>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Verwenden Sie die <code>initContent()</code>-Methode von oben (mit den 5 Buttons). Lassen Sie einzelne Buttons weg. Erklären Sie jeweils das Ergebnis!</p>
+</div>
+<h4 id="verschachteln-von-layout-managern">Verschachteln von Layout-Managern<a class="headerlink" href="#verschachteln-von-layout-managern" title="Permanent link">&para;</a></h4>
+<p>Eigentlich ist die Überschrift irreführend, denn es werden nicht die Layout-Manger verschachtelt, sondern die Container, denen jeweils andere Layout-Manager zugewiesen werden können. Wir wollen das an einem Beispiel demonstrieren. Wir betrachten dazu wieder nur die <code>initContent()</code>-Methode. Alles andere bleibt in unserem "Grundgerüst", das wir in der Klasse <code>MyFirstWindow</code> erstellt haben, gleich. </p>
+<ul>
+<li>Wir beginnen damit, dass das <code>mainPanel</code> im <code>BorderLayout</code> ist und dass diesem <code>mainPanel</code> drei weitere <code>JPanel</code> hinzugefügt werden. </li>
+<li>Das erste <code>JPanel</code> heißt <code>oben</code>, ist im <code>FlowLayout</code> und wird dem Norden des <code>mainPanel</code>s hinzugefügt. </li>
+<li>Das zweite <code>JPanel</code> heißt <code>mitte</code>, ist im <code>GridLayout</code> und wird dem Center des <code>mainPanel</code>s hinzugefügt. </li>
+<li>Das dritte <code>JPanel</code> heißt <code>unten</code>, ist im <code>FlowLayout</code> und wird dem Süden des <code>mainPanel</code>s hinzugefügt. </li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">JPanel</span> <span class="n">oben</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">(</span><span class="n">FlowLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+        <span class="n">JPanel</span> <span class="n">mitte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+        <span class="n">JPanel</span> <span class="n">unten</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">(</span><span class="n">FlowLayout</span><span class="p">.</span><span class="na">RIGHT</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">oben</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">mitte</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">unten</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Die einzelnen <code>JPanel</code> sind nicht unterscheidbar, da sie keinen Rand (<code>Border</code>) besitzen und alle einen grauen Hintergrund haben. Es sind "nur" <em>Container</em>, die uns helfen, die GUI zu strukturieren. Sichtbar sind erst die Steuerelemente, die wir nun den einzelnen <code>JPanel</code> hinzufügen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">private</span> <span class="n">JPanel</span> <span class="nf">initContent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">JPanel</span> <span class="n">mainPanel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">BorderLayout</span><span class="p">());</span>
+
+        <span class="n">JPanel</span> <span class="n">oben</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">(</span><span class="n">FlowLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JLabel</span><span class="p">(</span><span class="s">&quot;Name : &quot;</span><span class="p">));</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JTextField</span><span class="p">(</span><span class="mi">10</span><span class="p">));</span>
+        <span class="n">oben</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHT_GRAY</span><span class="p">);</span>
+
+        <span class="n">JPanel</span> <span class="n">mitte</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">GridLayout</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 1&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 2&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 3&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 4&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 5&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Button 6&quot;</span><span class="p">));</span>
+        <span class="n">mitte</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">GREEN</span><span class="p">);</span>
+
+        <span class="n">JPanel</span> <span class="n">unten</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JPanel</span><span class="p">();</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">setLayout</span><span class="p">(</span><span class="k">new</span> <span class="n">FlowLayout</span><span class="p">(</span><span class="n">FlowLayout</span><span class="p">.</span><span class="na">RIGHT</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;Abbruch&quot;</span><span class="p">));</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">JButton</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">));</span>
+        <span class="n">unten</span><span class="p">.</span><span class="na">setBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHT_GRAY</span><span class="p">);</span>
+
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">oben</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">NORTH</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">mitte</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+        <span class="n">mainPanel</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">unten</span><span class="p">,</span> <span class="n">BorderLayout</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">mainPanel</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Zur besseren Erkennung wurde den einzelnen <code>JPanel</code> auch noch jeweils eine Hintergrundfarbe zugeordnet (Zeilen <code>32</code>, <code>42</code> und <code>48</code>). Somit ergibt sich folgende Ansicht: </p>
+<p><img alt="gui" src="../files/60_gui.png" /></p>
+<ul>
+<li>Das <code>JPanel oben</code> ist im <code>FlowLayout</code>. Diesem Panel werden zwei Steuerelemente hinzugefügt: ein <code>JLabel</code> (<code>"Name"</code>) und ein <code>JTextField</code> der Breite 10 (Zeichen). Da das Panel im <code>FlowLayout</code> ist, erscheinen beide Steuerelemente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind zentriert angeordnet (<code>FlowLayout.CENTER</code>) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von <code>10</code> Pixeln. Dem Panel wurde die Hintergrundfarbe <code>LIGHT-GRAY</code> zugewiesen. </li>
+<li>Das <code>JPanel mitte</code> ist im <code>GridLayout</code> mit 3 Zeilen und 2 Spalten. Diesem Panel werden 6 <code>JButton</code> zugeordnet. Die Buttons haben einen vertikalen und horizontalen Abstand von jeweils 10 Pixeln (zwischen den Buttons ist der Abstand also 20). Beachten Sie, dass die Größe der Buttons an die Fenstergröße angepasst sind. Mit wachsender Fenstergröße wachsen auch die Button-Größen. Dem Panel wurde die Hintergrundfarbe <code>GREEN</code> zugewiesen. </li>
+<li>Das <code>JPanel unten</code> ist im <code>FlowLayout</code>. Diesem Panel werden zwei <code>JButton</code> hinzugefügt. Das das Panel im <code>FlowLayout</code> ist, erscheinen beide Steuerelemente nebeneinander (weil sie nebeneinander passen). Die Steuerelemente sind rechtsbündig angeordnet (<code>FlowLayout.RIGHT</code>) und haben einen horizontalen und vertikalen Abstand zu den Nachbarn von jeweils <code>5</code> Pixeln. Beachten Sie, dass die Buttons in ihrer Standardgröße sind (und stets bleiben). Dem Panel wurde die Hintergrundfarbe <code>LIGHT-GRAY</code> zugewiesen.</li>
+</ul>
+<p>Noch ein Wort zu den Größen:</p>
+<ul>
+<li>Die Größe des Fensters ist mit <code>300</code>x<code>200</code> vorgegeben. </li>
+<li>Der "Norden" geht über die gesamte Breite. Die Höhe des "Nordens" ergibt sich aus den Standardhöhen von <code>JLabel</code> und <code>JTextField</code> plus den vertikalen Abständen nach oben und unten von jeweils <code>10</code> Pixeln.  </li>
+<li>Der "Süden" geht ebenfalls über die gesamte Breite. Die Höhe des "Südens" ergibt sich aus der Standardhöhe von <code>JButton</code> plus den vertikalen Abständen nach oben und unten von jeweils <code>5</code> Pixeln. </li>
+<li>Das <code>Center</code>-Feld geht ebenfalls über die gesamte Breite, da es kein <code>EAST</code>- und kein <code>WEST</code>-Feld gibt. Die Höhe des <code>Center</code>-Feldes ergibt sich aus der Fensterhöhe minus der Höhe für die Titelleiste, minus der Höhe für den "Norden" und minus der Höhe für den "Süden". Das <code>Center</code>-Feld füllt also den verbleibenden Rest des Platzes im Fenster aus. </li>
+</ul>
+<p>Sie können beliebig viele Container in beliebiger Tiefe ineinanderschachteln und den Containern unterschiedliche Layout_Manager zuweisen. Damit gelingt ihnen jede denkbare Gestaltung grafischer Nutzeroberflächen. Weitere Anregungen zur Verwendung von Layout-Managern finden Sie z.B. <a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html">hier</a>. </p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Ändern Sie ausschließlich die Höhe des Fensters und dann einmal ausschließlich die Breite des Fensters und begründen Sie das jeweilige Ergebnis!</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben unser erstes Fenster erstellt! Außerdem können wir dem Fenster Steuerelemente hinzufügen. Diese können wir mithilfe von <em>Containern</em>  und Layout-Manager positionieren, so dass wir ordentlich positionierte Grafische Nutzeroberflächen erstellen können. Im nächsten Schritt schauen wir uns an, wie wir auf <em>Ereignisse</em> reagieren können, z.B. auf das Klicken eines Buttons. </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../junit/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: JUnit-Testen" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              JUnit-Testen
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ereignisse/" class="md-footer__link md-footer__link--next" aria-label="Weiter: GUI Ereignisse" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              GUI Ereignisse
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

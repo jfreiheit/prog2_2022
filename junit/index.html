@@ -1,0 +1,2341 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/junit/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>JUnit-Testen - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#junit-tests" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JUnit-Testen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          JUnit-Testen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        JUnit-Testen
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allgemeines-zum-unit-testen" class="md-nav__link">
+    Allgemeines zum (Unit-)Testen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#junit" class="md-nav__link">
+    JUnit
+  </a>
+  
+    <nav class="md-nav" aria-label="JUnit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assertions" class="md-nav__link">
+    Assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotationen" class="md-nav__link">
+    Annotationen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methode-fakultaet-testen" class="md-nav__link">
+    Methode fakultaet() testen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-ausfuhren" class="md-nav__link">
+    Test ausführen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions-testen" class="md-nav__link">
+    Exceptions testen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konsolenausgaben-testen" class="md-nav__link">
+    Konsolenausgaben testen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    Test-Driven Development
+  </a>
+  
+    <nav class="md-nav" aria-label="Test-Driven Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tdd-fur-einen-time-zeit-umrechner" class="md-nav__link">
+    TDD für einen Time-Zeit-Umrechner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-erste-testmethode-fur-unser-beispiel" class="md-nav__link">
+    Eine erste Testmethode für unser Beispiel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quellcode-aus-dem-video" class="md-nav__link">
+    Quellcode aus dem Video
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noch-ein-kleines-beispiel" class="md-nav__link">
+    Noch ein kleines Beispiel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allgemeines-zum-unit-testen" class="md-nav__link">
+    Allgemeines zum (Unit-)Testen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#junit" class="md-nav__link">
+    JUnit
+  </a>
+  
+    <nav class="md-nav" aria-label="JUnit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assertions" class="md-nav__link">
+    Assertions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotationen" class="md-nav__link">
+    Annotationen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methode-fakultaet-testen" class="md-nav__link">
+    Methode fakultaet() testen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-ausfuhren" class="md-nav__link">
+    Test ausführen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions-testen" class="md-nav__link">
+    Exceptions testen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konsolenausgaben-testen" class="md-nav__link">
+    Konsolenausgaben testen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    Test-Driven Development
+  </a>
+  
+    <nav class="md-nav" aria-label="Test-Driven Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tdd-fur-einen-time-zeit-umrechner" class="md-nav__link">
+    TDD für einen Time-Zeit-Umrechner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eine-erste-testmethode-fur-unser-beispiel" class="md-nav__link">
+    Eine erste Testmethode für unser Beispiel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quellcode-aus-dem-video" class="md-nav__link">
+    Quellcode aus dem Video
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#noch-ein-kleines-beispiel" class="md-nav__link">
+    Noch ein kleines Beispiel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/junit.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="junit-tests">JUnit-Tests<a class="headerlink" href="#junit-tests" title="Permanent link">&para;</a></h1>
+<p>Testen von Programmen ist wichtig. Ohne Testen ist es kaum möglich, Fehler in Programmen zu entdecken. Bis jetzt haben wir unsere Programme immer durch reines Anwenden getestet, d.h. wir haben die implementierten Methoden aufgerufen und ihnen unterschiedliche Parameterwerte übergeben. Wir werden das jetzt ändern und nutzen dafür <a href="https://junit.org/junit5/">JUnit</a>.</p>
+<h2 id="allgemeines-zum-unit-testen">Allgemeines zum (Unit-)Testen<a class="headerlink" href="#allgemeines-zum-unit-testen" title="Permanent link">&para;</a></h2>
+<p>Der berühmte Informatiker <a href="https://de.wikipedia.org/wiki/Edsger_W._Dijkstra">Edsger W. Dijkstra</a> hat über das Testen gesagt:</p>
+<blockquote>
+<p>Durch Testen kann man stets nur die Anwesenheit, nie aber die Abwesenheit von Fehlern beweisen</p>
+</blockquote>
+<p>Das bedeutet, wir können durch das Testen Fehler finden. Wenn wir aber keine finden, dann wissen wir nicht, ob das Programm dann auch keine Fehler mehr enthält. Es ist leider nicht möglich, grundsätzlich die Fehlerfreiheit von Programmen zu prüfen. Aber das Testen stellt ein wichtiges Werkzeug dar, um Fehler zu entdecken. </p>
+<p>Es gibt verschiedene Arten von Tests:</p>
+<p><img alt="testen" src="../files/28_testen.png" /></p>
+<p>In der Abbildung erkennen wir, dass die Unit-tests, die wir hier kennenlernen wollen, am besten automatisierbar, am häufigsten und am einfachsten sind. Mit Unit-Tests können wir Methoden und Klassen testen, wobei wir die Tests implementieren. Die Idee ist, dass wir funktionale Einzelteile eines Programms separat und isoliert vom Rest auf ihre Korrektheit hin überprüfen. Wir versuchen extra, so wenig wie möglich die Effekte anderer Funktionalitäten bzw. Komponenten in die Tests einfließen zu lassen. Das erfolgt dann in den Komponenten- bzw. Integrationstests. Das hat zwei Vorteile: einerseits ist der zu prüfende Funktionsumfang überschaubar und andererseits können diese Unit-Tests leicht automatisiert ausgeführt werden. Es gibt, wie bereits eingangs erwähnt, keine Garantie von Fehlerfreiheit. Ein Nachteil der Unit-Tests besteht darin, dass sie schwierig für Methoden zu gestalten sind, in denen es Abhängigkeiten von der Laufzeitumgebung oder anderen Komponenten gibt.    </p>
+<h2 id="junit">JUnit<a class="headerlink" href="#junit" title="Permanent link">&para;</a></h2>
+<p>Für das Unit-Testen von Java-Programmen gibt es das Werkzeug <a href="https://junit.org/junit5/">JUnit</a>. Wir zeigen die Verwendung von JUnit an einem einführenden Beispiel. Angenommen, wir haben folgende kleine Javaklasse <code>Fakultaet</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Fakultaet</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">fakultaet</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">number</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Zahl muss groesser gleich 1 sein!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">number</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="kt">long</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+            <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">tmp</span> <span class="o">&gt;</span> <span class="n">result</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Overflow!&quot;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%3d! = %,d %n&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">fakultaet</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Diese Klasse enthält eine Methode <code>fakultaet()</code>, welche ein <code>int</code> als Eingabeparameter erwartet und den Wert der Fakultätsberechnung als <code>long</code> zurückgibt. Ist der Eingabewert kleiner als <code>1</code> wird eine <code>IllegalArgumentException</code> geworfen. Tritt während der Berechnung der Fakultät ein Wertebereichsüberlauf auf (der größte Wert in <code>long</code> ist <code>9,223,372,036,854,775,807</code>), dann wird ebenfalls eine <code>IllegalArgumentException</code> geworfen. Die <code>print()</code>-Methode gibt die Berechnung geeignet aus. Angenommen, eine <code>main()</code>-Methode (oder eine andere) würde die Klasse in der folgenden Form verwenden:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">Fakultaet</span> <span class="n">f1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fakultaet</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">nr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">nr</span> <span class="o">&lt;</span> <span class="mi">22</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">f1</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">nr</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;number = &quot;</span> <span class="o">+</span> <span class="n">nr</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">nr</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>, dann wäre die Ausgabe: </p>
+<div class="highlight"><pre><span></span><code><span class="nv">number</span> <span class="o">=</span> <span class="m">0</span> : Zahl muss größer gleich <span class="m">1</span> sein!
+  <span class="m">1</span>! <span class="o">=</span> <span class="m">1</span> 
+  <span class="m">2</span>! <span class="o">=</span> <span class="m">2</span> 
+  <span class="m">3</span>! <span class="o">=</span> <span class="m">6</span> 
+  <span class="m">4</span>! <span class="o">=</span> <span class="m">24</span> 
+  <span class="m">5</span>! <span class="o">=</span> <span class="m">120</span> 
+  <span class="m">6</span>! <span class="o">=</span> <span class="m">720</span> 
+  <span class="m">7</span>! <span class="o">=</span> <span class="m">5</span>.040 
+  <span class="m">8</span>! <span class="o">=</span> <span class="m">40</span>.320 
+  <span class="m">9</span>! <span class="o">=</span> <span class="m">362</span>.880 
+ <span class="m">10</span>! <span class="o">=</span> <span class="m">3</span>.628.800 
+ <span class="m">11</span>! <span class="o">=</span> <span class="m">39</span>.916.800 
+ <span class="m">12</span>! <span class="o">=</span> <span class="m">479</span>.001.600 
+ <span class="m">13</span>! <span class="o">=</span> <span class="m">6</span>.227.020.800 
+ <span class="m">14</span>! <span class="o">=</span> <span class="m">87</span>.178.291.200 
+ <span class="m">15</span>! <span class="o">=</span> <span class="m">1</span>.307.674.368.000 
+ <span class="m">16</span>! <span class="o">=</span> <span class="m">20</span>.922.789.888.000 
+ <span class="m">17</span>! <span class="o">=</span> <span class="m">355</span>.687.428.096.000 
+ <span class="m">18</span>! <span class="o">=</span> <span class="m">6</span>.402.373.705.728.000 
+ <span class="m">19</span>! <span class="o">=</span> <span class="m">121</span>.645.100.408.832.000 
+ <span class="m">20</span>! <span class="o">=</span> <span class="m">2</span>.432.902.008.176.640.000 
+<span class="nv">number</span> <span class="o">=</span> <span class="m">21</span> : Overflow!
+</code></pre></div>
+<p>Wir wollen diese Klasse <code>Fakultaet</code> nun mithilfe von <code>JUnit</code> testen. Dazu wählen wir <code>File --&gt; New --&gt; JUnit Test Case</code>:</p>
+<p><img alt="junit" src="../files/104_junit.png" /></p>
+<p>Es erscheint folgender Dialog:</p>
+<p><img alt="junit" src="../files/105_junit.png" /></p>
+<p>Beachten Sie, dass unter <code>Class under test:</code> die Klasse <code>Fakultaet</code> eingetragen ist (oder Sie geben Sie dort ein). Der Name der Klasse wird mit <code>FakultaetTest</code> vorgeschlagen. Beachten Sie auch, dass bei den RadioButtons oben <code>New JUnit Jupiter test</code> ausgewählt ist. Klicken Sie auf <code>Finish</code>. </p>
+<p>Es entsteht folgende <code>FakultaetTest</code>-Klasse:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">FakultaetTest</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">fail</span><span class="p">(</span><span class="s">&quot;Not yet implemented&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Sollte es bei Ihnen Probleme bei der Erstellung der JUnit-Testklasse geben, dann beachten Sie folgende 2 Anforderungen:</p>
+<ol>
+<li>
+<p>Im <code>Java Build Path</code> muss <code>JUnit</code> enthalten sein:</p>
+<p><img alt="junit" src="../files/106_junit.png" /></p>
+<p>Hilfestellungen dazu finden Sie z.B. <a href="https://www.eclipse.org/community/eclipse_newsletter/2017/october/article5.php">hier</a>, <a href="https://www.eclipse.org/eclipse/news/4.7.1a/#junit-5-support">hier</a> oder <a href="https://www.testingdocs.com/adding-junit5-library-to-a-project/">hier</a>. Beachten Sie, dass wir nicht <code>JUnit 4</code>, sondern <code>JUnit 5 (JUnit Jupiter)</code> verwenden! </p>
+</li>
+<li>
+<p>In der <code>module-info.java</code> muss <code>requires org.junit.jupiter.api;</code> eingetragen sein. </p>
+</li>
+</ol>
+<p>Eine JUnit-Testklasse enthält keine <code>main()</code>-Methode, ist aber ausführbar. Sie enthält stattdessen Methoden, die mit <code>@Test</code> annotiert sind. Diese <code>@Test</code>-Methoden enthalten <strong>Zusicherungen</strong> (sogenannte <strong>Assertions</strong>). Mit diesen Assertions geben Sie das erwartete Ergebnis des Testfalls an. </p>
+<h4 id="assertions">Assertions<a class="headerlink" href="#assertions" title="Permanent link">&para;</a></h4>
+<p>Es gibt unterschiedliche Möglichkeiten, das <em>tatsächliche Ergebnis</em> der Ausführung mit dem <em>erwarteten Ergebnis</em> zu vergleichen:</p>
+<ul>
+<li>Gleichheit, Ungleichheit, kleiner, größer</li>
+<li><code>null</code>, nicht <code>null</code></li>
+<li>gleiche Objekte (<code>equals()</code>)</li>
+</ul>
+<p>Diese Vergleiche werden mittels Assertions durchgeführt. Folgende Tabelle gibt einen Überblick über einige der am meisten verwendeten Assertions an. Alle Assertions, die es gibt, finden Sie <a href="https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html">hier</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Assertion</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fail(message)</code></td>
+<td>Lässt den Test scheitern (fail) mit Nachricht <code>message</code>. Wird genutzt, um zu überprüfen, ob Code unerreichbar ist oder bevor der Test implementiert ist.</td>
+</tr>
+<tr>
+<td><code>assertTrue(cond,m)</code></td>
+<td>Überprüft, ob Bedingung <code>cond</code> <strong>wahr</strong> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertFalse(cond,m)</code></td>
+<td>Überprüft, ob Bedingung <code>cond</code> <strong>false</strong> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertEquals(a,b,m)</code></td>
+<td>Überprüft, ob Parameter <code>a</code> und <code>b</code> <strong>gleich</strong> sind oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertArrayEquals(a,b,m)</code></td>
+<td>Überprüft, ob Inhalte der Arrays <code>a</code> und <code>b</code> <strong>gleich</strong> sind oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertNull(o,m)</code></td>
+<td>Überprüft, ob Object <code>o==null</code> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertNotNull(o,m)</code></td>
+<td>Überprüft, ob Object <code>o!=null</code> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertSame(o1,o2,m)</code></td>
+<td>Überprüft, ob Objektreferenz <code>o1==o2</code> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+<tr>
+<td><code>assertNotSame(o1,o2,m)</code></td>
+<td>Überprüft, ob Objektreferenz <code>o1!=o2</code> ist oder scheitert mit Nachricht <code>m</code></td>
+</tr>
+</tbody>
+</table>
+<p>Derzeit verwenden wir in unserer Testklasse nur die Assertion <code>fail()</code>. Diese steht aber nur dafür, dass wir diesen Test noch implementieren müssen. Das machen wir gleich.</p>
+<h3 id="annotationen">Annotationen<a class="headerlink" href="#annotationen" title="Permanent link">&para;</a></h3>
+<p>Neben den Assertions gibt es auch noch <em>Annotationen</em>, die beim Testen eine Rolle spielen. Eine Annotation haben wir bereits verwendet: <code>@Test</code>. Hier einen Überblick über die häufigsten Annotationen:</p>
+<table>
+    <thead>
+        <tr>
+            <th>Annotation </th> 
+            <th>Beschreibung </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Test <br>
+                public void method()
+            </td>
+            <td>
+                Die Methode ist eine Testmethode
+            </td>
+        </tr>
+                <tr>
+            <td>
+                @BeforeEach <br>
+                public void method()
+            </td>
+            <td>
+                Die Methode wird vor jedem Test ausgeführt
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @AfterEach <br>
+                public void method()
+            </td>
+            <td>
+                Die Methode wird nach jedem Test ausgeführt
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @BeforeAll <br>
+                public static void method()
+            </td>
+            <td>
+                Die Methode wird einmalig ausgeführt bevor die Tests starten (static!)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @AfterAll <br>
+                public static void method()
+            </td>
+            <td>
+                Die Methode wird einmalig ausgeführt nachdem die Tests gelaufen sind
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="methode-fakultaet-testen">Methode <code>fakultaet()</code> testen<a class="headerlink" href="#methode-fakultaet-testen" title="Permanent link">&para;</a></h3>
+<p>Wir schreiben unsere erste Testmethode und wollen darin die Methode <code>fakultaet()</code> testen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">FakultaetTest</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testFakultaet6</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given</span>
+        <span class="n">Fakultaet</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fakultaet</span><span class="p">();</span>
+
+        <span class="c1">// when</span>
+        <span class="kt">long</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="na">fakultaet</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">720</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s">&quot;6! should be 720&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir haben dazu die Testmethode umbenant in <code>testFakultaet6()</code>, da wir für die Eingabe <code>6</code> die korrekte Ausführung testen wollen. Wir gehen nach dem <code>given-when-then</code>-Prinzip vor und haben es hier mithilfe von Zeilenkommentaren betont. Wir erzeugen zunächst ein <code>Fakultaet</code>-Objekt und wenden dann die <code>fakultaet()</code>-Methode für den Eingabeparameter <code>6</code> an. Das Ergebnis speichern wir in <code>result</code>. Nun kommt unsere erste <em>Assertion</em> zum Einsatz. Wir verwenden die <em>Assertion</em> <code>assertEquals</code>. Diese erwartet mindestens zwei Parameter. Der erste Parameter gibt das erwartete Resultat an (<code>720</code>) und der zweite Parameter ist der berechnete Wert (<code>result</code>). Der dritte Parameter ist optional und steht für die Zeichenkette, die ausgegeben wird, falls der berechnete Wert <strong>nicht</strong> dem erwarteteten Wert entspricht. </p>
+<p>Wir hätten hier auch die <em>Assertion</em> <code>assertTrue(720==result, "6! should be 720")</code> verwenden können. </p>
+<h3 id="test-ausfuhren">Test ausführen<a class="headerlink" href="#test-ausfuhren" title="Permanent link">&para;</a></h3>
+<p>Unter <code>Run</code> wählen Sie nun <code>Coverage</code> (<code>Strg-Umschalt-F11</code>). Die Ansicht von Eclipse wechselt. Sie können unter <code>Run</code> auch <code>Coverage As --&gt; JUnit Test</code> wählen. Das ist gleich. Auf der linken Seite in Eclipse erscheint ein grüner Balken als Zeichen dafür, dass alle Tests (derzeit nur einer) erfolgreich durchlaufen wurden. Darunter sind die Tests aufgeführt mit einem kleinen grünen Check am Icon. Der Test war erfolgreich. </p>
+<p>Wenn wir uns nun unsere <code>Fakultaet</code>-Klasse anschauen, dann sehen wir folgendes Bild:</p>
+<p><img alt="junit" src="../files/107_junit.png" /></p>
+<p>Hier wird die Testabdeckung angezeigt. Die grün markierten Zeilen wurden durch den Test ausgeführt. Die gelb markierten Zeilen sind Bedingungen, die <code>false</code> ergaben und für die es (noch) keinen Test gibt, der <code>true</code> für diese Bedingungen ergibt. Die roten Zeilen wurden in noch keinem Test ausgeführt. Wir erstellen deshalb weitere Tests, um eine vollständige Testabdeckung zu erzielen. </p>
+<h3 id="exceptions-testen">Exceptions testen<a class="headerlink" href="#exceptions-testen" title="Permanent link">&para;</a></h3>
+<p>Um das Werfen einer Exception zu testen, bietet sich die <em>Assertion</em> <code>assertThrows()</code> an (siehe <a href="https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html#assertThrows(java.lang.Class,org.junit.jupiter.api.function.Executable)">hier</a>. Diese <em>Assertion</em>  erwartet als ersten Parameter die erwartete <code>Exception</code>, in unserem Fall also <code>IllegalArgumentException</code>. Beachten Sie, dass der Typ <code>Class</code> (siehe <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html">hier</a>) erwartet wird. Diesen erhalten wir, indem wir <code>.class</code> an den Klasennamen (also hier <code>IllegalArgumentException</code> anhängen). Der Unterschied zwischen <code>.class</code> und <code>.getClass()</code> ist der, dass bei <code>getClass()</code> bereits ein Objekt der Klasse existieren muss (wird auf ein Objekt der Klasse angewendet), während <code>.class</code> auf die Klasse angewendet werden kann, ohne dass ein Objekt der Klasse existieren muss. </p>
+<p>Der zweite Parameter der <code>assertThrows</code>-Methode erwartet ein <code>Executable</code> (siehe <a href="https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/function/Executable.html">hier</a>). Dies ist ein Interface mit genau einer Methode, nämlich <code>execute()</code>. Es ist üblich, dieses <code>Excutable</code> in der Schreibweise der funktionalen Programmierung (sie z.B. <a href="https://www.baeldung.com/java-functional-programming">hier</a>) zu definieren. Die Testmethode, um Eingabeparameter kleiner <code>1</code> zu testen, könnte z.B. so aussehen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testFakultaetSmallerThan1</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given</span>
+        <span class="n">Fakultaet</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fakultaet</span><span class="p">();</span>
+
+        <span class="c1">// when</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span>
+        <span class="n">f</span><span class="p">.</span><span class="na">fakultaet</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Zahl muss groesser gleich 1 sein!&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Nach dem gleichen Prinzip können wir auch den Wertebereichsüberlauf testen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testFakultaetOverflow</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given</span>
+        <span class="n">Fakultaet</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fakultaet</span><span class="p">();</span>
+
+        <span class="c1">// when</span>
+        <span class="n">Exception</span> <span class="n">exception</span> <span class="o">=</span> <span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="p">()</span> <span class="o">-&gt;</span>
+        <span class="n">f</span><span class="p">.</span><span class="na">fakultaet</span><span class="p">(</span><span class="mi">22</span><span class="p">));</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;Overflow!&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Betrachten wir die Testabdeckung der Klasse <code>Fakultaet</code>, dann ist diese bereits sehr gut:</p>
+<p><img alt="junit" src="../files/108_junit.png" /></p>
+<h3 id="konsolenausgaben-testen">Konsolenausgaben testen<a class="headerlink" href="#konsolenausgaben-testen" title="Permanent link">&para;</a></h3>
+<p>Es ist nicht üblich, Konsolenausgaben zu testen. Normalerweise werden die Ausgebestrings mit der <code>toString()</code>-Methode erzeugt und diese Methode wird dann auch getestet (z.B. mittels <code>assertEquals()</code>). Wir haben hier aber keine <code>toString()</code>-Methode und zeigen deshalb, wie die <code>print()</code>-Methode getestet werden könnte. Dazu wird die Standardausgabe "verbogen". Wir merken uns, den ursprünglichen <code>System.out</code>-Stream, der ein <code>PrintStream</code> aus dem Paket <code>java.io</code> ist. Dann erzeugen wir einen eigenen <code>ByteArrayOutputStream</code> (ebenfalls aus <code>java.io</code>). Nachdem wir unsere Ausgabe abgeschlossen haben, setzen wir <code>System.out</code> wieder auf das ursprüngliche Ausgabegerät, damit die Konsolenausgaben wieder erfolgen können. Unsere Testmethode für die <code>print()</code>-Methode könnte dann so aussehen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testFakultaetPrint6</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="n">PrintStream</span> <span class="n">originalOut</span> <span class="o">=</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">;</span>       <span class="c1">// System.out merken (Standardausgabegeraet Konsole)</span>
+        <span class="n">ByteArrayOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">setOut</span><span class="p">(</span><span class="k">new</span> <span class="n">PrintStream</span><span class="p">(</span><span class="n">out</span><span class="p">));</span>
+        <span class="c1">// given</span>
+        <span class="n">Fakultaet</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fakultaet</span><span class="p">();</span>
+
+        <span class="c1">// when</span>
+        <span class="n">f</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+        <span class="c1">// then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;  6! = 720 \n&quot;</span><span class="p">,</span> <span class="n">out</span><span class="p">.</span><span class="na">toString</span><span class="p">(),</span> <span class="s">&quot;should print 6! = 720 with linebreak&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">setOut</span><span class="p">(</span><span class="n">originalOut</span><span class="p">);</span>                 <span class="c1">// System.out wieder auf das Standardausgabegeraet setzen</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beachten Sie sowohl die Leerzeichen im Ausgabestring als auch den Zeilenumbruch. Nun haben wir eine vollständige Testabdeckung unserer <code>Fakultaet</code>-Klasse:</p>
+<p><img alt="junit" src="../files/109_junit.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben unsere erste Klasse mit <code>JUnit</code> getestet. Die wesentlichen Assertions, die verwendet werden, sind <code>assertEquals()</code>, <code>assertTrue()</code> und <code>assertThrows()</code>. Mit diesen Assertions können die allermeisten Methoden getestet werden. Beim testen von Arrays wird auch häufig <code>assertArrayEquals()</code> verwendet. Wählen Sie am besten eine beliebige Klasse aus den bisherigen Übungen oder Aufgaben aus, um selbständig dafür <code>JUnit</code>-Tests zu schreiben. </p>
+</div>
+<h2 id="test-driven-development">Test-Driven Development<a class="headerlink" href="#test-driven-development" title="Permanent link">&para;</a></h2>
+<p>Unit Tests können entweder nach Erstellung des Programmcodes geschrieben werden, um diesen nachträglich zu testen oder <strong>vor</strong> Erstellung des Programmcodes. Wenn wir die Tests vor der Erstellung des Programmcodes erstellen, dann beschreiben wir mit den Tests die Anforderungen an den zu erstellenden Code. Wir werden hier lernen, wie die Erstellung der Tests und des Programmcodes Hand-in_Hand erfolgen können. Diese Vorgehensweise nennt sich <em>Test-driven developement (TDD)</em>. </p>
+<p>Wir werden, wie üblich, TDD anhand eines Beispiels einführen. Unser Vorgehen lässt sich wie folgt beschreiben:</p>
+<ol>
+<li>Wir schreiben einen Test, der die Anforderung für einen möglichst kleinen iterativen Schritt bei der Erstellung des Programmcodes beschreibt. </li>
+<li>Wir schreiben möglichst wenig Programmcode, so dass der Test genau erfüllt wird. </li>
+<li>Wir gehen wieder zu 1. und beschreiben den nächsten möglichst kleinen iterativen Schritt durch einen Test.</li>
+<li>Wir wiederholen 2. für den neuen Test usw. </li>
+</ol>
+<p>Die folgende Abbildung visualisiert das Vorgehen. </p>
+<p><img alt="testen" src="../files/35_testen.png" /></p>
+<p>Ausgangspunkt ist immer ein Test. Wir implementieren solange, bis dieser und alle vorher implementierten Tests erfolgreich durchlaufen werden. Dann schreiben wir einen weiteren Test und implementieren wieder so lange, bis dieser und alle vorher geschreibenen Tests erfolgreich durchlaufen werden. Dieses Vorgehen wird so lange wiederholt, so lange wir weitere Testfälle hinzufügen können, die jeweils neue Anforderungen beschreiben. Zur Implementierung des Codes gehört auch das Refactoring, d.h. wir verbessern bisher geschriebenen Code durch neue Tests. </p>
+<h3 id="tdd-fur-einen-time-zeit-umrechner">TDD für einen Time-Zeit-Umrechner<a class="headerlink" href="#tdd-fur-einen-time-zeit-umrechner" title="Permanent link">&para;</a></h3>
+<p>Angenommen, wir wollen einen einfachen Konverter erstellen, der eine Uhrzeit im 12-Stunden-Zeitsystem (mit <code>am</code> und <code>pm</code>) in eine 24-Stundendarstellung umwandelt (von <code>String</code> nach <code>String</code>). Im Web findet man einige Beispiel, z.B. <a href="https://www.timeanddate.de/uhrzeit/am-pm-bedeutung">hier</a>. Dazu erstellen wir uns zunächst eine Klasse <code>UmrechnungTimeZeit.java</code>, die die Methode <code>convert()</code> enthält. Diese Methode erwartet einen <code>String</code> mit einer 12-Stunden-Zeit <code>time</code> und gibt einen <code>String</code> zurück, der die <code>time</code> im 24-Stundenformat darstellt.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">UmrechnungTimeZeit.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">convert</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>Das ist unsere Klasse in der Augangssituation. Bevor wir anfangen, zu implemntieren, wollen wir uns zunächst einen ersten einfachen Test schreiben, der uns eine erste Anforderung (einen ersten Testfall) beschreibt. Dazu wählen wir in Eclipse <code>File --&gt; New --&gt; JUnit Test Case</code>. Es erscheint folgendes Fenster: </p>
+<p><img alt="testen" src="../files/29_testen.png" /></p>
+<p>Wir wählen <code>New JUnit Jupiter test</code> aus und benennen unsere Testklasse <code>TestUmrechnungTimeZeit</code> und geben an, dass die <code>Class under test</code> die Klasse <code>UmrechnungTimeZeit</code> ist (Auswahl durch <code>Browse...</code>). Wenn wir dann auf <code>Finish</code> klicken, erscheint:</p>
+<p><img alt="testen" src="../files/30_testen.png" /></p>
+<p>Das bestätigen wir mit <code>OK</code>. Es wird die <code>TestUmrechnungTimeZeit.java</code> erstellt, die so aussieht:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">TestUmrechnungTimeZeit.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">TestUmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">fail</span><span class="p">(</span><span class="s">&quot;Not yet implemented&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>Sollten Fehler beim Import der <code>junit.jupiter</code>-Pakete angezeigt werden, dann müssen Sie in Ihre <code>module-info.java</code> noch folgende Anweisung einfügen: </p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Einfügen in die module-info.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="n">requires</span> <span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">jupiter</span><span class="p">.</span><span class="na">api</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+<p>Die Klasse <code>TestUmrechnungTimeZeit.java</code> ist eine JUnit-Testklasse. </p>
+<details class="info"><summary>Video zur testgetriebenen Entwicklung</summary><p>Die folgende testgetriebene Entwicklung wurde im folgenden Video gezeigt:
+<iframe src="https://mediathek.htw-berlin.de/media/embed?key=93a3784711126e3fa3712c112ea65251&width=720&height=450&autoplay=false&autolightsoff=false&loop=false&chapters=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="720" height="450" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no"></iframe></p>
+</details>
+<h3 id="eine-erste-testmethode-fur-unser-beispiel">Eine erste Testmethode für unser Beispiel<a class="headerlink" href="#eine-erste-testmethode-fur-unser-beispiel" title="Permanent link">&para;</a></h3>
+<p>Zunächst einmal schauen wir uns an, wie wir unsere Testklasse ausführen. Dazu wählen wir in Eclipse unter <code>Run --&gt; Run As ... --&gt; JUnit Test</code>. Oder Sie wählen gleich den mittleren der gezeigten drei Buttons <img alt="testen" src="../files/31_testen.png" />. Dann erhalten Sie folgendes Bild:</p>
+<p><img alt="testen" src="../files/32_testen.png" /></p>
+<p>Auf der linken Seite sehen Sie im <code>JUnit</code>-Reiter einen roten Querbalken. Dieser zeigt an, dass ein Test fehlgeschlagen ist. Im Editor-Fenster wird der fehlgeschlagene Test rot markiert. Es ist klar, dass der Test fehlschlägt, denn das bezweckt ja die Assertion <code>fail()</code>. Links unten sieht man den <code>Failure trace</code>. Dort ist in der ertsen Zeile die Fehlermeldung <code>Not yet implemented</code> zu sehen - das ist die Nachricht, die der <code>fail()</code>-Assertion übergeben wurde.</p>
+<p>Wir implementieren nun die erste Testmethode. Dazu benennen wir die Methode <code>test()</code> um in <code>testConvert1amTo1()</code>. In unserem ersten Test wollen wir überprüfen, ob unsere Methode <code>convert(String time)</code> korrekt arbeitet, wenn ihr der <code>String</code> <code>1:00 am</code> übergeben wird. Die Idee ist nun die folgende: wir definieren unsere Testmethode so, dass wir angeben, welches Ergebnis wir erwarten, wenn der String <code>1:00 am</code> übergeben wird. Wir erwarten das Ergebnis <code>1:00</code>.</p>
+<p>Generell sollte eine Testmethode in der folgenden Form aufgebaut sein:</p>
+<ul>
+<li><code>given (preperation)</code>: gibt die Voraussetzungen des Tests an, z.B. die Erzeugung eines Objektes; bei uns: die Erzeugung eines <code>UmrechnungTimeZeit</code>-Objektes,</li>
+<li><code>when (execution)</code>: beschreibt, was und wie ausgeführt werden soll; bei uns: die Ausführung der Methode <code>convert()</code> mit dem Parameterwert <code>"1:00 am"</code>,</li>
+<li><code>then (verification)</code>: beschreibt, wie sich das Ergebnis der Ausführung in Bezug auf das erwartete Ergebnis verhalten soll; bei uns: <code>assertEquals(tatsaechlichesErgebnis, "1:00")</code>.</li>
+</ul>
+<p>Nach Umbenennung der Methode <code>test()</code> in <code>TestUmrechnungTimeZeit.java</code> in <code>testConvert1amTo1(String time)</code> und Implementierung dieser Methode sieht die Klasse <code>TestUmrechnungTimeZeit.java</code> nun so aus:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">TestUmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">TestUmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert1amTo1</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// preperation --&gt; given</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// execution --&gt; when</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;1:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// verification --&gt; then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">zeit</span><span class="p">,</span> <span class="s">&quot;1:00&quot;</span><span class="p">);</span>             
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In der Testmethode erzeugen wir uns also zunächst ein Objekt von <code>UmrechnungTimeZeit</code>, damit wir die Objektmethode <code>convert()</code> überhaupt aufrufen können (Zeile <code>9</code>). Dann rufen wir die <code>convert()</code>-Methode auf und übergeben ihr den String <code>"1:00 am"</code>. Das Ergebnis der Methode wird in der Variablen <code>zeit</code> gespeichert (Zeile <code>12</code>). Dann vergleichen wir das tatsächliche Ergebnis (<code>zeit</code>) mit dem erwarteten Ergebnis (<code>"1:00"</code>) und wollen, dass beide gleich sind (<code>assertEquals()</code>).</p>
+<p>Somit haben wir einen möglichst kleinen iterativen Schritt hin zur fertigen Implementierung als Test beschrieben. Unsere nächste Aufgabe ist nun, möglichst wenig Programmcode zu schreiben, so dass der Test genau erfüllt wird. Diese Aufgabe erledigen wir auf ganz simple Weise, indem unsere <code>convert()</code>-Methode einfach den String <code>"1:00"</code> zurückgibt. </p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">UmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">convert</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">return</span> <span class="s">&quot;1:00&quot;</span><span class="p">;</span>
+</span>    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das erscheint uns auf den ersten Blick völlig sinnlos - und das ist es natürlich irgendwie auch. Aber wir erinnern uns: wir wollen möglichst wenig Programmcode schreiben, so dass der Test genau erfüllt wird. Und das machen wir hier. Wenn wir nun unsere Testklasse ausführen, dann sehen wir:</p>
+<p><img alt="testen" src="../files/33_testen.png" /></p>
+<p>Auf der linken Seite ist nun ein grüner Balken zu sehen, d.h. alle unsere Tests (bis jetzt haben wir nur einen) sind korrekt. Unsere Methode <code>convert()</code> arbeitet in Bezug auf unsere Tests korrekt. </p>
+<p>Nun fügen wir einen zweiten Test hinzu. Dazu können wir die Methode <code>testConvert1amTo1()</code> einfach kopieren. Die neue Methode nennen wir <code>testConvert1amTo1()</code>, da wir nun testen wollen, ob unsere Methode auch den String <code>"2:00 am"</code> korrekt nach <code>"2:00"</code> umwandelt. Mit diesem Test beherzigen wir das Prinzip, den nächsten möglichst kleinen iterativen Schritt durch einen Test zu beschreiben. Dieser möglichst kleine Schritt ist für uns der Schritt von <code>"1:00 am"</code> nach <code>"2:00 am"</code>.</p>
+<p>Die neue Testmethode sieht so aus:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">TestUmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">TestUmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert1amTo1</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// preperation --&gt; given</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// execution --&gt; when</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;1:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// verification --&gt; then</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">zeit</span><span class="p">,</span> <span class="s">&quot;1:00&quot;</span><span class="p">);</span>             
+    <span class="p">}</span>
+
+<span class="hll">    <span class="nd">@Test</span>
+</span><span class="hll">    <span class="kt">void</span> <span class="nf">testConvert2amTo2</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// preperation --&gt; given</span>
+</span><span class="hll">        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// execution --&gt; when</span>
+</span><span class="hll">        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;2:00 am&quot;</span><span class="p">);</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="c1">// verification --&gt; then</span>
+</span><span class="hll">        <span class="n">assertEquals</span><span class="p">(</span><span class="n">zeit</span><span class="p">,</span> <span class="s">&quot;2:00&quot;</span><span class="p">);</span>             
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn wir die Testklasse nun ausführen, ohne die <code>convert()</code>-Methode zu ändern, erhalten wir folgendes Bild:</p>
+<p><img alt="testen" src="../files/34_testen.png" /></p>
+<p>Der Balken im <code>JUnit</code>-Fenster ist rot. Darunter wird uns angegeben, dass der Testfall <code>testConvert1amTo1()</code> immer noch korrekt ist (grüner Haken), aber der Testfall <code>testConvert2amTo2()</code> ist gescheitert (blaues Kreuz). Im Editorfenster ist rot unterlegt, welche Assertion gescheitert ist (<code>assertEquals(zeit, "2:00");</code>). </p>
+<p>Wir brauchen nun also eine Idee, wie wir die <code>convert()</code>-Methode anpassen können, so dass beide Testfälle korrekt ausgeführt werden. Wir versuchen es mit der Idee, einfach die ersten vier Zeichen des übergebenen Strings <code>time</code> zurückzugeben:</p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">UmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">convert</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="k">return</span> <span class="n">time</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wenn wir nun unsere Testklasse ausführen, dann sind beide Testfälle korrekt. Auf diese Art und Weise entwickeln wir nach und nach eine Implementierung der <code>convert()</code>-Methode. Dazu fügen wir nach und nach immer weitere Testfälle unserer Testklasse hinzu. Mindestens noch für folgende Fälle:</p>
+<table>
+<thead>
+<tr>
+<th><code>time</code></th>
+<th> erwartetes Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"1:15 am"</code></td>
+<td><code>"1:15"</code></td>
+</tr>
+<tr>
+<td><code>"11:00 am"</code></td>
+<td><code>"11:00"</code></td>
+</tr>
+<tr>
+<td><code>"11:15 am"</code></td>
+<td><code>"11:15"</code></td>
+</tr>
+<tr>
+<td><code>"1:00 pm"</code></td>
+<td><code>"13:00"</code></td>
+</tr>
+<tr>
+<td><code>"2:00 pm"</code></td>
+<td><code>"14:00"</code></td>
+</tr>
+<tr>
+<td><code>"1:15 pm"</code></td>
+<td><code>"13:15"</code></td>
+</tr>
+<tr>
+<td><code>"11:00 pm"</code></td>
+<td><code>"23:00"</code></td>
+</tr>
+<tr>
+<td><code>"11:15 pm"</code></td>
+<td><code>"23:15"</code></td>
+</tr>
+<tr>
+<td><code>"12:00 am"</code></td>
+<td><code>"0:00"</code></td>
+</tr>
+<tr>
+<td><code>"12:01 am"</code></td>
+<td><code>"0:01"</code></td>
+</tr>
+<tr>
+<td><code>"12:00 pm"</code></td>
+<td><code>"12:00"</code></td>
+</tr>
+<tr>
+<td><code>"12:01 pm"</code></td>
+<td><code>"12:01"</code></td>
+</tr>
+<tr>
+<td><code>"12:00 noon"</code></td>
+<td><code>"12:00"</code></td>
+</tr>
+<tr>
+<td><code>"12:00 midnight"</code></td>
+<td><code>"0:00"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Das Auswahl der Testwerte ist ganz offensichtlich ein wichtiges Thema und bestimmt die Korrektheit der späteren Implementierung mit. Es ist wichtig, keinen Testfall zu vergessen. Leider gibt es dafür keine formalen Regeln, sondern nur intuitive Vorgaben. Es wird immer versucht, "Grenzwerte" zu ermitteln, um wirklich alle Testfälle abzudecken. </p>
+<h3 id="quellcode-aus-dem-video">Quellcode aus dem Video<a class="headerlink" href="#quellcode-aus-dem-video" title="Permanent link">&para;</a></h3>
+<p>Im Video über JUnit wurde folgender Quellcode erzeugt:</p>
+<div class="tabbed-set" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">UmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">videos.video4</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.assertEquals</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UmrechnungTimeZeit</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">convert</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">LAST_THREE_CHARS</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// &quot; pm&quot; or &quot; am&quot;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;am&quot;</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">time</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,(</span><span class="n">time</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">-</span><span class="n">LAST_THREE_CHARS</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="k">else</span>    <span class="c1">// ends with pm</span>
+        <span class="p">{</span>
+            <span class="kd">final</span> <span class="kt">int</span> <span class="n">DIFFERENCE_BETWEEN_H_TO_HH</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">hourInt</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getHoursInt</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+            <span class="n">hourInt</span> <span class="o">+=</span> <span class="n">DIFFERENCE_BETWEEN_H_TO_HH</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">minutes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getMinutesStr</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+
+            <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">hourInt</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="n">minutes</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">zeit</span><span class="p">;</span>
+        <span class="p">}</span>       
+    <span class="p">}</span>
+
+    <span class="n">String</span> <span class="nf">getHoursStr</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">allStr</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">allStr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">String</span> <span class="nf">getMinutesStr</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">FIRST_TWO_CHARS</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">allStr</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">);</span>
+        <span class="n">String</span> <span class="n">afterDouble</span> <span class="o">=</span> <span class="n">allStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">minutesStr</span> <span class="o">=</span> <span class="n">afterDouble</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">FIRST_TWO_CHARS</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">minutesStr</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">getHoursInt</span><span class="p">(</span><span class="n">String</span> <span class="n">time</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">String</span> <span class="n">hoursStr</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="na">getHoursStr</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">hoursInt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">hoursStr</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">hoursInt</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">UmrechnungTimeZeit.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">videos.video4</span><span class="p">;</span>
+
+<span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">UmrechnungTimeZeitTest</span> <span class="p">{</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert1amTo1</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;1:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">zeit</span><span class="p">,</span> <span class="s">&quot;1:00&quot;</span><span class="p">,</span> <span class="s">&quot;1:00 am to 1:00 not working&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert2amTo2</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;2:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">zeit</span><span class="p">,</span> <span class="s">&quot;2:00&quot;</span><span class="p">,</span> <span class="s">&quot;2:00 am to 2:00 not working&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert9amTo9</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;9:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;9:00&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>   
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert10amTo10</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;10:00 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;10:00&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert1115amTo1115</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;11:15 am&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;11:15&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert1pmTo13</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;1:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;13:00&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert3pmTo15</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;3:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;15:00&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert545pmTo1745</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;5:45 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;17:45&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testConvert11pmTo23</span><span class="p">()</span> 
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">zeit</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">convert</span><span class="p">(</span><span class="s">&quot;11:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;23:00&quot;</span><span class="p">,</span> <span class="n">zeit</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetHoursStr11pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getHoursStr</span><span class="p">(</span><span class="s">&quot;11:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;11&quot;</span><span class="p">,</span> <span class="n">hour</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetHoursStr1pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">hour</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getHoursStr</span><span class="p">(</span><span class="s">&quot;1:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">,</span> <span class="n">hour</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetHoursInt1pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="kt">int</span> <span class="n">hours</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getHoursInt</span><span class="p">(</span><span class="s">&quot;1:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">hours</span><span class="p">);</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetHoursInt11pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="kt">int</span> <span class="n">hours</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getHoursInt</span><span class="p">(</span><span class="s">&quot;11:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="n">hours</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetMinutes1pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">minutes</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getMinutesStr</span><span class="p">(</span><span class="s">&quot;1:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;00&quot;</span><span class="p">,</span> <span class="n">minutes</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testGetMinutes11pm</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// given (preperation)</span>
+        <span class="n">UmrechnungTimeZeit</span> <span class="n">utz</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UmrechnungTimeZeit</span><span class="p">();</span>
+
+        <span class="c1">// when (execution)</span>
+        <span class="n">String</span> <span class="n">minutes</span> <span class="o">=</span> <span class="n">utz</span><span class="p">.</span><span class="na">getMinutesStr</span><span class="p">(</span><span class="s">&quot;11:00 pm&quot;</span><span class="p">);</span>
+
+        <span class="c1">// than (verification)</span>
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;00&quot;</span><span class="p">,</span> <span class="n">minutes</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><label for="__tabbed_8_3">module-info.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="n">SoSe2021</span> <span class="p">{</span>
+    <span class="n">requires</span> <span class="n">java</span><span class="p">.</span><span class="na">desktop</span><span class="p">;</span>
+    <span class="n">requires</span> <span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">jupiter</span><span class="p">.</span><span class="na">api</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<h2 id="noch-ein-kleines-beispiel">Noch ein kleines Beispiel<a class="headerlink" href="#noch-ein-kleines-beispiel" title="Permanent link">&para;</a></h2>
+<p>Wir betrachten die Klasse <code>Power</code> mit </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Power</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">base</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Power</span><span class="p">(</span><span class="kt">int</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">=</span> <span class="n">exp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">value</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">exp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">exp</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">value</span> <span class="o">*=</span> <span class="n">base</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;-</span><span class="n">exp</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">value</span> <span class="o">*=</span> <span class="n">base</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">value</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;(&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="s">&quot;^&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">o</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+        <span class="n">Power</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">Power</span><span class="p">)</span><span class="n">o</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">base</span><span class="o">==</span><span class="n">p</span><span class="p">.</span><span class="na">base</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="o">==</span><span class="n">p</span><span class="p">.</span><span class="na">exp</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">7</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="na">base</span> <span class="o">+</span> <span class="mi">11</span><span class="o">*</span><span class="k">this</span><span class="p">.</span><span class="na">exp</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Für diese Klasse erstellen wir eine Testklasse, die neben der Annotation <code>@Test</code> auch die Annotationen <code>@BeforeAll</code> und <code>@BeforeEach</code> exemplarisch verwendet. </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import static</span> <span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.BeforeAll</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.BeforeEach</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">PowerTest</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="n">Power</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span><span class="p">;</span>
+    <span class="kd">static</span> <span class="kt">int</span> <span class="n">testnr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="nd">@BeforeAll</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">p4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@BeforeEach</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printBeforeTests</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%n %n --------------- Test %d ------------ %n&quot;</span><span class="p">,</span> <span class="n">testnr</span><span class="p">);</span>
+        <span class="n">p1</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="n">p2</span><span class="p">.</span><span class="na">print</span><span class="p">();</span>
+        <span class="n">testnr</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testToString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="s">&quot;(2^3)&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s">&quot;Strings are not equal!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testPower</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">assertNotNull</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="s">&quot;no Power object&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">testValue</span><span class="p">()</span> <span class="p">{</span>      
+        <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="na">value</span><span class="p">();</span>
+
+        <span class="n">assertEquals</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="s">&quot;2^3 should be 8.0&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testEqualsObject</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">assertTrue</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">p2</span><span class="p">),</span> <span class="s">&quot; 2^3 should be equal to 2^3!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Diese Testklasse deckt natürlich viel zu wenige Testfälle ab, aber es geht hier nur ums Prinzip. Führen Sie die Testklasse aus und beobachten Sie dabei auch die Konsole. Vor jeden Test (<code>@BeforeEach</code>) gibt es eine Ausgabe auf die Konsole. Bevor irgendein Test (<code>@Test</code>) ausgeführt wird (<code>@BeforeAll</code>) werden verschiedene Objekte der Klasse <code>Power</code> erzeugt. In den Testfällen werden aber nur <code>p1</code> und <code>p2</code> verwendet. Das müsste natürlich noch deutlich erweitert werden.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben JUnit-Testing kennengelernt. Unit-Tests sind eine gute Möglichkeit, einzelne Methoden automatisiert zu testen. Mithilfe von Unit-Tests können wir Code so entwicklen, dass alle formulierten Tests erfolgreich bestehen. Werden erst die Tests geschrieben und gegen die Tests implementiert, wird dieses Programmierverfahren Test-driven development genannt. Unit-Tests können aber auch verwendet werden, um existierenden Code zu testen. JUnit ist das Framework für Java-Unit-Tests. Ausführliche Informationen zu JUnit sind <a href="https://junit.org/junit5/">hier</a> zu finden.   </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../interfaces/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Interfaces" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Interfaces
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../gui/" class="md-footer__link md-footer__link--next" aria-label="Weiter: GUI Einführung" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              GUI Einführung
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,967 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/wrapper/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Wrapperklassen - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wrapper-klassen" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wrapperklassen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Wrapperklassen
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Wrapperklassen
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objekterzeugung" class="md-nav__link">
+    Objekterzeugung
+  </a>
+  
+    <nav class="md-nav" aria-label="Objekterzeugung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verwendung-des-kontruktors-deprecated" class="md-nav__link">
+    Verwendung des Kontruktors - deprecated
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-valueof-methoden" class="md-nav__link">
+    Die valueOf()-Methoden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-boxing" class="md-nav__link">
+    Auto-Boxing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#werte-extrahieren" class="md-nav__link">
+    Werte extrahieren
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strings-in-wertetypen" class="md-nav__link">
+    Strings in Wertetypen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-zu-den-java-docs" class="md-nav__link">
+    Links zu den Java-Docs
+  </a>
+  
+    <nav class="md-nav" aria-label="Links zu den Java-Docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ausblick" class="md-nav__link">
+    Ausblick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objekterzeugung" class="md-nav__link">
+    Objekterzeugung
+  </a>
+  
+    <nav class="md-nav" aria-label="Objekterzeugung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verwendung-des-kontruktors-deprecated" class="md-nav__link">
+    Verwendung des Kontruktors - deprecated
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-valueof-methoden" class="md-nav__link">
+    Die valueOf()-Methoden
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-boxing" class="md-nav__link">
+    Auto-Boxing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#werte-extrahieren" class="md-nav__link">
+    Werte extrahieren
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strings-in-wertetypen" class="md-nav__link">
+    Strings in Wertetypen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links-zu-den-java-docs" class="md-nav__link">
+    Links zu den Java-Docs
+  </a>
+  
+    <nav class="md-nav" aria-label="Links zu den Java-Docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ausblick" class="md-nav__link">
+    Ausblick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/wrapper.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="wrapper-klassen">Wrapper-Klassen<a class="headerlink" href="#wrapper-klassen" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Motivation</p>
+<p><a href="../einstieg/#ausblick">Letzte Woche</a> haben wir mit folgender Fragestellung geendet: Wie wandeln wir einen <code>String</code> zu einem <code>int</code> (oder <code>double</code>) um? Die Antwort, die uns den Ausblick auf das Thema der heutigen Woche gibt, war: <strong>mit Wrapper-Klassen</strong>.</p>
+</div>
+<p>In Programmierung I haben wir am Anfang die Datentypen <code>int</code>, <code>boolean</code>, <code>double</code>, <code>char</code>, <code>long</code> usw. kennengelernt. Wir haben diese Datentypen als <em>Wertetypen</em> kennenglernt, denn sie können nur Werte abbilden. Das Gegenstück dazu sind <em>Referenztypen</em>, welche Referenzen auf Objekte repräsentieren. Für jeden Wertetyp gibt es aber auch einen entsprechenden Referenztyp, die sogenannten <em>Wrapper-Klassen</em>. Diese sind <code>Integer</code>, <code>Double</code>, <code>Float</code>, <code>Short</code>, <code>Byte</code>, <code>Long</code>, <code>Character</code> und <code>Boolean</code> und befinden sich im <code>java.lang</code>-Paket (also dem Standardpaket von Java - muss nicht importiert werden). Wir werden diese Wrapper-Klassen dieses Semester häufiger verwenden, insbesondere wenn wir <em>Collections</em> kennenlernen. </p>
+<p>Die grundsätzliche Idee von <em>Wrapper-Klassen</em> ist das "Verpacken" (<em>wrappen</em>) eines Wertetyps in einen Referenztyp. Die folgende Abbildung soll das für das Beispiel <code>int</code> &harr; <code>Integer</code> verdeutlichen:</p>
+<p><img alt="wrapper" src="../files/42_wrapper.png" /></p>
+<p>Der <code>int</code>-Wert <code>10</code> wird zu einem Typ <code>Integer</code> und somit zu einem Referenztyp. Dafür sind alle Vorteile von Referenztypen nutzbar, z.B. Objektmethoden, Vererbung usw. </p>
+<p>Welche Wrapper-Klasse zu welchem Wertetyp gehört, wird aus dem Namen erkennbar. Leider ist das aber nicht ganz konsistent. Während die Wrapper-Klassen von <code>boolean</code>, <code>byte</code>, <code>short</code>, <code>long</code>, <code>float</code> und <code>double</code> so heißen, wie die Wertetypen, nur jeweils mit einem Großbuchstaben am Anfang, heißt die Wrapper-Klasse von <code>char</code> <code>Character</code> und die Wrapper-Klasse von <code>int</code> <code>Integer</code>. </p>
+<table>
+    <thead>
+        <tr>
+            <th> Wertetyp </th>
+            <th>Referenztyp (Wrapper-Klasse) </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <code>byte</code> </td>
+            <td> <code>Byte</code> </td>
+        </tr>
+        <tr>
+            <td> <code>short</code> </td>
+            <td> <code>Short</code> </td>
+        </tr>
+        <tr>
+            <td> <code>int</code>  </td>
+            <td> <code>Integer</code>  </td>
+        </tr>
+        <tr>
+            <td> <code>long</code>  </td>
+            <td> <code>Long</code>  </td>
+        </tr>
+        <tr>
+            <td> <code>float</code>  </td>
+            <td> <code>Float</code>  </td>
+        </tr>
+        <tr>
+            <td> <code>double</code>  </td>
+            <td> <code>Double</code>  </td>
+        </tr>
+        <tr>
+            <td> <code>boolean</code>  </td>
+            <td> <code>Boolean</code>  </td>
+        </tr>
+        <tr>
+            <td> <code>char</code>  </td>
+            <td> <code>Character</code>  </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="objekterzeugung">Objekterzeugung<a class="headerlink" href="#objekterzeugung" title="Permanent link">&para;</a></h2>
+<p>Es gibt ziemlich viele Möglichkeiten, um Objekte eines Wrapper-Klassen-Typs zu erzeugen:</p>
+<ul>
+<li>Verwendung des Kontruktors, Parameterwert entweder vom Typ <code>String</code> oder vom entsprechenden Wertetyp,</li>
+<li>Verwendung der statischen Methode <code>valueOf()</code>,  Parameterwert entweder vom Typ <code>String</code> oder vom entsprechenden Wertetyp,</li>
+<li>sogenanntes <em>Boxing</em> (automatisches <em>wrappen</em> eins Wertes in seinen Referenztyp).</li>
+</ul>
+<p>Wir schauen uns die drei Möglichkeiten am Beispiel von <code>Integer</code> an. Es gilt aber für alle Wrapper-Klassen. </p>
+<h3 id="verwendung-des-kontruktors-deprecated">Verwendung des Kontruktors - deprecated<a class="headerlink" href="#verwendung-des-kontruktors-deprecated" title="Permanent link">&para;</a></h3>
+<p>Für jede Wrapper-Klasse stehen zwei parametrisierte Konstruktoren zur Verfügung, entweder wird ein entsprechender Wert übergeben (am Beispiel von <code>Integer</code> als ein <code>int</code>-Wert) oder es wird ein <code>String</code> übergeben, der idealerweise einen passenden Wert entält, also für <code>Integer</code> soll der <code>String</code> eine Zahl enthalten. Am Beispiel von <code>Integer</code> könnte das z.B. so aussehen:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Konstruktor mit Uebergabe Wertetyp</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">iObject1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="n">Integer</span> <span class="n">iObject2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// Konstruktor mit Uebergabe String</span>
+<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;100&quot;</span><span class="p">;</span>
+<span class="n">Integer</span> <span class="n">iObject3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="n">Integer</span> <span class="n">iObject4</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="p">(</span><span class="s">&quot;100&quot;</span><span class="p">);</span>
+
+<span class="c1">// Moeglich für alle numerischen Datentypen und boolean</span>
+</code></pre></div>
+<p>Für <code>Character</code> gibt es nur einen parametrisierten Konstruktor: <code>Character​(char value)</code>. Die Übergabe eines <code>Strings</code> ist dort nicht möglich. </p>
+<p>Wichtig hier ist zu betonen, dass man die Konstruktoren jedoch nicht verwenden sollte. Das hat hauptsächlich Performance-Gründe, sowohl in Zeit als auch in Speicher. Seit Java 9 gelten die Konstruktoren als <strong>deprecated</strong>, sollten also nicht mehr verwendet werden. Stattdessen wird empfohlen, die statischen Methoden <code>valueOf()</code> zu verwenden. </p>
+<h3 id="die-valueof-methoden">Die <code>valueOf()</code>-Methoden<a class="headerlink" href="#die-valueof-methoden" title="Permanent link">&para;</a></h3>
+<p>Die <code>valueOf()</code>-Methoden der Wrapper-Klassen haben zwei wichtige Eigenschaften:</p>
+<ol>
+<li>sie sind statisch, d.h. der Aufruf erfolgt über <code>Klassenname.valueOf()</code>,</li>
+<li>sie sind sogenannte <em>Erzeugermethoden</em>, denn sie geben ein Objekt der Klasse zurück</li>
+</ol>
+<p>Wie bei den Konstruktoren auch, können der Methode entweder ein Wert vom entsprechenden Typ oder ein <code>String</code> übergeben werden, der ein Wert von dem Wertetyp enthält. Beispiele</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Wrapper-Klassen haben die Klassenmethoden</span>
+<span class="c1">// valueOf(Wertetyp b) ...</span>
+<span class="n">Integer</span> <span class="n">iObject1</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">Boolean</span> <span class="n">bObject1</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="n">Double</span>  <span class="n">dObject1</span> <span class="o">=</span> <span class="n">Double</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mf">5.5</span><span class="p">);</span>
+
+<span class="c1">// ... oder valueOf(String s)</span>
+<span class="n">Integer</span> <span class="n">iObject2</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;100&quot;</span><span class="p">);</span>
+<span class="n">Boolean</span> <span class="n">bObject2</span> <span class="o">=</span> <span class="n">Boolean</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">);</span>
+<span class="n">Double</span>  <span class="n">dObject2</span> <span class="o">=</span> <span class="n">Double</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;5.5&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Auch hier gilt wieder, dass für <code>Character</code> nur eine <code>valueOf()</code>-Methode existiert, nämlich <code>valueOf(char c)</code>. Die Übergabe eines <code>Strings</code> ist nicht möglich. </p>
+<h3 id="auto-boxing">Auto-Boxing<a class="headerlink" href="#auto-boxing" title="Permanent link">&para;</a></h3>
+<p>Die dritte Möglichkeit, Objekte einer Wrapper-Klasse zu erzeugen, besteht darin, den entsprechenden Wert <em>automatisch</em> "wrappen" zu lassen, das sogenannte <em>Auto-Boxing</em>.  Beispiele:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span>   <span class="n">io1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">Boolean</span>   <span class="n">bo1</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="n">Character</span> <span class="n">co1</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="n">Double</span>    <span class="n">do1</span> <span class="o">=</span> <span class="mf">5.5</span><span class="p">;</span>
+<span class="n">Float</span>     <span class="n">fo1</span> <span class="o">=</span> <span class="mf">2.7f</span><span class="p">;</span>
+<span class="n">Long</span>      <span class="n">lo1</span> <span class="o">=</span> <span class="mi">1234L</span><span class="p">;</span>
+</code></pre></div>
+<p>Wahrscheinlich wird diese Form der Objekterzeugung die von Ihnen am meisten verwendete werden. Das ist auch völlig in Ordnung. Sie sollten sich nur dessen bewusst sein, dass dabei ein solches <em>Auto-Boxing</em> passiert. Es ist empfehlenswert, gerade zu Anfang, Eclipse (oder Ihre IDE) so einzustellen, dass Sie eine Warnung erhalten, wenn ein solches Auto-Boxing passiert. das hat den Vorteil, dass die dieses Vorgehen nicht aus dem Blick verlieren, sondern dass Ihnen bewusst bleibt, dass die Werte gerade in eine Referenz umgewandelt werden. Wählen Sie dazu in Eclipse unter <code>Eclipse</code> &rarr; <code>Preferences</code> &rarr; <code>Java</code> &rarr; <code>Compiler</code> &rarr; <code>Errors/Warnings</code> folgende Einstellungen:</p>
+<p><img alt="wrapper" src="../files/43_wrapper.png" /></p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Was wird ausgegeben und warum? 
+<div class="highlight"><pre><span></span><code>    <span class="n">Integer</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i1</span> <span class="o">==</span> <span class="n">i2</span><span class="p">);</span>
+</code></pre></div></p>
+</div>
+<h2 id="werte-extrahieren">Werte extrahieren<a class="headerlink" href="#werte-extrahieren" title="Permanent link">&para;</a></h2>
+<p>Häufig wollen wir aus unseren Wrapper-Objekten wieder die "Werte extrahieren", also z.B. erfahren, welcher <code>int</code>-Wert von einem <code>Integer</code>-Objekt repräsentiert wird. Um das zu tun, stellen die Wrapper-Klassen jeweils <code>&lt;wrapperTyp&gt;Value()</code>-Objektmethoden zur Verfügung also: <code>intValue()</code>, <code>doubleValue()</code>, <code>charValue()</code>, <code>booleanValue()</code> usw. Betrachten wir nochmal die Beispiele von eben:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span>   <span class="n">io1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">Boolean</span>   <span class="n">bo1</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="n">Character</span> <span class="n">co1</span> <span class="o">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="n">Double</span>    <span class="n">do1</span> <span class="o">=</span> <span class="mf">5.5</span><span class="p">;</span>
+<span class="n">Float</span>     <span class="n">fo1</span> <span class="o">=</span> <span class="mf">2.7f</span><span class="p">;</span>
+<span class="n">Long</span>      <span class="n">lo1</span> <span class="o">=</span> <span class="mi">1234L</span><span class="p">;</span>
+
+<span class="kt">int</span>     <span class="n">i1</span> <span class="o">=</span> <span class="n">io1</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>        <span class="c1">// 100</span>
+<span class="kt">boolean</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">bo1</span><span class="p">.</span><span class="na">booleanValue</span><span class="p">();</span>    <span class="c1">// true</span>
+<span class="kt">char</span>    <span class="n">c1</span> <span class="o">=</span> <span class="n">co1</span><span class="p">.</span><span class="na">charValue</span><span class="p">();</span>       <span class="c1">// &#39;a&#39;</span>
+<span class="kt">double</span>  <span class="n">d1</span> <span class="o">=</span> <span class="n">do1</span><span class="p">.</span><span class="na">doubleValue</span><span class="p">();</span>     <span class="c1">// 5.5</span>
+<span class="kt">float</span>   <span class="n">f1</span> <span class="o">=</span> <span class="n">fo1</span><span class="p">.</span><span class="na">floatValue</span><span class="p">();</span>      <span class="c1">// 2.7</span>
+<span class="kt">long</span>    <span class="n">l1</span> <span class="o">=</span> <span class="n">lo1</span><span class="p">.</span><span class="na">longValue</span><span class="p">();</span>       <span class="c1">// 1234</span>
+</code></pre></div>
+<p>Aber auch hier gibt es wieder ein <em>Auto-Unboxing</em>. Das heißt, es wäre auch möglich auf die <code>&lt;wrapperTyp&gt;Value()</code>-Objektmethode zu verzichten und stattdessen einfach das hier zu schreiben:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span>     <span class="n">i2</span> <span class="o">=</span> <span class="n">io1</span><span class="p">;</span>   <span class="c1">// 100</span>
+<span class="kt">boolean</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">bo1</span><span class="p">;</span>   <span class="c1">// true</span>
+<span class="kt">char</span>    <span class="n">c2</span> <span class="o">=</span> <span class="n">co1</span><span class="p">;</span>   <span class="c1">// &#39;a&#39;</span>
+<span class="kt">double</span>  <span class="n">d2</span> <span class="o">=</span> <span class="n">do1</span><span class="p">;</span>   <span class="c1">// 5.5</span>
+<span class="kt">float</span>   <span class="n">f2</span> <span class="o">=</span> <span class="n">fo1</span><span class="p">;</span>   <span class="c1">// 2.7</span>
+<span class="kt">long</span>    <span class="n">l2</span> <span class="o">=</span> <span class="n">lo1</span><span class="p">;</span>   <span class="c1">// 1234</span>
+</code></pre></div>
+<p>Auch hier sollte man sich aber stets der Tatsache bewusst sein, dass ein <em>Unboxing</em> passiert. </p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Geht das und wenn ja, warum? Was wird jeweils ausgegeben?
+<div class="highlight"><pre><span></span><code>    <span class="n">Integer</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">Integer</span> <span class="n">i3</span> <span class="o">=</span> <span class="mi">5001</span><span class="p">;</span>
+
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i1</span> <span class="o">&gt;=</span> <span class="n">i2</span><span class="p">);</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">i3</span> <span class="o">&gt;</span> <span class="n">i2</span><span class="p">);</span>
+</code></pre></div></p>
+</div>
+<p>Die folgende Abbildung zeigt einen Überblick über die einzelnen Konvertierungen am Beispiel von <code>Double</code>. Beachten Sie dabei auch, dass ein Wert direkt aus einem passenden <code>String</code> erzeugt werden kann, indem die statische <code>&lt;WrapperTyp&gt;.parse&lt;WrapperTyp&gt;</code>-Methode verwendet wird. </p>
+<p><img alt="wrapper" src="../files/44_wrapper.png" /></p>
+<h2 id="strings-in-wertetypen">Strings in Wertetypen<a class="headerlink" href="#strings-in-wertetypen" title="Permanent link">&para;</a></h2>
+<p>Wir wissen jetzt schon, dass wir uns mithilfe der <code>valueOf(String s)</code>-Methode Objekte einer Wrapper-Klasse erzeugen können. Unter Verwendung von <code>intValue()</code> könnte man z.B. aus einem <code>Intger</code>-Objekt den <code>int</code>-Wert extrahieren. Das ginge auch mit <em>Auto-Unboxing</em>. Für die Umwandlung von <code>String</code> nach <code>int</code> verwendet man aber am besten die <code>parseInt()</code>-Methode. </p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">eingabe</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Geben Sie eine Zahl ein: &quot;</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">zahl</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">eingabe</span><span class="p">);</span>
+</code></pre></div>
+<p>Für <code>double</code> steht uns dafür <code>Double.parseDouble(String s)</code> zur Verfügung usw. </p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Jetzt haben wir unser Problem gelöst, wir können <code>String</code> in einen <code>int</code> umwandeln! Wir kennen nun Wrapper-Klassen und deren <code>parseXXX(String)</code>-Methoden.</p>
+</div>
+<h2 id="links-zu-den-java-docs">Links zu den Java-Docs<a class="headerlink" href="#links-zu-den-java-docs" title="Permanent link">&para;</a></h2>
+<p>Hier sind die Links zu den jeweiligen Java-Dokumentationen der Klassen aufgelistet (für Java 11). Ein Blick lohnt sich, da für die einzelnen Klassen jeweils viele Objektmethoden zur Verfügung stehen, die Ihnen sehr nützlich sein können. </p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Boolean.html">Boolean</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Byte.html">Byte</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Character.html">Character</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Double.html">Double</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Float.html">Float</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html">Integer</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Long.html">Long</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Short.html">Short</a></li>
+</ul>
+<p>Übrigens erben die numerischen Datentypen alle von der Klasse <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Number.html">Number</a>. Diese enthält die Objektmethoden <code>byteValue()</code>, <code>doubleValue()</code>, <code>floatValue()</code>, <code>intValue()</code>, <code>longValue()</code> und <code>shortValue()</code>. Deswegen werden in allen numerischen Wrapper-Klassen auch alle diese Objektmethoden zur Verfügung gestellt. </p>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Diese Übung gibt ein Hinweis auf das folgende Thema:
+Schauen Sie sich einmal die Java-Dokumentation der Klasse <code>Integer</code> an. Welche Exception kann die <code>parseInt(String)</code>-Methode werfen? </p>
+</div>
+<h3 id="ausblick">Ausblick<a class="headerlink" href="#ausblick" title="Permanent link">&para;</a></h3>
+<p>Wir wissen nun, wie wir einen <code>String</code> in ein <code>int</code> umwandeln. Nämlich mithilfe der <code>parseInt(String)</code>-Methode der Klasse <code>Integer</code>. Was aber passiert, wenn der <code>String</code> gar keiner Zahl entspricht? Dann wird eine <a href="../exceptions/#exceptions">Exception</a> geworfen und das Programm sofort beendet. Wir können aber gar nichts dafür, dass die Nutzerin keine Zahl eingegeben hat. Unser Programm ist eigentlich korrekt. Wie können wir den Programmabsturz verhindern? Wie können wir die Nutzerin solange bitten, eine Zahl einzugeben, bis sie wirklich eine Zahl eingibt?</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../einstieg/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Einstieg" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Einstieg
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../exceptions/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Exceptions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Exceptions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

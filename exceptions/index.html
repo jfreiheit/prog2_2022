@@ -1,0 +1,1676 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/exceptions/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Exceptions - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exceptions" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Exceptions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exceptions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Exceptions
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    try-catch
+  </a>
+  
+    <nav class="md-nav" aria-label="try-catch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-ohne-try-catch" class="md-nav__link">
+    Beispiel ohne try-catch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-try-catch" class="md-nav__link">
+    Beispiel mit try-catch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ablauf-einer-ausnahmesituation" class="md-nav__link">
+    Ablauf einer Ausnahmesituation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ein-weiteres-beispiel" class="md-nav__link">
+    Ein weiteres Beispiel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-mehreren-exceptions" class="md-nav__link">
+    Beispiel mit mehreren Exceptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-vererbungshierarchie-der-klasse-exception" class="md-nav__link">
+    Die Vererbungshierarchie der Klasse Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-finally" class="md-nav__link">
+    try-catch-finally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throws-eine-exception-weiterreichen" class="md-nav__link">
+    throws - eine Exception weiterreichen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schoner-code" class="md-nav__link">
+    Schöner Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw-eigene-exceptions-erzeugen" class="md-nav__link">
+    throw - eigene Exceptions erzeugen
+  </a>
+  
+    <nav class="md-nav" aria-label="throw - eigene Exceptions erzeugen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throw-new-illegalargumentexception" class="md-nav__link">
+    throw new IllegalArgumentException
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigene-exception-klasse-definieren" class="md-nav__link">
+    Eigene Exception-Klasse definieren
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#try-catch" class="md-nav__link">
+    try-catch
+  </a>
+  
+    <nav class="md-nav" aria-label="try-catch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-ohne-try-catch" class="md-nav__link">
+    Beispiel ohne try-catch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-try-catch" class="md-nav__link">
+    Beispiel mit try-catch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ablauf-einer-ausnahmesituation" class="md-nav__link">
+    Ablauf einer Ausnahmesituation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ein-weiteres-beispiel" class="md-nav__link">
+    Ein weiteres Beispiel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-mehreren-exceptions" class="md-nav__link">
+    Beispiel mit mehreren Exceptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-vererbungshierarchie-der-klasse-exception" class="md-nav__link">
+    Die Vererbungshierarchie der Klasse Exception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-catch-finally" class="md-nav__link">
+    try-catch-finally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throws-eine-exception-weiterreichen" class="md-nav__link">
+    throws - eine Exception weiterreichen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schoner-code" class="md-nav__link">
+    Schöner Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw-eigene-exceptions-erzeugen" class="md-nav__link">
+    throw - eigene Exceptions erzeugen
+  </a>
+  
+    <nav class="md-nav" aria-label="throw - eigene Exceptions erzeugen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throw-new-illegalargumentexception" class="md-nav__link">
+    throw new IllegalArgumentException
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigene-exception-klasse-definieren" class="md-nav__link">
+    Eigene Exception-Klasse definieren
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/exceptions.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Motivation</p>
+<p>Wir wissen nun, wie wir einen <code>String</code> in ein <code>int</code> umwandeln. Nämlich mithilfe der <code>parseInt(String)</code>-Methode der Klasse <code>Integer</code>. Was aber passiert, wenn der <code>String</code> gar keiner Zahl entspricht? Dann wird eine <a href="../exceptions/#exceptions">Exception</a> geworfen und das Programm sofort beendet. Wir können aber gar nichts dafür, dass die Nutzerin keine Zahl eingegeben hat. Unser Programm ist eigentlich korrekt. Wie können wir den Programmabsturz verhindern? Wie können wir die Nutzerin solange bitten, eine Zahl einzugeben, bis sie wirklich eine Zahl eingibt?</p>
+</div>
+<p><em>Exceptions</em> kennen wir schon, denn sie passieren uns häufiger. Wenn wir z.B. auf einen Index in einem Array zugreifen, dieser Index aber gar nicht existiert, wird eine <code>ArrayIndexOutOfBounds</code>-Exception geworfen. Wenn wir auf eine Objekteigenschaft zugreifen wollen, z.B. eine Objektmethode, die dafür verwendete Referenzvariable aber gar nicht auf ein Objekt zeigt, sondern auf <code>null</code>, erhalten wir eine <code>NullPointerException</code>. Wenn bei einer Nutzereingabe eine Zahl erwartet wird, um damit weiterrechnen zu können, die Nutzerin gibt aber etwas anderes als eine Zahl ein, dann wird ebenfalls eine Exception <em>geworfen</em>. </p>
+<p>Wir wollen aber gar nicht, dass das Programm in solchen Fällen abstürzt, sondern wir wollen diesen „Fehler“ erkennen und darauf reagieren. Grundsätzlich gibt es also zwei Arten von Fehlern:</p>
+<ul>
+<li>syntaktische Fehler &rarr; können vom Compiler vor der Laufzeit erkannt werden; das Programm wird gar nicht erst vollständig compiliert und nicht ausgeführt und</li>
+<li>logische Fehler &rarr; können erst zur Laufzeit erkannt werden. </li>
+</ul>
+<p>Im Falle der logischen Fehler, die erst zur Laufzeit auftreten, spricht man von <em>Laufzeitfehlern</em> (oder <em>Ausnahmen</em> oder <em>Exceptions</em>). Die Aufgabe beim Programmieren ist nun, zu identifizieren, <em>an welchen Stellen ein logischer Fehler auftreten könnte</em>, z.B. </p>
+<ul>
+<li>fehlerhafte Benutzereingabe </li>
+<li>Datenbank- oder Netzwerkverbindung nicht verfügbar </li>
+<li>gesuchte Datei/Ordner nicht vorhanden usw. </li>
+</ul>
+<p>Die Stellen, an denen ein solcher logischer Fehler auftreten könnte, nennen wir im Folgenden <em>kritischer Abschnitt</em>. Wir müssen solche kritischen Abschnitte in unserem Quellcode identifizieren und haben dann die Möglichkeit, solche kritischen Abschnitte so zu implementieren, dass die Exception, die eventuell geworfen wird, <em>abgefangen</em> wird und das Programm dadurch nicht abstürzt. </p>
+<h2 id="try-catch">try-catch<a class="headerlink" href="#try-catch" title="Permanent link">&para;</a></h2>
+<p>Die grundsätzliche Idee ist die, dass wir zunächst <em>versuchen</em> den kritischen Abschnitt einfach auszuführen. Wir <em>versuchen</em> z.B. einfach mit einem <code>index</code> auf das Array zuzugreifen, auch wenn wir gar nicht wissen, ob dies ein tatsächlicher <code>index</code> aus dem Array ist. Allerdings binden wir diesen <em>Versuch</em> in einen <code>try{}</code>-Block ein. </p>
+<p>Sollte in einem solchen <code>try{}</code>-Block nun eine Exception geworfen werden, dann <em>fangen</em> wir diese in einem <code>catch(){}</code>-Block auf und behandeln sie dort. Die allgemeine Syntax dafür sieht so aus:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">allgemeine Syntax try-catch</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">try</span> 
+<span class="p">{</span>
+    <span class="c1">// Anweisung(en), die evtl. Fehler verursachen (kritischer Abschnitt)</span>
+<span class="p">}</span>   
+<span class="k">catch</span><span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span>  
+<span class="p">{</span>
+    <span class="c1">// Behandlung der Exception </span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Es passiert Folgendes: wir führen die Anweisung(en) in Zeile <code>3</code> aus. Wenn diese keine Exception wirft, also alles okay ist, dann machen wir einfach hinter dem <code>catch</code>-Block, also nach Zeile <code>8</code> weiter. Wenn aber die Anweisung(en) in Zeile <code>3</code> einen Laufzeitfehler verursachen, also eine Exception werfen, dann wird diese in Zeile <code>5</code> "aufgefangen" und in dem Anweisungsblock in den Zeilen <code>6-8</code> behandelt. Das Programm stürzt nun nicht mehr ab, sondern wir haben die Möglichkeit, auf die Exception zu reagieren. </p>
+<h3 id="beispiel-ohne-try-catch">Beispiel ohne try-catch<a class="headerlink" href="#beispiel-ohne-try-catch" title="Permanent link">&para;</a></h3>
+<p>Wir verdeutlichen dieses Prinzip an einem ersten Beispiel:</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Beispiel zunächst ohne Behandlung der Exceptions</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Ausnahmen</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="kt">char</span> <span class="nf">charAt</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">index</span><span class="p">);</span>           <span class="c1">// kritisch!</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">static</span> <span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">divident</span><span class="p">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">divident</span><span class="o">/</span><span class="n">divisor</span><span class="p">;</span>   <span class="c1">// kritisch!</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>            <span class="c1">// ArithmeticException</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">charAt</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>     <span class="c1">// StringIndexOutOfBoundsException</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Das Beispiel enthält zwei Methoden <code>charAt()</code> und <code>divide</code>. Der <code>charAt</code>-Methode wird ein <code>String</code> übergeben und ein <code>index</code>. Die Methode gibt das Zeichen (<code>char</code>) zurück, dass im <code>String</code> unter dem <code>index</code> gespeichert ist (z.B. <code>charAt("Hallo", 1)</code> gibt das <code>'a'</code> zurück). Es wird jedoch gar nicht geprüft, ob <code>index</code> tatsächlich ein korrekter Index des Strings <code>s</code> ist, d.h. evtl. ist <code>index</code> kleiner als <code>0</code> oder größer als die Länge von <code>s</code> minus <code>1</code>. Die Anweisung  <code>s.charAt(index);</code> ist somit eine <em>kritische Anweisung</em>, denn sie kann (bei "falschem" <code>index</code>) eine <code>StringIndexOutOfBoundsException</code> werfen. </p>
+<p>Genau so ist die Anweisung <code>divident/divisor;</code> in der Methode <code>divide</code> eine <em>kritische Anweisung</em>, da es sein kann, dass der <code>divisior</code> gleich <code>0</code> ist. Bei der <code>int</code>-Division durch <code>0</code> wird eine <code>ArithmeticException</code> geworfen. </p>
+<p>Wenn die <code>main</code>-Methode nun wie angegeben ausgeführt wird, dann "stürzt" das Programm bereits bei Ausführung von Zeile <code>16</code> ab und Zeile <code>17</code> wird gar nicht mehr erreicht: </p>
+<div class="highlight"><pre><span></span><code>Exception <span class="k">in</span> thread <span class="s2">&quot;main&quot;</span> java.lang.ArithmeticException: / by zero
+    at packageName.Ausnahmen.divide<span class="o">(</span>Ausnahmen.java:10<span class="o">)</span>
+    at packageName.Ausnahmen.main<span class="o">(</span>Ausnahmen.java:16<span class="o">)</span>
+</code></pre></div>
+<p>Die Fehlermeldung gibt uns an, welche Zeile die Ausnahme geworfen hat, nämlich <code>Ausnahmen.java:10</code> und um welche Exception es sich handelt, nämlich <code>ArithmeticException: / by zero</code>.</p>
+<p>Wenn wir in der <code>main</code>-Methode Zeile <code>16</code> auskommentieren, dann sehen wir, dass auch die Anweisung in Zeile <code>17</code> eine Exception wirft, nämlich: </p>
+<div class="highlight"><pre><span></span><code>Exception <span class="k">in</span> thread <span class="s2">&quot;main&quot;</span> java.lang.StringIndexOutOfBoundsException: String index out of range: <span class="m">5</span>
+    at java.base/java.lang.StringLatin1.charAt<span class="o">(</span>StringLatin1.java:47<span class="o">)</span>
+    at java.base/java.lang.String.charAt<span class="o">(</span>String.java:702<span class="o">)</span>
+    at packageName.Ausnahmen.charAt<span class="o">(</span>Ausnahmen.java:5<span class="o">)</span>
+    at packageName.Ausnahmen.main<span class="o">(</span>Ausnahmen.java:17<span class="o">)</span>
+</code></pre></div>
+<p>Die Fehlermeldung gibt uns an, welche Zeile unseres Programms die Ausnahme geworfen hat, nämlich <code>Ausnahmen.java:5</code> und um welche Exception es sich handelt, nämlich <code>StringIndexOutOfBoundsException: String index out of range: 5</code>. Sie sehen auch, dass eigentlich sogar die Anweisung in Zeile <code>47</code> in der Klasse <code>StringLatin1</code> in der dortigen Methode <code>charAt</code> die Exception geworfen hat. Wir werden dieses "Weiterreichen" von Exceptions gleich noch näher betrachten. </p>
+<h3 id="beispiel-mit-try-catch">Beispiel mit try-catch<a class="headerlink" href="#beispiel-mit-try-catch" title="Permanent link">&para;</a></h3>
+<p>Zunächst "reparieren" wir unseren Code, indem wir <code>try-catch</code>-Blöcke um unsere kritischen Anweisungen hinzufügen:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Beispiel mit Behandlung der Exceptions</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Ausnahmen</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="kt">char</span> <span class="nf">charAt</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">index</span><span class="p">);</span> <span class="c1">// kritisch!</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">StringIndexOutOfBoundsException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Der Index war ausserhalb des Strings&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">divident</span><span class="p">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">divident</span><span class="o">/</span><span class="n">divisor</span><span class="p">;</span> <span class="c1">// kritisch!</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">ArithmeticException</span> <span class="n">ae</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Division durch 0 nicht definiert!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>            <span class="c1">// ArithmeticException</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">charAt</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>     <span class="c1">// StringIndexOutOfBoundsException</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die kritischen Anweisungen wurden nun jeweils in einen <code>try</code>-Block integriert und die Behandlung der eventuell auftretenden Exceptions besteht nur aus einer jeweiligen Fehlerausgabe (ich habe hier dafür nicht das Standardausgabegerät <code>out</code> in den <code>println</code>-Anweisungen verwendet, sondern <code>err</code> - Zeilen <code>12</code> und <code>26</code>). </p>
+<p>Wenn wir das Programm nun ausführen (in <code>main</code> muss auch nichts mehr auskommentiert werden), dann erhalten wir die Ausgabe:</p>
+<div class="highlight"><pre><span></span><code>Division durch <span class="m">0</span> nicht definiert!
+<span class="m">0</span>.0
+Der Index war ausserhalb des Strings
+</code></pre></div>
+<p>Das Programm "stürzt" nun also nicht mehr ab, das ist schonmal ein Erfolg. So ganz optimal ist die Lösung allerdings noch nicht, da wir nun jeweils einen Nebeneffekt in unsere Methoden eingebaut haben. Angenommen, in der <code>divide</code>-Methode wird eine Exception geworfen, dann erfolgt durch Zeile <code>26</code> die Fehlerausgabe auf die Konsole. Danach wird in Zeile <code>28</code> aber <code>result</code> zurückgegeben (hat den Wert <code>0.0</code>, den wir bei der Initailisierung in Zeile <code>19</code> angegeben haben) und dieser Wert wird durch Zeile <code>33</code> auf die Konsole ausgegeben. Das gleiche gilt für die <code>charAt</code>-Methode. Auch da haben wir einen Nebeneffekt eingebaut und es wird durch Zeile <code>34</code> das Leerzeichen auf die Konsole ausgegeben. Nebeneffekte wollen wir aber unbedingt vermeiden und müssen unsere Implementierung deshalb noch ändern. </p>
+<p>Zunächst schauen wir uns aber den generellen Ablauf einer solchen Ausnahmesituation an:</p>
+<h3 id="ablauf-einer-ausnahmesituation">Ablauf einer Ausnahmesituation<a class="headerlink" href="#ablauf-einer-ausnahmesituation" title="Permanent link">&para;</a></h3>
+<p>Der generelle Ablauf beim "Werfen" eine Exception ist wie folgt:</p>
+<ol>
+<li>Das Laufzeitsystem (JVM) erzeugt ein Ausnahme-Objekt (Objekt vom Elterntyp <code>Exception</code>), wenn eine Exception "geworfen" wird</li>
+<li>Die Abarbeitung des Programmcodes wird <strong>sofort</strong> unterbrochen.</li>
+<li>Das Laufzeitsystem sucht nach der nächsten <code>catch</code>-Klausel und führt diese aus.</li>
+<li>Passt die gefundene <code>catch</code>-Klausel nicht zur Art der Ausnahme, wird die nächste <code>catch</code>-Klausel gesucht usw. </li>
+</ol>
+<p>Betrachten wir nochmal obigen Code, dann stellen wir fest, dass in der einen <code>catch</code>-Klausel (Zeile <code>10</code>) ein Objekt vom Typ <code>StringIndexOutOfBoundsException</code> erwartet wird. Wir werden gleich sehen, dass dies schon ein sehr spezieller Typ in der Vererbungshierarchie von <code>Exception</code> ist. Das Programm würde auch genau so funktionieren, wenn wir dort anstelle von <code>StringIndexOutOfBoundsException</code> allegmein eine <code>Exception</code> erwarten würden. Das gleiche gilt für die andere <code>catch</code>-Klausel (Zeile <code>24</code>), wo wir eine <code>ArithmeticException</code> erwarten. Wir schauen uns die Vererbungshierarchie der Exceptions gleich an. Generell gilt, dass man mehrere <code>catch</code>-Blöcke hintereinander setzen kann und der erste <code>catch</code>-Block, der dem erwarteten Parametertyp entspricht, wird ausgeführt. </p>
+<p>Wichtig ist, dass wir uns merken, dass durch eine Exception der Programmablauf <strong>sofort</strong> unterbrochen und zur nächsten "passenden" <code>catch</code>-Klausel gesprungen wird. </p>
+<h3 id="ein-weiteres-beispiel">Ein weiteres Beispiel<a class="headerlink" href="#ein-weiteres-beispiel" title="Permanent link">&para;</a></h3>
+<p>Wir schauen uns dazu ein weiteres Beispiel an und ergänzen unsere Klasse <code>Ausnahmen</code> um eine weitere Methode <code>inputInt()</code>:</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">eine weitere methode inputInt()</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm"> * Sollten Sie mit dem Modul-System von Java arbeiten, d.h. sollten</span>
+<span class="cm"> * Sie eine Datei module-info.java in Ihrem Projekt-Ordner haben, </span>
+<span class="cm"> * dann muessen Sie dort noch</span>
+<span class="cm"> * module ProjektName</span>
+<span class="cm"> * {</span>
+<span class="cm"> *  requires java.desktop;</span>
+<span class="cm"> * }</span>
+<span class="cm"> * eintragen, damit Sie das Paket javax.swing importieren koennen. </span>
+<span class="cm"> */</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Ausnahmen</span>
+<span class="p">{</span>
+    <span class="kd">static</span> <span class="kt">char</span> <span class="nf">charAt</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">;</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">index</span><span class="p">);</span> <span class="c1">// kritisch!</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">StringIndexOutOfBoundsException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Der Index war ausserhalb des Strings&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kt">double</span> <span class="nf">divide</span><span class="p">(</span><span class="kt">int</span> <span class="n">divident</span><span class="p">,</span> <span class="kt">int</span> <span class="n">divisor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">divident</span><span class="o">/</span><span class="n">divisor</span><span class="p">;</span> <span class="c1">// kritisch!</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">ArithmeticException</span> <span class="n">ae</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">err</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Division durch 0 nicht definiert!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="kd">static</span> <span class="kt">int</span> <span class="nf">inputInt</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="kt">int</span> <span class="n">inputInt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="hll">        <span class="kt">boolean</span> <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class="hll">        <span class="n">String</span> <span class="n">input</span> <span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class="hll">        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">inputOk</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="n">input</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Zahl :&quot;</span><span class="p">);</span>
+</span><span class="hll">            <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class="hll">            <span class="k">try</span> <span class="p">{</span>
+</span><span class="hll">                <span class="n">inputInt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">            <span class="k">catch</span><span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">e</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">{</span>
+</span><span class="hll">                <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">inputInt</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>            <span class="c1">// ArithmeticException</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">charAt</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>     <span class="c1">// StringIndexOutOfBoundsException</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Zahl: &quot;</span> <span class="o">+</span> <span class="n">inputInt</span><span class="p">());</span>  <span class="c1">// NumberFormatException</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Schauen wir uns die Implementierung von <code>inputInt()</code> genauer an: </p>
+<ul>
+<li>in Zeile <code>50</code> wird ein kleines Eingabefenster erzeugt (<code>JOptionPane</code> ist eine Klasse aus dem <code>javax.swing</code>-Paket, welches wiederum im Modul <code>java.desktop</code> verfügbar ist). Die Eingabe in dieses Fenster wird als <code>String</code> zurückgegeben und in der Variablen <code>input</code> gespeichert. </li>
+<li>in Zeile <code>53</code> wird versucht, den Eingabestring <code>input</code> in ein <code>int</code> umzuwandeln. Dazu wird die Methode <code>parseInt()</code> verwendet, die zur Klasse <code>Integer</code> gehört (<code>Integer</code> ist eine sogenannte <em>Wrapper-Klasse</em> - diese schauen wir uns nächste Woche an). </li>
+<li>wenn <code>input</code> eine Zahl enthält, also z.B. so aussieht: <code>"1234"</code>, dann erzeugt <code>parseInt()</code> daraus die <code>int</code>-Zahl <code>1234</code> und alles ist ok. Wenn <code>input</code> jedoch keine Zahl enthält, also z.B. <code>"hallo"</code>, dann wirft <code>parseInt()</code> eine <code>NumberFormatException</code>, weil die Umwandlung des <code>String</code>s in ein <code>int</code> nicht möglich ist. </li>
+<li>in Zeile <code>55</code> wird eine solche <code>NumberFormatException</code> aufgefangen. Die "Behandlung" dieser Excepion sieht so aus, dass der Schalter <code>inputOk</code> auf <code>false</code> gesetzt wird. </li>
+<li>der gesamte Anweisungsblock <em>Fenster-&gt;Eingabe-&gt;try-catch</em> ist in eine Schleife eingebettet. Diese Schleife wird so lange ausgeführt, so lange der Wert von <code>inputOk</code> nicht <code>false</code> ist. Das bedeutet, wenn <strong>keine</strong> Zahl eingegeben wird, dann öffnet sich das Fenster erneut und es muss so lange eine Eingabe erfolgen, bis die Eingabe einer Zahl entspricht (und somit <code>parseInt()</code> keine Exception wirft)</li>
+</ul>
+<p>Übrigens könnte die Anweisung <code>inputOk = true;</code> auch nach <code>parseInt()</code> in den <code>try</code>-Block geschrieben werden:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kt">int</span> <span class="nf">inputInt</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">inputInt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">boolean</span> <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">input</span> <span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">inputOk</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">input</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Zahl :&quot;</span><span class="p">);</span>
+<span class="hll">
+</span>        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">inputInt</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="hll">            <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span>        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">inputOk</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">inputInt</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Zeile <code>12</code> wird nur genau dann erreicht, wenn <code>parseInt()</code> <strong>keine</strong> Exception wirft. Dann wird auch der <code>catch</code>-Block nicht betreten und die Schleife wird beendet. </p>
+<h3 id="beispiel-mit-mehreren-exceptions">Beispiel mit mehreren Exceptions<a class="headerlink" href="#beispiel-mit-mehreren-exceptions" title="Permanent link">&para;</a></h3>
+<p>Wir betrachten jetzt einmal an einem Besipiel die bei <a href="./#ablauf-einer-ausnahmesituation">Ablauf einer Ausnahmesituation</a> unter Punkt 4 beschriebene Situation, dass die <em>nächstpassende</em> <code>catch</code>-Klausel gesucht wird. Wir erweitern dazu unsere Klasse <code>Ausnahmen</code> um eine weitere Methode <code>mehrereExceptions()</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mehrereExceptions</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">basen</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;8&quot;</span><span class="p">,</span> <span class="s">&quot;10&quot;</span><span class="p">,</span> <span class="s">&quot;Hi&quot;</span><span class="p">};</span>
+    <span class="kt">int</span> <span class="n">base</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">result</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">boolean</span> <span class="n">ok</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">base</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">basen</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">);</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">NumberFormatException</span> <span class="n">nfe</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Keine Zahl!&quot;</span><span class="p">);</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IndexOutOfBoundsException</span> <span class="n">ioobe</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ausserhalb des Arrays&quot;</span><span class="p">);</span>
+            <span class="n">ok</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">exp</span><span class="o">&lt;</span><span class="mi">6</span> <span class="o">&amp;&amp;</span> <span class="n">ok</span><span class="p">;</span> <span class="n">exp</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exp</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%d ^ %d = %.0f %n&quot;</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>In Zeile <code>3</code> definieren wir uns ein <code>String[]</code> mit 4 Einträgen. </li>
+<li>Durch dieses <code>String[]</code> laufen wir mit einer <code>for</code>-Schleife (Zeile <code>8</code>) durch.</li>
+<li>In Zeile <code>11</code> wandeln wir jeden Eintrag aus dem <code>String[]</code> in eine <code>int</code>-Zahl um. </li>
+<li>An zwei Stellen können Exceptions geworfen werden:<ul>
+<li>Bei dem Index-basierten Zugriff auf das Array <code>basen[index]</code> in Zeile <code>11</code> kann eine <code>ArrayIndexOutOfBounds</code>-Exception geworfen werden, falls <code>index</code> kein korrekter Index des <code>String[]</code> ist (gilt für <code>index==4</code>).</li>
+<li>Bei der Umwandlung von <code>String</code> nach <code>int</code> durch <code>parseInt()</code> in Zeile <code>11</code> kann eine <code>NumberFormatException</code> geworfen werden, falls der entsprechende Eintrag im <code>String[]</code> keine Zahl ist (gilt für <code>basen[3]=='Hi'</code>).</li>
+</ul>
+</li>
+</ul>
+<p>Die Methode erzeugt die folgende Ausgabe:</p>
+<div class="highlight"><pre><span></span><code><span class="m">2</span> ^ <span class="nv">0</span> <span class="o">=</span> <span class="m">1</span> 
+<span class="m">2</span> ^ <span class="nv">1</span> <span class="o">=</span> <span class="m">2</span> 
+<span class="m">2</span> ^ <span class="nv">2</span> <span class="o">=</span> <span class="m">4</span> 
+<span class="m">2</span> ^ <span class="nv">3</span> <span class="o">=</span> <span class="m">8</span> 
+<span class="m">2</span> ^ <span class="nv">4</span> <span class="o">=</span> <span class="m">16</span> 
+<span class="m">2</span> ^ <span class="nv">5</span> <span class="o">=</span> <span class="m">32</span> 
+<span class="m">8</span> ^ <span class="nv">0</span> <span class="o">=</span> <span class="m">1</span> 
+<span class="m">8</span> ^ <span class="nv">1</span> <span class="o">=</span> <span class="m">8</span> 
+<span class="m">8</span> ^ <span class="nv">2</span> <span class="o">=</span> <span class="m">64</span> 
+<span class="m">8</span> ^ <span class="nv">3</span> <span class="o">=</span> <span class="m">512</span> 
+<span class="m">8</span> ^ <span class="nv">4</span> <span class="o">=</span> <span class="m">4096</span> 
+<span class="m">8</span> ^ <span class="nv">5</span> <span class="o">=</span> <span class="m">32768</span> 
+<span class="m">10</span> ^ <span class="nv">0</span> <span class="o">=</span> <span class="m">1</span> 
+<span class="m">10</span> ^ <span class="nv">1</span> <span class="o">=</span> <span class="m">10</span> 
+<span class="m">10</span> ^ <span class="nv">2</span> <span class="o">=</span> <span class="m">100</span> 
+<span class="m">10</span> ^ <span class="nv">3</span> <span class="o">=</span> <span class="m">1000</span> 
+<span class="m">10</span> ^ <span class="nv">4</span> <span class="o">=</span> <span class="m">10000</span> 
+<span class="m">10</span> ^ <span class="nv">5</span> <span class="o">=</span> <span class="m">100000</span> 
+Keine Zahl!
+Ausserhalb des Arrays
+</code></pre></div>
+<p>Das heißt, dass wenn für <code>parseInt("Hi")</code> eine <code>NumberFormatException</code> geworfen wird, dann wird der <code>catch</code>-Block ausgeführt, der eine <code>NumberFormatException</code> erwartet (Zeilen <code>14-17</code>). Der andere <code>catch</code>-Block wird nicht ausgeführt. </p>
+<p>Wenn für <code>basen[4]</code> eine <code>ArrayIndexOutOfBoundsException</code> geworfen wird, dann wird der  <code>catch</code>-Block ausgeführt, der eine <code>IndexOutOfBoundsException</code> erwartet (Zeilen <code>18-21</code>). Der andere <code>catch</code>-Block wird nicht ausgeführt.</p>
+<p>Wir sehen, dass es offensichtlich auch eine <code>IndexOutOfBoundsException</code>-Klasse gibt. Das ist eine Elternklasse von <code>ArrayIndexOutOfBoundsException</code> und auch von <code>StringIndexOutOfBoundsException</code>. Wir schauen uns diese Vererbungshierarchie von <code>Exception</code> nun mal an:</p>
+<h3 id="die-vererbungshierarchie-der-klasse-exception">Die Vererbungshierarchie der Klasse Exception<a class="headerlink" href="#die-vererbungshierarchie-der-klasse-exception" title="Permanent link">&para;</a></h3>
+<p>Wenn Sie sich die Klasse <code>Exception</code> in der <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html">Java-Dokumentation</a> einmal anschauen, dann sehen Sie, dass diese Klasse ein Unmenge von Kindklassen hat. Wir betrachten hier einmal die für uns wichtigsten Klassen:</p>
+<p><img alt="exceptions" src="../files/21_exceptions.png" /></p>
+<p>Alle Exception-Klassen erben von der Klasse <code>Exception</code>, die im <code>java.lang</code>-Paket definiert ist. Grundsätzlich werden zwei Arten von Exceptions unterschieden:</p>
+<ul>
+<li><strong>checked</strong> Exceptions: Checked Exceptions <strong>müssen</strong> geprüft werden, d.h. Methoden, die eine checked Exception werfen können, <strong>müssen</strong> in einen <code>try-catch</code>-Block integriert werden. Dies wird bereits zur Compilezeit geprüft, d.h. das Programm lässt sich gar nicht compilieren, wenn eine Methode, die eventuell eine checked Exception wirft, nicht in einem <code>try</code>-Block steht. In der Abbildung stehen checked Exceptions auf der rechten Seite (grün). </li>
+<li><strong>unchecked</strong> Exceptions: Unchecked Exceptions <strong>können</strong> geprüft werden, müssen aber nicht. Alle unchecked Exceptions leiten sich von der Klasse <code>RunTimeException</code> ab. Wir werden uns genau mit diesen uncheck Exceptions, also von <code>RunTimeException</code> abgeleiteten Klassen beschäftigen. </li>
+</ul>
+<p>Es gibt von <code>RunTimeException</code> noch viele weitere Kindklassen, wie man in der <a href="">Java-Dokumentation</a> sehen kann, aber die in der Abbildung gezeigten sind die wichtigsten. Eine Kindklasse davon, die <code>IllegalArgumentException</code>-Klasse wird für uns noch eine weitere Rolle spielen, da wir von ihr erben werden, wenn wir uns eigene <code>Exception</code>-Klassen erstellen. </p>
+<h3 id="try-catch-finally">try-catch-finally<a class="headerlink" href="#try-catch-finally" title="Permanent link">&para;</a></h3>
+<p>Prinzipiell besteht das Konstrukt <code>try</code> und <code>catch</code> nicht nur aus diesen beiden Blöcken, sondern auch noch aus dem <code>finally</code>-Block. Der <code>finally</code>-Block wird grundsätzlich <strong>immer</strong> ausgeführt, egal, ob eine Exception geworfen wird oder nicht. Die Syntax ist wie folgt:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">try</span> 
+    <span class="p">{</span>
+        <span class="c1">// Anweisung(en), die evtl. Fehler verursachen (kritischer Abschnitt)</span>
+    <span class="p">}</span>   
+    <span class="k">catch</span><span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span>  
+    <span class="p">{</span>
+        <span class="c1">// Behandlung der Exception </span>
+    <span class="p">}</span>
+    <span class="k">finally</span>
+    <span class="p">{</span>
+        <span class="c1">// Aufraeumen, z.B. Schliessen von Dateien, Beenden von </span>
+        <span class="c1">// Verbindungen zu Servern, Datenbanken etc.</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>Typischerweise wird der <code>finally</code>-Block dazu verwendet, bestimmte Ressourcen wieder freizugeben, z.B. Dateien zu schließen, Verbindungen zu Servern, Datenbanken usw. zu beenden. Wir werden <code>finally</code> jedoch nicht sehr oft implementieren. </p>
+<h3 id="throws-eine-exception-weiterreichen">throws - eine Exception weiterreichen<a class="headerlink" href="#throws-eine-exception-weiterreichen" title="Permanent link">&para;</a></h3>
+<p>Wir haben bis jetzt immer in den Methoden, in denen die kritische Anweisung ausgeführt wurde, diese direkt mit einem <code>try-catch</code>-Block "ummantelt". Das muss nicht unbedingt sein. Wir können eine in einer Methode geworfene Exception auch an die aufrufende Methode weiterreichen. Dann kann (und sollte) die Exception in der aufrufenden Methode abgefangen und behandelt werden. Um anzugeben, dass eine Methode evtl. eine Exception wirft, wird das Schlüsselwort <code>throws</code> verwendet. Wir erweiteren also die Deklaration einer Methode (also den Methodenkopf) um <code>throws</code> und danach kommt der entsprechende Typ der Exception, die in der Methode geworfen werden kann. Die allgemeine Syntax einer Methodendeklaration sieht somit so aus:</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">modifizierer</span><span class="o">]</span> <span class="o">[</span><span class="n">rueckgabetyp</span><span class="o">]</span> <span class="n">methodenname</span> <span class="kd">throws</span> <span class="n">ExceptionType</span>
+<span class="p">{</span>
+    <span class="c1">// Anweisungsblock</span>
+    <span class="c1">// wirft (evtl.) Exception</span>
+<span class="p">}</span>   
+</code></pre></div>
+<p>Wir betrachten auch dafür ein Beispiel und erweiteren unsere Klasse <code>Ausnahmen</code> um die Methode <code>getValueAtIndex</code>: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">static</span> <span class="kt">int</span> <span class="nf">getValueAtIndex</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">field</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ArrayIndexOutOfBoundsException</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">field</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">divide</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>            <span class="c1">// ArithmeticException</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">charAt</span><span class="p">(</span><span class="s">&quot;Hallo&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>     <span class="c1">// StringIndexOutOfBoundsException</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Zahl: &quot;</span> <span class="o">+</span> <span class="n">inputInt</span><span class="p">());</span>  <span class="c1">// NumberFormatException</span>
+    <span class="n">mehrereExceptions</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">boolean</span> <span class="n">ok</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">field</span> <span class="o">=</span> <span class="p">{</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">};</span>
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">getValueAtIndex</span><span class="p">(</span><span class="n">field</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span><span class="p">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Index ausserhalb des Arrays!&quot;</span><span class="p">);</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ok</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value : &quot;</span> <span class="o">+</span> <span class="n">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Obwohl die Methode eine kritische Anweisung enthält (<code>field[index]</code>), ist diese Anweisung nicht in einen <code>try-catch</code>-Block eingebunden. Es kann nun also sein, dass bei Aufruf der Methode eine Exception (eine <code>ArrayIndexOutOfBoundsException</code>) geworfen wird. Wir geben das im Methodenkopf mithilfe von <code>throws ArrayIndexOutOfBoundsException</code> bekannt. Die aufrufende Methode (<code>main</code>) kann nun selbst den Aufruf der Methode <code>getValueAtIndex()</code> in einen <code>try-catch</code>-Block ummanteln und somit die Exception selbst abfangen und behandeln. Nur wenn keine Exception geworfen wird, wird der von der Methode <code>getValueAtIndex()</code> zurückgegebene Wert ausgegeben. </p>
+<p>Wenn wir an unsere <a href="./#beispiel-mit-try-catch">einleitenden Beispiele</a> denken (Methoden <code>charAt()</code> und <code>divide()</code>), dann erinnern wir uns, dass wir dort festegestellt haben, dss die Implementierung so nicht günstig war, da sie Nebeneffekte erzeugt hat, sobald eine Exception geworfen wurde. Diese Nebeneffekte werden bei der Implementierung von <code>getValueAtIndex()</code> vermieden, obwohl die grundsätzliche Idee die gleiche ist, wie bei <code>charAt()</code>. Der Nachteil ist, dass man die aufrufende Methode "zwingt", die Exception selbst zu behandeln. </p>
+<h3 id="schoner-code">Schöner Code<a class="headerlink" href="#schoner-code" title="Permanent link">&para;</a></h3>
+<p>Der letzte Satz aus dem vorherigen Abschnitt ist insofern nicht ganz richtig, dass mit <em>unchecked</em> Exceptions ja genau nicht erzwungen wird, eventuelle Exceptions abzufangen. Es gibt gute Gründe dafür, alle eigenen Exceptions eher als <em>checked</em> Exceptions zu definieren, als als <em>unchecked</em> Exceptions. Aber zu eigenen Exceptions kommen wir gleich. </p>
+<p>Trotzdem können wir uns schon zum jetzigen Zeitpunkt einige Gedanken, über <em>schönen Code</em> in Bezug auf Exceptions machen: </p>
+<ol>
+<li>eine Methode sollte immer nur eine Sache erledigen (single responsibility principle - SRP)</li>
+<li>&rarr; die Methode kann nicht auch noch für das Abfangen des Fehlers zuständig sein (try-catch-Blöcke sind eh „hässlich“ und unleserlich)</li>
+<li>&rarr; lassen Sie Methode, die etwas erledigt, eine Exception werfen und leiten Sie diese weiter (<code>throws</code>) </li>
+<li>&rarr; fangen Sie den Fehler in einer anderen Methode ab (<code>try</code>)</li>
+<li>&rarr; Sie können sogar die eigentliche Behandlung des Fehlers (<code>catch</code>) in eine dritte Methode auslagern (single responsibility)</li>
+</ol>
+<p>Häufig sieht man, dass die Methode, die den Fehler abfängt (<code>try</code>) im <code>catch</code>-Block den Fehler protokolliert (in ein ErrorLog-File) und dann eine eigens erzeugte Exception an die Methode weiterleitet, die den Fehler behandelt. Wie man eine Exception erzeugt, schauen wir uns jetzt an. </p>
+<h3 id="throw-eigene-exceptions-erzeugen">throw - eigene Exceptions erzeugen<a class="headerlink" href="#throw-eigene-exceptions-erzeugen" title="Permanent link">&para;</a></h3>
+<p>Zunächst kommt ein neues Schlüsselwort hinzu, nämlich <code>throw</code>. Unglücklicherweise ist dies dem Schlüsselwort <code>throws</code> sehr ähnlich. Mit <code>throw</code> erzeugen (werfen) wir eine eigene Exception, mit <code>throws</code> wird im Methodenkopf angegeben, dass die Methode (eventuell) eine Exception wirft und diese an die aufrufende Methode weitergibt. </p>
+<p>Angenommen, für einen Konstruktor der Klasse Dreieck werden Seitenlängen übergeben, die entweder kleiner als 0 oder die Summe von 2 Seitenlängen ist kleiner als die dritte Seite ist. Wir hatten uns bei der Bearbeitung der Aufgabe <code>Triangle</code>im ersten Semester bereits überlegt, dass dadurch kein "richtiges" Dreieck erzeugt wird, aber wir konnten das noch nicht verhindern. Das machen wir jetzt. Wie können wir also verhindern, dass ein solches Objekt erzeugt wird?</p>
+<p>Die Lösung besteht darin, eine eigene Exception zu definieren und diese im Fehlerfall zu werfen. Mithilfe des Schlüsselwortes <code>throw</code> wird also eine eigene Exception geworfen. Bis jetzt <em>wurden</em> unsere Exceptions ja ("automatisch" durch die Laufzeitumgebung) geworfen. </p>
+<p>Für eine <em>eigene</em> Exception haben wir zwei Möglichkeiten:</p>
+<ul>
+<li>entweder erstellen wir uns eine eigene Exception-Klasse und leiten diese von der Klasse <code>Exception</code> oder von der Klasse <code>RunTimeException</code> ab (<code>extends Exception</code> bzw. <code>extends RunTimeException</code>) oder</li>
+<li>wir verwenden eine bereits existierende Exception-Klasse (typischerweise <code>IllegalArgumentException</code>).</li>
+</ul>
+<h4 id="throw-new-illegalargumentexception">throw new IllegalArgumentException<a class="headerlink" href="#throw-new-illegalargumentexception" title="Permanent link">&para;</a></h4>
+<p>Wir implementieren unsere Klasse <code>Triangle</code> so, dass wir im Konstruktor für den Fall, dass eine Seite kleiner gleich 0 ist, eine <code>IllegalArgumentException</code> werfen. Dieser Exception kann ein <code>String</code> als Parameter übergeben werden, der im <code>catch</code>-Block mittels <code>getMessage()</code> wieder ausgelesen werden kann. Das gleiche machen wir für den Fall, dass die Summe von zwei Seiten kleiner der dritten Seite ist.</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Triangle mit eigenen IllegalArgumentExceptions</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Triangle</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Triangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IllegalArgumentException</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">b</span><span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">c</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Seiten muessen groesser als 0 sein!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="n">b</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="n">c</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span> 
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Kein Dreieck!&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> 
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Triangle</span> <span class="n">d</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>        <span class="c1">//(3,4,0) und (3,4,8) probieren</span>
+        <span class="p">}</span>
+        <span class="k">catch</span><span class="p">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Der Konstruktor fängt die Exception nicht selbst auf und behandelt sie auch nicht selbst, sondern leitet sie an die aufrufende Methode weiter (Zeile <code>5</code> - <code>throws IllegalArgumentException</code>). Im Konstruktor werden die Parameterwerte geprüft und</p>
+<ul>
+<li>entweder eine <code>IllegalArgumentException</code> geworfen, falls eine Seite kleiner gleich 0 ist (Zeile <code>9</code> - <code>throw new</code>) </li>
+<li>oder eine <code>IllegalArgumentException</code> geworfen, falls die Summe von zwei Seiten kleiner als die dritte Seite ist (Zeile <code>13</code> - <code>throw new</code>) </li>
+<li>oder die Objektvariablen die Werte der Parameter bekommen (wenn alles ok ist - Zeilen <code>17-19</code>).</li>
+</ul>
+<p>Die Erzeugung eines <code>Triangle</code>-Objektes (also der Aufruf des Konstruktors) ist nun in einen <code>try-catch</code>-Block eingebettet (Zeilen <code>26-32</code>). Beachten Sie, dass es sein kann, dass <code>d</code> nach Aufruf des Konstruktors immernoch <code>null</code> ist (nämlich dann, wenn eine Exception geworfen wird). Wir haben hier gleich die <code>main</code>-Methode mit in die Klasse genommen, das sollte man natürlich nicht machen.</p>
+<h4 id="eigene-exception-klasse-definieren">Eigene Exception-Klasse definieren<a class="headerlink" href="#eigene-exception-klasse-definieren" title="Permanent link">&para;</a></h4>
+<p>Wir erstellen uns eigene Exception-Klassen für die oben beschriebenen "Fehler" im Konstruktor von <code>Triangle</code>. Diese eigenen Exception-Klassen erben von der Klasse <code>Exception</code>. Damit sind die eigenen Exceptions <strong>checked</strong> Exceptions, d.h. sie <strong>müssen</strong> in einem <code>try-catch</code>-Block abgefangen und behandelt werden. </p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Eigene Klasse IllegalTriangleException</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IllegalTriangleException</span> <span class="kd">extends</span> <span class="n">Exception</span>
+<span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">IllegalTriangleException</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">IllegalTriangleException</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Each side has to be smaller than the sum of the other sides!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Klasse <code>IllegalTriangleException</code> verwenden wir für den Fall, dass die Summe zweier Seiten kleiner als die dritte Seite ist. </p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Eigene Klasse IllegalSideLengthException</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">IllegalSideLengthException</span> <span class="kd">extends</span> <span class="n">Exception</span>
+<span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">IllegalSideLengthException</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="nf">IllegalSideLengthException</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">(</span><span class="s">&quot;Sides must be greater than zero!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Die Klasse <code>IllegalSideLengthException</code> verwenden wir für den Fall, dass eine Seite kleiner gleich 0 ist. Für beide Klassen haben wir jeweils einen parameterlosen Konstruktor definiert, der ein Objekt von <code>Exception</code> erzeugt und dem eine Fehlermeldung als <code>String</code> im Parameter übergeben wird. Außerdem haben wir in beiden Klassen noch einen parametrisierten Konstruktor, dem eine Fehlermeldung als <code>String</code> übergeben werden kann. Wir haben nun die Wahl, ob wir den paarmeterlosen oder den parametrisierten Konstruktor verwenden. </p>
+<p>Die Anwendung dieser beiden Exception-Klassen in der Klasse <code>Triangle</code> könnte nun so aussehen (wir haben hier auch gleich die <code>main</code>-Methode mit in die Klasse genommen, das sollte man natürlich nicht machen):</p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Triangle mit den selbst definierten Exception-Klassen</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Triangle</span>
+<span class="p">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Triangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">b</span><span class="o">&lt;=</span><span class="mi">0</span> <span class="o">||</span> <span class="n">c</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span> 
+        <span class="p">{</span>
+<span class="hll">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalTriangleException</span><span class="p">();</span>
+</span>        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="n">b</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">||</span> <span class="n">c</span><span class="o">&gt;=</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">))</span> 
+        <span class="p">{</span>
+<span class="hll">            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalSideLengthException</span><span class="p">();</span>
+</span>        <span class="p">}</span>
+        <span class="k">else</span> 
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Triangle</span> <span class="n">d</span><span class="p">;</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Triangle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>        <span class="c1">//(3,4,0) und (3,4,8) probieren</span>
+        <span class="p">}</span>
+<span class="hll">        <span class="k">catch</span><span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> 
+</span>        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Beide eigenen Klassen sind ja auch vom Laufzeittyp <code>Exception</code>, da sie von dieser Klasse geerbt haben. Insofern ist der Parametertyp in der <code>catch</code>-Klausel mit <code>Exception</code> (Zeile <code>30</code>) passend. Wenn Sie anstelle der Zeilen <code>27-33</code> nur <code>d = new Triangle(3,4,5);</code> schreiben, stellen Sie fest, dass sich das Programm nicht übersetzen lässt, da es sich um <strong>checked</strong> Exceptions handelt, die in einem <code>try-catch</code>-Block abgefangen werden müssen. Eclipse bietet Ihnen dann aber einen QuickFix an <code>Surround with try/catch</code>. Das sollten Sie einmal ausprobieren. </p>
+<p>Wenn Sie anstelle von <code>Exception</code> von der Klasse <code>RunTimeException</code> erben, dann handelt es sich bei Ihren Exceptions um <strong>unchecked</strong> Exceptions. Es ist aber besseres Programmieren, wenn man <strong>checked</strong> Exceptions erstellt, denn dazu sind die Exceptions ja da, dass sie abgefangen und behandelt werden.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Wir haben Exceptions kennengelernt. Solche Laufzeitfehler können an verschiedenen Stellen passieren und haben unterschiedliche Typen (siehe Kindklassen von <code>Exception</code>, insb. von <code>RunTimeException</code>). Mithilfe von <code>try-catch-[finally]</code> können wir solche Exceptions abfangen und behandeln. Damit stürzt unser Programm nicht mehr ab. Mithilfe von <code>throws</code> zeigt eine Methode an, dass sie eine Exception erzeugen kann. Das Schlüsselwort <code>throw</code> weist die Laufzeitumgebung an, das angegebene Laufzeitobjekt (eine Exception) zu erzeugen und zu werfen. Checked Exceptions <strong>müssen</strong> behandelt werden (Aufruf der Exception-werfenden Methode in einem <code>try-catch</code>-Block). Unchecked Exceptions <strong>können</strong> behandelt werden, müssen aber nicht, sollten aber. Können wir ja jetzt schließlich...</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../wrapper/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Wrapperklassen" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Wrapperklassen
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../enum/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Aufzählungstypen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Aufzählungstypen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

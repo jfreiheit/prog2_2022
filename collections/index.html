@@ -1,0 +1,1407 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/collections/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Collections - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#collections" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Collections
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Collections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Collections
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arten-von-collections" class="md-nav__link">
+    Arten von Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#der-collection-klassenbaum" class="md-nav__link">
+    Der Collection-Klassenbaum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengen-sets" class="md-nav__link">
+    Mengen - Sets
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengen - Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#der-iterator" class="md-nav__link">
+    Der Iterator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-fur-mengen" class="md-nav__link">
+    Methoden für Mengen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typisieren" class="md-nav__link">
+    Typisieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    Listen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengenoperationen" class="md-nav__link">
+    Mengenoperationen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-und-queue" class="md-nav__link">
+    Stack und Queue
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack und Queue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    Stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    Queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wertetypen-in-collections" class="md-nav__link">
+    Wertetypen in Collections
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arten-von-collections" class="md-nav__link">
+    Arten von Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#der-collection-klassenbaum" class="md-nav__link">
+    Der Collection-Klassenbaum
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengen-sets" class="md-nav__link">
+    Mengen - Sets
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengen - Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#der-iterator" class="md-nav__link">
+    Der Iterator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methoden-fur-mengen" class="md-nav__link">
+    Methoden für Mengen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typisieren" class="md-nav__link">
+    Typisieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#die-for-each-schleife" class="md-nav__link">
+    Die for-each-Schleife
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listen" class="md-nav__link">
+    Listen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mengenoperationen" class="md-nav__link">
+    Mengenoperationen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stack-und-queue" class="md-nav__link">
+    Stack und Queue
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack und Queue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack" class="md-nav__link">
+    Stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queue" class="md-nav__link">
+    Queue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wertetypen-in-collections" class="md-nav__link">
+    Wertetypen in Collections
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/collections.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h1>
+<p>Um mehrere Werte oder Referenzen gleichen Typs zu speichern, haben wir bisher Arrays verwendet. Die Länge von Arrays wird bei der Initialisierung festgelegt und lässt sich dann nicht mehr verändern. Wenn ein weiteres Element einem vollen Array hinzugefügt werden soll, muss zunächst ein neues Array erstellt werden, das länger ist als das alte und dann müssen alle Elemente aus dem alten Array in das neue Array kopiert werden, ehe das neue Element hinzugefügt wird. Das ist recht aufwendig. Darüber hinaus ist es beispielsweise auch aufwendig, in Arrays Doppelungen zu vermeiden. Für ein Element, das in ein Array eingefügt werden soll, muss dafür zunächst geprüft werden, ob es nicht bereits im Array enthalten ist. Diese Nachteile führen dazu, dass wir uns nun mit Datenstrukturen beschäftigen, die ebenfalls mehrere Elemente speichern können, deren Verwaltung aber nicht so aufwendig ist, wie bei Arrays. Diese Datenstrukturen heißen <em>Collections</em>. </p>
+<p><em>Collections</em> haben drei wesentliche Eigenschaften:</p>
+<ul>
+<li>Eine <em>Collection</em> hat <strong>keine festgelegte Länge</strong>, d.h. es sind beliebig viele Elemente in einer <em>Collection</em> speicherbar.</li>
+<li>In eine <em>Collection</em> können nur Elemente von <strong>Referenztypen</strong> gespeichert werden, d.h. <strong>keine Wertetypen</strong> (<code>int</code>, <code>double</code>, <code>boolean</code>, <code>char</code>, ...). Um auch solche "Werte" speichern zu können, werden wir <em>Wrapper</em>-Klassen kennenlernen. </li>
+<li>Im Gegensatz zu Arrays können in einer Collection Elemente verschiedener Referenztypen gespeichert werden. Das ist aber eher ein Problem und kein Feature. Wir werden das vermeiden, da die Verwaltung von Elementen verschiedener Typen fehleranfällig ist. Wir werden Collections <em>typisieren</em>, damit sie nur Elemente eines Typs speichern kann.</li>
+</ul>
+<h2 id="arten-von-collections">Arten von Collections<a class="headerlink" href="#arten-von-collections" title="Permanent link">&para;</a></h2>
+<p>Es gibt unterschiedliche Arten von <em>Collections</em>, welche je nach Einsatzzweck verwendet werden:</p>
+<table>
+    <thead>
+        <tr>
+            <th> Typ </th>
+            <th> Struktur </th>
+            <th> Zugriff </th>
+            <th> Eigenschaften </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <code>List</code> </td>
+            <td> Menge </td>
+            <td> wahlfrei (indexbasiert) <br> Iterator</td>
+            <td> kann Elemente mehrfach enthalten </td>
+        </tr>
+        <tr>
+            <td> <code>Set</code> </td>
+            <td> Menge </td>
+            <td> Iterator </td>
+            <td> keine doppelten Elemente <br/> keine Ordnung der Elemente </td>
+        </tr>
+        <tr>
+            <td> <code>Map</code>  </td>
+            <td> Schlüssel-Werte-Paare </td>
+            <td> schlüsselbasiert</td>
+            <td> Schlüssel ist eindeutig <br> Werte können mehrfach sein </td>
+        </tr>
+        <tr>
+            <td> <code>Stack</code>  </td>
+            <td> Stapel/Stack </td>
+            <td> oberstes Element</td>
+            <td> last-in-first-out-Prinzip </td>
+        </tr>
+        <tr>
+            <td> <code>Queue</code>  </td>
+            <td> Warteschlange </td>
+            <td> erstes und letztes Element </td>
+            <td> first-in-first-out-Prinzip </td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Wir werden uns in diesem Semester aber nur mit den Collections <code>List</code>, <code>Set</code> und <code>Map</code> beschäftigen. Das Prinzip eines Stacks haben wir bereits kennengelernt, als wir uns über den <a href="https://freiheit.f4.htw-berlin.de/prog1/methodenstack/#methodenstack">Methodenstack</a> in Programmierung 1 unterhalten hatten. Ein Stack ist ein Stapel, auf den man ein Element legen kann (<code>pop</code>) und von dem man das oberste Element entfernen kann (<code>pop</code>). Mithilfe von <code>top</code> erhält man lesenden Zugriff auf das oberste Element. Auf alle anderen Elemente hat man im Stack keinen Zugriff. </p>
+<p>Eine Queue implementiert das Prinzip einer Warteschlange. Ein Element kann an das Ende einer Warteschlange angehängt werden. Herausgenommen werden kann aber immer nur das Element am Anfang (dem <em>head</em>) der Warteschlange. </p>
+<p>Eine Liste (<code>List</code>) ist noch am ehesten vergleichbar mit einem Array, außer dass es keine Größenbeschränkung gibt und dass nur Referenztypen in eine Liste gespeichert werden. In Listen werden ebenfalls Indizes verwaltet, so dass man auf die Elemente Zugriff wie in einem Array hat. Es gibt Listen, die automatisch sortiert werden. In Listen können Elemente doppelt vorkommen. Von Doppelungen in Collections wird gesprochen, wenn für zwei Elemente <code>e1</code> und <code>e2</code> gilt <code>e1.equals(e2) == true</code> (oder <code>e1.hashCode() == e2.hashCode()</code>). </p>
+<p>Eine Menge (<code>Set</code>) hat die besondere Eigenschaft, dass sie keine Doppelungen enthält. Wird versucht, ein Element einer Menge hinzuzufügen, welches bereits in der Menge enthalten ist, dann wird das Element <strong>nicht</strong> hinzugefügt. Deshalb gibt die <code>add(element)</code>-Methode für eine Menge ein <code>boolean</code> zurück, damit erkannt werden kann, ob das Element hinzugefügt wurde (<code>true</code>) oder nicht (<code>false</code>). </p>
+<p>Eine <code>Map</code> kann man sich wie eine Tablle aus zwei Spalten vorstellen. In der linken Spalte stehen Schlüssel <code>key</code> und in der rechten die Werte <code>value</code>. Jedem Schlüssel ist genau ein Wert zugeordnet. Jeder Schlüssel ist eindeutig, d.h. es gibt keine Doppelungen unter den Schlüsseln (die Schlüssel in einer <code>Map</code> sind eine <code>Set</code>). Werte können allerdings doppelt vorkommen (haben aber jeweils einen eigenen Schlüssel). </p>
+<p>Eine kurze Entscheidungshilfe, welche Collection verwendet wird, zeigt die folgende Abbildung:</p>
+<p><img alt="collections" src="../files/36_collection.png" /></p>
+<h2 id="der-collection-klassenbaum">Der Collection-Klassenbaum<a class="headerlink" href="#der-collection-klassenbaum" title="Permanent link">&para;</a></h2>
+<p>Leider ist die Verwaltung von Collections in Java nicht einheitlich. Das liegt daran, dass (unverständlicherweise) Listen und Mengen in einer anderen Vererbungshierarchie verwaltet werden, als Maps. Wir schauen uns die Vererbungshierarchie von <code>Collection</code> einaml an. Darin kommen die Listen und Mengen vor, aber nicht Maps.</p>
+<p><img alt="collections" src="../files/37_collection.png" /></p>
+<p>Die "Mutter-Klasse" der Collections <code>List</code> und <code>Set</code> ist <code>Collection</code>. In der Abbildung fallen unterschiedliche Farben auf. Die grüngefärbten Klassen sind sogenannte <em>Interfaces</em>. Interfaces lernen wir später noch kennen. Ebenso wie die rotgefärbten Klassen, bei denen es sich um <em>abstrakte</em> Klassen handelt. Das soll uns zunächst nicht besonders interessieren, aber wir können uns merken, dass wir die grüngefärbten Klassen als Typen verwenden (insb. den Typ <code>List</code> für die Listen und den Typ <code>Set</code> für die Mengen). Wir können aber keine konkreten <code>List</code>-Objekte bzw. keine konkreten <code>Set</code>-Objekte erzeugen. Das geht nur mit dem blaugefärbten Klassen. Das bedeutet, dass wir z.B. ein konkretes <code>ArrayList</code>-Objekt erzeugen werden oder ein konkretes <code>HashSet</code>-Objekt. Hier einige Beispiele:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.TreeSet</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span> <span class="n">l1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="p">();</span>
+        <span class="n">List</span> <span class="n">l2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="p">();</span>
+
+        <span class="n">Set</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
+        <span class="n">Set</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Beachten Sie, alle Klassen aus dem <code>java.util</code>-Paket zu importieren! Eine Klasse <code>List</code> gibt es z.B. auch im <code>java.awt</code>-Paket! Statt alle Klassen einzeln zu importieren können Sie auch schreiben:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+</code></pre></div>
+<p>Der <code>*</code> ist eine <em>Wildcard</em> und importiert alle Klassen aus <code>java.util</code>. </p>
+<p>Zur Diskussion, wann <code>ArrayList</code> besser ist und wann <code>LinkedList</code>, siehe <a href="https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java">hier</a>. Eine Diskussion über die Unterschiede zwischen <code>HashSet</code> und <code>TreeSet</code> finden Sie z.B. <a href="https://stackoverflow.com/questions/1463284/hashset-vs-treeset">hier</a>. Wir werden für Listen hauptsächlich Objekte von <code>ArrayList</code> erstellen und für Mengen hauptsächlich Objekte von <code>HashSet</code>.</p>
+<h2 id="mengen-sets">Mengen - Sets<a class="headerlink" href="#mengen-sets" title="Permanent link">&para;</a></h2>
+<p>Wir betrachten zunächst Mengen genauer und beginnen mit einem Beispiel:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">Set</span> <span class="n">menge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
+
+        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;erster&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&quot;dritter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s1</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s2</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s3</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s4</span><span class="p">));</span> <span class="c1">// false</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 3</span>
+
+        <span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">menge</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+        <span class="p">}</span> 
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>In Zeile <code>1</code> werden zunächst alle verwendeten Klassen aus dem <code>java.util</code>-Paket geladen. Das sind für unser Beispiel <code>Set</code>, <code>HashSet</code> und <code>Iterator</code>. Die <code>Iterator</code>-Klasse wird verwendet, um durch unsere Menge <code>menge</code> zu laufen. Wir werden auf den <code>Iterator</code> gleich genauer eingehen, lernen aber bald eine einfachere Lösung kennen, um durch unsere Menge zu iterieren. </p>
+<p>In Zeile <code>7</code> wird die Menge <code>menge</code> erzeugt. Wir deklarieren dafür den Typ <code>Set</code> und erzeugen unter Verwendung des parameterlosen Konstruktors von <code>HashSet</code> ein <code>HashSet</code>-Objekt. Die <code>menge</code> hat also den Compilertyp <code>Set</code> und mindestens den Laufzeittyp <code>HashSet</code> (natürlich noch weitere Laufzeittypen, z.B. <code>Object</code>). </p>
+<p>In den Zeilen <code>14-17</code> werden der <code>menge</code> Elemente hinzugefügt. Diese Elemente sind hier vom Typ <code>String</code>. Das Hinzufügen von Elementen zu einer Menge erfolgt mit der Methode <code>add(element)</code>. Diese Methode gibt ein <code>boolean</code> zurück. Wir lassen in den Zeilen <code>14-17</code> diese Rückgabe auf die Konsole ausgeben und stellen fest, dass wir folgende Ausgaben erhalten: </p>
+<div class="highlight"><pre><span></span><code><span class="nb">true</span>
+<span class="nb">true</span>
+<span class="nb">true</span>
+<span class="nb">false</span>
+</code></pre></div>
+<p>Die <code>add()</code>-Methode gibt also 3x ein <code>true</code> zurück und beim vierten Aufruf ein <code>false</code>. Das liegt daran, dass beim vierten Aufruf von <code>add()</code> (Zeile <code>17</code>) das übergebene Element <code>s4</code> <strong>nicht</strong> in die Menge <code>menge</code> eingefügt wird, da sich in dieser Menge bereits ein <code>String</code> mit dem Wert <code>"zweiter"</code> befindet und eine Menge <strong>keine Doppelungen</strong> enthalten darf. Da <code>s2.equals(s4)</code> den Wert <code>true</code> zurückgibt, erkennt die <code>add()</code>-Methode, dass bereits ein gleiches Objekt in der Menge enthalten ist und <code>s4</code> wird deshalb nicht eingefügt. </p>
+<p>In Zeile <code>19</code> lassen wir uns die Anzahl der Elemente in der Menge <code>menge</code> ausgeben. Dies erfolgt mithilfe der <code>size()</code>-Methode (in Collections ist es also nicht <code>length()</code>, auch nicht <code>length</code> und auch nicht <code>getLength()</code> oder <code>getSize()</code>, sondern <code>size()</code>). Der Wert von <code>size()</code> in unserem Beispiel ist <code>3</code>. </p>
+<h3 id="der-iterator">Der Iterator<a class="headerlink" href="#der-iterator" title="Permanent link">&para;</a></h3>
+<p>Mithilfe der Klasse <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Iterator.html">Iterator</a> <em>iterieren</em> wir durch eine Collection, d.h. wir <em>laufen</em> durch unsere Collection und betrachten alle Elemente aus der Collection. </p>
+<p>Die Klasse <code>Iterator</code> besitzt drei Objektmethoden (eigentlich vier, aber die vierte Methode soll uns zunächst nicht interessieren):</p>
+<ul>
+<li><code>hasNext()</code>: liefert ein <code>true</code> zurück, wenn sich mindestens ein weiteres Element in der Collection befindet; wenn nicht, dann <code>false</code>,</li>
+<li><code>next()</code>: liefert das nächste Element aus der Iteration zurück (und entfernt es daraus), </li>
+<li><code>remove()</code>: löscht das mit <code>next()</code>zurückgegebene Element.</li>
+</ul>
+<p>In Zeile <code>21</code> erzeugen wir zunächst mit der <code>iterator()</code>-Methode aus <code>Set</code> ein Objekt von <code>Iterator</code>. Die Referenz auf dieses Objekt nennen wir hier <code>it</code>. </p>
+<p>Die <code>while()</code>-Schleife in den Zeilen <code>22-25</code> durchläuft nun diese Iteration, indem sie mithilfe von <code>hasNext()</code> prüft, ob sich noch ein weiteres Element in der Iteration befindet und wenn ja, dann wird es mithilfe von <code>next()</code> aus der Iteration entnommen und in Zeile <code>24</code> auf die Konsole ausgegeben. </p>
+<p>Wir erhalten für unser Beispiel folgende Ausgaben:</p>
+<div class="highlight"><pre><span></span><code>zweiter
+dritter
+erster
+</code></pre></div>
+<p>Darin sehen wir auch, dass die Reihenfolge des Einfügens in eine Menge nicht gewahrt wird. Wir haben die Elemente in der Reihenfolge <code>"erster"</code>, <code>"zweiter"</code>, <code>"dritter"</code> in die Menge eingefügt, aber die Ausgabe erfolgt in der Reihenfolge <code>"zweiter"</code>, <code>"dritter"</code>, <code>"erster"</code>. Auf die Reihenfolge haben wir in Mengen keinen Einfluss!</p>
+<h3 id="methoden-fur-mengen">Methoden für Mengen<a class="headerlink" href="#methoden-fur-mengen" title="Permanent link">&para;</a></h3>
+<p>Wir haben bereits drei Methoden für Mengen kennengelernt: <code>add()</code>, <code>size()</code> und <code>iterator()</code>. Tatsächlich sind das Methoden, die in allen Klassen zur Verfügung stehen, die von <code>java.util.Collection</code> erben (<em>erben</em> ist hier eigentlich nicht ganz richtig, da es sich bei <code>java.util.Collection</code> um ein Interface handelt, aber das soll uns hier zunächst egal sein). Wir betrachten nun alle wesentlichen Methoden, die wir für Mengen und Listen zur Verfügung haben (siehe dazu auch die Java-Dokumentation von <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a>):</p>
+<table>
+    <thead>
+        <tr>
+            <th> Methode </th>
+            <th> Beschreibung </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <code>boolean add(E element)</code> </td>
+            <td> Fügt Element <code>element</code> in die Collection ein. Gibt <code>true</code> zurück, wenn Element hinzugefügt wurde sonst <code>false</code>. </td>
+        </tr>
+        <tr>
+            <td> <code>boolean addAll(Collection c)</code> </td>
+            <td> Fügt <strong>alle</strong> Elemente der Collection <code>c</code> in die Collection ein. Gibt <code>true</code> zurück, wenn mindestens ein Element hinzugefügt wurde sonst <code>false</code>. </td>
+        </tr>
+        <tr>
+            <td> <code>void clear()</code>  </td>
+            <td> Entfernt alle Elemente aus der Collection.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean contains(E element)</code>  </td>
+            <td> Gibt <code>true</code> zurück, wenn sich <code>element</code> in der Collection befindet, sonst <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean containsAll(Collection c)</code>  </td>
+            <td> Gibt <code>true</code> zurück, wenn sich <strong>alle</strong> Elemente der Collection <code>c</code> in der Collection befinden, sonst <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean isEmpty()</code>  </td>
+            <td> Gibt <code>true</code> zurück, wenn sich keine Elemente in der Collection befinden, sonst <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td> <code>Iterator<E> iterator()</code>  </td>
+            <td> Erzeugt einen Iterator, welcher auf das erste Element der Collection zeigt.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean remove(Object o)</code>  </td>
+            <td> Entfernt <code>o</code> aus der Collection und gibt <code>true</code> zurück, wenn ein Element entfernt wurde, sonst <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean removeAll(Collection c)</code>  </td>
+            <td> Entfernt <strong>alle</strong> Elemente aus <strong>c</strong> aus der Collection und gibt <code>true</code> zurück, wenn <strong>mindestens ein</strong> Element entfernt wurde, sonst <code>false</code>.</td>
+        </tr>
+        <tr>
+            <td> <code>int size()</code>  </td>
+            <td> Gibt die Anzahl der Elemente in der Collection zurück.</td>
+        </tr>
+        <tr>
+            <td> <code>Object[] toArray()</code>  </td>
+            <td> Gibt die Elemente in der Collection in einem Array-Datentyp zurück.</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Der <em>TyP</em> <code>E</code> in der Tabelle ist ein Platzhalter für einen konkreten Typ. Bei dem <code>Iterator</code> sehen wir eine neue Syntax <code>&lt;E&gt;</code>. Diese lernen wir gleich kennen. <code>E</code> steht, wie gesagt, für einen beliebigen Typ. Die <em>Typisierung</em> wollen wir zunächst motivieren. </p>
+<h3 id="typisieren">Typisieren<a class="headerlink" href="#typisieren" title="Permanent link">&para;</a></h3>
+<p>Generell können in Collections Objekte verschiedener Typen gespeichert werden. Es wäre also möglich, so etwas hier zu tun:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Set</span> <span class="n">menge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">();</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;erster&quot;</span><span class="p">));</span>        <span class="c1">// String einfügen</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>              <span class="c1">// Power einfügen</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>              <span class="c1">// Point einfügen</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Konto</span><span class="p">());</span>                 <span class="c1">// Konto einfügen</span>
+</code></pre></div>
+<p>Das Speichern von Objekten verschiedenen Typs ist jedoch sehr fehleranfällig und sollte unbedingt vermieden werden! Es gibt auch nicht wirklich sinnvollen Anwendungsbeispiele dafür. </p>
+<p>Stattdessen wollen wir angeben, welcher Typ die Objekte haben sollen, die in unserer Collection gespeichert werden können. Dazu <strong>typisieren</strong> wir die Collection. </p>
+<blockquote>
+<p>Das <em>Typisieren</em> einer Collection erfolgt mithilfe der <em>Diamond</em>-Syntax: <br>
+      <code>Collection&lt;Typ&gt; name = new KonkreteKlasse&lt;&gt;();</code></p>
+</blockquote>
+<p>Wir <strong>typisieren</strong> die Menge <code>menge</code> aus dem eben gezeigten Beispiel:</p>
+<div class="highlight"><pre><span></span><code>    <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">menge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>    <span class="c1">// mit String typisiert - menge nimmt nur Strings auf</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="s">&quot;erster&quot;</span><span class="p">));</span>        <span class="c1">// String einfügen</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>              <span class="c1">// Fehler - kein String</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span>              <span class="c1">// Fehler - kein String</span>
+    <span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Konto</span><span class="p">());</span>                 <span class="c1">// Fehler - kein String</span>
+</code></pre></div>
+<p>Wir haben <code>menge</code> <strong>typisiert</strong> und angegeben, dass <code>menge</code> nur Objekte vonm Typ <code>String</code> aufnehmen kann. Dazu geben wir bei der Typdeklaration <code>Set&lt;String&gt;</code> den Elemente-Typ in spitzen Klammern an. Diese spitzen Klammern werden auch in den Konstruktoraufruf eingefügt <code>new HashSet&lt;&gt;();</code>. Darin muss der Typ aber nicht wiederholt werden (der ist ja aus der Deklaration klar). </p>
+<p>Der Versuch, Objekte eines anderen Typs als <code>String</code> in die Collection einzufügen, scheitert bereits zur Compilezeit, d.h. das Programm lässt sich gar nicht übersetzen, wenn versucht wird, Objekte anderen Typs als der bei der Typisierung Angegebene einzufügen. </p>
+<p>Unser einführendes Beispiel von oben ist deshalb besser mit Typisierung: </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">menge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;erster&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&quot;dritter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s1</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s2</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s3</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s4</span><span class="p">));</span> <span class="c1">// false</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 3</span>
+
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">menge</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span>
+        <span class="p">}</span> 
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beachten Sie, dass auch der Iterator (Zeile <code>21</code>) typisiert wird.</p>
+<h3 id="die-for-each-schleife">Die for-each-Schleife<a class="headerlink" href="#die-for-each-schleife" title="Permanent link">&para;</a></h3>
+<p>Wenn wir unsere Collection typisieren, haben wir auch eine einfachere Möglichkeit, durch diese zu laufen als die Verwednung des Iterators. Wir können stattdessen die <em>for-each</em>-Schleife verwenden. Die allgemeine Syntaxh einer solchen Schleife ist:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">TypElement</span> <span class="n">element</span> <span class="p">:</span> <span class="n">collection</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Für unser Beispiel könnten wir den Iterator ersetzen durch diese Schleife:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">menge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;erster&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s3</span> <span class="o">=</span> <span class="s">&quot;dritter&quot;</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">s4</span> <span class="o">=</span> <span class="s">&quot;zweiter&quot;</span><span class="p">;</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s1</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s2</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s3</span><span class="p">));</span> <span class="c1">// true</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">s4</span><span class="p">));</span> <span class="c1">// false</span>
+
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">menge</span><span class="p">.</span><span class="na">size</span><span class="p">());</span> <span class="c1">// 3</span>
+
+<span class="hll">        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">menge</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">{</span>
+</span><span class="hll">            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Übrigens: anstelle der Collection (hier: <code>menge</code>) könnte auch ein Array stehen. Wenn Sie also vollständig durch Array laufen möchten, müssen Sie das nicht zwingend über alle Indizes machen, sondern können dafür auch diese <em>for-each</em>-Schleife verwenden. </p>
+<details><summary>Übung</summary><p>Ersetzen Sie im oberen Beispiel <code>HashSet</code> durch <code>TreeSet</code>. Erkennen Sie einen Unterschied?</p>
+</details>
+<h2 id="listen">Listen<a class="headerlink" href="#listen" title="Permanent link">&para;</a></h2>
+<p>Der Umgang mit Listen ist ähnlich dem Umgang mit Mengen, da beide von <code>java.util.Collection</code> abgeleitet sind. Deshalb stehen uns für Listen die gleichen Methoden zur Verfügung, wie für Mengen. Listen können wir uns eher wie Arrays vorstellen. In Listen gibt es, im Unterschied zu Mengen, index-basierte Zugriffe und auch Doppelungen. Wir betrachten ein Beispiel:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Collections</span> <span class="p">{</span>
+
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">fillList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> 
+        <span class="p">{</span> 
+            <span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">i</span><span class="p">));</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">())</span> 
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;End of list&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">fillList</span><span class="p">(</span><span class="n">list1</span><span class="p">);</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">list1</span><span class="p">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">fillList</span><span class="p">(</span><span class="n">list2</span><span class="p">);</span>
+        <span class="n">list2</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>      <span class="c1">// Wert!</span>
+        <span class="n">list2</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>        <span class="c1">// Index!</span>
+        <span class="n">list1</span><span class="p">.</span><span class="na">removeAll</span><span class="p">(</span><span class="n">list2</span><span class="p">);</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">list2</span><span class="p">);</span>       <span class="c1">// 0 1 2 4 5 6 8 9</span>
+        <span class="n">printList</span><span class="p">(</span><span class="n">list1</span><span class="p">);</span>       <span class="c1">// 3 7</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir erstellen uns zwei Listen <code>list1</code> (Zeile <code>26</code>) und <code>list2</code> (Zeile <code>30</code>). Beide sind vom Compilertyp <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html">List</a> und beide sind <em>typisiert</em> mit <code>String</code>, d.h. sie können nur Strings aufnehmen. </p>
+<p>Die Methode <code>fillList()</code> (Zeilen <code>5-11</code>) befüllt die übergebene Liste mit den Ziffern <code>0...9</code>. Da die Liste Strings erwartet, werden die <code>int</code>-Ziffern mithilfe von <code>String.valueOf()</code> in einen <code>String</code> umgewandelt (Zeile <code>9</code>). Die <code>add()</code>-Methode fügt die Strings hinzu (Zeile <code>9</code>).  </p>
+<p>Die Methode <code>printList()</code> (Zeilen <code>13-33</code>) gibt die Elemente der übergebenen Liste mithilfe des Iterators aus. Es wird jede Ziffer ausgegeben, gefolgt von einem Leerzeichen (Zeile <code>18</code>). </p>
+<p>Der Aufruf von <code>printList(list1);</code> in Zeile <code>28</code> führt zu folgender Ausgabe:</p>
+<div class="highlight"><pre><span></span><code><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="m">8</span> <span class="m">9</span> 
+End of list
+</code></pre></div>
+<p>Die Liste <code>list2</code> wird zunächst ebenfalls mit den Ziffern <code>0...9</code> (jeweils als <code>String</code>) befüllt. Die Anweisung <code>list2.remove("3");</code> in Zeile <code>32</code> bewirkt, dass der <strong>Wert</strong> <code>"3"</code> aus der Liste gelöscht wird. Nach diesem Löschen enthält die Liste <code>list2</code> noch folgende Werte:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;0&quot;</span> <span class="s2">&quot;1&quot;</span> <span class="s2">&quot;2&quot;</span> <span class="s2">&quot;4&quot;</span> <span class="s2">&quot;5&quot;</span> <span class="s2">&quot;6&quot;</span> <span class="s2">&quot;7&quot;</span> <span class="s2">&quot;8&quot;</span> <span class="s2">&quot;9&quot;</span> 
+</code></pre></div>
+<p>In Zeile <code>33</code> wird nun das Element aus der Liste gelöscht, das unter dem Index <code>6</code> gespeichert ist. Das ist das Element <code>"7"</code>. Nach dem Löschen des Elementes enthält die Liste <code>list2</code> noch folgende Werte:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;0&quot;</span> <span class="s2">&quot;1&quot;</span> <span class="s2">&quot;2&quot;</span> <span class="s2">&quot;4&quot;</span> <span class="s2">&quot;5&quot;</span> <span class="s2">&quot;6&quot;</span> <span class="s2">&quot;8&quot;</span> <span class="s2">&quot;9&quot;</span> 
+</code></pre></div>
+<p>Die Anweisung <code>list1.removeAll(list2);</code> in Zeile <code>34</code> bewirkt nun, dass aus <code>list1</code> alle Werte gelöscht werden, die (auch) in <code>list2</code> enthalten sind, also <code>"0" "1" "2" "4" "5" "6" "8" "9"</code>. Das bewirkt, dass in <code>list1</code> dann nur noch die Werte <code>"3" "7"</code> übrig bleiben. </p>
+<p>Die Anweisung <code>printList(list2);</code> in Zeile <code>35</code> bewirkt folgende Ausgabe: </p>
+<div class="highlight"><pre><span></span><code><span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">8</span> <span class="m">9</span> 
+End of list
+</code></pre></div>
+<p>Die Anweisung <code>printList(list1);</code> in Zeile <code>36</code> bewirkt folgende Ausgabe: </p>
+<div class="highlight"><pre><span></span><code><span class="m">3</span> <span class="m">7</span> 
+End of list
+</code></pre></div>
+<p>Die Methode <code>printList()</code> hätte anstelle den Iterator zu verwenden auch mit der <em>for-each</em>-Schleife implementiert werden können:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printList</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span> <span class="p">:</span> <span class="n">list</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s">&quot; &quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;End of list&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<details><summary>Übung</summary><p>Gegeben ist folgender Code:
+<div class="highlight"><pre><span></span><code>  <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+  <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span> <span class="n">s1</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="n">s2</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="p">}</span>
+  
+  <span class="n">s1</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>   
+</code></pre></div></p>
+<ol>
+<li>Was ist der Rückgabewert von <code>s1.addAll(s2);</code> und warum?</li>
+<li>Implementieren Sie die Ausgabe aller Werte von <code>s1</code> und <code>s2</code>. </li>
+</ol>
+</details>
+<h2 id="mengenoperationen">Mengenoperationen<a class="headerlink" href="#mengenoperationen" title="Permanent link">&para;</a></h2>
+<p>Angenommen, wir haben drei Mengen <code>A</code>, <code>B</code> und <code>C</code>, wobei alle Elemente aus <code>C</code> auch Elemente in <code>A</code> sind. Mithilfe der Methoden <code>addAll()</code>, <code>removeAll()</code>, <code>retainAll()</code>  und <code>containsAll()</code> lassen sich <a href="https://mathepedia.de/Mengenoperationen.html">Operationen über Mengen</a> beschreiben, wie die folgende Abbildung zeigt:</p>
+<p><img alt="collection" src="../files/38_collection.png" /></p>
+<h2 id="stack-und-queue">Stack und Queue<a class="headerlink" href="#stack-und-queue" title="Permanent link">&para;</a></h2>
+<p>Wir werden uns, wie bereits erwähnt, nicht ausfürhlich mit <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html">Stack</a> und <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html">Queue</a> beschäftigen, wollen aber hier der Vollständigkeit halber, die gesonderten Methoden angeben, die diese beiden Arten von Collections betreffen:</p>
+<h4 id="stack">Stack<a class="headerlink" href="#stack" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Last-In-First-Out-Prinzip</li>
+<li><code>push(E element)</code> zum Hinzufügen</li>
+<li><code>pop()</code> entfernt oberstes Element und gibt es zurück</li>
+<li><code>empty()</code> prüft, ob der Stack leer ist</li>
+</ul>
+<h4 id="queue">Queue<a class="headerlink" href="#queue" title="Permanent link">&para;</a></h4>
+<ul>
+<li>First-In-First-Out-Prinzip</li>
+<li><code>add()/offer()</code> zum Hinzufügen</li>
+<li><code>remove()/poll()</code> entfernt vorderstes Element und gibt es zurück</li>
+<li><code>element()/peek()</code> prüft, ob die Warteschlange leer ist</li>
+</ul>
+<h2 id="wertetypen-in-collections">Wertetypen in Collections<a class="headerlink" href="#wertetypen-in-collections" title="Permanent link">&para;</a></h2>
+<p>Wertetypen können nicht als Typen der Elemente in Collections verwendet werden. Es sind nur Referenztypen in Collections erlaubt. Für alle Wertetypen stehen entsprechende <em>Wrapper</em>-Klassen zur Verfügung: <code>Integer</code>, <code>Double</code>, <code>Float</code>, <code>Short</code>, <code>Byte</code>, <code>Long</code>, <code>Character</code>, <code>Boolean</code>:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">// Wertetypen können nicht als konkrete </span>
+<span class="c1">// Typen in Collections verwendet werden</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>    <span class="c1">// Fehler !!</span>
+
+<span class="c1">// Verwendung der Wrapper-Klassen + Auto-Boxing</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="n">l</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>        <span class="c1">// sogenanntes Auto-Boxing</span>
+</code></pre></div>
+</td></tr></table>
+<p>Das obere beispiel zeigt in Zeile <code>3</code>, wie es <strong>nicht</strong> geht. Die <code>List l</code> kann nicht mit <code>int</code> typisiert werden. Stattdessen muss die <em>Wrapper</em>-Klasse <code>Integer</code> verwendet werden. Wir betrachten <em>Wrapper</em>-Klassen im nächsten Abschnitt.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../mdarrays/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Mehrdimensionale Arrays" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Mehrdimensionale Arrays
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../maps/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Maps" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Maps
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

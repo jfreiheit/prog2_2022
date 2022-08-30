@@ -1,0 +1,2277 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/mausereignisse/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Mausereignisse - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mausereignisse" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mausereignisse
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#der-mouselistener" class="md-nav__link">
+    Der MouseListener
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canvas-meldet-sich-an-den-mouselistener-an" class="md-nav__link">
+    Canvas meldet sich an den MouseListener an
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-methoden-des-mouselistener" class="md-nav__link">
+    Die Methoden des MouseListener
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-methoden-des-mousemotionlistener" class="md-nav__link">
+    Die Methoden des MouseMotionListener
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objektmethoden-der-klasse-mouseevent" class="md-nav__link">
+    Objektmethoden der Klasse MouseEvent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zeichnen-mit-der-maus" class="md-nav__link">
+    Zeichnen mit der Maus
+  </a>
+  
+    <nav class="md-nav" aria-label="Zeichnen mit der Maus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-view-controller" class="md-nav__link">
+    Model-View-Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-1-kreise-zeichnen" class="md-nav__link">
+    Beispiel 1: Kreise zeichnen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-2-linien-zeichnen" class="md-nav__link">
+    Beispiel 2: Linien zeichnen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/mausereignisse.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="mausereignisse">Mausereignisse<a class="headerlink" href="#mausereignisse" title="Permanent link">&para;</a></h1>
+<p>In der letzten <a href="../graphics/#graphics">Lektion</a> haben wir uns angeschaut, wie wir eigene geometrische Objekte in einer GUI erzeugen können, d.h. wie haben "Zeichnen" in einer GUI gelernt. Um Zeichnen zu können, haben wir</p>
+<ul>
+<li>eine innere Klasse erstellt, die von <code>JPanel</code> geerbt hat,</li>
+<li>darin die Methode <code>paintComponent()</code> überschrieben und</li>
+<li>in dieser Methode Objektmethoden der Klasse <code>Graphics2D</code> aufgerufen, welche das Zeichnen von geometrischen Objekten ermöglichen.</li>
+</ul>
+<p>Nun wollen wir uns anschauen, wie wir Ereignisse der Maus behandeln. Bei den Mausereignissen unterscheiden wir zwei Arten von Ereignissen:</p>
+<ul>
+<li>Ereignisse der Maus, die einmalig von der Maus ausgelöst werden. Dazu gehören die Ereignisse, wenn die linke Maustaste gedrückt wird, wenn die gedrückte Taste losgelassen wird, wenn sich die Maus auf eine Komponente bewegt, die sich an den Mauslistener angemeldet hat oder wenn der Mauszeiger diese Komponente wieder verlässt. </li>
+<li>Ereignisse der Maus, die durch Bewegung der Maus permanent ausgelöst werden. Dazu gehört die Mausbewegung selbst oder auch die Bewegung der Maus bei gedrückter Taste.  </li>
+</ul>
+<p>Die erste Art von Mausereignissen können wir behandeln, indem wir</p>
+<ul>
+<li>den <code>MouseListener</code> implementieren und</li>
+<li>eine Komponente (z.B. unsere <code>Canvas</code>) an den <code>MouseListener</code> anmelden. </li>
+</ul>
+<p>Die zweite Art von Maus(-Bewegungs-)ereignissen können wir behandeln, indem wir</p>
+<ul>
+<li>den <code>MouseMotionListener</code> implementieren und</li>
+<li>eine Komponente (z.B. unsere <code>Canvas</code>) an den <code>MouseMotionListener</code> anmelden. </li>
+</ul>
+<p>Wir starten wieder mit einem einfachen Beispiel, welches auf unserem Gründgerüst für das Zeichnen basiert:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mausereignisse</span> <span class="kd">extends</span> <span class="n">JFrame</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">Mausereignisse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mausereignisse&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Canvas</span><span class="p">());</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+            <span class="c1">// hier koennen wir zeichnen</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Mausereignisse</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="der-mouselistener">Der <code>MouseListener</code><a class="headerlink" href="#der-mouselistener" title="Permanent link">&para;</a></h3>
+<p>In dieser Klasse implementieren wir zunächst den <code>MouseListener</code>, d.h. wir fügen in den Klassenkopf <code>implements MouseListener</code> ein und lassen durch Eclipse die zu implementierenden Methoden einfügen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mausereignisse</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">{</span>
+
+    <span class="kd">public</span> <span class="nf">Mausereignisse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mausereignisse&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="n">Canvas</span><span class="p">());</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+            <span class="c1">// hier koennen wir zeichnen</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Mausereignisse</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked&quot;</span><span class="p">);</span>     
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mousePressed&quot;</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseReleased&quot;</span><span class="p">);</span>            
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseEntered&quot;</span><span class="p">);</span>         
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseExited&quot;</span><span class="p">);</span>          
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wie wir sehen, sind es nun nicht mehr nur eine Methode, wie beim <code>ActionListener</code>, sondern gleich fünf Methoden, die wir implementieren können. Unsere zunächst einfachste Implementierung (aber zumindest am Anfang stets empfohlen!) ist die einfache Ausgabe auf die Konsole. Noch passiert aber nichts, denn wir dürfen nicht vergessen, uns an den <code>MouseListener</code> <strong>anzumelden</strong>!</p>
+<h3 id="canvas-meldet-sich-an-den-mouselistener-an"><code>Canvas</code> meldet sich an den <code>MouseListener</code> an<a class="headerlink" href="#canvas-meldet-sich-an-den-mouselistener-an" title="Permanent link">&para;</a></h3>
+<p>Wir könnten nun das gesamte Fenster an den <code>MouseListener</code> anmelden. Dazu würden wir in den Konstruktor von <code>Mausereignisse</code> ein <code>this.addMouseListener(this);</code> einfügen. Damit würde <code>this</code> (also das Objekt von <code>Mausereignisse</code>, welches ja selbst ein <code>JFrame</code> ist) an den <code>MouseListener</code> angemeldet. Die Methode <code>addMouseListener()</code> erwartet ein Objekt der Implementierung von <code>MouseListener</code>. Das wäre ebenfalls <code>this</code>, da der <code>MouseListener</code> in der Klasse <code>Mausereignisse</code> implementiert ist. </p>
+<p>Weil jedoch später der Umgang mit den Mausereignissen etwas leichter ist, wollen wir das <code>Canvas</code>-Objekt an den <code>MouseListener</code> anmelden. Es soll also nur die Zeichenfläche (geerbt von <code>JPanel</code>) an den <code>MouseListener</code> angemeldet werden und nicht das gesamte Fenster. Dazu speichern wir das <code>Canvas</code>-Objekt in eine Variable - und wir vereinfachen die Sache auch gleich ein bisschen, indem es keine lokale Variable im Konstruktor von <code>Mausereignisse</code> wird, sondern eine Objektvariable der Klasse. Diese Änderungen und das Anmelden von <code>canvas</code> an den <code>MouseListener</code> sehen so aus:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mausereignisse</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">{</span>
+<span class="hll">    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+</span>
+    <span class="kd">public</span> <span class="nf">Mausereignisse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mausereignisse&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+            <span class="c1">// hier koennen wir zeichnen</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Mausereignisse</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked&quot;</span><span class="p">);</span>     
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mousePressed&quot;</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseReleased&quot;</span><span class="p">);</span>            
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseEntered&quot;</span><span class="p">);</span>         
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseExited&quot;</span><span class="p">);</span>          
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Wir erstellen uns also eine Objektvariable <code>canvas</code> (Zeile <code>10</code>), welche eine Referenz auf das <code>Canvas</code>-Objekt ist, das wir im Konstruktor erzeugen (Zeile <code>18</code>). Diese Referenz übergeben wir dann auch der <code>ContentPane</code> (Zeile <code>20</code>). Mithilfe der Methode <code>addMouseListener()</code> melden wir das <code>Canvas</code>-Objekt an den <code>MouseListener</code> an (Zeile <code>19</code>). Da der <code>MouseListener</code> in der Klasse <code>Mausereignisse</code> implementiert ist, wird als Implementierung des <code>MouseListeners</code> <code>this</code> übergeben (Zeile <code>19</code>). </p>
+<h3 id="die-methoden-des-mouselistener">Die Methoden des <code>MouseListener</code><a class="headerlink" href="#die-methoden-des-mouselistener" title="Permanent link">&para;</a></h3>
+<p>Nun ist der <code>MouseListener</code> implementiert und das <code>Canvas</code>-Objekt ist an den <code>MouseListener</code> angemeldet. Wir können nun die einzelnen Methoden des <code>MouseListener</code> ausprobieren:</p>
+<ul>
+<li><code>mousePressed()</code> wird aufgerufen, wenn die (linke) Maustaste heruntergedrückt wird. Drücken Sie die Maustaste und halten Sie sie gedrückt. In der Konsole erscheint <code>mousePressed</code>.</li>
+<li><code>mouseReleased()</code> wird aufgerufen, wenn die (linke) Maustaste nach dem Drücken wieder losgelassen wird. Lassen Sie die Maustaste, nachdem auf der Konsole <code>mousePressed</code> erschienen ist, wieder los. In der Konsole erscheint <code>mouseReleased</code>.</li>
+<li><code>mouseClicked()</code> wird aufgerufen, wenn erst <code>mousePressed()</code> und dann <code>mouseReleased()</code> aufgerufen wurde. <code>mouseClicked()</code> beschreibt also die Kombination aus Maustaste gedrückt und Maustaste losgelassen - einen Maus-Klick also.</li>
+<li><code>mouseEntered()</code> wird aufgerufen, wenn Sie den Mauszeiger auf die Komponente bewegen, die an den <code>MouseListener</code> angemeldet ist. Wenn Sie in unserem Fall also die Maus in die Zeichenfläche <code>canvas</code> bewegen, dann wird die Methode <code>mouseEntered()</code> einmalig ausgeführt. </li>
+<li><code>mouseExited()</code> wird aufgerufen, wenn Sie den Mauszeiger von der Komponente wieder wegbewegen, die an den <code>MouseListener</code> angemeldet ist. Wenn Sie in unserem Fall also die Maus von der Zeichenfläche in die Titelleiste des Fensters oder ganz aus dem Fenster (der <code>ContentPane</code>) bewegen, dann wird die Methode <code>mouseExited()</code> einmalig ausgeführt. </li>
+</ul>
+<details class="übung"><summary>Übung</summary><p>Probieren Sie intensiv aus, wann welche Methoden aufgerufen werden! <br/>
+1. Schaffen Sie es, dass zwar <code>mousePressed</code> und danach <code>mouseReleased</code> auf der Konsole erscheint, nicht aber <code>mouseClicked</code>? Wann ist das der Fall? <br/>
+2. Erzeugen Sie folgende Ausgabereihenfolge auf der Konsole: <code>mousePressed</code>, <code>mouseExited</code>, <code>mouseReleased</code>, <code>mouseEntered</code>!</p>
+</details>
+<h3 id="die-methoden-des-mousemotionlistener">Die Methoden des <code>MouseMotionListener</code><a class="headerlink" href="#die-methoden-des-mousemotionlistener" title="Permanent link">&para;</a></h3>
+<p>Wir implementieren jetzt auch noch den <code>MouseMotionListener</code>. Wir dürfen erneut nicht die <strong>beiden</strong> Schritte vergessen:</p>
+<ol>
+<li>Implementieren des <code>MouseMotionListener</code> (also <code>implements MouseMotionListener</code>) <strong>und</strong></li>
+<li>Anmelden an den <code>MouseMotionListener</code> (also <code>canvas.addMouseMotionListener(this);</code>)</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">java.awt.event.MouseMotionListener</span><span class="p">;</span>
+</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mausereignisse</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">,</span> <span class="n">MouseMotionListener</span><span class="p">{</span>
+</span>    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Mausereignisse</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Mausereignisse&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseMotionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        <span class="c1">// Implementierung von JPanel aufrufen</span>
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  <span class="c1">// Methoden von Graphics2D nutzbar</span>
+            <span class="c1">// hier koennen wir zeichnen</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">Mausereignisse</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * die naechtsten fuenf Methoden sind Methoden</span>
+<span class="cm">     * von MouseListener</span>
+<span class="cm">     */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked&quot;</span><span class="p">);</span>     
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mousePressed&quot;</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseReleased&quot;</span><span class="p">);</span>            
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseEntered&quot;</span><span class="p">);</span>         
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseExited&quot;</span><span class="p">);</span>          
+    <span class="p">}</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * die naechtsten beiden Methoden sind Methoden</span>
+<span class="cm">     * von MouseMotionListener</span>
+<span class="cm">     */</span>
+<span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseDragged&quot;</span><span class="p">);</span>     
+</span><span class="hll">    <span class="p">}</span>
+</span>
+<span class="hll">    <span class="nd">@Override</span>
+</span><span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseMoved&quot;</span><span class="p">);</span>           
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beachten Sie, dass die Methoden <code>mouseDragged()</code> bzw. <code>mouseMoved()</code> permanent, d.h. bei jeder (kleinsten) Bewegung der Maus aufgerufen werden. </p>
+<ul>
+<li><code>mouseMoved()</code> wird bei jeder (kleinsten) Mausbewegung aufgerufen, wobei die Maustaste nicht gedrückt ist.</li>
+<li><code>mouseDragged()</code> wird bei jeder (kleinsten) Mausbewegung aufgerufen, wobei die Maustaste gedrückt gehalten wird. </li>
+</ul>
+<p>Wenn Sie anhand der Konsolenausgaben geprüft haben, dass die Methoden "funktionieren", dann können Sie dort die Konsolenausgaben auch wieder auskommentieren, da Ihre Konsole ansonsten zu "vollgeschreiben" wird. </p>
+<h3 id="objektmethoden-der-klasse-mouseevent">Objektmethoden der Klasse <code>MouseEvent</code><a class="headerlink" href="#objektmethoden-der-klasse-mouseevent" title="Permanent link">&para;</a></h3>
+<p>All diesen Methoden, sowohl vom <code>MouseListener</code> als auch vom <code>MouseMotionListener</code> wird ein <code>MouseEvent</code> als Parameter übergeben. Dieses Objekt besitzt einige nützliche Objektmethoden. Die wichtigsten dabei sind sicherlich die Auskünfte darüber, <strong>wo</strong> das Mausereignis ausgelöst wurde. Wir betrachten einige Objektmethoden des <code>MouseEvent</code>-Objekts am Beispiel der <code>mouseClicked(MouseEvent e)</code>-Methode (kommentieren Sie die Konsolenausgabe der beiden Methoden vom <code>MouseMotionListener</code> aus, damit Sie sich auf die Ausgabe von <code>mouseClicked()</code> konzentrieren können). </p>
+<ul>
+<li>die Methode <code>getX()</code> gibt den <code>x</code>-Wert der Koordinate zurück, bei dem das <code>MouseEvent</code> stattgefunden hat. Die Koordinate bezieht sich auf die Komponente, die an den <code>MouseListener</code> (bzw. <code>MouseMotionListener</code>) angemeldet ist. Das ist auch der Grund, warum wir nicht das gesamte Fenster an den <code>MouseListener</code>  (und <code>MouseMotionListener</code>) angemeldet haben. Der Punkt <code>[x=0, y=0]</code> befindet sich bei dem <code>Canvas</code>-Objekt in der linken oberen Ecke der <code>ContentPane</code>. Der Punkt mit den Koordinaten <code>[x=0, y=0]</code> beim Fenster ist der linke obere Punkt des Fensters, d.h. der linke obere Punkt der Titelleiste. </li>
+<li>die Methode <code>getY()</code> gibt den <code>y</code>-Wert der Koordinate zurück, bei dem das <code>MouseEvent</code> stattgefunden hat (Koordinate der Komponente).</li>
+<li>die Methode <code>getPoint()</code> gibt ein <code>Point</code>-Objekt (von <code>java.awt</code>) zurück. Ein <code>Point</code>-Objekt besitzt die sichtbaren Objektvariablen <code>x</code> und <code>y</code> für die Koordinaten.</li>
+</ul>
+<p>Wir probieren beide Möglichkeiten aus, die Koordinaten zu erfragen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>   
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beide Ausgaben zeigen (natürlich) die gleichen Koordinaten an, z.B. </p>
+<div class="highlight"><pre><span></span><code>mouseClicked bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">388</span> ,y<span class="o">=</span><span class="m">215</span><span class="o">]</span>
+mouseClicked bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">388</span> ,y<span class="o">=</span><span class="m">215</span><span class="o">]</span>
+</code></pre></div>
+<p>Beachten Sie, dass Sie in allen Methoden, in denen das <code>MouseEvent</code> übergeben wird, die Koordinaten des Ereignisses auslesen können. Für <code>mouseMoved()</code> sieht die Implementierung gleich aus. Die Ausgabe ist nur deutlich häufiger, da jede Mausbewegung (ohne gedrückte Maustaste) zum Aufruf der Methode führt. </p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseMoved bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>             
+    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Beide Ausgaben zeigen (natürlich) die gleichen Koordinaten an, z.B. </p>
+<div class="highlight"><pre><span></span><code>mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">267</span> ,y<span class="o">=</span><span class="m">242</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">282</span> ,y<span class="o">=</span><span class="m">261</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">282</span> ,y<span class="o">=</span><span class="m">261</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">298</span> ,y<span class="o">=</span><span class="m">280</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">298</span> ,y<span class="o">=</span><span class="m">280</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">309</span> ,y<span class="o">=</span><span class="m">292</span><span class="o">]</span>
+mouseMoved bei <span class="o">[</span><span class="nv">x</span><span class="o">=</span><span class="m">309</span> ,y<span class="o">=</span><span class="m">292</span><span class="o">]</span>
+</code></pre></div>
+<p>Manchmal sind die Mausbewegungen, die ein Auslösen des Ereignisses zur Folge haben, sogar so klein, dass sich die Koordinaten gar nicht ändern. </p>
+<p>Weiterhin kann mithilfe des <code>MouseEvent</code>-Objektes überprüft werden, ob während des auslösenden Mausereignisses eine besondere Taste auf der Tastatur gedrückt wurde, z.B. die <code>Alt</code>-Taste (linke <code>option</code>-Taste beim Mac), die <code>AltGraph</code>-Taste (rechte <code>option</code>-Taste beim Mac), die <code>Ctrl</code>-Taste, oder die <code>Meta</code>-Taste (<code>Windows</code>-Taste bzw. <code>Apple</code>-Taste):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>   
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isAltDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alt-Taste gedrueckt&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isAltGraphDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;AltGraph-Taste gedrueckt&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isControlDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ctrl-Taste gedrueckt&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isMetaDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Meta-Taste gedrueckt&quot;</span><span class="p">);</span>
+</span><span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isShiftDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Shift-Taste gedrueckt&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Probieren Sie die Maus-Klicks bei unterschiedlich gedrückter Taste auf der Tastatur aus!</p>
+<p>Mithilfe der Objektmethode <code>getClickCount()</code> lässt sich die Anzahl die Klicks abfragen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getX</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getY</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>   
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isAltDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alt-Taste gedrueckt&quot;</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isAltGraphDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;AltGraph-Taste gedrueckt&quot;</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isControlDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Ctrl-Taste gedrueckt&quot;</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isMetaDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Meta-Taste gedrueckt&quot;</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">isShiftDown</span><span class="p">())</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Shift-Taste gedrueckt&quot;</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getClickCount</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Doppelklick&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Nochmal, weil es wichtig ist: alle diese Objektmethoden stehen allen Methoden zur Verfügung, denen ein <code>MouseEvent</code> übergeben wird. Wir können sie also in allen Methoden aus <code>MouseListener</code> und <code>MouseMotionListener</code> anwenden. </p>
+<h2 id="zeichnen-mit-der-maus">Zeichnen mit der Maus<a class="headerlink" href="#zeichnen-mit-der-maus" title="Permanent link">&para;</a></h2>
+<p>Wir können nun zwei Sachen:</p>
+<ul>
+<li>Zeichnen und</li>
+<li>Mausereignisse behandeln.</li>
+</ul>
+<p>Diese beiden Fähigkeiten wollen wir nun miteinander verbinden. Dazu zunächst einige theoretische Vorüberlegungen.</p>
+<h3 id="model-view-controller">Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permanent link">&para;</a></h3>
+<p>Unter <em>Model-View-Controller</em> versteht man ein Entwurfsmuster (ein <em>Design Pattern</em>), welches ein wesentliches Konzept bei Anwendungen darstellt, die eine GUI besitzen. Wir werden es in diesem Semester nicht mehr schaffen, ausführlich auf dieses Konzept einzugehen, aber wir betrachten ein paar wesentliche Grundsätze daraus, die auch für unsere Anwendungen wichtig sind. Die Grundidee bei <em>Model-View-Controlle (MVC)</em> ist die Unterscheidung von drei Aufgaben:</p>
+<ul>
+<li>Das <em>Model</em> kümmert sich um die Datenverwaltung. Es gibt eine oder mehrere Datenstrukturen, in denen Daten gespeichert werden. Das <em>Model</em>  kümmert sich darum, diese Datenstrukturen zu erstellen und Daten in diese Datenstrukturen einzufügen, zu ändern oder zu löschen. </li>
+<li>Der <em>Controller</em> verwaltet die Nutzerinteraktionen. Auf der Basis bestimmter Aktionen, die durch die Nutzerin verursacht werden (Mausklicks, Tatstureingaben, ...) stößt der <em>Controller</em> beim <em>Model</em> eine Änderung der der Datenverwaltung an (Daten hinzufügen, ändern oder löschen) und er stößt bei der <em>View</em>  die Darstellung der Daten an. Der <em>Controller</em> hat also Zugriff auf das <em>Model</em>  und auf die <em>View</em>. </li>
+<li>Die <em>View</em>  kümmert sich um die Darstellung der Daten in der GUI. Die <em>View</em> hat also Zugriff auf das <em>Model</em>, denn die <em>View</em> verwendet die vom <em>Model</em> verwalteten Daten, um diese darzustellen. </li>
+</ul>
+<p>Diese drei Aufgaben sollten möglichst losgelöst voneinander gelöst werden, d.h. es sollte möglichst keine Überschneidungen zwischen diesen Komponenten geben. Für uns ist es in diesem Zusammenhang wichtig, dass die <code>paintComponent()</code>-Methode unsere <em>View</em> ist. In der <code>paintComponent()</code>-Methode können wir zeichnen, d.h. Daten visualisieren. Wir sollten</p>
+<ul>
+<li>keine weitere Methode (außer die <code>paintComponent()</code>-Methode) haben, die etwas zeichnet und wir sollten</li>
+<li>in der <code>paintComponent()</code>-Methode keine Verwaltung von Daten durchführen. </li>
+</ul>
+<p>Unser <em>Controller</em> ist die Implementierung der <code>Listener</code>, je nachdem, welche Nutzerinteraktionen wir unterstützen und behandeln wollen, also z.B. <code>ActionListener</code>, <code>MouseListener</code> und/oder <code>MouseMotionListener</code>. </p>
+<p>Unsere Herausforderung ist nun, ein <em>Model</em> zu erstellen. Dazu müssen wir stets überlegen, welche Daten wir benötigen, damit die <em>View</em> (die <code>paintComponent()</code>-Methode) die Objekte zeichnen kann, die gewünscht sind. </p>
+<p>Wir wollen diese theoretischen Überlegungen an einigen Beispielen erläutern. </p>
+<h3 id="beispiel-1-kreise-zeichnen">Beispiel 1: Kreise zeichnen<a class="headerlink" href="#beispiel-1-kreise-zeichnen" title="Permanent link">&para;</a></h3>
+<p>Unser erstes Beispiel ist einfach. Wir wollen mit der Maus in unsere <code>Canvas</code> klicken und dort, wo wir hingeklickt haben, soll ein schwarzer, ausgefüllter Kreis erscheinen. Alle Kreise haben den gleichen (einen festen) Durchmesser. Dazu folgende Überlegungen:</p>
+<ul>
+<li><em>View</em>: in der <code>paintComponent()</code>-Methode können wir z.B. mithilfe der <code>fillOval()</code>-Methode Kreise zeichnen. Wir müssen nur die Koordinaten <code>x</code> und <code>y</code> kennen, an denen der jeweilige Kreis gezeichnet werden soll. </li>
+<li><em>Controller</em>: um zu wissen, wo wir mit der Maus in die <code>Canvas</code> geklickt haben, müssen wir den <code>MouseListener</code> implementieren.</li>
+<li><em>Model</em>: wir müssen Koordinaten speichern, also entweder <code>int</code>-Werte <code>x</code> und <code>y</code> oder gleich Objekte vom Typ <code>Point</code>. Wir entscheiden uns für Letzteres. Da wir nicht wissen, wie viele <code>Point</code>-Objekte gespeichert werden sollen, kommt ein <code>Array</code> nicht in Frage. Wir benötigen Eine <code>Collection</code>. Hier ist es egal, ob <code>List</code> oder <code>Set</code>. Wir entscheiden uns für <code>List</code>. </li>
+</ul>
+<p>Wir starten erneut mit unserem Grundgerüst für das Zeichnen, haben dort aber bereits den <code>MouseListener</code> implementiert:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">KreiseZeichnen.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KreiseZeichnen</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span> <span class="p">{</span>
+    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">KreiseZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Kreise zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="c1">// die View</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+            <span class="c1">// hier koennen wir zeichnen</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">KreiseZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// der Controller</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>   
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Im Sinne des <em>Controllers</em> sind wir nur daran interessiert, die <code>mouseClicked()</code>-Methode des <code>MouseListener</code> zu implementieren, aber natürlich müssen die anderen Methoden des <code>MouseListener</code> auch "implementiert" werden, ansonsten bliben sie abstrakt und somit die ganze Klasse. Wir lassen sie aber leer. </p>
+<p>Wir fügen nun das <em>Model</em> ein, nämlich eine Liste aus lauter Punkten, d.h. ein <code>List&lt;Point</code>, die wir <code>points</code> nennen. Wir erzeugen die Liste im Konstruktor der Klasse, da wir sowohl in <code>mouseClicked()</code>, als auch in <code>paintComponent()</code> auf diese Liste zugreifen wollen, deklarieren wir sie als globale Variable. </p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Einfügen des Models</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+</span><span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span class="hll"><span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KreiseZeichnen</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span> <span class="p">{</span>
+    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+<span class="hll">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">points</span><span class="p">;</span>
+</span>
+    <span class="kd">public</span> <span class="nf">KreiseZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Kreise zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">points</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+<span class="hll">        <span class="kd">final</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">DURCHMESSER</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span>
+        <span class="c1">// die View</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+
+<span class="hll">            <span class="k">for</span><span class="p">(</span><span class="n">Point</span> <span class="n">p</span> <span class="p">:</span> <span class="n">KreiseZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">points</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">{</span>
+</span><span class="hll">                <span class="n">g2</span><span class="p">.</span><span class="na">fillOval</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="na">x</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span><span class="p">,</span> <span class="n">DURCHMESSER</span><span class="p">,</span> <span class="n">DURCHMESSER</span><span class="p">);</span>
+</span><span class="hll">            <span class="p">}</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">KreiseZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// der Controller</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;mouseClicked bei [x=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">x</span> <span class="o">+</span><span class="s">&quot; ,y=&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">.</span><span class="na">y</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="p">);</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">points</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">repaint</span><span class="p">();</span>
+</span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir betrachten die Änderungen im Detail:</p>
+<ul>
+<li>Die Klasse <code>Point</code> existiert in <code>java.awt</code>-Paket und muss von dort importiert werden (Zeile <code>3</code>).</li>
+<li>Die Klasse <code>List</code> gibt es zwei Mal! Wir wollen hier die <code>Collection</code> verwenden und nutzen deshalb die Klasse <code>List</code> aus dem <code>java.util</code>-Paket. Hier müssen Sie aufpassen, dass Sie die richtige <code>List</code>-Klasse importieren (Zeile <code>7</code>). </li>
+<li>Die Klasse <code>ArrayList</code> ist aber eindeutig und wird aus dem <code>java.util</code>-Paket importiert (Zeile <code>6</code>).</li>
+<li>In Zeile <code>14</code> wird die <em>globale</em> Variable <code>points</code> vom Typ <code>List&lt;Point&gt;</code> deklariert. Sie muss global sein, damit wir sowohl in der <code>mouseClicked()</code>-, als auch in der <code>paintComponent()</code>-Methode darauf Zugriff haben. </li>
+<li>In Zeile <code>22</code> erzeugen wir ein Objekt der Klasse <code>ArrayList</code> für die <code>points</code>-Referenz. </li>
+<li>In Zeile <code>34</code> erstellen wir eine Konstante <code>DURCHMESSER</code>, mit der wir den Durchmesser der Kreise festlegen, die wir durch die Maus-Klicks erzeugen wollen. Hier ist es Geschmackssache, ob sie diese Konstante als <code>static</code> deklarieren oder nicht. Die Unterscheidung liegt darin, ob Sie allen Objekten aus <code>Canvas</code> diesen Wert mitgeben sollen oder ob jedes <code>Canvas</code>-Objekt "seinen eigenen" <code>DURCHMESSER</code> haben soll. Da wir eh nur ein Objekt von <code>Canvas</code> erzeugen, macht es hier keinen Unterschied. </li>
+<li>In den Zeilen <code>43-46</code> wird die Datenstruktur <code>List</code> ausgelesen und jeder einzelne <code>Point</code> darin verwendet, um einen Kreis an diese Stelle zu zeichnen. Hier greift die <em>View</em> auf das <em>Model</em> zu (aber nur lesend!). Hier ist also unsere einzige Verbindung zwischen <em>Model</em> und <em>View</em>. Es sei an dieser Stelle angemerkt, dass die <em>View</em>  das Model auch dazu verwenden könnte, um z.B. Quadrate mit der Größe <code>100x100</code> zu zeichnen oder rote Kreise oder ... Insofern ist das <em>Model</em> unabhängig von der <em>View</em> und genau das wollen wir auch erreichen. Wir sehen hier auch den Zugriff auf eine Objekteigenschaft von der inneren in die äußere Klasse. Um auf die Objekteigenschaft <code>points</code> der äußeren Klasse zuzugreifen, schreiben wir <code>KreiseZeichnen.this.points</code> (siehe auch )</li>
+<li>In Zeile <code>60</code> wird die Liste (also das <em>Model</em>) durch die Interaktionen der Nutzerin (also durch den <em>Controller</em>) befüllt. Immer dort, wohin mit der Maus geklickt wird, wird dieser <code>Point</code> in der Datenstruktur Liste (also im <em>Model</em>) gespeichert. Hier sehen wir die einzige Verbindung zwischen <em>Controller</em>  und <em>Model</em>. Der <em>Controller</em> greift auf das <em>Model</em> zu und stößt das Speichern eines Datums an. </li>
+<li>Zeile <code>62</code> ist <strong>sehr wichtig</strong> und wird häufig vergessen. Hier "triggert" der <em>Controller</em> die <em>View</em>. Wenn wir uns an die Einführung des Zeichnens erinnern, dann wird ein Fenster mit allen seinen Komponenten "gezeichnet". Wenn wir die <code>Canvas</code> mit neuen Kreisen "befüllen", dann bewirkt das nicht automatisch ein Neuzeichnen der <code>Canvas</code>. Ein Neuzeichnen würde nur erfolgen, wenn wir bspw. die Fenstergröße ändern oder das Fenster in die Taskleiste bewegen und wieder öffnen. Um ein Neuzeichnen aus dem Programm heraus anzustoßen, benötigen wir die Methode <code>repaint()</code>. Wir hätten auch <code>this.repaint();</code> angeben können, dann wäre das gesamte Fenster neu gezeichnet worden (inkl. der <code>Canvas</code>). Mit <code>this.canvas.repaint();</code> wird "nur" die <code>Canvas</code> neu gezeichnet.  </li>
+</ul>
+<p><img alt="maus" src="../files/87_maus.png" /></p>
+<details class="übung"><summary>Übung</summary><ol>
+<li>Ändern Sie das Programm so, dass die Punkte als Mittelpunkte der Kreise verwendet werden! <br/></li>
+<li>Ändern Sie das Programm so, dass rote Quadrate der Größe <code>30x30</code> anstelle der schwarzen Kreise gezeichnet werden! <br/></li>
+<li>Ändern Sie das Programm so, dass die Punkte nur durch einen Doppelklick der Maus erfasst werden (einfacher Mausklick genügt nicht)! <br/></li>
+</ol>
+</details>
+<h3 id="beispiel-2-linien-zeichnen">Beispiel 2: Linien zeichnen<a class="headerlink" href="#beispiel-2-linien-zeichnen" title="Permanent link">&para;</a></h3>
+<p>In unserem zweiten Beispiel wollen wir Linien zeichnen. Dabei soll das Vorgehen so sein:</p>
+<ol>
+<li>Wir klicken mit der Maus und legen dabei den Anfangspunkt der Linie fest.</li>
+<li>Wir halten die Maustaste gedrückt und bewegen bei gedrückter Maustaste die Maus. Dabei wird die Linie bereits gezeichnet. </li>
+<li>Wir lassen die Maustaste los. dadurch steht der Endpunkt der Linie fest. </li>
+</ol>
+<p>Für Punkt <code>1.</code> implementieren wir die Methode <code>mousePressed()</code> und wir benötigen somit den <code>MouseListener</code>. <br/>
+Für Punkt <code>2.</code> implementieren wir die Methode <code>mouseDragged()</code> und wir benötigen somit den <code>MouseMotionListener</code>. <br/>
+Für Punkt <code>3.</code> implementieren wir die Methode <code>mouseReleased()</code> aus dem <code>MouseListener</code>. <br/></p>
+<p>Wir starten erneut mit unserem Grundgerüst für das Zeichnen, haben dort aber bereits den <code>MouseListener</code> und den <code>MouseMotionListener</code>implementiert und die Methoden, die uns nicht interessieren, zusammengekürzt:</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">LinienZeichnen.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseMotionListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinienZeichnen</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">,</span> <span class="n">MouseMotionListener</span> <span class="p">{</span>
+    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">LinienZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Linien zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseMotionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="c1">// die View</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">LinienZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// der Controller</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Wir überlegen uns nun das <em>Model</em>. Dies ist etwas komplexer, als das <em>Model</em> für das Zeichnen der Kreise. Es gibt</p>
+<ul>
+<li><em>gespeicherte</em> Linien. Diese Linien sind bereits fertig erstellt. Diese Linien sollten in einer <code>Collection</code> gespeichert werden. Es bietet sich wieder eine Liste an (Menge ginge auch). Das Typisieren dieser Liste liegt jedoch nicht auf der Hand, da es im Gegensatz zu <code>Point</code> keine Klasse für eine <code>Linie</code> gibt, die wir benutzen könnten. Müssen wir uns also selber schreiben.</li>
+<li>eine <em>aktuelle</em> Linie. Das ist die Linie, die gerade gezeichnet wird. Diese Linie ist noch nicht gespeichert, d.h. die Maustaste wurde noch nicht losgelassen. Es kann auch sein, dass aktuell keine Linie gezeichnet wird, dann ist der Wert dafür <code>null</code>. Auch diese <em>aktuelle</em> Linie sollte vom Typ <code>Linie</code> sein, den wir uns zunächst erstellen. </li>
+</ul>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Linie.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Linie</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">start</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">ende</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">Linie</span><span class="p">(</span><span class="n">Point</span> <span class="n">start</span><span class="p">,</span> <span class="n">Point</span> <span class="n">ende</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">start</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">ende</span> <span class="o">=</span> <span class="n">ende</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEnde</span><span class="p">(</span><span class="n">Point</span> <span class="n">newEnde</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">ende</span> <span class="o">=</span> <span class="n">newEnde</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getXstart</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">start</span><span class="p">.</span><span class="na">x</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getYstart</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">start</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getXende</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">ende</span><span class="p">.</span><span class="na">x</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getYende</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="na">ende</span><span class="p">.</span><span class="na">y</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Mit dem Konstruktor können wir uns ein Objekt von <code>Linie</code> erstellen (im <em>Controller</em> bei <code>mousePressed()</code>) und haben dann mithilfe von <code>setEnde()</code> die Möglichkeit, den Endpunkt der <code>Linie</code> noch zu ändern (im <em>Controller</em> bei <code>mouseDragged()</code>. Die <em>Getter</em> benötigen wir in der <em>View</em>, um die Werte der Start- und Endpunkte der <code>Linie</code> auszulesen. </p>
+<p>Wir beginnen zunächst damit, <strong>eine</strong> Linie zu erzeugen:</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">LinienZeichnen.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseMotionListener</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinienZeichnen</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">,</span> <span class="n">MouseMotionListener</span> <span class="p">{</span>
+    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+<span class="hll">    <span class="n">Linie</span> <span class="n">aktLinie</span><span class="p">;</span>
+</span>
+    <span class="kd">public</span> <span class="nf">LinienZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Linien zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseMotionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="c1">// die View</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+
+<span class="hll">            <span class="k">if</span><span class="p">(</span><span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">{</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getXstart</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getYstart</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getXende</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getYende</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">                <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">);</span>
+</span><span class="hll">            <span class="p">}</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">LinienZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// der Controller</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">aktLinie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Linie</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">setEnde</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">repaint</span><span class="p">();</span>
+</span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<ul>
+<li>Die Variable <code>aktLinie</code> ist <em>global</em>, weil wir sowohl in den Methoden <code>mousepressed()</code> und <code>mouseDragged</code> als auch in <code>paintComponent()</code> darauf zugreifen wollen (Zeile <code>13</code>).</li>
+<li>In der <code>paintComponent()</code>-Methode (unserer <em>View</em>) lesen wir diese <code>Linie</code> aus, um sie grafisch als Linie darzustellen. Der Zugriff auf die Eigenschaften des Objektes <code>aktLinie</code> erfolgt aber nur, wenn <code>aktLinie</code> auch tatsächlich auf ein Objekt zeigt. Wir prüfen deshalb zunächst, ob <code>aktLinie</code> nicht <code>null</code> ist (Zeile <code>40</code>).</li>
+<li>Nachdem wir die <code>x</code>- und <code>y</code>-Werte des <code>start</code>- und des <code>ende</code>-Punktes der <code>aktLinie</code> ausgelesen haben (Zeilen <code>42-45</code>), stellen wir eine Linie grafisch mithilfe der <code>drawLine()</code>-Methode dar. </li>
+<li>Das Objekt einer <code>Linie</code> wird in der <code>mousePressed()</code>-Methode erstellt. Der <code>start</code>- und der <code>ende</code>-Punkt dieser <code>Linie</code> sind zunächst gleich (die Linie ist also am Anfang nur ein Punkt) - Zeile <code>61</code>.</li>
+<li>Wenn wir bei gedrückter Maustaste die Maus bewegen, wird permanent die <code>mouseDragged()</code>-Methode aufgerufen. Dort setzen wir die aktuelle Position der Maus als neuen <code>ende</code>-Punkt von <code>aktLinie</code> (Zeile <code>67</code>).</li>
+<li>Zeile <code>69</code> ist wieder <strong>sehr wichtig</strong> (und wird häufig vergessen). Hier "triggert" der <em>Controller</em> die <em>View</em>. Wenn wir die <code>Canvas</code> mit einer neuen Linie "befüllen", dann bewirkt das nicht automatisch ein Neuzeichnen der <code>Canvas</code>. Das Neuzeichnen erfolgt erst durch den Aufruf <code>this.canvas.repaint();</code>.  </li>
+</ul>
+<p>Wir können nun viele Linien zeichnen, aber diese werden noch nicht gespeichert. Zum Speichern der Linien benötigen wir wieder eine Collection. Das Speichern der aktuellen Linie in diese Collection erfolgt in dem Moment, indem wir die Maustaste wieder loslassen, also in <code>mouseReleased()</code>. Die Collection muss wieder <em>global</em> verfügbar sein. </p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">LinienZeichnen.java</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.awt.Graphics</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Graphics2D</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.Point</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseEvent</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseListener</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.MouseMotionListener</span><span class="p">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span class="hll"><span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JFrame</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinienZeichnen</span> <span class="kd">extends</span> <span class="n">JFrame</span> <span class="kd">implements</span> <span class="n">MouseListener</span><span class="p">,</span> <span class="n">MouseMotionListener</span> <span class="p">{</span>
+    <span class="n">Canvas</span> <span class="n">canvas</span><span class="p">;</span>
+    <span class="n">Linie</span> <span class="n">aktLinie</span><span class="p">;</span>
+<span class="hll">    <span class="n">List</span><span class="o">&lt;</span><span class="n">Linie</span><span class="o">&gt;</span> <span class="n">linien</span><span class="p">;</span>
+</span>
+    <span class="kd">public</span> <span class="nf">LinienZeichnen</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kd">super</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Linien zeichnen&quot;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setDefaultCloseOperation</span><span class="p">(</span><span class="n">JFrame</span><span class="p">.</span><span class="na">EXIT_ON_CLOSE</span><span class="p">);</span>    
+
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">linien</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span>        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Canvas</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">addMouseMotionListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">getContentPane</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setLocation</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">setVisible</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Canvas</span> <span class="kd">extends</span> <span class="n">JPanel</span>
+    <span class="p">{</span>
+        <span class="c1">// die View</span>
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">paintComponent</span><span class="p">(</span><span class="n">Graphics</span> <span class="n">g</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kd">super</span><span class="p">.</span><span class="na">paintComponent</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>        
+            <span class="n">Graphics2D</span> <span class="n">g2</span> <span class="o">=</span> <span class="p">(</span><span class="n">Graphics2D</span><span class="p">)</span><span class="n">g</span><span class="p">;</span>  
+
+            <span class="k">if</span><span class="p">(</span><span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getXstart</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getYstart</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getXende</span><span class="p">();</span>
+                <span class="kt">int</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">getYende</span><span class="p">();</span>
+
+                <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">);</span>
+            <span class="p">}</span>
+
+<span class="hll">            <span class="k">for</span><span class="p">(</span><span class="n">Linie</span> <span class="n">l</span> <span class="p">:</span> <span class="n">LinienZeichnen</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">linien</span><span class="p">)</span>
+</span><span class="hll">            <span class="p">{</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="na">getXstart</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="na">getYstart</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="na">getXende</span><span class="p">();</span>
+</span><span class="hll">                <span class="kt">int</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="na">getYende</span><span class="p">();</span>
+</span><span class="hll">
+</span><span class="hll">                <span class="n">g2</span><span class="p">.</span><span class="na">drawLine</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">);</span>
+</span><span class="hll">            <span class="p">}</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">new</span> <span class="n">LinienZeichnen</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">// der Controller</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">aktLinie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Linie</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">aktLinie</span><span class="p">.</span><span class="na">setEnde</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="na">canvas</span><span class="p">.</span><span class="na">repaint</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="na">getPoint</span><span class="p">();</span>
+<span class="hll">        <span class="k">this</span><span class="p">.</span><span class="na">linien</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">aktLinie</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p><img alt="maus" src="../files/88_maus.png" /></p>
+<details class="übung"><summary>Übung</summary><ol>
+<li>Ändern Sie das Programm so, dass nicht Linien gezeichnet werden, sondern Kreise! Ändern Sie aber nur die <em>View</em>, d.h. die <code>paintComponent()</code>. Die gespeicherten <code>Linien</code> geben den Durchmesser der Kreise an.  </li>
+</ol>
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,844 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/einstieg/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Einstieg - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#einstieg" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Einstieg
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Einstieg
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Einstieg
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-showconfirmdialog" class="md-nav__link">
+    Beispiel showConfirmDialog()
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel showConfirmDialog()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-yes_no_option" class="md-nav__link">
+    Beispiel mit YES_NO_OPTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-yes_no_cancel_option" class="md-nav__link">
+    Beispiel mit YES_NO_CANCEL_OPTION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-showinputdialog" class="md-nav__link">
+    Beispiel showInputDialog()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausblick" class="md-nav__link">
+    Ausblick
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maps/" class="md-nav__link">
+        Maps
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-showconfirmdialog" class="md-nav__link">
+    Beispiel showConfirmDialog()
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiel showConfirmDialog()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-yes_no_option" class="md-nav__link">
+    Beispiel mit YES_NO_OPTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-mit-yes_no_cancel_option" class="md-nav__link">
+    Beispiel mit YES_NO_CANCEL_OPTION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiel-showinputdialog" class="md-nav__link">
+    Beispiel showInputDialog()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausblick" class="md-nav__link">
+    Ausblick
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/einstieg.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="einstieg">Einstieg<a class="headerlink" href="#einstieg" title="Permanent link">&para;</a></h1>
+<p>Wir haben bis jetzt noch keine Nutzerinnen-Eingaben ermöglicht und verwaltet. Das wollen wir nun ändern. Es gibt die Möglichkeit, Nutzerinnen-Eingaben über die Konsole zu implementieren. Dazu steht z.B. die Klasse <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> aus dem <code>java.util</code>-Paket zur Verfügung. Diese Klasse wollen wir hier aber nicht betrachten, sondern öffnen einen <em>Dialog</em> (ein Fenster), um Eingaben vorzunehmen. Dazu verwenden wir die Klasse <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/JOptionPane.html">JOptionPane</a>. </p>
+<p>Diese Klasse bietet einige nützliche statische Methoden, die uns Dialoge erzeugen. Die Klasse <code>JOptionPane</code> befindet sich im Paket <code>javax.swing</code>. Wenn Sie in Ihrem Java-Projekt eine Datei <code>module-info.java</code> haben, dann müssen Sie darin <code>requires java.desktop;</code> eintragen, um überhaupt Klassen aus dem <code>javax.swing</code>-Paket importieren zu können, das sich das Paket <code>javax.swing</code> im Modul <code>java.desktop</code> befindet:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">module-info.java</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">module</span> <span class="n">SoSe22</span>   <span class="c1">// SoSe22 ist der Name des Java-Projektes</span>
+<span class="p">{</span>
+    <span class="n">requires</span> <span class="n">java</span><span class="p">.</span><span class="na">desktop</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p>Die interessanten Methoden zur Erzeugung der Dialoge sind</p>
+<ul>
+<li><code>showConfirmDialog()</code>,</li>
+<li><code>showInputDialog()</code>,</li>
+<li><code>showMessageDialog()</code> und</li>
+<li><code>showOptionDialog()</code>  </li>
+</ul>
+<p>Diese Methoden erzeugen jeweils ein Dialogfenster, in dem entweder etwas eingegeben werden kann (<code>showInputDialog()</code>) oder in dem etwas durch den Klick auf einen Button ausgewählt werden kann. Der Eingabe-Dialog gibt einen <code>String</code> zurück und die anderen Dialoge geben ein <code>int</code> zurück, welcher beschreibt, auf welchen Button geklickt wurde. Der zurückgegebene <code>int</code>-Wert lässt sich mit den folgenden Konstanten vergleichen:</p>
+<ul>
+<li><code>JOptionPane.YES_OPTION</code>,</li>
+<li><code>JOptionPane.NO_OPTION</code>,</li>
+<li><code>JOptionPane.CANCEL_OPTION</code>,</li>
+<li><code>JOptionPane.OK_OPTION</code>,</li>
+<li><code>JOptionPane.CLOSED_OPTION</code></li>
+</ul>
+<h2 id="beispiel-showconfirmdialog">Beispiel <code>showConfirmDialog()</code><a class="headerlink" href="#beispiel-showconfirmdialog" title="Permanent link">&para;</a></h2>
+<p>Die <code>showConfirmDialog()</code>-Methode ist zwei Mal überladen. Es gibt </p>
+<ul>
+<li><code>static int showConfirmDialog(Component parentComponent, Object message)</code> und </li>
+<li><code>static int showConfirmDialog(Component parentComponent, Object message, String title, int optionType)</code></li>
+</ul>
+<p>Als <code>optionType</code> gibt es dabei die Auswahl zwischen </p>
+<ul>
+<li><code>JOptionPane.DEFAULT_OPTION</code>,</li>
+<li><code>JOptionPane.YES_NO_OPTION</code>,</li>
+<li><code>JOptionPane.YES_NO_CANCEL_OPTION</code>,</li>
+<li><code>JOptionPane.OK_CANCEL_OPTION</code></li>
+</ul>
+<p>Die <code>parentComponent</code> ist das Fenster, welches das Dialogfenster aufruft. Wir haben ein solches Fenster (noch) nicht, deshalb werden wir zunächst den Wert hier stets auf <code>null</code> setzen. </p>
+<p>Der <code>String</code> <code>message</code> erscheint im Dialogfenster als Nachricht. Da dies nicht nur ein <code>String</code> sein kann, sondern besipielsweise auch ein <code>Icon</code>, ist der Typ von <code>message</code> als <code>Object</code> deklariert.</p>
+<p>Der <code>String</code> <code>title</code> erscheint als Titel des Dialogfensters. </p>
+<h3 id="beispiel-mit-yes_no_option">Beispiel mit <code>YES_NO_OPTION</code><a class="headerlink" href="#beispiel-mit-yes_no_option" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">auswahl</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showConfirmDialog</span><span class="p">(</span>
+        <span class="kc">null</span><span class="p">,</span>                           <span class="c1">// parentComponent</span>
+        <span class="s">&quot;Wollen Sie wirklich beenden?&quot;</span><span class="p">,</span> <span class="c1">// message</span>
+        <span class="s">&quot;Programmende&quot;</span><span class="p">,</span>                 <span class="c1">// title</span>
+        <span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_NO_OPTION</span>       <span class="c1">// optionType</span>
+    <span class="p">);</span>
+</code></pre></div>
+<p>erzeugt z.B. folgendes Dialogfenster:</p>
+<p><img alt="einstieg" src="../files/100_einstieg.png" /></p>
+<p>Wenn Sie nun auf einen der beiden Button <code>No</code> oder <code>Yes</code> klicken, dann schließt sich das Fenster wieder und in dem <code>int</code> <code>auswahl</code> ist der Wert gespeichert, der dem von Ihnen gedrückten Button entspricht. Diesen Wert können Sie wie folgt auswerten:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">auswahl</span> <span class="o">==</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">NO_OPTION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// es wurde auf NO geklickt</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">auswahl</span> <span class="o">==</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_OPTION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// es wurde auf YES geklickt</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="beispiel-mit-yes_no_cancel_option">Beispiel mit <code>YES_NO_CANCEL_OPTION</code><a class="headerlink" href="#beispiel-mit-yes_no_cancel_option" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">auswahl</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showConfirmDialog</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s">&quot;Weitere Seiten scannen?&quot;</span><span class="p">,</span> <span class="s">&quot;Speichern&quot;</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_NO_CANCEL_OPTION</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">auswahl</span> <span class="o">==</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">NO_OPTION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// es wurde auf NO geklickt</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">auswahl</span> <span class="o">==</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">YES_OPTION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// es wurde auf YES geklickt</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">auswahl</span> <span class="o">==</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">CANCEL_OPTION</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// es wurde auf CANCEL geklickt</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>erzeugt folgendes Dialogfenster:</p>
+<p><img alt="einstieg" src="../files/101_einstieg.png" /></p>
+<h2 id="beispiel-showinputdialog">Beispiel <code>showInputDialog()</code><a class="headerlink" href="#beispiel-showinputdialog" title="Permanent link">&para;</a></h2>
+<p>Die Methode <code>showInputDialog()</code> öffnet ein Dialogfenster mit einem einzeiligen Textfeld, in das die Nutzerin etwas eingeben kann und diese Eingabe dann mit dem Klick auf einen Button beendet. Die Methode <code>showInputDialog()</code> ist sechs Mal überladen, siehe dazu [hier]. Uns interessiert in den meisten Fällen die einfachste Form <code>showInputDialog(Object message)</code> oder, wenn wir noch einen <code>messageType</code> hinzufügen wollen, <code>showInputDialog(Component parentComponent, Object message, String title, int messageType)</code>. </p>
+<p>Für den <code>messageType</code> gibt es folgende vordefinierte Konstanten:</p>
+<ul>
+<li><code>ERROR_MESSAGE</code>,</li>
+<li><code>INFORMATION_MESSAGE</code>,</li>
+<li><code>WARNING_MESSAGE</code>,</li>
+<li><code>QUESTION_MESSAGE</code>,</li>
+<li><code>PLAIN_MESSAGE</code></li>
+</ul>
+<p>Wichtig ist, dass die <code>showInputDialog()</code>-Methode den <code>String</code> zurückgibt, der eingegeben wurde. </p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">eingabe</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="s">&quot;Ihre Eingabe : &quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sie haben &quot;</span> <span class="o">+</span> <span class="n">eingabe</span> <span class="o">+</span> <span class="s">&quot; eingegeben&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>erzeugt folgendes Dialogfenster:</p>
+<p><img alt="einstieg" src="../files/102_einstieg.png" /></p>
+<p>Die Implementierung</p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span> <span class="n">eingabe</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">showInputDialog</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="s">&quot;Ihre Eingabe : &quot;</span><span class="p">,</span> <span class="s">&quot;Dialogtitel&quot;</span><span class="p">,</span> <span class="n">JOptionPane</span><span class="p">.</span><span class="na">ERROR_MESSAGE</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sie haben &quot;</span> <span class="o">+</span> <span class="n">eingabe</span> <span class="o">+</span> <span class="s">&quot; eingegeben&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>erzeugt folgendes Dialogfenster:</p>
+<p><img alt="einstieg" src="../files/103_einstieg.png" /></p>
+<p>Die Ansicht der Fenster und auch der <code>messageType</code>-Icons sind betriebssystemabhängig. </p>
+<h2 id="ausblick">Ausblick<a class="headerlink" href="#ausblick" title="Permanent link">&para;</a></h2>
+<p>Angenommen, wir wollen <code>JOptionPane.showInputDialog()</code> verwenden, um eine Zahl einzugeben. Klar ist, dass <code>showInputDialog()</code> die Eingabe als <code>String</code> zurückgibt. </p>
+<ol>
+<li>
+<p><strong>Problem</strong>: Wie wandeln wir einen <code>String</code> zu einem <code>int</code> (oder <code>double</code>) um? </p>
+<p><strong>Antwort</strong>: mit der Hilfe von <a class="md-button" href="../wrapper/#wrapper-klassen">Wrapper-Klassen</a> </p>
+</li>
+<li>
+<p><strong>Problem</strong>: Angenommen, wir haben eine Lösung, <code>String</code> nach <code>int</code> umzuwandeln. Wie stellen wir dann sicher, dass unser Programm nicht abstürzt, wenn wir gar keine Zahl eingeben, sondern z.B. <code>hallo</code>? Das lässt sich ja gar nicht in eine Zahl umwandeln.</p>
+<p><strong>Antwort</strong>: mit der Behandlung von <a class="md-button" href="../exceptions/#exceptions">Exceptions</a></p>
+</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../wiederholung/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Wiederholung" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Wiederholung
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wrapper/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Wrapperklassen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Wrapperklassen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>

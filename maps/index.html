@@ -1,0 +1,965 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lehrmaterial, Übungen, Aufgaben und Hilfen für Programmieren II">
+      
+      
+      
+        <meta name="author" content="Jörn Freiheit">
+      
+      
+        <link rel="canonical" href="http://freiheit.f4.htw-berlin.de/prog2/maps/">
+      
+      <link rel="icon" href="../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.6">
+    
+    
+      
+        <title>Maps - Programmieren II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.802231af.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#maps" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Programmieren II" class="md-header__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmieren II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Maps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Programmieren II" class="md-nav__button md-logo" aria-label="Programmieren II" data-md-component="logo">
+      
+  <img src="../img/fiw.jpg" alt="logo">
+
+    </a>
+    Programmieren II
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/jfreiheit/prog2_2022/" title="Quellcode" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    prog2
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiederholung/" class="md-nav__link">
+        Wiederholung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../einstieg/" class="md-nav__link">
+        Einstieg
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapper/" class="md-nav__link">
+        Wrapperklassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enum/" class="md-nav__link">
+        Aufzählungstypen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mdarrays/" class="md-nav__link">
+        Mehrdimensionale Arrays
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Maps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Maps
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statt-add-und-addall-hier-put-und-putall" class="md-nav__link">
+    Statt add() und addAll() hier put() und putAll()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typ-einer-map-und-typ-eines-schlussel-werte-paares" class="md-nav__link">
+    Typ einer Map und Typ eines Schlüssel-Werte-Paares
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statt-iterator-hier-entryset" class="md-nav__link">
+    Statt iterator() hier entrySet()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klassenbaum-fur-map" class="md-nav__link">
+    Klassenbaum für Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstes-beispiel" class="md-nav__link">
+    Erstes Beispiel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durch-eine-map-laufen" class="md-nav__link">
+    Durch eine Map laufen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung-maps" class="md-nav__link">
+    Zusammenfassung Maps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abstrakt/" class="md-nav__link">
+        Abstrakte Klassen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interfaces/" class="md-nav__link">
+        Interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../junit/" class="md-nav__link">
+        JUnit-Testen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        GUI Einführung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ereignisse/" class="md-nav__link">
+        GUI Ereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mausereignisse2022/" class="md-nav__link">
+        Mausereignisse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphics/" class="md-nav__link">
+        Graphics (entfällt)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../klausurvorbereitung2022/" class="md-nav__link">
+        Klausurvorbereitung
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uebungen/" class="md-nav__link">
+        Übungen
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aufgaben/" class="md-nav__link">
+        Aufgaben
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statt-add-und-addall-hier-put-und-putall" class="md-nav__link">
+    Statt add() und addAll() hier put() und putAll()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typ-einer-map-und-typ-eines-schlussel-werte-paares" class="md-nav__link">
+    Typ einer Map und Typ eines Schlüssel-Werte-Paares
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statt-iterator-hier-entryset" class="md-nav__link">
+    Statt iterator() hier entrySet()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#klassenbaum-fur-map" class="md-nav__link">
+    Klassenbaum für Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erstes-beispiel" class="md-nav__link">
+    Erstes Beispiel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#durch-eine-map-laufen" class="md-nav__link">
+    Durch eine Map laufen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung-maps" class="md-nav__link">
+    Zusammenfassung Maps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/jfreiheit/prog2_2022/edit/master/docs/maps.md" title="Seite editieren" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="maps">Maps<a class="headerlink" href="#maps" title="Permanent link">&para;</a></h1>
+<p><em>Maps</em> sind auch Collections. <em>Maps</em> sind Mengen von Schlüssel-Werte-Paaren. Wir können uns Maps als zweispaltige Tabellen vorstellen, in denen die linke Spalte die Schlüssel (<em>keys</em>) enthält und die rechte Spalte die Werte (<em>values</em>). Die Schlüssel in einer Map sind immer eindeutig, d.h. keine zwei Schlüssel in einer Map sind gleich. Tatsächlich handelt es sich bei der Menge der Schlüssel um eine <code>Set</code>. </p>
+<p>Obwohl Maps Collections sind, wurde für sie nicht das Interface <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html">Collection</a> implementiert, so wie für Listen und Mengen, sondern ein eigenes Interface <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">Map</a>. Für Interessierte lohnt sich vielleicht auch ein Blick in die <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/doc-files/coll-index.html">Collections Framework Documentation</a> und das <a href="https://docs.oracle.com/javase/tutorial/collections/index.html">Collections Framework Tutorial</a>.</p>
+<h4 id="statt-add-und-addall-hier-put-und-putall">Statt <code>add()</code> und <code>addAll()</code> hier <code>put()</code> und <code>putAll()</code><a class="headerlink" href="#statt-add-und-addall-hier-put-und-putall" title="Permanent link">&para;</a></h4>
+<p>Da nicht das <code>Collections</code>-Interface für <code>Maps</code> implementiert wurde, erfolgt das Hinzufügen eines Schlüssel-Werte-Paares zu einer <code>Map</code> leider auch nicht über <code>add()</code> bzw. das Hinzufügen einer Collection nicht über <code>addAll()</code>, sondern über </p>
+<ul>
+<li><code>put(K key, V value)</code> und</li>
+<li><code>putAll(Map m)</code>.</li>
+</ul>
+<p><code>K</code> ist dabei ein Platzhalter für den Typ der Schlüssel und <code>V</code> ein Platzhalter für den Typ der Werte. </p>
+<h4 id="typ-einer-map-und-typ-eines-schlussel-werte-paares">Typ einer <code>Map</code> und Typ eines Schlüssel-Werte-Paares<a class="headerlink" href="#typ-einer-map-und-typ-eines-schlussel-werte-paares" title="Permanent link">&para;</a></h4>
+<p>Eine <code>Map</code> wird also mit zwei Typen typisiert:</p>
+<ul>
+<li><code>Map&lt;K, V&gt;</code></li>
+</ul>
+<p>wobei <code>K</code> den Typ der Schlüssel und <code>V</code> den Typ der Werte definiert. </p>
+<p>Der Typ <strong>eines einzelnen</strong> Schlüssel-Werte-Paares ist</p>
+<ul>
+<li><code>Map.Entry&lt;K,V&gt;</code></li>
+</ul>
+<p>Das sieht für uns natürlich auch erstmal ungewöhnlich aus. <code>Entry</code> ist eine <em>innere</em> Klasse in der Klasse <code>Map</code> (tatsächlich sind beides Interfaces). Wir nehmen das erstmal einfach so hin und merken uns: der (typisierte) Typ einer <code>Map</code> ist <code>Map&lt;K,V&gt;</code> und der (typisierte) Typ jedes einzelnen Schlüssel-Werte-Paares in dieser <code>Map</code> ist <code>Map.Entry&lt;K,V&gt;</code>. </p>
+<h4 id="statt-iterator-hier-entryset">Statt <code>iterator()</code> hier <code>entrySet()</code><a class="headerlink" href="#statt-iterator-hier-entryset" title="Permanent link">&para;</a></h4>
+<p>Die Objektmethode <code>iterator()</code> gibt es für <code>Map</code> leider auch nicht. Stattdessen wird hier die Methode <code>entrySet()</code> verwendet. Da es sich bei einer <code>Map</code> um eine <code>Set</code> von lauter Schlüssel-Werte-Paaren (jeweils Typ <code>Map.Entry&lt;K,V&gt;</code>) handelt, liefert <code>entrySet()</code> eine </p>
+<ul>
+<li><code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code></li>
+</ul>
+<p>zurück. Lassen Sie sich von dieser kryptischen Schreibweise nicht abschrecken! Zurückgegeben wird eine <code>Set</code>. Diese ist typisiert und zwar mit dem Typ <code>Map.Entry</code>, welches der Typ eines einzelnen Schlüssel-Werte-Paares ist. <code>Map.Entry</code> ist selbst typisiert, nämlich mit dem Typ der Schlüssel <code>K</code> und dem Typ der Werte <code>V</code>. Für <code>K</code> und <code>V</code> werden bei Verwendung konkrete Typen eingesetzt. Hier sind es zunächst nur Platzhalter. </p>
+<h4 id="klassenbaum-fur-map">Klassenbaum für <code>Map</code><a class="headerlink" href="#klassenbaum-fur-map" title="Permanent link">&para;</a></h4>
+<p>Der Klassenbaum für <code>Map</code> hat Ähnlichkeiten zum Klassenbaum für <code>Collection</code>. Wir finden hier wieder grüne (Interfaces), rote (abstrakte Klassen) und blaue (konkrete Klassen) Felder.</p>
+<p><img alt="map" src="../files/45_map.png" /></p>
+<p>Auch hier ist es wieder so, dass wir <code>Map</code> als Typ für eine Map verwenden, aber für die Erzeugung konkreter Objekte die Klassen <code>EnumMap</code>, <code>HashMap</code> und <code>TreeMap</code> verwenden. Die am häufigsten verwendete Klasse ist <code>HashMap</code>, da sie am performantesten arbeitet. Sobald Reihenfolge/Sortierung eine Rolle spielt, wird <code>TreeMap</code> verwendet. </p>
+<h4 id="erstes-beispiel">Erstes Beispiel<a class="headerlink" href="#erstes-beispiel" title="Permanent link">&para;</a></h4>
+<p>Wir betrachten ein erstes Beispiel. Wir erstellen eine <code>HashMap</code> und fügen vier Einträge hinzu:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Maps</span> <span class="p">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">m</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0512345&quot;</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">);</span>     <span class="c1">// neues Schluessel-Werte-Paar hinzugefuegt</span>
+        <span class="n">m</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0587654&quot;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>     <span class="c1">// neues Schluessel-Werte-Paar hinzugefuegt</span>
+        <span class="n">m</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0512345&quot;</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">);</span>     <span class="c1">// Schluessel existiert bereits --&gt; Wert geaendert</span>
+        <span class="n">m</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;s0555555&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">);</span>     <span class="c1">// neues Schluessel-Werte-Paar hinzugefuegt</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>In Zeile <code>8</code> wird unsere <code>Map</code> erzeugt. Die Referenzvariable auf die <code>Map</code> heißt <code>m</code>. Die Schlüssel sind vom Typ <code>String</code> und die Werte sind vom Typ <code>Double</code>. Das konkrete Objekt wird durch den Aufruf des Konstruktors der Klasse <code>HashMap</code> erzeugt. </li>
+<li>In Zeile <code>9</code> fügen wir mithilfe der <code>put()</code>-Methode ein neues Schlüssel-Werte-Paar hinzu. Der Schlüssel (<em>key</em>) ist <code>"s0512345"</code>, der Wert (<em>value</em>) ist <code>1.7</code>. Beachten Sie, dass hier ein <em>Auto-Boxing</em> des <code>double</code>-Wertes <code>1.7</code> in ein <code>Double</code> stattfindet. </li>
+<li>In Zeile <code>10</code> fügen wir mithilfe der <code>put()</code>-Methode ein weiteres Schlüssel-Werte-Paar hinzu. Der Schlüssel (<em>key</em>) ist <code>"s0587654"</code>, der Wert (<em>value</em>) ist <code>2.3</code> (erneut <em>Auto-Boxing</em>). </li>
+<li>In Zeile <code>11</code> wird erneut die <code>put()</code>-Methode aufgerufen. Der Schlüssel <code>"s0512345"</code> existiert jedoch bereits. Deshalb wird nur der Wert geändert. Aus dem alten Wert <code>1.7</code> wird nun <code>2.7</code>. Die <code>Map</code> enthält nach dieser Anweisung (noch nur) <strong>zwei</strong> Einträge. </li>
+<li>In Zeile <code>12</code> fügen wir mithilfe der <code>put()</code>-Methode ein weiteres Schlüssel-Werte-Paar hinzu. Der Schlüssel (<em>key</em>) ist <code>"s0555555"</code>, der Wert (<em>value</em>) ist <code>3.0</code> (erneut <em>Auto-Boxing</em>). </li>
+</ul>
+<p>Nach diesen Anweisungen sieht unsere Map also wie folgt aus (die Überschriften der Tabelle dienen nur der Orientierung):</p>
+<p><img alt="map" src="../files/46_map.png" /></p>
+<p>Die folgende Abbildung zeigt die Methoden, um Zugriff auf die Werte, Schlüssel und alle Einträge zu erhalten:</p>
+<p><img alt="map" src="../files/47_map.png" /></p>
+<p>Die Anwendung dieser Methoden auf unsere Map <code>m</code> zeigen die folgenden Anweisungen:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="na">keySet</span><span class="p">();</span>                  <span class="c1">// Menge aller Schluessel</span>
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">values</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="na">values</span><span class="p">();</span>         <span class="c1">// Collection aller Werte</span>
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Double</span><span class="o">&gt;&gt;</span> <span class="n">entries</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="na">entrySet</span><span class="p">();</span>  <span class="c1">// Menge aller Schluessel-Werte-Paare</span>
+</code></pre></div>
+</td></tr></table>
+<ul>
+<li>die Objektmethode <code>keySet()</code> liefert die Menge aller Schlüssel zurück; Rückgabetyp ist <code>Set&lt;K&gt;</code>,</li>
+<li>die Objektmethode <code>values()</code> liefert eine Collection aller Werte zurück; Rückgabetyp ist <code>Collection&lt;V&gt;</code>,</li>
+<li>die Objektmethode <code>entrySet()</code> liefert die Menge aller Schlüssel-Werte-Paare zurück; Rückgabetyp ist <code>Set&lt;Map.Entry&lt;K,V&gt;&gt;</code></li>
+</ul>
+<h4 id="durch-eine-map-laufen">Durch eine <code>Map</code> laufen<a class="headerlink" href="#durch-eine-map-laufen" title="Permanent link">&para;</a></h4>
+<p>Um alle Schlüssel-Werte-Paare einer Map zu extrahieren, können wir, wie bereits erwähnt, die Methode <code>entrySet()</code> verwenden. Für den Rückgabetyp <code>Map.Entry&lt;K,V&gt;</code> stehen uns zwei weitere Objektmethoden zur Verfügung:</p>
+<ul>
+<li><code>getKey()</code> liefert den Schlüssel des Schlüssel-Werte-Paares zurück; Rückgabetyp ist <code>K</code>,</li>
+<li><code>getValue()</code> liefert den Wert des Schlüssel-Werte-Paares zurück; Rückgabetyp ist <code>V</code>.</li>
+</ul>
+<p>Wir betrachten für unsere Map <code>m</code> ein Beispiel: </p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Double</span><span class="o">&gt;</span> <span class="n">eintrag</span> <span class="p">:</span> <span class="n">m</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span> <span class="n">eintrag</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;  :  &quot;</span> <span class="o">+</span> <span class="n">eintrag</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+- In Zeile <code>1</code> wird die Methode <code>m.entrySet()</code> aufgerufen, diese gibt eine <code>Set&lt;Map.Entry&lt;String, Double&gt;&gt;</code> zurück. Jeder einzelne Eintrag in dieser <code>Set</code> ist also vom Typ <code>Map.Entry&lt;String,Double&gt;</code>. Deshalb verwenden wir diesen Typ für unsere Variable <code>eintrag</code>. Wir nutzen hier also erneut die <em>for-each</em>-Schleife, um durch eine <code>Set</code> zu laufen. 
+- In Zeile <code>3</code> verwenden wir die Objektmethoden <code>getKey()</code> und <code>getValue()</code>, die uns von <code>Map.Entry</code> zur Verfügung gestellt werden. <code>getKey()</code> gibt uns hier einen <code>String</code> zurück (den Schlüssel) und <code>getValue()</code> gibt hier ein <code>Double</code> zurück (den Wert). Hier erfolgt eine automatische Konvertierung von <code>Double</code> nach <code>String</code> (impliziter Aufruf von <code>toString()</code> für <code>Double</code>). </p>
+<p>Es erfolgt folgende Ausgabe:</p>
+<div class="highlight"><pre><span></span><code>s0512345  :  <span class="m">2</span>.7
+s0555555  :  <span class="m">3</span>.0
+s0587654  :  <span class="m">2</span>.3
+</code></pre></div>
+<p>Wir sehen also, dass die Reihenfolge des Einfügens der Elemente nicht gewahrt bleibt. Die Schlüssel werden auch nicht sortiert, das sieht hier nur so aus. </p>
+<p>Wir probieren auch noch die Objektmethoden <code>keySet()</code> und <code>value()</code> aus, die für eine <code>Map</code> zur Verfügung stehen:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">String</span> <span class="n">schluessel</span> <span class="p">:</span> <span class="n">m</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;key : &quot;</span> <span class="o">+</span> <span class="n">schluessel</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>erzeugt: </p>
+<div class="highlight"><pre><span></span><code>key : s0512345
+key : s0555555
+key : s0587654
+</code></pre></div>
+<p>und </p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="n">Double</span> <span class="n">wert</span> <span class="p">:</span> <span class="n">m</span><span class="p">.</span><span class="na">values</span><span class="p">())</span>
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;value : &quot;</span> <span class="o">+</span> <span class="n">wert</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>  <span class="c1">// toString() wuerde auch implizit aufgerufen</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>erzeugt: </p>
+<div class="highlight"><pre><span></span><code>value : <span class="m">2</span>.7
+value : <span class="m">3</span>.0
+value : <span class="m">2</span>.3
+</code></pre></div>
+<div class="admonition übung">
+<p class="admonition-title">Übung</p>
+<p>Was wird ausgegeben?
+<div class="highlight"><pre><span></span><code><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">accounts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="n">accounts</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;anton&quot;</span><span class="p">,</span> <span class="s">&quot;anton@email.de&quot;</span><span class="p">);</span>
+<span class="n">accounts</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;berta&quot;</span><span class="p">,</span> <span class="s">&quot;berta@email.de&quot;</span><span class="p">);</span>
+<span class="n">accounts</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;caesar&quot;</span><span class="p">,</span> <span class="s">&quot;caesar@email.de&quot;</span><span class="p">);</span>
+<span class="n">accounts</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;anton&quot;</span><span class="p">,</span> <span class="s">&quot;antonius@email.de&quot;</span><span class="p">);</span>
+
+<span class="c1">// Iteration ueber alle Eintraege (Map.Entry) der Map</span>
+<span class="k">for</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">accounts</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span> 
+<span class="p">{</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Account : &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; E-Mail : &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</div>
+<h2 id="zusammenfassung-maps">Zusammenfassung Maps<a class="headerlink" href="#zusammenfassung-maps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Maps speichern Referenztypen als Schlüssel und Werte</li>
+<li>Maps werden typisiert mit <code>K</code> (Platzhalter für den Referenztyp des Schlüssels) und <code>V</code> (Platzhalter für den Referenztyp des Wertes) </li>
+<li>Maps enthalten eindeutige Zuordnungen von einem Wert zu einem Schlüssel (aber nicht umgekehrt)</li>
+<li>der Zugriff auf alle Einträge/Schlüssel/Werte erfolgt über Sets/Collection</li>
+<li>der Typ eines einzelnen Schlüssel-Werte-Paares ist <code>Map.Entry&lt;K,V&gt;</code></li>
+</ul>
+<p>Hier noch ein Überblick über die wichtigsten Objektmethoden für eine <code>Map</code>. Weitere Methoden finden Sie <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html">hier</a>.</p>
+<table>
+    <colgroup>
+       <col span="1" style="width: 35%;">
+       <col span="1" style="width: 65%;">
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Objektmethode </th>
+            <th>Beschreibung </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> <code>V get(K key)</code> </td>
+            <td>Gibt den Wert zum Schlüssel <code>key</code> zurück. Ist der Schlüssel <code>key</code> nicht in der <code>Map</code> enthalten, wird <code>null</code> zurückgegeben.</td>
+        </tr>
+        <tr>
+            <td> <code>V put(K key, V value)</code> </td>
+            <td>Fügt einen neuen Eintrag mit dem Schlüssel <code>key</code> und dem Wert <code>value</code> in die <code>Map</code> ein. Wenn ein Eintrag für Schlüssel <code>key</code> bereits existiert, wird der <code>value</code> <strong>überschrieben</strong>.</td>
+        </tr>
+        <tr>
+            <td> <code>void putAll(Map<K,V> m)</code>  </td>
+            <td>Fügt <strong>alle</strong> Element der Map <code>m</code> in die Map ein. Wenn ein Eintrag für einen Schlüssel bereits existiert, wird er <strong>überschrieben</strong>.</td>
+        </tr>
+        <tr>
+            <td> <code>void clear()</code>  </td>
+            <td>Entfernt alle Elemente aus der Map.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean containsKey(Object k)</code>  </td>
+            <td>Gibt <code>true</code> zurück, wenn es einen Eintrag mit dem Schlüssel <code>k</code> in der Map gibt. Der Vergleich der Schlüssel mit dem Objekt <code>k</code> erfolgt mit der <code>equals()</code>-Methode.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean containsValue(Object v)</code>  </td>
+            <td>Gibt <code>true</code> zurück, wenn es einen Eintrag mit dem Wert <code>v</code> in der Map gibt. Der Vergleich der Werte mit dem Objekt <code>v</code> erfolgt mit der <code>equals()</code>-Methode.</td>
+        </tr>
+        <tr>
+            <td> <code>boolean isEmpty()</code>  </td>
+            <td>Gibt <code>true</code> zurück, wenn sich keine Elemente in der Map befinden.</td>
+        </tr>
+        <tr>
+            <td> <code>V remove(Object key)</code>  </td>
+            <td>Entfernt den Eintrag mit dem Schlüssel <code>key</code> aus der Map und gibt den dazugehörigen <strong>Wert</strong> zurück (wenn <code>key</code> in der Map enthalten ist, sonst <code>null</code>).</td>
+        </tr>
+        <tr>
+            <td> <code>int size()</code>  </td>
+            <td>Gibt die Anzahl der Elemente in der Map zurück.</td>
+        </tr>
+        <tr>
+            <td> <code>Set<K> keySet()</code>  </td>
+            <td>Gibt eine <code>Set</code> mit allen Schlüsseln der Map zurück.</td>
+        </tr>
+        <tr>
+            <td> <code>Collection<V> values()</code>  </td>
+            <td>Gibt eine <code>Collection</code> mit allen Werten der Map zurück.</td>
+        </tr>
+        <tr>
+            <td> <code>Set<Map.Entry<K,V>> entrySet()</code>  </td>
+            <td>Gibt eine <code>Set</code> mit allen Einträgen (Schlüssel-Werte-Paare) als <code>Map.Entry<K,V></code> der Map zurück.</td>
+        </tr>
+    </tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../collections/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Collections" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Collections
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../abstrakt/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Abstrakte Klassen" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              Abstrakte Klassen
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 Jörn Freiheit
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["instant", "tabs"], "translations": {"clipboard.copy": "In Zwischenablage kopieren", "clipboard.copied": "In Zwischenablage kopiert", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.placeholder": "Suchbegriff eingeben", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.756773cc.min.js"></script>
+      
+    
+  </body>
+</html>
